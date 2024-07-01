@@ -1,0 +1,9 @@
+set number
+set relativenumber
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set mouse=a
+set wrap
+set linebreak
+colorscheme elflord
