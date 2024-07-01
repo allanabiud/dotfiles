@@ -30,7 +30,6 @@ return {
         "tsserver",
         "html",
         "cssls",
-        "tailwindcss",
         "lua_ls",
         "marksman",
       },
