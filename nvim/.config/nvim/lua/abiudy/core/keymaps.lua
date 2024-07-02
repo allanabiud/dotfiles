@@ -25,4 +25,4 @@ vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })
 vim.keymap.set("n", "<C-x>", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Run terminal commands
-vim.keymap.set("n", "<leader>Rl", ":terminal live-server", { desc = "Run live-server" })
+vim.keymap.set("n", "<leader>Rl", ":terminal live-server<CR>", { desc = "Run live-server" })

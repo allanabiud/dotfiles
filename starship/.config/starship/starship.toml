@@ -17,16 +17,18 @@ $python\
 $docker_context\
 $conda\
 $fill\
+$cmd_duration\
 $time\
-$line_break$character
+$line_break\
+$character
 """
 
 [username]
 show_always = true
-format = '\[[$user]($style)\]'
+format = '[\[$user\]]($style)'
 
 [directory]
-format = '\[[$path]($style)[$read_only]($read_only_style)\]'
+format = '[\[$path\]]($style)[$read_only]($read_only_style)'
 read_only = '🔒'
 read_only_style = 'red'
 truncation_length = 5
@@ -41,7 +43,7 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ' '
-format = '\[[$symbol$branch]($style)\]'
+format = '[\[$symbol$branch\]]($style)'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -50,11 +52,16 @@ format = '([\[$all_status$ahead_behind\]]($style) )'
 symbol = ' '
 style = 'bold green'
 
+[cmd_duration]
+min_time = 10
+style	= 'bold green'
+format = '[\[$duration\]]($style) '
+
 [time]
 disabled = false
 style = 'bold yellow'
 time_format = "%R"
-format = 'at [$time]($style) '
+format = '[\[$time\]]($style) '
 
 [line_break]
 disabled = false
