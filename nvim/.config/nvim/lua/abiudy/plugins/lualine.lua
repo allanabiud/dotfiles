@@ -55,6 +55,13 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+            color = { fg = "#3EFFDC" },
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,

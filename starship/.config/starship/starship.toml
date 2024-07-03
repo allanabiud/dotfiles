@@ -42,7 +42,7 @@ truncation_symbol = "…/"
 "DEV" = "󰲋 "
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 format = '[\[$symbol$branch\]]($style)'
 
 [git_status]
