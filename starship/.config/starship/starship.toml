@@ -39,7 +39,7 @@ truncation_symbol = "…/"
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
+"DEV" = "󰲋 "
 
 [git_branch]
 symbol = ' '
@@ -55,7 +55,7 @@ style = 'bold green'
 [cmd_duration]
 min_time = 10
 style	= 'bold green'
-format = '[\[$duration\]]($style) '
+format = '[\[$duration\]]($style)'
 
 [time]
 disabled = false
