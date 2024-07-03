@@ -262,10 +262,10 @@ for_window [class="Vivaldi-stable"] focus workspace
 ###### Gaps
 #################
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 10px
+# gaps inner 10px
 
 # Outer gaps for all windows: space along the screen edges.
-gaps outer 2px
+# gaps outer 2px
 
 # Inner and outer gaps for all windows on a specific workspace.
 # <ws> can be a workspace number or name.
@@ -282,13 +282,13 @@ gaps outer 2px
 ########################
 ##### Border Style
 ########################
-default_border pixel
+default_border normal 2px
 
 #######################
 ##### Changing colors
 #######################
 # class                 border  backgr. text    indicator child_border
-client.focused          #915e00 #285577 #ffffff #ffa500   #915e00
+client.focused          #915e00 #915e00 #ffffff #ffa500   #915e00
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 #client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
