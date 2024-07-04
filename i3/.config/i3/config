@@ -218,7 +218,8 @@ bar {
 ##### MY CONFIGS
 ######################
 # Extra Key Bindings
-bindsym $mod+n exec thunar
+# bindsym $mod+n exec thunar
+bindsym $mod+n exec pcmanfm
 bindsym $mod+v exec vivaldi-stable
 
 # Launch Apps at Startup
@@ -230,6 +231,7 @@ exec --no-startup-id blueman-applet
 assign [class="Xfce4-terminal"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="Pcmanfm"] $ws3
 assign [class="Code"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
