@@ -28,7 +28,7 @@ show_always = true
 format = '[\[$user\]]($style)'
 
 [directory]
-format = '[\[$path\]]($style)[$read_only]($read_only_style)'
+format = '[\[$path\]]($style)[$read_only]($read_only_style) '
 read_only = '🔒'
 read_only_style = 'red'
 truncation_length = 5
@@ -46,7 +46,7 @@ symbol = ' '
 format = '[\[$symbol$branch\]]($style)'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [fill]
 symbol = ' '
