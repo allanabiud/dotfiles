@@ -253,12 +253,13 @@ for_window [class="com.github.gabutakut.gabutdm"] floating enable
 
 # Apps to focus on launch
 for_window [class="Xfce4-terminal"] focus
+for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
-#for_window [class="Vivaldi-stable"] focus
+for_window [class="Vivaldi-stable"] focus
 
 # Workspace to focus when app is launched
-for_window [class="Thunar"] focus workspace
-for_window [class="Vivaldi-stable"] focus workspace
+# for_window [class="Thunar"] focus workspace
+# for_window [class="Vivaldi-stable"] focus workspace
 
 #################
 ###### Gaps
