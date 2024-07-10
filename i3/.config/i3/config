@@ -304,4 +304,4 @@ bindsym XF86AudioPrev exec playerctl previous
 #############################
 ##### Picom Window Effects
 #############################
-# exec_always picom
+exec_always picom
