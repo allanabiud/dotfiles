@@ -32,7 +32,7 @@ format = '[\[$user\]]($style)'
 
 [hostname]
 ssh_only = true
-format = '[\[SSH](bold blue) on [$hostname](bold red)\]'
+format = '[\[SSH on $hostname\]](bold red)'
 
 [directory]
 format = '[\[$path\]]($style)[$read_only]($read_only_style) '
