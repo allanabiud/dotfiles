@@ -36,7 +36,7 @@ format = '[\[SSH on $hostname\]](bold red)'
 
 [directory]
 format = '[\[$path\]]($style)[$read_only]($read_only_style) '
-read_only = '🔒'
+read_only = '󰌾 '
 read_only_style = 'red'
 truncation_length = 5
 truncation_symbol = "…/"
