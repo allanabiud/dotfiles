@@ -2,6 +2,7 @@
 
 format = """
 $username\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -28,6 +29,10 @@ $character
 [username]
 show_always = true
 format = '[\[$user\]]($style)'
+
+[hostname]
+ssh_only = true
+format = '[\[SSH](bold blue) on [$hostname](bold red)\]'
 
 [directory]
 format = '[\[$path\]]($style)[$read_only]($read_only_style) '
