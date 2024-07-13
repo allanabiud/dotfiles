@@ -19,6 +19,11 @@ export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 
+### add other applications to environment variable
+# export TERMINAL=$TERMINAL:$HOME/.cargo/bin/alacritty
+### cargo env
+. "$HOME/.cargo/env"
+
 ### ---- HISTORY ------------------------------------------
 ### -------------------------------------------------------
 # History file for zsh
