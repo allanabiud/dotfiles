@@ -86,7 +86,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -111,7 +111,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  "
-set $ws2 "2:  "
+set $ws2 "2:  "
 set $ws3 "3:  "
 set $ws4 "4:  "
 set $ws5 "5:  "
@@ -211,7 +211,8 @@ bar {
 # Extra Key Bindings
 # bindsym $mod+n exec thunar
 bindsym $mod+n exec pcmanfm
-bindsym $mod+v exec vivaldi-stable
+# bindsym $mod+b exec vivaldi-stable
+bindsym $mod+b exec firefox
 bindsym $mod+l exec i3lock-fancy
 
 # Launch Apps at Startup
@@ -223,6 +224,7 @@ exec --no-startup-id blueman-applet
 assign [class="Xfce4-terminal"] $ws1
 assign [class="Alacritty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
+assign [class="firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
 assign [class="Code"] $ws4
@@ -249,6 +251,7 @@ for_window [class="Xfce4-terminal"] focus
 for_window [class="Alacritty"] focus
 for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
+for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
 
 # Workspace to focus when app is launched
@@ -256,7 +259,14 @@ for_window [class="Vivaldi-stable"] focus
 # for_window [class="Vivaldi-stable"] focus workspace
 
 # Layout mode for new containers
-workspace_layout default
+workspace_layout tabbed
+
+# Layout mode for specific workspaces
+for_window [workspace="1"] layout default
+for_window [workspace="3"] layout default
+
+# Layout mode for specific applications
+# for_window [class="Pcmanfm"] layout default
 
 #################
 ###### Gaps
@@ -291,7 +301,7 @@ hide_edge_borders smart
 # class                 border  backgr. text    indicator child_border
 client.focused          #915e00 #915e00 #ffffff #ffa500   #915e00
 #client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-#client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 #client.urgent           #2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #client.background       #ffffff
