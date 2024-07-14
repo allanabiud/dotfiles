@@ -221,6 +221,7 @@ exec --no-startup-id blueman-applet
 
 # Lanch Apps in specified workspaces
 assign [class="Xfce4-terminal"] $ws1
+assign [class="Alacritty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
@@ -245,6 +246,7 @@ for_window [class="com.github.gabutakut.gabutdm"] floating enable
 
 # Apps to focus on launch
 for_window [class="Xfce4-terminal"] focus
+for_window [class="Alacritty"] focus
 for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
 for_window [class="Vivaldi-stable"] focus
@@ -254,13 +256,13 @@ for_window [class="Vivaldi-stable"] focus
 # for_window [class="Vivaldi-stable"] focus workspace
 
 # Layout mode for new containers
-workspace_layout tabbed
+workspace_layout default
 
 #################
 ###### Gaps
 #################
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-# gaps inner 10px
+# gaps inner 5px
 
 # Outer gaps for all windows: space along the screen edges.
 # gaps outer 2px
@@ -280,7 +282,8 @@ workspace_layout tabbed
 ########################
 ##### Border Style
 ########################
-default_border normal 1px
+default_border normal 2px
+hide_edge_borders smart
 
 #######################
 ##### Changing colors

@@ -3,26 +3,36 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy", -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
-      require("which-key").setup()
-      require("which-key").register({
-        ["<leader>c"] = { name = "[c]ode", _ = "which_key_ignore" },
-        ["<leader>d"] = { name = "[d]iagnostics", _ = "which_key_ignore" },
-        ["<leader>f"] = { name = "[f]ormat", _ = "which_key_ignore" },
-        ["<leader>h"] = { name = "Git [h]unk", _ = "which_key_ignore" },
-        ["<leader>l"] = { name = "[l]int", _ = "which_key_ignore" },
-        ["<leader>r"] = { name = "[r]ename", _ = "which_key_ignore" },
-        ["<leader>s"] = { name = "[s]earch", _ = "which_key_ignore" },
-        ["<leader>t"] = { name = "[t]oggle", _ = "which_key_ignore" },
-        ["<leader>w"] = { name = "[w]orkspace", _ = "which_key_ignore" },
-        --["<leader>x"] = { name = "[S]plit", _ = "which_key_ignore" },
-        ["<leader>R"] = { name = "[R]un", _ = "which_key_ignore" },
-        ["<leader>T"] = { name = "[T]odo", _ = "which_key_ignore" },
-        ["<leader>L"] = { name = "[L]azygit", _ = "which_key_ignore" },
+      require("which-key").setup({
+        { "<leader>L", group = "[L]azygit" },
+        { "<leader>L_", hidden = true },
+        { "<leader>R", group = "[R]un" },
+        { "<leader>R_", hidden = true },
+        { "<leader>T", group = "[T]odo" },
+        { "<leader>T_", hidden = true },
+        { "<leader>c", group = "[c]ode" },
+        { "<leader>c_", hidden = true },
+        { "<leader>d", group = "[d]iagnostics" },
+        { "<leader>d_", hidden = true },
+        { "<leader>f", group = "[f]ormat" },
+        { "<leader>f_", hidden = true },
+        { "<leader>h", group = "Git [h]unk" },
+        { "<leader>h_", hidden = true },
+        { "<leader>l", group = "[l]int" },
+        { "<leader>l_", hidden = true },
+        { "<leader>r", group = "[r]ename" },
+        { "<leader>r_", hidden = true },
+        { "<leader>s", group = "[s]earch" },
+        { "<leader>s_", hidden = true },
+        { "<leader>t", group = "[t]oggle" },
+        { "<leader>t_", hidden = true },
+        { "<leader>w", group = "[w]orkspace" },
+        { "<leader>w_", hidden = true },
+        -- visual mode
+        {
+          { "<leader>h", desc = "Git [H]unk", mode = "v" },
+        },
       })
-      -- visual mode
-      require("which-key").register({
-        ["<leader>h"] = { "Git [H]unk" },
-      }, { mode = "v" })
     end,
   },
 }
