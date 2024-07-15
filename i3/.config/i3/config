@@ -213,7 +213,7 @@ bar {
 bindsym $mod+n exec pcmanfm
 # bindsym $mod+b exec vivaldi-stable
 bindsym $mod+b exec firefox
-bindsym $mod+l exec i3lock-fancy
+bindsym $mod+l exec i3lock -i ./images/i3lock-fancyimage(into-the-spider-verse).png
 bindsym $mod+c exec flameshot gui
 
 # Launch Apps at Startup
