@@ -14,10 +14,10 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 ### ---- Source plugins -----------------------------------
 [[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
-### add local bin to path
-export PATH=$HOME/bin:$PATH
+### PATH VARIABLES
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin/node-v22.4.1/bin #NODE
 
 ### add other applications to environment variable
 # export TERMINAL=$TERMINAL:$HOME/.cargo/bin/alacritty
@@ -60,14 +60,6 @@ alias ll="eza --icons --group-directories-first -la"
 ### ---- Starship -----------------------------------
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-# ------- ZSH-NVIM --------------------------------
-zstyle ':omz:plugins:nvm' autoload yes
-
-# ------ NVIM BASH COMPLETION -----------------------
- # export NVM_DIR="$HOME/.nvm"
- # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
- # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ------ Zoxide -------------------------------------
 eval "$(zoxide init --cmd cd zsh)"
