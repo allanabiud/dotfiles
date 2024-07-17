@@ -1,0 +1,14 @@
+# $HOME/.config/alacritty/alacritty.toml
+[window]
+
+opacity = 0.9
+
+[font]
+
+normal = { family = "MesloLGS NerdFont", style = "Regular" }
+bold = { family = "MesloLGS NerdFont", style = "Bold" }
+italic = { family = "MesloLGS NerdFont", style = "Italic" }
+bold_italic = { family = "MesloLGS NerdFont", style = "BoldItalic" }
+
+size = 9.0
+

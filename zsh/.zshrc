@@ -12,17 +12,11 @@ zstyle ':completion:*' list-colors '' # colorize completion lists
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01' # colorize kill list
 
 ### ---- Source plugins -----------------------------------
-[[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
+#[[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
 ### PATH VARIABLES
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/bin/node-v22.4.1/bin #NODE
-
-### add other applications to environment variable
-# export TERMINAL=$TERMINAL:$HOME/.cargo/bin/alacritty
-### cargo env
-. "$HOME/.cargo/env"
 
 ### ---- HISTORY ------------------------------------------
 ### -------------------------------------------------------
@@ -54,8 +48,6 @@ alias grep='grep --color'
 # ----- eza ---------------------------------
 alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
-# ----- zoxide -------------------------------
-#alias z="zoxide"
 
 ### ---- Starship -----------------------------------
 eval "$(starship init zsh)"
@@ -63,3 +55,9 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # ------ Zoxide -------------------------------------
 eval "$(zoxide init --cmd cd zsh)"
+
+### --- ZSH Syntax HIghlighting ------------------------------
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+### --- ZSH AutoSuggestions ---------------------------------
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
