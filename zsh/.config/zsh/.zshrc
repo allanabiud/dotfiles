@@ -1,5 +1,5 @@
 ### ---- ZSH HOME -----------------------------------
-export ZSH=$HOME/.zsh
+#export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
 ### ---- autocompletions -----------------------------------
 fpath=(~/.zsh/site-functions $fpath)
@@ -23,20 +23,24 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
+export XDG_RUNTIME_DIR=$HOME/.var/run
 
 ### OTHER VARIABLES
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 alias mysql-workbench=mysql-workbench --configdir="$XDG_DATA_HOME/mysql/workbench"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+
+### XAUTHORITY for X11
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### zcompdump
 ##You must manually create the $XDG_CACHE_HOME/zsh directory if it doesn't exist yet.
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" 
 
 ### ZSHRC
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 
 ### SET DEFAULT TERMINAL
 export TERMINAL=/usr/bin/alacritty
@@ -44,7 +48,7 @@ export TERMINAL=/usr/bin/alacritty
 ### ---- HISTORY ------------------------------------------
 ### -------------------------------------------------------
 # History file for zsh
-HISTFILE=$ZSH/.zsh_history
+HISTFILE=$ZDOTDIR/.zsh_history
 
 # How many commands to store in history
 HISTSIZE=100000

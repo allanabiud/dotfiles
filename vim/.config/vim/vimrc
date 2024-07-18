@@ -7,3 +7,4 @@ set mouse=a
 set wrap
 set linebreak
 colorscheme elflord
+set viminfo+=n~/.config/vim/viminfo
