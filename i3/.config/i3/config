@@ -268,7 +268,7 @@ for_window [class="Vivaldi-stable"] focus
 workspace_layout tabbed
 
 # Layout mode for specific workspaces
-for_window [workspace="1"] layout default
+#for_window [workspace="1"] layout default
 for_window [workspace="3"] layout default
 
 # Layout mode for specific applications

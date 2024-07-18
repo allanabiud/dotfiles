@@ -18,6 +18,29 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 
+### XDG VARIABLES
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+### OTHER VARIABLES
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+alias mysql-workbench=mysql-workbench --configdir="$XDG_DATA_HOME/mysql/workbench"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+
+### zcompdump
+##You must manually create the $XDG_CACHE_HOME/zsh directory if it doesn't exist yet.
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" 
+
+### ZSHRC
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+
+### SET DEFAULT TERMINAL
+export TERMINAL=/usr/bin/alacritty
+
 ### ---- HISTORY ------------------------------------------
 ### -------------------------------------------------------
 # History file for zsh
