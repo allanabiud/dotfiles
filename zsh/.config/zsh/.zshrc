@@ -27,20 +27,15 @@ export XDG_RUNTIME_DIR=$HOME/.var/run
 
 ### OTHER VARIABLES
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/"gtk-2.0"/gtkrc
 alias mysql-workbench=mysql-workbench --configdir="$XDG_DATA_HOME/mysql/workbench"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
-### XAUTHORITY for X11
-# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-
 ### zcompdump
 ##You must manually create the $XDG_CACHE_HOME/zsh directory if it doesn't exist yet.
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" 
-
-### ZSHRC
 
 ### SET DEFAULT TERMINAL
 export TERMINAL=/usr/bin/alacritty
