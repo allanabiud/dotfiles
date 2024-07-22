@@ -32,6 +32,8 @@ alias mysql-workbench=mysql-workbench --configdir="$XDG_DATA_HOME/mysql/workbenc
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 ### zcompdump
 ##You must manually create the $XDG_CACHE_HOME/zsh directory if it doesn't exist yet.

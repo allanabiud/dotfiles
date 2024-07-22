@@ -51,7 +51,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#915e00' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
+# bindsym $mod+d exec --no-startup-id "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#915e00' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
 # A more modern dmenu replacement is rofi:
 #bindsym $mod+space exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -59,7 +59,7 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#2222
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 # There also is j4-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindsym $mod+space exec --no-startup-id j4-dmenu-desktop 
+bindsym $mod+space exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#915e00' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
 
 # change focus
 #bindsym $mod+j focus left
@@ -251,6 +251,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="com.github.gabutakut.gabutdm"] floating enable
+for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch
 for_window [class="Xfce4-terminal"] focus
