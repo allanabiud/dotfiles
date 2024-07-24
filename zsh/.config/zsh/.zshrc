@@ -15,7 +15,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 #[[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
 ### PATH VARIABLES
-export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/.local/bin
 
 ### XDG VARIABLES
