@@ -156,7 +156,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -231,7 +231,7 @@ assign [class="Vivaldi-stable"] $ws2
 #assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
 #assign [class="Code"] $ws4
-assign [class="code-oss"] $ws4
+# assign [class="code-oss"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
 #assign [class="Io.github.celluloid_player.Celluloid"] $ws5
@@ -243,6 +243,7 @@ assign [class="elisa"] $ws6
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
 assign [class="qBittorrent"] $ws9
+# assign [class="KeePassXC"] $ws9
 
 # Launch Apps in floating mode
 for_window [class="Nitrogen"] floating enable
@@ -254,12 +255,13 @@ for_window [class="com.github.gabutakut.gabutdm"] floating enable
 for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch
-for_window [class="Xfce4-terminal"] focus
+# for_window [class="Xfce4-terminal"] focus
 for_window [class="Alacritty"] focus
 for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
-for_window [class="firefox"] focus
+# for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
+for_window [class="KeePassXC"] focus
 
 # Workspace to focus when app is launched
 # for_window [class="Thunar"] focus workspace
@@ -269,8 +271,8 @@ for_window [class="Vivaldi-stable"] focus
 workspace_layout tabbed
 
 # Layout mode for specific workspaces
-#for_window [workspace="1"] layout default
 for_window [workspace="3"] layout default
+#for_window [workspace="1"] layout default
 
 # Layout mode for specific applications
 # for_window [class="Pcmanfm"] layout default
