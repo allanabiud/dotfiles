@@ -27,12 +27,12 @@ export XDG_RUNTIME_DIR=$HOME/.var/run
 ### OTHER VARIABLES
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/"gtk-2.0"/gtkrc
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 # export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 # alias mysql-workbench="mysql-workbench --configdir=$XDG_DATA_HOME/mysql/workbench"
 

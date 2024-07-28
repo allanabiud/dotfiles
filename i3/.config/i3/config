@@ -222,6 +222,7 @@ bindsym $mod+c exec flameshot gui
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
+exec --no-startup-id keepassxc
 
 # Lanch Apps in specified workspaces
 #assign [class="Xfce4-terminal"] $ws1
