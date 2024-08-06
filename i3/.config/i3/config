@@ -232,7 +232,7 @@ assign [class="Vivaldi-stable"] $ws2
 #assign [class="firefox"] $ws2
 #assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
-#assign [class="Code"] $ws4
+assign [class="Code"] $ws4
 # assign [class="code-oss"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
@@ -313,6 +313,7 @@ hide_edge_borders none
 for_window [class="Alacritty"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
+for_window [class="Code"] border pixel 2
 
 #######################
 ##### Changing colors
