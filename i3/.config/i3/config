@@ -205,7 +205,7 @@ bar {
     # active_workspace     #6b4822    #6b4822    #FFFFFF
     inactive_workspace   #8C8C8C    #4C4C4C    #888888
     urgent_workspace     #EC69A0    #DB3279    #FFFFFF
-    # binding_mode         #b691d3    #A07CBC    #FFFFFF
+    binding_mode         #b691d3    #A07CBC    #FFFFFF
   }
 }
 
@@ -223,7 +223,7 @@ bindsym $mod+c exec flameshot gui
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
-exec --no-startup-id keepassxc
+# exec --no-startup-id keepassxc
 
 # Lanch Apps in specified workspaces
 #assign [class="Xfce4-terminal"] $ws1
@@ -253,7 +253,7 @@ for_window [class="Blueman-manager"] floating enable
 #for_window [class="Free Download Manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [window_role="pop-up"] floating enable
-for_window [class="com.github.gabutakut.gabutdm"] floating enable
+# for_window [class="com.github.gabutakut.gabutdm"] floating enable
 for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch
