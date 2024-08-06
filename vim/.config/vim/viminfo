@@ -11,8 +11,28 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:wqa
+|2,0,1722962883,,"wqa"
 :qa
-|2,0,1721292767,,"qa"
+|2,0,1722962833,,"qa"
+:colorscheme koehler
+|2,0,1722962826,,"colorscheme koehler"
+:colorscheme industry
+|2,0,1722962810,,"colorscheme industry"
+:colorscheme habamax
+|2,0,1722962803,,"colorscheme habamax"
+:colorscheme evening
+|2,0,1722962793,,"colorscheme evening"
+:colorscheme desert
+|2,0,1722962786,,"colorscheme desert"
+:colorscheme delek
+|2,0,1722962780,,"colorscheme delek"
+:colorscheme default
+|2,0,1722962771,,"colorscheme default"
+:colorscheme darkblue
+|2,0,1722962765,,"colorscheme darkblue"
+:colorscheme blue
+|2,0,1722962761,,"colorscheme blue"
 
 # Search String History (newest to oldest):
 
@@ -25,7 +45,50 @@
 # Registers:
 
 # File marks:
+'0  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,48,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
+'1  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,49,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+'2  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,50,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+'3  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,51,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
 
 # Jumplist (newest first):
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
 
 # History of marks within files (newest to oldest):
+
+> ~/dotfiles/vim/.config/vim/vimrc
+	*	1722962876	0
+	"	1	0
+	^	9	20
+	.	9	19
+	+	9	19
+
+> ~/Documents/xdg-ninja/xdg-ninja.sh
+	*	1722962830	0
+	"	46	0

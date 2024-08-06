@@ -6,5 +6,5 @@ set autoindent
 set mouse=a
 set wrap
 set linebreak
-colorscheme elflord
+colorscheme industry
 set viminfo+=n~/.config/vim/viminfo
