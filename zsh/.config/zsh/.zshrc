@@ -35,6 +35,20 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 # export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
+### JAVA_HOME
+export JAVA_HOME="/usr/lib/jvm/java-22-openjdk"
+export PATH=$PATH:"$JAVA_HOME/bin"
+
+### FLUTTER PATH VARIABLES
+export ANDROID_HOME="$HOME/DEV/FLUTTER/SDK"
+export PATH=$PATH:"$ANDROID_HOME/flutter/bin" # flutter-sdk
+export PATH=$PATH:"$ANDROID_HOME/cmdline-tools/latest/bin" # cmdline-tools
+export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
+
+### GRADLE VARIABLES
+export GRADLE_HOME="$HOME/DEV/GRADLE/gradle-8.8"
+export PATH=$PATH:"${GRADLE_HOME}/bin"
+
 ### EXPORT ALIAS VARIABLES
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -94,3 +108,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 ### --- ZSH AutoSuggestions ---------------------------------
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+### VSCODE Terminal Integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

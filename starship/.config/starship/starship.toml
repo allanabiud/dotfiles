@@ -60,7 +60,7 @@ symbol = ' '
 style = 'bold green'
 
 [cmd_duration]
-min_time = 10
+min_time = 100
 style	= 'bold green'
 format = '[\[$duration\]]($style)'
 
