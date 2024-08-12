@@ -286,10 +286,10 @@ for_window [workspace="3"] layout default
 ###### Gaps
 #################
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
- gaps inner 2px
+# gaps inner 5px
 
 # Outer gaps for all windows: space along the screen edges.
- gaps outer 1px
+# gaps outer 2px
 
 # Inner and outer gaps for all windows on a specific workspace.
 # <ws> can be a workspace number or name.
