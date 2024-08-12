@@ -247,6 +247,9 @@ assign [class="YACReaderLibrary"] $ws8
 assign [class="qBittorrent"] $ws9
 # assign [class="KeePassXC"] $ws9
 
+### Libreoffice workaround
+for_window [instance="libreoffice"] move container to workspace $ws8
+
 # Launch Apps in floating mode
 # for_window [class="Nitrogen"] floating enable
 for_window [class="Blueman-manager"] floating enable
@@ -283,10 +286,10 @@ for_window [workspace="3"] layout default
 ###### Gaps
 #################
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
-# gaps inner 5px
+ gaps inner 2px
 
 # Outer gaps for all windows: space along the screen edges.
-# gaps outer 2px
+ gaps outer 1px
 
 # Inner and outer gaps for all windows on a specific workspace.
 # <ws> can be a workspace number or name.
