@@ -219,7 +219,7 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+y exec alacritty --class yazi -e yazi
-bindsym $mod+m exec alacritty --class mc -e mc
+# bindsym $mod+m exec alacritty --class mc -e mc
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -234,7 +234,7 @@ assign [class="Vivaldi-stable"] $ws2
 #assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
 assign [class="yazi"] $ws3
-assign [class="mc"] $ws3
+# assign [class="mc"] $ws3
 assign [class="Code"] $ws4
 # assign [class="code-oss"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
@@ -270,7 +270,7 @@ for_window [class="Pcmanfm"] focus
 # for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
 for_window [class="KeePassXC"] focus
-for_window [class="mc"] focus
+for_window [class="yazi"] focus
 
 # Workspace to focus when app is launched
 # for_window [class="Thunar"] focus workspace
