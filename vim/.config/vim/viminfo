@@ -11,6 +11,8 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:q
+|2,0,1723831819,,"q"
 :wqa
 |2,0,1722963654,,"wqa"
 :qa
@@ -59,12 +61,20 @@
 # Jumplist (newest first):
 -'  15  7  ~/dotfiles/i3/.config/i3/config
 |4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
 -'  1  0  ~/dotfiles/i3/.config/i3/config
 |4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
 -'  1  0  ~/dotfiles/vim/.config/vim/vimrc
 |4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.config/vim/vimrc
 |4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
 -'  9  19  ~/dotfiles/vim/.config/vim/vimrc
 |4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
 -'  9  19  ~/dotfiles/vim/.config/vim/vimrc
@@ -73,6 +83,18 @@
 |4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
 -'  9  19  ~/dotfiles/vim/.config/vim/vimrc
 |4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  9  19  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
+-'  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.config/vim/vimrc
 |4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
 -'  1  0  ~/dotfiles/vim/.config/vim/vimrc
@@ -93,6 +115,38 @@
 |4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
 -'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
 |4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
+|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
 -'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
 |4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
 -'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
