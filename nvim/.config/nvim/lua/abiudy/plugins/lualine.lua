@@ -52,7 +52,8 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = "onedark",
+        -- theme = "onedark",
+        theme = "vscode",
       },
       sections = {
         lualine_b = {
