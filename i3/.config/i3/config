@@ -219,6 +219,7 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+y exec alacritty --class yazi -e yazi
+bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 # bindsym $mod+m exec alacritty --class mc -e mc
 
 # Launch Apps at Startup
@@ -242,7 +243,8 @@ assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="Spotify"] $ws6
 # assign [class="elisa"] $ws6
-assign [class="Rhythmbox"] $ws6
+# assign [class="Rhythmbox"] $ws6
+assign [class="ncmpcpp"] $ws6
 #assign [class="Harmonoid"] $ws6
 #assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
