@@ -1,0 +1,105 @@
+##### DIRECTORIES ######
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/.config/ncmpcpp/lyrics
+mpd_music_dir = ~/Music
+
+##### CONNECTION SETTINGS #####
+#mpd_host = localhost
+#mpd_port = 6600
+#mpd_connection_timeout = 5
+
+##### CROSSFADE #####
+#mpd_crossfade_time = 5
+
+### STARTUP COMMANDS #####
+# execute_on_song_change = "~/.local/bin/songinfo"
+
+##### SONG FORMAT #####
+## For a song format you can use:
+# %l - length
+# %f - filename
+# %D - directory
+# %a - artist
+# %A - album artist
+# %t - title
+# %b - album
+# %y - date
+# %n - track number (01/12 -> 01)
+# %N - full track info (01/12 -> 01/12)
+# %g - genre
+# %c - composer
+# %p - performer
+# %d - disc
+# %C - comment
+# %P - priority
+# $R - begin right alignment
+
+##### COLUMN SETTINGS #####
+## syntax of song columns list format is "column column etc."
+## - syntax for each column is: (width of the column)[color of the column]{displayed tag}
+
+## Song List
+song_columns_list_format = (35)[green]{t|f:Title} (30)[blue]{a} (30)[magenta]{b} (7f)[yellow]{l}
+#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
+
+##### DISPLAY MODES #####
+## Note: Possible display modes: classic, columns.
+playlist_display_mode = columns
+browser_display_mode = columns
+search_engine_display_mode = columns
+playlist_editor_display_mode = columns
+
+##### ALTERNATIVE INTERFACE #####
+## Available values: classic, alternative.
+user_interface = alternative
+alternative_header_first_line_format = $0$aqqu$/a$9 {$3%t}|{%f} $0$atqq$/a$9$/b
+alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ [$4%y$9]}}|{%D}
+
+##### CURRENT ITEM #####
+current_item_prefix = $(red)$r
+#current_item_suffix = $/r$(end)
+current_item_inactive_column_prefix = $(cyan)$r
+#current_item_inactive_column_suffix = $/r$(end)
+
+##### GENERAL COLORS #####
+colors_enabled = yes
+main_window_color = white
+header_window_color = red
+volume_color = green
+statusbar_color = white
+#statusbar_time_color = default:b
+progressbar_color = white
+progressbar_elapsed_color = red
+#empty_tag_color = cyan
+#state_line_color = default
+#state_flags_color = default:b
+#color1 = white
+#color2 = green
+#player_state_color = default:b
+#alternative_ui_separator_color = black:b
+#window_border_color = green
+#active_window_border = red
+
+##### PROGRESS BAR #####
+progress_bar_look "=>"
+
+##### NOW PLAYING #####
+now_playing_prefix = "> "
+centered_cursor = "yes"
+#now_playing_suffix = $/b
+
+##### SELECTED ITEM #####
+selected_item_prefix = "* "
+discard_colors_if_item_is_selected = "yes"
+
+##### BROWSER #####
+browser_sort_mode = mtime
+
+##### MEDIA LIBRARY #####
+## Available values: artist, album_artist, date, genre, composer, performer.
+media_library_primary_tag = album_artist
+#media_library_albums_split_by_date = yes
+#media_library_hide_album_dates = no
+
+
+
