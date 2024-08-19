@@ -11,12 +11,12 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:qa
+|2,0,1724089363,,"qa"
+:wqa
+|2,0,1724089129,,"wqa"
 :q
 |2,0,1723831819,,"q"
-:wqa
-|2,0,1722963654,,"wqa"
-:qa
-|2,0,1722962833,,"qa"
 :colorscheme koehler
 |2,0,1722962826,,"colorscheme koehler"
 :colorscheme industry
@@ -47,18 +47,204 @@
 # Registers:
 
 # File marks:
-'0  15  7  ~/dotfiles/i3/.config/i3/config
-|4,48,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
-'1  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,49,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
-'2  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,50,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
-'3  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,51,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
-'4  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,52,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
+'0  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,48,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+'1  2  6  ~/.xinitrc
+|4,49,2,6,1724089129,"~/.xinitrc"
+'2  2  0  ~/.config/X11/xinitrc
+|4,50,2,0,1724089100,"~/.config/X11/xinitrc"
+'3  2  6  ~/.config/X11/xinitrc
+|4,51,2,6,1724089018,"~/.config/X11/xinitrc"
+'4  1  0  ~/.config/X11/xinitrc
+|4,52,1,0,1724088742,"~/.config/X11/xinitrc"
+'5  1  0  ~/.config/X11/xinitrc
+|4,53,1,0,1724088742,"~/.config/X11/xinitrc"
+'6  1  0  ~/.config/X11/xinitrc
+|4,54,1,0,1724088742,"~/.config/X11/xinitrc"
+'7  1  0  ~/.config/X11/xinitrc
+|4,55,1,0,1724088742,"~/.config/X11/xinitrc"
+'8  15  7  ~/dotfiles/i3/.config/i3/config
+|4,56,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+'9  1  0  ~/dotfiles/vim/.config/vim/vimrc
+|4,57,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
 
 # Jumplist (newest first):
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  2  6  ~/.xinitrc
+|4,39,2,6,1724089129,"~/.xinitrc"
+-'  2  6  ~/.xinitrc
+|4,39,2,6,1724089129,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1724089106,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1724089106,"~/.xinitrc"
+-'  2  0  ~/.config/X11/xinitrc
+|4,39,2,0,1724089100,"~/.config/X11/xinitrc"
+-'  2  0  ~/.config/X11/xinitrc
+|4,39,2,0,1724089100,"~/.config/X11/xinitrc"
+-'  2  0  ~/.config/X11/xinitrc
+|4,39,2,0,1724089100,"~/.config/X11/xinitrc"
+-'  2  0  ~/.config/X11/xinitrc
+|4,39,2,0,1724089100,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089091,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089091,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089091,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089091,"~/.config/X11/xinitrc"
+-'  2  6  ~/.config/X11/xinitrc
+|4,39,2,6,1724089018,"~/.config/X11/xinitrc"
+-'  2  6  ~/.config/X11/xinitrc
+|4,39,2,6,1724089018,"~/.config/X11/xinitrc"
+-'  2  6  ~/.config/X11/xinitrc
+|4,39,2,6,1724089018,"~/.config/X11/xinitrc"
+-'  2  6  ~/.config/X11/xinitrc
+|4,39,2,6,1724089018,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089008,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089008,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089008,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724089008,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724088742,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724088742,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724088742,"~/.config/X11/xinitrc"
+-'  1  0  ~/.config/X11/xinitrc
+|4,39,1,0,1724088742,"~/.config/X11/xinitrc"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
+-'  15  7  ~/dotfiles/i3/.config/i3/config
+|4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
 -'  15  7  ~/dotfiles/i3/.config/i3/config
 |4,39,15,7,1722963654,"~/dotfiles/i3/.config/i3/config"
 -'  15  7  ~/dotfiles/i3/.config/i3/config
@@ -67,104 +253,42 @@
 |4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
 -'  1  0  ~/dotfiles/i3/.config/i3/config
 |4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962883,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  9  19  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,9,19,1722962875,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
--'  1  0  ~/dotfiles/vim/.config/vim/vimrc
-|4,39,1,0,1722962864,"~/dotfiles/vim/.config/vim/vimrc"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  46  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,46,0,1722962833,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
--'  1  0  ~/Documents/xdg-ninja/xdg-ninja.sh
-|4,39,1,0,1722962733,"~/Documents/xdg-ninja/xdg-ninja.sh"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1722963644,"~/dotfiles/i3/.config/i3/config"
 
 # History of marks within files (newest to oldest):
+
+> ~/.local/share/xorg/Xorg.0.log
+	*	1724089322	0
+	"	12	0
+
+> ~/.xinitrc
+	*	1724089128	0
+	"	2	6
+	^	2	7
+	.	2	6
+	+	2	6
+
+> ~/.config/X11/xinitrc
+	*	1724089095	0
+	"	2	0
+	^	2	7
+	.	2	6
+	+	2	6
 
 > ~/dotfiles/i3/.config/i3/config
 	*	1722963653	0
