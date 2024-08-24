@@ -2,8 +2,11 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
+    -- "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    {
+      "hrsh7th/cmp-nvim-lsp",
+    },
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -37,8 +40,8 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ["<down>"] = cmp.mapping.select_next_item(), -- next suggestion
+        -- ["<C-up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+        -- ["<C-down>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions

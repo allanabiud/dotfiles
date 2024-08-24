@@ -102,6 +102,11 @@ return {
           },
         })
       end,
+      ["tsserver"] = function()
+        lspconfig["tsserver"].setup({
+          capabilities = capabilities,
+        })
+      end,
     })
   end,
 }
