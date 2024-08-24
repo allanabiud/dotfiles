@@ -11,6 +11,8 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:wqa
+|2,0,1724518517,,"wqa"
 :qa
 |2,0,1724345600,,"qa"
 :number
@@ -19,8 +21,6 @@
 |2,0,1724345318,,"colorscheme default"
 :colorscheme darkblue
 |2,0,1724345312,,"colorscheme darkblue"
-:wqa
-|2,0,1724345258,,"wqa"
 :q!
 |2,0,1724345196,,"q!"
 :q
@@ -122,32 +122,48 @@
 |3,0,36,0,1,0,1724345437,"# This "
 
 # File marks:
-'0  14  0  ~/dotfiles/i3/.config/i3/config2
-|4,48,14,0,1724345600,"~/dotfiles/i3/.config/i3/config2"
-'1  1  0  ~/dotfiles/i3/.config/i3/config
-|4,49,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
-'2  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
-|4,50,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
-'3  12  0  ~/.local/share/xorg/Xorg.0.log
-|4,51,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
-'4  2  6  ~/.xinitrc
-|4,52,2,6,1724089129,"~/.xinitrc"
-'5  2  0  ~/.config/X11/xinitrc
-|4,53,2,0,1724089100,"~/.config/X11/xinitrc"
-'6  2  6  ~/.config/X11/xinitrc
-|4,54,2,6,1724089018,"~/.config/X11/xinitrc"
-'7  1  0  ~/.config/X11/xinitrc
-|4,55,1,0,1724088742,"~/.config/X11/xinitrc"
+'0  6  36  ~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua
+|4,48,6,36,1724518517,"~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua"
+'1  14  0  ~/dotfiles/i3/.config/i3/config2
+|4,49,14,0,1724345600,"~/dotfiles/i3/.config/i3/config2"
+'2  1  0  ~/dotfiles/i3/.config/i3/config
+|4,50,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
+'3  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
+|4,51,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
+'4  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,52,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+'5  2  6  ~/.xinitrc
+|4,53,2,6,1724089129,"~/.xinitrc"
+'6  2  0  ~/.config/X11/xinitrc
+|4,54,2,0,1724089100,"~/.config/X11/xinitrc"
+'7  2  6  ~/.config/X11/xinitrc
+|4,55,2,6,1724089018,"~/.config/X11/xinitrc"
 '8  1  0  ~/.config/X11/xinitrc
 |4,56,1,0,1724088742,"~/.config/X11/xinitrc"
 '9  1  0  ~/.config/X11/xinitrc
 |4,57,1,0,1724088742,"~/.config/X11/xinitrc"
 
 # Jumplist (newest first):
+-'  6  36  ~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua
+|4,39,6,36,1724518517,"~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua
+|4,39,1,0,1724518493,"~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua"
+-'  14  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,14,0,1724345600,"~/dotfiles/i3/.config/i3/config2"
 -'  14  0  ~/dotfiles/i3/.config/i3/config2
 |4,39,14,0,1724345600,"~/dotfiles/i3/.config/i3/config2"
 -'  6  1  ~/dotfiles/i3/.config/i3/config2
 |4,39,6,1,1724345521,"~/dotfiles/i3/.config/i3/config2"
+-'  6  1  ~/dotfiles/i3/.config/i3/config2
+|4,39,6,1,1724345521,"~/dotfiles/i3/.config/i3/config2"
+-'  2  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,2,0,1724345508,"~/dotfiles/i3/.config/i3/config2"
+-'  3  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,3,0,1724345508,"~/dotfiles/i3/.config/i3/config2"
+-'  4  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,4,0,1724345508,"~/dotfiles/i3/.config/i3/config2"
+-'  5  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,5,0,1724345508,"~/dotfiles/i3/.config/i3/config2"
 -'  2  0  ~/dotfiles/i3/.config/i3/config2
 |4,39,2,0,1724345508,"~/dotfiles/i3/.config/i3/config2"
 -'  3  0  ~/dotfiles/i3/.config/i3/config2
@@ -160,12 +176,30 @@
 |4,39,7,0,1724345507,"~/dotfiles/i3/.config/i3/config2"
 -'  8  0  ~/dotfiles/i3/.config/i3/config2
 |4,39,8,0,1724345507,"~/dotfiles/i3/.config/i3/config2"
+-'  7  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,7,0,1724345507,"~/dotfiles/i3/.config/i3/config2"
+-'  8  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,8,0,1724345507,"~/dotfiles/i3/.config/i3/config2"
+-'  351  0  ~/dotfiles/i3/.config/i3/config2
+|4,39,351,0,1724345422,"~/dotfiles/i3/.config/i3/config2"
 -'  351  0  ~/dotfiles/i3/.config/i3/config2
 |4,39,351,0,1724345422,"~/dotfiles/i3/.config/i3/config2"
 -'  1  0  ~/dotfiles/i3/.config/i3/config
 |4,39,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
 -'  1  0  ~/dotfiles/i3/.config/i3/config
 |4,39,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/i3/.config/i3/config
+|4,39,1,0,1724345258,"~/dotfiles/i3/.config/i3/config"
+-'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
+|4,39,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
+-'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
+|4,39,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
+-'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
+|4,39,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
+-'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
+|4,39,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
 -'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
 |4,39,1,0,1724345237,"~/dotfiles/zsh/.config/zsh/.zshrc"
 -'  1  0  ~/dotfiles/zsh/.config/zsh/.zshrc
@@ -206,6 +240,70 @@
 |4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
 -'  12  0  ~/.local/share/xorg/Xorg.0.log
 |4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  12  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,12,0,1724089363,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
+-'  1  0  ~/.local/share/xorg/Xorg.0.log
+|4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
 -'  1  0  ~/.local/share/xorg/Xorg.0.log
 |4,39,1,0,1724089310,"~/.local/share/xorg/Xorg.0.log"
 -'  1  0  ~/.local/share/xorg/Xorg.0.log
@@ -246,106 +344,15 @@
 |4,39,2,6,1724089129,"~/.xinitrc"
 -'  2  6  ~/.xinitrc
 |4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  2  6  ~/.xinitrc
-|4,39,2,6,1724089129,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1724089106,"~/.xinitrc"
 
 # History of marks within files (newest to oldest):
+
+> ~/dotfiles/nvim/.config/nvim/lua/abiudy/plugins/supermaven.lua
+	*	1724518514	0
+	"	6	36
+	^	6	37
+	.	6	36
+	+	6	36
 
 > ~/dotfiles/i3/.config/i3/config2
 	*	1724345536	0

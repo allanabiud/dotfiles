@@ -225,7 +225,7 @@ bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
-exec_always --no-startup-id mpDris2
+exec --no-startup-id mpDris2
 # exec --no-startup-id keepassxc
 
 # Lanch Apps in specified workspaces
