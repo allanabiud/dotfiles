@@ -58,7 +58,7 @@ return {
         -- { name = 'vim-dadbod-completion' },
       }),
 
-      -- configure lspkind for vs-code like pictograms in completion menu
+      -- configure lspkind for vs-code like pictograms and colors in completion menu
       formatting = {
         format = function(entry, item)
           local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
