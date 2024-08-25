@@ -42,11 +42,11 @@ return {
       window = {
         completion = {
           border = "rounded",
-          winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder",
+          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder",
         },
         documentation = {
           border = "rounded",
-          winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder",
+          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder",
         },
       },
       view = {
@@ -80,7 +80,7 @@ return {
 
           item = lspkind.cmp_format({
             -- any lspkind format settings here
-            mode = "symbol",
+            mode = "symbol_text",
             symbol_map = { Supermaven = "" },
             maxwidth = 50,
             ellipsis_char = "...",

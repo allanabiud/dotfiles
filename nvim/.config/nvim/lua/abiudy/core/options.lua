@@ -3,7 +3,6 @@ vim.cmd("let g:netrw_liststyle = 3")
 -- Make line numbers default
 vim.opt.number = true
 -- vim.opt.relativenumber = true
--- vim.opt.number = true
 
 -- Set title
 vim.opt.title = true

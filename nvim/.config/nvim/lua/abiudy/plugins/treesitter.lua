@@ -4,14 +4,14 @@ return {
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
-  config = function ()
+  config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      ensure_installed = { 'lua', 'luadoc', 'vim', 'vimdoc' },
+      ensure_installed = { "lua" },
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
       autotag = { enable = true },
     })
-  end
+  end,
 }
