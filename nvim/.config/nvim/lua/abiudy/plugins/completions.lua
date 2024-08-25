@@ -77,8 +77,11 @@ return {
       formatting = {
         format = function(entry, item)
           local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+
           item = lspkind.cmp_format({
             -- any lspkind format settings here
+            mode = "symbol",
+            symbol_map = { Supermaven = "" },
             maxwidth = 50,
             ellipsis_char = "...",
           })(entry, item)
@@ -86,15 +89,11 @@ return {
             item.kind_hl_group = color_item.abbr_hl_group
             item.kind = color_item.abbr
           end
+          vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
+
           return item
         end,
       },
-      -- formatting = {
-      --   format = lspkind.cmp_format({
-      --     maxwidth = 50,
-      --     ellipsis_char = "...",
-      --   }),
-      -- },
     })
   end,
 }
