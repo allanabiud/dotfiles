@@ -2,7 +2,7 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    -- "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
     {
       "hrsh7th/cmp-nvim-lsp",
@@ -39,6 +39,21 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      window = {
+        completion = {
+          border = "rounded",
+          winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder",
+        },
+        documentation = {
+          border = "rounded",
+          winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder",
+        },
+      },
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       mapping = cmp.mapping.preset.insert({
         -- ["<C-up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         -- ["<C-down>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -62,7 +77,7 @@ return {
       formatting = {
         format = function(entry, item)
           local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
-          item = require("lspkind").cmp_format({
+          item = lspkind.cmp_format({
             -- any lspkind format settings here
             maxwidth = 50,
             ellipsis_char = "...",
