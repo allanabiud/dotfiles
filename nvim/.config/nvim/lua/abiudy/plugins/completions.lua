@@ -55,16 +55,31 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
-        --{ name = 'vim-dadbod-completion' },
+        -- { name = 'vim-dadbod-completion' },
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
+        format = function(entry, item)
+          local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+          item = require("lspkind").cmp_format({
+            -- any lspkind format settings here
+            maxwidth = 50,
+            ellipsis_char = "...",
+          })(entry, item)
+          if color_item.abbr_hl_group then
+            item.kind_hl_group = color_item.abbr_hl_group
+            item.kind = color_item.abbr
+          end
+          return item
+        end,
       },
+      -- formatting = {
+      --   format = lspkind.cmp_format({
+      --     maxwidth = 50,
+      --     ellipsis_char = "...",
+      --   }),
+      -- },
     })
   end,
 }
