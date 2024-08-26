@@ -1,5 +1,5 @@
 ### ---- ZSH HOME -----------------------------------
-#export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export ZDOTDIR="~/.config/zsh"
 
 ### ---- autocompletions -----------------------------------
 fpath=(~/.zsh/site-functions $fpath)
