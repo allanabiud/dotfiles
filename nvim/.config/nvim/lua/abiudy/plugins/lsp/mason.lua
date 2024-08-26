@@ -26,6 +26,7 @@ return {
         "tsserver",
         "html",
         "cssls",
+        "bashls",
       },
     })
   end,
