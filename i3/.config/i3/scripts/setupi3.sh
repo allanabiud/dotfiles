@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # shellcheck disable=3054,3043,3030,2206,3024,3037,3010,3045,2086,3020
 
 # This is my i3 setup script for Arch Linux
@@ -32,14 +32,15 @@ print_warning() {
 # Prompt user for confirmation
 confirm() {
   echo
-  echo -e -n "${YELLOW}$1 ([y]/n) ${NC}"
-  read -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    return 0
-  else
-    return 1
-  fi
+  while true; do
+    echo -e -n "${YELLOW}$1 ([y]/n) ${NC}"
+    read -r choice
+    case $choice in
+    y | Y) return 0 ;;
+    n | N) return 1 ;;
+    *) echo "Please answer y or n." ;;
+    esac
+  done
 }
 
 # Prompt for sudo access with confirmation
@@ -144,7 +145,7 @@ yay_install() {
   local dependencies=("yay")
   local to_install=()
   local retry=true
-  
+
   while $retry; do
     print_message "Package to be installed:"
     for dependency in "${dependencies[@]}"; do
@@ -249,6 +250,63 @@ i3_dependencies() {
   done
 }
 
+# Function to setup terminal
+terminal_setup() {
+  local dependencies=("alacritty" "starship" "zsh" "zsh-autosuggestions" "zsh-syntax-highlighting")
+  local to_install=()
+  local retry=true
+
+  while $retry; do
+    print_message "Terminal dependencies to be installed:"
+    for dependency in "${dependencies[@]}"; do
+      echo -e "${YELLOW}- $dependency${NC}"
+    done
+    echo
+    for dependency in "${dependencies[@]}"; do
+      if ! pacman -Qi $dependency &>/dev/null; then
+        to_install+=($dependency)
+      fi
+    done
+    if [ ${#to_install[@]} -eq 0 ]; then
+      print_success "All terminal dependencies are already installed"
+      retry=false
+    else
+      print_success "The following missing terminal dependencies need to be installed:"
+      for dependency in "${to_install[@]}"; do
+        echo -e "${YELLOW}- $dependency${NC}"
+      done
+      if confirm "Do you want to install these dependencies?"; then
+        print_message "Installing terminal dependencies.."
+        if sudo pacman -S --noconfirm "${to_install[@]}"; then
+          print_success "Terminal dependencies installed successfully"
+          retry=false
+        else
+          print_error "Failed to install terminal dependencies"
+          if confirm "Do you want to retry the installation?"; then
+            retry=true
+          else
+            if confirm "Do you want to continue without terminal dependencies?"; then
+              print_message "Continuing without terminal dependencies.."
+            else
+              print_error "Exiting.."
+              exit 1
+            fi
+          fi
+        fi
+      else
+        if confirm "Do you want to continue without terminal dependencies?"; then
+          print_message "Continuing without terminal dependencies.."
+        else
+          print_error "Exiting.."
+          exit 1
+        fi
+      fi
+    fi
+  done
+}
+
+# Function to setup dotfiles
+
 # PRINT WELCOME MESSAGE
 echo -e "\n${BLUE}===============================================================================${NC}"
 echo -e "${BLUE}                  i3WM SETUP SCRIPT FOR ARCH LINUX ${NC}"
@@ -288,8 +346,18 @@ echo -e "${BLUE}******************************${NC}"
 # Install i3 dependencies
 i3_dependencies
 
+echo -e "\n${BLUE}========================================${NC}"
+echo -e "${BLUE}   Section 4: Terminal Setup ${NC}"
+echo -e "${BLUE}========================================${NC}"
+# Setup terminal
+terminal_setup
+
+echo -e "\n${BLUE}========================================${NC}"
+echo -e "${BLUE}   Section 5: Dotfiles ${NC}"
+echo -e "${BLUE}========================================${NC}"
+# Setup dotfiles
 
 # SCRIPT COMPLETED
 echo -e "\n${BLUE}================================================================================${NC}"
-echo -e  "${BLUE}                       SCRIPT COMPLETED   ${NC}"
+echo -e "${BLUE}                       SCRIPT COMPLETED   ${NC}"
 echo -e "${BLUE}================================================================================${NC}"
