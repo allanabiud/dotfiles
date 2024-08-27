@@ -31,12 +31,12 @@ print_warning() {
 confirm() {
 	echo
 	while true; do
-		echo -e -n "${YELLOW}$1 ([y]/n) ${NC}"
+		echo -e -n "${YELLOW}$1 ([y]/n) ${GREEN}(Default: y): ${NC}"
 		read -r choice
 		case $choice in
-		y | Y) return 0 ;;
+		"" | y | Y) return 0 ;;
 		n | N) return 1 ;;
-		*) echo "Please answer y or n." ;;
+		*) echo "Please answer Y/y, N/n or press Enter for yes." ;;
 		esac
 	done
 }
@@ -47,6 +47,7 @@ clone_dotfiles() {
 	local target_dir="$HOME/dotfiles"
 	local clone_success=false
 
+	print_message "Cloning dotfiles repository to $target_dir.."
 	while [ $clone_success = false ]; do
 		if [ -d "$target_dir" ]; then
 			print_warning "Directory $target_dir already exists."
@@ -104,7 +105,7 @@ clone_dotfiles() {
 				exit 1
 				;;
 			*)
-				print_error "Invalid option. Try again."
+				print_error "Invalid option. Please select an option from the list."
 				;;
 			esac
 		else
@@ -131,29 +132,33 @@ clone_dotfiles() {
 # Function to handle existing config files
 handle_existing_dotfiles() {
 	local file=$1
+
 	if [ -e "$HOME/.config/$file" ]; then
-		print_warning "File $HOME/$file already exists."
-		echo -e "${YELLOW}1) Overwrite"
-		echo -e "${YELLOW}2) Backup and replace"
-		echo -e "${YELLOW}3) Skip this file"
-		echo -e -n "${YELLOW}Select an option (1/2/3): ${NC}"
-		read -r choice
-		case $choice in
-		1)
-			rm -rf "$HOME/.config/$file"
-			;;
-		2)
-			mv "$HOME/.config/$file" "$HOME/.config/$file.backup"
-			print_success "Existing file backed up as ${file}.backup"
-			;;
-		3)
-			return 1
-			;;
-		*)
-			print_error "Invalid option. Skipping this file."
-			return 1
-			;;
-		esac
+		while true; do
+			print_warning "File $HOME/.config/$file already exists."
+			echo -e "${YELLOW}1) Overwrite"
+			echo -e "${YELLOW}2) Backup and replace"
+			echo -e "${YELLOW}3) Skip this file"
+			echo -e -n "${YELLOW}Select an option (1/2/3): ${NC}"
+			read -r choice
+			case $choice in
+			1)
+				rm -rf "$HOME/.config/$file"
+				;;
+			2)
+				mv "$HOME/.config/$file" "$HOME/.config/$file.backup"
+				print_success "Existing file backed up as ${file}.backup"
+				;;
+			3)
+				return 1
+				;;
+			*)
+				print_error "Invalid option. Please select an option from the list."
+				continue
+				;;
+			esac
+			break
+		done
 	fi
 	return 0
 }
@@ -173,6 +178,34 @@ stow_dotfiles() {
 	# Prompt user to select dotfiles to stow
 	echo -e -n "\n${BLUE}Select dotfile(s) to stow (space-separated numbers, or 'a' for all): ${NC}"
 	read -r selection
+
+	# Get stow selection
+	local selected_dotfiles=()
+	if [ "$selection" = "a" ]; then
+		selected_dotfiles=("${dotfiles_list[@]}")
+	else
+		for num in $selection; do
+			if ((num >= 1 && num <= ${#dotfiles_list[@]})); then
+				selected_dotfiles+=("${dotfiles_list[$((num - 1))]}")
+			else
+				print_error "Invalid selection: $num"
+				return 1
+			fi
+		done
+	fi
+
+	# List and confirm stow selection
+	echo -e "\n${BLUE}You have selected the following dotfiles to stow:${NC}"
+	for ((i = 0; i < ${#selected_dotfiles[@]}; i++)); do
+		echo -e "${YELLOW}$((i + 1))) ${selected_dotfiles[$i]}${NC}"
+	done
+	if confirm "Is this correct?"; then
+		print_message "Stowing selected dotfiles.."
+	else
+		print_message "Please reselect dotfiles to stow"
+		stow_dotfiles
+		return 1
+	fi
 
 	# Navigate to cloned repo to avoid stow slash errors
 	cd "$dotfiles_dir" || {
@@ -234,5 +267,5 @@ stow_dotfiles
 
 # SCRIPT COMPLETED
 echo -e "\n${BLUE}================================================================================${NC}"
-echo -e "${BLUE}                       SCRIPT COMPLETED   ${NC}"
+echo -e "${BLUE}                  DOTFILES SETUP SCRIPT COMPLETED   ${NC}"
 echo -e "${BLUE}================================================================================${NC}"
