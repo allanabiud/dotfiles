@@ -170,16 +170,8 @@ stow_dotfiles() {
 		echo -e "${YELLOW}$((i + 1))) ${dotfiles_list[$i]}${NC}"
 	done
 
-	# Stow all dotfiles
-	# for dotfile in "${dotfiles_list[@]}"; do
-	#   if handle_existing_dotfiles "$dotfile"; then
-	#     if stow -v -R -t $HOME; then
-	#       print_success "Stowed $dotfile successfully"
-	#     else
-	#       print_error
-
 	# Prompt user to select dotfiles to stow
-	echo -e -n "\n${BLUE}Select dotfile(s) to stow (space-separated numbers, or 'a' for all):${NC}"
+	echo -e -n "\n${BLUE}Select dotfile(s) to stow (space-separated numbers, or 'a' for all): ${NC}"
 	read -r selection
 
 	# Navigate to cloned repo to avoid stow slash errors
@@ -239,3 +231,8 @@ echo -e "${BLUE}  Section 2: Stow Dotfiles ${NC}"
 echo -e "${BLUE}========================================${NC}"
 # Stow dotfiles
 stow_dotfiles
+
+# SCRIPT COMPLETED
+echo -e "\n${BLUE}================================================================================${NC}"
+echo -e "${BLUE}                       SCRIPT COMPLETED   ${NC}"
+echo -e "${BLUE}================================================================================${NC}"
