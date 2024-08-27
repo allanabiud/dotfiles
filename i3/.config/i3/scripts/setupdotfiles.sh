@@ -136,7 +136,7 @@ handle_existing_dotfiles() {
 		echo -e "${YELLOW}1) Overwrite"
 		echo -e "${YELLOW}2) Backup and replace"
 		echo -e "${YELLOW}3) Skip this file"
-		echo -n "${YELLOW}Select an option (1/2/3): ${NC}"
+		echo -e -n "${YELLOW}Select an option (1/2/3): ${NC}"
 		read -r choice
 		case $choice in
 		1)
@@ -179,7 +179,7 @@ stow_dotfiles() {
 	#       print_error
 
 	# Prompt user to select dotfiles to stow
-	echo -e "\n${BLUE}Select dotfile(s) to stow (space-separated numbers, or 'a' for all):${NC}"
+	echo -e -n "\n${BLUE}Select dotfile(s) to stow (space-separated numbers, or 'a' for all):${NC}"
 	read -r selection
 
 	# Navigate to cloned repo to avoid stow slash errors
