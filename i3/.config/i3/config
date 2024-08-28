@@ -250,6 +250,7 @@ assign [class="ncmpcpp"] $ws6
 #assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
+assign [class="heroic"] $ws8
 assign [class="qBittorrent"] $ws9
 # assign [class="KeePassXC"] $ws9
 
