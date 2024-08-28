@@ -131,11 +131,64 @@ script_dependencies() {
 	done
 }
 
+# Function to validate Git URL
+validate_git_url() {
+	local url=$1
+	# Basic regex to validate Git URLs
+	local git_url_regex='^((https?://|git@|git://)([[:alnum:]_.-]+@)?[[:alnum:]_.-]+)(:|/)[[:alnum:]_.-]+/[[:alnum:]_.-]+(.git)?$'
+	if [[ $url =~ $git_url_regex ]]; then
+		return 0
+	else
+		return 1
+	fi
+}
+# Function to validate directory path
+validate_directory_path() {
+	local path=$1
+	# Empty tilde expansion to home directory
+	path=${path/#\~/$HOME}
+	# Check if path contains only allowed characters
+	if [[ "$path" =~ ^[a-zA-Z0-9_/.-]+$ ]]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
 # Function to clone my dotfiles repo
 clone_dotfiles() {
-	local repo_url="https://github.com/abiud254/dotfiles.git"
-	local target_dir="$HOME/dotfiles"
+	local default_repo_url="https://github.com/abiud254/dotfiles.git"
+	local default_target_dir="$HOME/dotfiles"
+	local repo_url
+	local target_dir
 	local clone_success=false
+
+	# Prompt user for repo URL
+	while true; do
+		echo -e -n "${BLUE} Enter the repo URL ${NC} ${GREEN}(Default: $default_repo_url): ${NC}"
+		read -r user_repo_url
+		repo_url=${user_repo_url:-$default_repo_url}
+		if validate_git_url "$repo_url"; then
+			break
+		else
+			print_error "Invalid Git URL. Please enter a valid Git URL."
+		fi
+	done
+
+	# Prompt user for target directory
+	while true; do
+		echo -e -n "${BLUE} Enter the target directory ${NC} ${GREEN}(Default: $default_target_dir): ${NC}"
+		read -r user_target_dir
+		target_dir=${user_target_dir:-$default_target_dir}
+		if validate_directory_path "$target_dir"; then
+			break
+		else
+			print_error "Invalid directory path. Please enter a valid directory path."
+		fi
+	done
+
+	# Expand tilde in target_dir
+	target_dir=${target_dir/#\~/$HOME}
 
 	print_message "Cloning $repo_url to $target_dir.."
 	while [ $clone_success = false ]; do
@@ -175,7 +228,7 @@ clone_dotfiles() {
 				;;
 			2)
 				print_message "Attempting to update existing dotfiles repository.."
-				if cd "$target_dir" && git pull; then
+				if cd "$target_dir" && git remote set-url origin "$repo_url" && git pull; then
 					print_success "Dotfiles repository updated"
 					clone_success=true
 				else
@@ -471,6 +524,8 @@ while $repeat_script; do
 	echo -e "${BLUE} It is able to:"
 	echo -e "${YELLOW} - Install missing script dependencies"
 	echo -e "${YELLOW} - Clone my dotfiles repository"
+	echo -e "${YELLOW} - Clone any other dotfiles repository"
+	echo -e "${YELLOW} - Specify target directory for cloned dotfiles repository"
 	echo -e "${YELLOW} - Update an existing dotfiles repository"
 	echo -e "${YELLOW} - Delete an existing dotfiles repository"
 	echo -e "${YELLOW} - Stow my dotfiles"
