@@ -134,7 +134,7 @@ script_dependencies() {
 # Function to clone my dotfiles repo
 clone_dotfiles() {
 	local repo_url="https://github.com/abiud254/dotfiles.git"
-	local target_dir="$HOME/dotfiles2"
+	local target_dir="$HOME/dotfiles"
 	local clone_success=false
 
 	print_message "Cloning $repo_url to $target_dir.."
@@ -255,10 +255,11 @@ handle_existing_dotfiles() {
 
 # Function to stow a specific dotfile
 stow_dotfiles() {
-	local dotfiles_dir="$HOME/dotfiles2"
+	local dotfiles_dir="$HOME/dotfiles"
 	local dotfiles_list=()
 
 	# List all dotfiles in cloned repo
+	print_message "Checking for dotfiles in cloned repo:"
 	print_message "Dotfiles in cloned repo:"
 	dotfiles_list=($(ls -1 "$dotfiles_dir" | grep -v -E '\.(md|git)$'))
 	for ((i = 0; i < ${#dotfiles_list[@]}; i++)); do
@@ -352,6 +353,7 @@ while $repeat_script; do
 
 	echo -e "${BLUE} This is my dotfiles setup script."
 	echo -e "${BLUE} It is able to:"
+	echo -e "${YELLOW} - Install missing script dependencies"
 	echo -e "${YELLOW} - Clone my dotfiles repository"
 	echo -e "${YELLOW} - Update an existing dotfiles repository"
 	echo -e "${YELLOW} - Delete an existing dotfiles repository"

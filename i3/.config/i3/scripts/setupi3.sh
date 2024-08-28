@@ -43,6 +43,24 @@ confirm() {
 	done
 }
 
+# Function to print items in a grid layout
+print_grid() {
+	local items=("$@")
+	local cols=4
+	local rows=$(((${#items[@]} + cols - 1) / cols))
+	local col_width=25 # Adjust this value to change the column width
+
+	for ((i = 0; i < rows; i++)); do
+		for ((j = 0; j < cols; j++)); do
+			index=$((i + j * rows))
+			if [ $index -lt ${#items[@]} ]; then
+				printf "${YELLOW} - %-${col_width}s${NC}" "${items[$index]}"
+			fi
+		done
+		echo
+	done
+}
+
 # Continue with script function
 continue_with_script() {
 	echo -e -n "\n${BLUE}----------------------------------------${NC}"
@@ -254,7 +272,7 @@ i3_dependencies() {
 			print_success "All i3 dependencies are already installed"
 			retry=false
 		else
-			print_success "The following missing i3 dependencies need to be installed:"
+			print_message "The following missing i3 dependencies need to be installed:"
 			for dependency in "${to_install[@]}"; do
 				echo -e "${YELLOW} - $dependency${NC}"
 			done
@@ -293,6 +311,8 @@ terminal_setup() {
 			echo -e "${YELLOW} - $dependency${NC}"
 		done
 		echo
+
+		print_message "Checking if terminal dependencies are installed...."
 		for dependency in "${dependencies[@]}"; do
 			if ! pacman -Qi $dependency &>/dev/null; then
 				to_install+=($dependency)
@@ -302,7 +322,7 @@ terminal_setup() {
 			print_success "All terminal dependencies are already installed"
 			retry=false
 		else
-			print_success "The following missing terminal dependencies need to be installed:"
+			print_message "The following missing terminal dependencies need to be installed:"
 			for dependency in "${to_install[@]}"; do
 				echo -e "${YELLOW} - $dependency${NC}"
 			done
@@ -354,10 +374,65 @@ setup_dotfiles() {
 	fi
 }
 
-#  TODO: Add function to setup applications
-#
-# Function to setup applications
+################################
+# APPLICATION FUNCTIONS
+################################
+# Function to install and setup i3wm environment applications
+i3wm_applications() {
+	local applications=("p7zip" "unrar" "tar" "rsync" "htop" "exfat-utils" "fuse-exfat" "ntfs-3g" "flac" "jasper" "aria2" "xss-lock" "thermald" "tlp" "nitrogen" "picom" "dunst" "fastfetch" "pavucontrol" "xclip" "ttf-meslo-nerd" "ttf-font-awesome" "pcmanfm" "gvfs" "gvfs-mtp" "gvfs-smb" "file-roller" "gparted" "openssh" "vi" "vim" "nano" "bluez" "bluez-utils" "blueman" "j4-dmenu-desktop" "lxappearance" "gnome-keyring" "android-tools" "arandr" "xorg-xrandr" "flatpak" "timeshift" "intel-ucode" "jdk-openjdk" "nodejs" "npm" "rustup")
+	local to_install=()
+	local retry=true
 
+	while $retry; do
+		print_message "i3wm Environment Applications to be installed:"
+		print_grid "${applications[@]}"
+		echo
+
+		#  BUG: This is not working correctly
+
+		# print_message "Checking if applications are installed...."
+		# for application in "${applications[@]}"; do
+		# 	if ! pacman -Qi $application &>/dev/null; then
+		# 		to_install+=($application)
+		# 	fi
+		# 	if [ ${#to_install[@]} -eq 0 ]; then
+		# 		print_success "All i3wm environment applications are already installed"
+		# 		retry=false
+		# 	else
+		# 		print_message "The following missing i3wm environment applications need to be installed:"
+		# 		for dependency in "${to_install[@]}"; do
+		# 			print_grid "${dependency}"
+		# 		done
+		# 		if confirm "Do you want to install these applications?"; then
+		# 			print_message "Installing i3wm environment applications.."
+		# 			if sudo pacman -S --noconfirm "${to_install[@]}"; then
+		# 				print_success "i3wm environment applications installed successfully"
+		# 				retry=false
+		# 			else
+		# 				print_error "Failed to install i3wm environment applications"
+		# 				if confirm "Do you want to retry the installation?"; then
+		# 					retry=true
+		# 				else
+		# 					if confirm "Do you want to continue without i3wm environment applications?"; then
+		# 						print_message "Continuing without i3wm environment applications.."
+		# 					else
+		# 						print_error "Exiting.."
+		# 						exit 1
+		# 					fi
+		# 				fi
+		# 			fi
+		# 		else
+		# 			if confirm "Do you want to continue without i3wm environment applications?"; then
+		# 				print_message "Continuing without i3wm environment applications.."
+		# 			else
+		# 				print_error "Exiting.."
+		# 				exit 1
+		# 			fi
+		# 		fi
+		# 	fi
+		# done
+	done
+}
 ################################################################################
 ## MAIN SCRIPT
 ################################################################################
@@ -371,7 +446,7 @@ echo -e "${BLUE}================================================================
 echo -e "${BLUE} This is my i3 setup script for Arch Linux"
 echo -e "${BLUE} It is meant to be run once after installation of i3 using the archinstall script"
 echo -e "${BLUE} This script is able to:"
-ectho -e "${YELLOW} - Update the system"
+echo -e "${YELLOW} - Update the system"
 echo -e "${YELLOW} - Install script and i3wm dependencies"
 echo -e "${YELLOW} - Install the yay AUR Helper"
 echo -e "${YELLOW} - Setup my terminal dependencies"
@@ -467,13 +542,12 @@ echo -e "${BLUE}----------------------------------------${NC}"
 # Continue with script
 continue_with_script
 
-#  TODO: Add section to setup applications
-#
-# clear -x
-# echo -e "\n${BLUE}========================================${NC}"
-# echo -e "${BLUE}   Section 6: Applications ${NC}"
-# echo -e "${BLUE}========================================${NC}"
-# Setup applications
+clear -x
+echo -e "\n${BLUE}========================================${NC}"
+echo -e "${BLUE}   Section 6: Applications ${NC}"
+echo -e "${BLUE}========================================${NC}"
+# Setup i3wm environment applications
+i3wm_applications
 
 # Continue with script
 continue_with_script
