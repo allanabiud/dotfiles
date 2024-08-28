@@ -348,4 +348,4 @@ bindsym XF86AudioPrev exec playerctl --player-mpd previous
 #############################
 ##### Picom Window Effects
 #############################
-# exec_always --no-startup-id picom
+# exec_always --no-startup-id picom --experimental-backends
