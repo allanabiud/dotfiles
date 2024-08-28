@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=2207,2010
+# shellcheck disable=2207,2010,2155,2046
 
 # This script is for setting up my dotfiles
 
@@ -222,29 +222,74 @@ clone_dotfiles() {
 # Function to handle existing config files
 handle_existing_dotfiles() {
 	local file=$1
+	local target_path="$HOME/.config/$file"
 
-	if [ -e "$HOME/.config/$file" ]; then
+	if [ -e "$target_path" ] || [ -L "$target_path" ]; then
 		while true; do
-			print_warning "File $HOME/.config/$file already exists."
-			echo -e "${YELLOW} 1) Overwrite"
-			echo -e "${YELLOW} 2) Backup and replace"
-			echo -e "${YELLOW} 3) Skip this file"
-			echo -e -n "${BLUE} Select an option (1/2/3): ${NC}"
+			if [ -L "$target_path" ]; then
+				local link_target=$(readlink -f "$target_path")
+				if [ ! -e "$link_target" ]; then
+					print_warning "File or directory $target_path is a broken symlink pointing to non-existent file or directory."
+					echo -e "${YELLOW} 1) Delete the broken symlink and proceed"
+					echo -e "${YELLOW} 2) Skip stowing this file"
+				elif [[ "$link_target" == "$HOME/dotfiles/*" ]]; then
+					print_warning "File or directory $target_path is already stowed by another package in dotfiles repo."
+					echo -e "${YELLOW} 1) Overwrite (unstow other package and stow this package)"
+					echo -e "${YELLOW} 2) Skip stowing this file"
+				else
+					print_warning "File or directory $target_path is already symlinked to $link_target."
+					echo -e "${YELLOW} 1) Overwrite symlink"
+					echo -e "${YELLOW} 2) Backup symlink and replace"
+					echo -e "${YELLOW} 3) Skip stowing this file"
+				fi
+			else
+				print_warning "File or directory $target_path already exists."
+				echo -e "${YELLOW} 1) Overwrite"
+				echo -e "${YELLOW} 2) Backup and replace"
+				echo -e "${YELLOW} 3) Skip stowing this file"
+			fi
+
+			echo -e -n "${BLUE} Select an option: ${NC}"
 			read -r choice
 			case $choice in
 			1)
-				rm -rf "$HOME/.config/$file"
+				if [ -L "$target_path" ]; then
+					if [ ! -e "$link_target" ]; then
+						rm -rf "$target_path"
+						print_success "Removed broken symlink $target_path"
+					else
+						local stow_dir=$(dirname $(dirname "$link_target"))
+						local package=$(basename $(dirname "$link_target"))
+						if [ "$link_target" == "$HOME/dotfiles/*" ]; then
+							stow -D -d "$stow_dir" "$package"
+							print_success "Unstowed package $package"
+						fi
+						rm -rf "$target_path"
+						print_success "Removed $target_path"
+					fi
+				else
+					rm -rf "$target_path"
+					print_success "Removed $target_path"
+				fi
 				;;
 			2)
-				mv "$HOME/.config/$file" "$HOME/.config/$file.backup"
-				print_success "Existing file backed up as ${file}.backup"
+				if [ -L "$target_path" ] && { [ ! -e "$link_target" ] || [[ "$link_target" == "$HOME/dotfiles/*" ]]; }; then
+					return 1
+				else
+					mv "$target_path" "${target_path}.backup"
+					print_success "Existing file or directory backed up as ${file}.backup"
+				fi
 				;;
 			3)
-				return 1
+				if [ ! -L "$target_path" ] || { [ -L "$target_path" ] && [ -e "$link_target" ] && [[ $link_target != $HOME/dotfiles/* ]]; }; then
+					return 1
+				else
+					print_error "Invalid option for this file type. Please choose again."
+					continue
+				fi
 				;;
 			*)
 				print_error "Invalid option. Please select an option from the list."
-				continue
 				;;
 			esac
 			break
