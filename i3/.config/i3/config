@@ -45,7 +45,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -218,8 +218,11 @@ bindsym $mod+n exec pcmanfm
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
-bindsym $mod+y exec alacritty --class yazi -e yazi
-bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
+bindsym $mod+k exec kitty
+bindsym $mod+y exec kitty --class yazi -e yazi
+bindsym $mod+m exec kitty --class ncmpcpp -e ncmpcpp
+# bindsym $mod+y exec alacritty --class yazi -e yazi
+# bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 # bindsym $mod+m exec alacritty --class mc -e mc
 
 # Launch Apps at Startup
@@ -231,6 +234,7 @@ exec --no-startup-id mpDris2
 # Lanch Apps in specified workspaces
 #assign [class="Xfce4-terminal"] $ws1
 assign [class="Alacritty"] $ws1
+assign [class="kitty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 #assign [class="firefox"] $ws2
 #assign [class="Thunar"] $ws3
@@ -269,6 +273,7 @@ for_window [class="file-roller"] floating enable
 # Apps to focus on launch
 # for_window [class="Xfce4-terminal"] focus
 for_window [class="Alacritty"] focus
+for_window [class="kitty"] focus
 for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
 # for_window [class="firefox"] focus
