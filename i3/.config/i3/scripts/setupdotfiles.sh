@@ -10,6 +10,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
+# Global variables
+DOTFILES_DIR=""
+
 # Function to print colored messages
 print_message() {
 	echo -e "\n${BLUE}==> $1${NC}"
@@ -270,6 +273,8 @@ clone_dotfiles() {
 			fi
 		fi
 	done
+	# Return target directory to be used in other functions
+	DOTFILES_DIR="$target_dir"
 }
 
 # Function to handle existing config files
@@ -424,12 +429,18 @@ handle_existing_dotfiles() {
 
 # Function to stow a specific dotfile
 stow_dotfiles() {
-	local dotfiles_dir="$HOME/dotfiles"
+	local dotfiles_dir="$DOTFILES_DIR"
 	local dotfiles_list=()
 
+	# Check if DOTFILES_DIR is set
+	if [ -z "$DOTFILES_DIR" ]; then
+		print_error "DOTFILES_DIR is not set. Did you clone the dotfiles repo first?"
+		return 1
+	fi
+
 	# List all dotfiles in cloned repo
-	print_message "Checking for dotfiles in cloned repo:"
-	print_message "Dotfiles in cloned repo:"
+	print_message "Checking for dotfiles in cloned repo ($dotfiles_dir):"
+	print_message "Dotfiles in cloned repo ($dotfiles_dir):"
 	dotfiles_list=($(ls -1 "$dotfiles_dir" | grep -v -E '\.(md|git)$'))
 	for ((i = 0; i < ${#dotfiles_list[@]}; i++)); do
 		echo -e "${YELLOW} $((i + 1))) ${dotfiles_list[$i]}${NC}"
