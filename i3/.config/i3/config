@@ -219,7 +219,7 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+k exec kitty
-bindsym $mod+y exec kitty --class yazi -e yazi
+# bindsym $mod+y exec kitty --class yazi -e yazi
 bindsym $mod+m exec kitty --class ncmpcpp -e ncmpcpp
 # bindsym $mod+y exec alacritty --class yazi -e yazi
 # bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
@@ -239,7 +239,7 @@ assign [class="Vivaldi-stable"] $ws2
 #assign [class="firefox"] $ws2
 #assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
-assign [class="yazi"] $ws3
+# assign [class="yazi"] $ws3
 # assign [class="mc"] $ws3
 assign [class="Code"] $ws4
 # assign [class="code-oss"] $ws4
@@ -346,10 +346,15 @@ client.focused             #915e00    #8a1919    #ffffff    #ffa500    #8a1919
 ##############################
 ##### Media player controls
 ##############################
-bindsym XF86AudioPlay exec playerctl --player=mpd play-pause
-bindsym XF86AudioPause exec playerctl --player=mpd play-pause
-bindsym XF86AudioNext exec playerctl --player=mpd next
-bindsym XF86AudioPrev exec playerctl --player-mpd previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# bindsym XF86AudioPlay exec playerctl --player=mpd play-pause
+# bindsym XF86AudioPause exec playerctl --player=mpd play-pause
+# bindsym XF86AudioNext exec playerctl --player=mpd next
+# bindsym XF86AudioPrev exec playerctl --player-mpd previous
 
 #############################
 ##### Picom Window Effects
