@@ -39,14 +39,10 @@ export JAVA_HOME="/usr/lib/jvm/java-22-openjdk"
 export PATH=$PATH:"$JAVA_HOME/bin"
 
 ### FLUTTER PATH VARIABLES
-export ANDROID_HOME="$HOME/DEV/FLUTTER/SDK"
-export PATH=$PATH:"$ANDROID_HOME/flutter/bin" # flutter-sdk
-export PATH=$PATH:"$ANDROID_HOME/cmdline-tools/latest/bin" # cmdline-tools
-export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
-
-### GRADLE VARIABLES
-export GRADLE_HOME="$HOME/DEV/GRADLE/gradle-8.8"
-export PATH=$PATH:"${GRADLE_HOME}/bin"
+# export ANDROID_HOME="$HOME/DEV/FLUTTER/SDK"
+# export PATH=$PATH:"$ANDROID_HOME/flutter/bin" # flutter-sdk
+# export PATH=$PATH:"$ANDROID_HOME/cmdline-tools/latest/bin" # cmdline-tools
+# export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
 
 ### EXPORT ALIAS VARIABLES
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
