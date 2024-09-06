@@ -68,7 +68,7 @@ format = '[\[$duration\]]($style)'
 disabled = false
 style = 'bold yellow'
 time_format = "%R"
-format = '[\[$time\]]($style) '
+format = '[\[$time\]]($style)'
 
 [line_break]
 disabled = false
