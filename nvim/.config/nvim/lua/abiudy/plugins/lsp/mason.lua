@@ -23,7 +23,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "marksman",
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "bashls",
