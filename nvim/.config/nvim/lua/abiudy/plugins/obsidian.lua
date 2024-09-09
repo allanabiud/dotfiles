@@ -108,6 +108,49 @@ return {
           return string.format("![%s](%s)", path.name, path)
         end,
       },
+      -- Keymaps
+      -- You can use the following keymaps to interact with Obsidian:
+      vim.keymap.set("n", "<leader>on", ":ObsidianNew<cr>", { desc = "Create a new note" }),
+      vim.keymap.set(
+        "n",
+        "<leader>oq",
+        ":ObsidianQuickSwitch<cr>",
+        { desc = "Quickly switch to (or open) another note in your vault" }
+      ),
+      vim.keymap.set("n", "<leader>ofl", ":ObsidianFollowLink<cr>", { desc = "Follow note reference" }),
+      vim.keymap.set(
+        "n",
+        "<leader>ofv",
+        ":ObsidianFollowLink vsplit<cr>",
+        { desc = "Follow note reference in a vsplit" }
+      ),
+      vim.keymap.set(
+        "n",
+        "<leader>ofh",
+        ":ObsidianFollowLink hsplit<cr>",
+        { desc = "Follow note reference in a hsplit" }
+      ),
+      vim.keymap.set("v", "<leader>oll", ":ObsidianLink", { desc = "Link to a note" }),
+      vim.keymap.set("v", "<leader>oln", ":ObsidianLinkNew", { desc = "Create a new note and link to it" }),
+      vim.keymap.set("n", "<leader>oL", ":ObsidianLinks<cr>", { desc = "List links in the current note" }),
+      vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<cr>", { desc = "List backlinks" }),
+      vim.keymap.set("n", "<leader>og", ":ObsidianTags<cr>", { desc = "List tags" }),
+      vim.keymap.set("n", "<leader>ot", ":ObsidianTemplate<cr>", { desc = "Insert a template" }),
+      vim.keymap.set("n", "<leader>oT", ":ObsidianNewFromTemplate<cr>", { desc = "Create a new note from a template" }),
+      vim.keymap.set("n", "<leader>oc", ":ObsidianToggleCheckbox<cr>", { desc = "Cycle throught checkbox options" }),
+      vim.keymap.set("n", "<leader>os", ":ObsidianSearch<cr>", { desc = "Search for (or create) notes" }),
+      vim.keymap.set("n", "<leader>odl", ":ObsidianDailies<cr>", { desc = "List daily notes" }),
+      vim.keymap.set("n", "<leader>or", ":ObsidianRename<cr>", { desc = "Rename current note" }),
+      vim.keymap.set("n", "<leader>odt", ":ObsidianToday<cr>", { desc = "Create a new daily note" }),
+      vim.keymap.set("n", "<leader>ody", ":ObsidianYesterday<cr>", { desc = "Create a new daily note for yesterday" }),
+      vim.keymap.set("n", "<leader>odm", ":ObsidianTomorrow<cr>", { desc = "Create a new daily note for tomorrow" }),
+      vim.keymap.set(
+        "n",
+        "<leader>oc",
+        ":ObsidianTOC<cr>",
+        { desc = "Load the table of contents of the current note" }
+      ),
+      vim.keymap.set("n", "<leader>om", ":MarkdownPreview<cr>", { desc = "Preview markdown" }),
     })
   end,
 }

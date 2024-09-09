@@ -21,7 +21,7 @@ return {
           hidden = true,
         },
         {
-          "leader>T",
+          "<leader>T",
           group = "[T]odo",
         },
         {
@@ -67,6 +67,26 @@ return {
         {
           "<leader>l_",
           hidden = true,
+        },
+        {
+          "<leader>o",
+          group = "[o]bsidian",
+        },
+        {
+          "<leader>o_",
+          hidden = true,
+        },
+        {
+          "<leader>od",
+          group = "[d]ailies",
+        },
+        {
+          "<leader>od_",
+          hidden = true,
+        },
+        {
+          "<leader>of",
+          group = "[f]ollow",
         },
         {
           "<leader>r",
