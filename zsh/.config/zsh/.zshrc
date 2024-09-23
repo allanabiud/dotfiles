@@ -32,6 +32,11 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
 ### JAVA_HOME
@@ -90,6 +95,8 @@ alias grep='grep --color'
 # ----- eza ---------------------------------
 alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
+# ----- neovim ---------------------------------
+alias v="nvim"
 
 ### ---- Starship -----------------------------------
 eval "$(starship init zsh)"

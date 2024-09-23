@@ -1,4 +1,5 @@
 return {
+  -- VSCode
   {
     "Mofiqul/vscode.nvim",
     lazy = false,
@@ -45,6 +46,24 @@ return {
     end,
   },
 
+  -- Tokyo Night
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     require("tokyonight").setup({
+  --       transparent = true,
+  --       styles = {
+  --         sidebars = "transparent",
+  --         floats = "transparent",
+  --       },
+  --     })
+  --
+  --     vim.cmd("colorscheme tokyonight")
+  --   end,
+  -- },
+
+  -- One Dark
   -- {
   --   "navarasu/onedark.nvim",
   --   lazy = false,

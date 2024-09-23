@@ -218,6 +218,7 @@ bindsym $mod+n exec pcmanfm
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
+bindsym $mod+j exec jellyfinmediaplayer
 # bindsym $mod+o exec obsidian
 # bindsym $mod+k exec kitty
 
@@ -232,6 +233,7 @@ bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
 exec --no-startup-id mpDris2
+exec --no-startup-id caffeine-indicator
 # exec --no-startup-id keepassxc
 
 # Lanch Apps in specified workspaces
@@ -258,7 +260,8 @@ assign [class="ncmpcpp"] $ws6
 #assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
-assign [class="heroic"] $ws8
+# assign [class="heroic"] $ws8
+assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
 # assign [class="KeePassXC"] $ws9
 
