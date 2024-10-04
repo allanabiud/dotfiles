@@ -14,9 +14,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 ### ---- Source plugins -----------------------------------
 #[[ -f $ZDOTDIR/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
-### PATH VARIABLES
-export PATH=$PATH:$HOME/.local/bin
-
 ### XDG VARIABLES
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
@@ -41,7 +38,6 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-22-openjdk"
-export PATH=$PATH:"$JAVA_HOME/bin"
 
 ### FLUTTER PATH VARIABLES
 # export ANDROID_HOME="$HOME/DEV/FLUTTER/SDK"
@@ -64,6 +60,11 @@ export TERMINAL=/usr/bin/alacritty
 ### SET DEFAULT EDITOR
 export EDITOR=/usr/bin/nvim
 
+#########################
+##### PATH VARIABLES
+#########################
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:"$JAVA_HOME/bin"
 
 ### ---- HISTORY ------------------------------------------
 ### -------------------------------------------------------
