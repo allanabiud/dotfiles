@@ -253,13 +253,14 @@ assign [class="Code"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
+assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 # assign [class="elisa"] $ws6
 # assign [class="Rhythmbox"] $ws6
 assign [class="ncmpcpp"] $ws6
 #assign [class="Harmonoid"] $ws6
-#assign [class="64Gram"] $ws7
-assign [class="TelegramDesktop"] $ws7
+assign [class="64Gram"] $ws7
+# assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
 # assign [class="heroic"] $ws8
 assign [class="Lutris"] $ws8
@@ -286,8 +287,8 @@ for_window [class="Pcmanfm"] focus
 #for_window [class="Thunar"] focus
 # for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
-for_window [class="KeePassXC"] focus
-for_window [class="yazi"] focus
+# for_window [class="KeePassXC"] focus
+# for_window [class="yazi"] focus
 
 # Workspace to focus when app is launched
 # for_window [class="Thunar"] focus workspace
