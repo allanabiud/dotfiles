@@ -2,6 +2,7 @@
 # export ZDOTDIR=$HOME/.config/zsh
 
 ### XDG VARIABLES
+export XDG_SESSION_TYPE=X11
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
@@ -96,7 +97,8 @@ alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
 # ----- neovim ---------------------------------
 alias v="nvim"
-
+# ----- yt-dlp ---------------------------------
+#
 ### ----------------------------------------------------------------------------
 
 ### ---- Starship -----------------------------------

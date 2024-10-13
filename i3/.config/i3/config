@@ -236,6 +236,8 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id mpDris2
 exec --no-startup-id caffeine-indicator
 # exec --no-startup-id keepassxc
+# POLKIT AGENT
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
 # Lanch Apps in specified workspaces
 #assign [class="Xfce4-terminal"] $ws1
@@ -252,6 +254,7 @@ assign [class="Code"] $ws4
 # assign [class="code-oss"] $ws4
 assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
+assign [class="jetbrains-pycharm"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6

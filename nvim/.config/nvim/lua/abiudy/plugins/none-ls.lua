@@ -10,7 +10,7 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.shfmt,
         require("none-ls-shellcheck.code_actions"),
         require("none-ls-shellcheck.diagnostics"),
