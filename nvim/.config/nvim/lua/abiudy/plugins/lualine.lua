@@ -12,13 +12,13 @@ return {
         theme = "vscode",
       },
       sections = {
-        -- lualine_b = {
-        --   {
-        --     "branch",
-        --     icon = "",
-        --     color = { fg = "#ff9e64" },
-        --   },
-        -- },
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+            color = { fg = "#ff9e64" },
+          },
+        },
         lualine_x = {
           {
             lazy_status.updates,
