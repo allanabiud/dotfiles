@@ -5,16 +5,10 @@ return {
     local conform = require("conform")
     conform.setup({
       formatters_by_ft = {
-        -- javascript = { "prettier" },
-        -- typescript = { "prettier" },
-        -- javascriptreact = { "prettier" },
-        -- typescriptreact = { "prettier" },
-        -- html = { "prettier" },
-        -- css = { "prettier" },
-        -- json = { "prettier" },
-        -- yaml = { "prettier" },
-        -- markdown = { "prettier" },
         lua = { "stylua" },
+        html = { "prettierd" },
+        css = { "prettierd" },
+        markdown = { "prettierd" },
       },
       format_on_save = {
         lsp_fallback = true,

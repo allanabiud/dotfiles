@@ -97,5 +97,8 @@ return {
     lspconfig.bashls.setup({
       capabilities = capabilities,
     })
+    lspconfig.pylsp.setup({
+      capabilities = capabilities,
+    })
   end,
 }

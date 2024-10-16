@@ -11,7 +11,7 @@ return {
         -- cpp = true,
       },
       color = {
-        suggestion_color = "#b36500",
+        suggestion_color = "#9e5b03",
         cterm = 244,
       },
       log_level = "info", -- set to "off" to disable logging completely
