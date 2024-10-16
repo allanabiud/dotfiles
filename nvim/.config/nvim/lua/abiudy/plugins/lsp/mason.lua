@@ -22,10 +22,9 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "lua_ls",
-        "marksman",
-        "ts_ls",
         "html",
         "cssls",
+        "marksman",
         "bashls",
       },
     })
