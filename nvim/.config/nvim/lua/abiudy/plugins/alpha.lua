@@ -3,10 +3,9 @@ return {
   event = "VimEnter",
   config = function()
     local alpha = require("alpha")
-    -- local dashboard = require("alpha.themes.dashboard")
-
     alpha.setup(require("alpha.themes.startify").config)
 
+    -- local dashboard = require("alpha.themes.dashboard")
     -- -- Set header
     -- dashboard.section.header.val = {
     --   "                                                     ",
