@@ -9,7 +9,8 @@ return {
     lualine.setup({
       options = {
         -- theme = "onedark",
-        theme = "vscode",
+        -- theme = "vscode",
+        theme = "onedark_dark",
       },
       sections = {
         lualine_b = {
