@@ -214,7 +214,8 @@ bar {
 ######################
 ## Extra Key Bindings
 # bindsym $mod+n exec thunar
-bindsym $mod+n exec pcmanfm
+# bindsym $mod+n exec pcmanfm
+bindsym $mod+n exec thunar
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
@@ -245,8 +246,8 @@ assign [class="Alacritty"] $ws1
 # assign [class="kitty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 #assign [class="firefox"] $ws2
-#assign [class="Thunar"] $ws3
-assign [class="Pcmanfm"] $ws3
+assign [class="Thunar"] $ws3
+# assign [class="Pcmanfm"] $ws3
 # assign [class="yazi"] $ws3
 # assign [class="mc"] $ws3
 assign [class="Code"] $ws4
@@ -286,8 +287,8 @@ for_window [class="file-roller"] floating enable
 # for_window [class="Xfce4-terminal"] focus
 for_window [class="Alacritty"] focus
 # for_window [class="kitty"] focus
-for_window [class="Pcmanfm"] focus
-#for_window [class="Thunar"] focus
+# for_window [class="Pcmanfm"] focus
+for_window [class="Thunar"] focus
 # for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
 # for_window [class="KeePassXC"] focus
@@ -306,6 +307,7 @@ for_window [workspace="3"] layout default
 
 # Layout mode for specific applications
 # for_window [class="Pcmanfm"] layout default
+# for_window [class="Thunar"] layout default
 
 #################
 ###### Gaps
@@ -342,6 +344,7 @@ for_window [class="Alacritty"] border normal 2
 for_window [class="tmux"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
+for_window [class="Thunar"] border pixel 2
 for_window [class="Code"] border pixel 2
 
 #######################
