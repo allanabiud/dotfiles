@@ -20,10 +20,11 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-
     local luasnip = require("luasnip")
-
     local lspkind = require("lspkind")
+
+    -- Set up custom highlight for PmenuSel (selector in the completion window)
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })
 
     -- Include snippets not in global snippets for friendly-snippets
     luasnip.filetype_extend("html", { "loremipsum" })
@@ -42,7 +43,7 @@ return {
       window = {
         completion = {
           border = "rounded",
-          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder",
+          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder,CursorLine:PmenuSel",
         },
         documentation = {
           border = "rounded",
@@ -55,14 +56,46 @@ return {
         },
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
+        -- Previous Suggestion
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<Up>"] = cmp.mapping.select_prev_item(),
+        -- Next Suggestion
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<Down>"] = cmp.mapping.select_next_item(),
+        -- Scroll Documentation
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+        -- Show completion window
+        ["<C-Space>"] = cmp.mapping.complete(),
+        -- Close completion window
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        -- Confirm Completion
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif require("luasnip").expand_or_jumpable() then
+            require("luasnip").expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif require("luasnip").jumpable(-1) then
+            require("luasnip").jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       }),
+
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
