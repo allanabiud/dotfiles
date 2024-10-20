@@ -32,3 +32,7 @@ vim.keymap.set("n", "<C-x>", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Run terminal commands
 vim.keymap.set("n", "<leader>Rl", ":terminal live-server<CR>", { desc = "Run live-server" })
+
+-- Comment
+vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
+vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
