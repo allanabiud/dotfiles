@@ -9,6 +9,8 @@ return {
         html = { "prettierd" },
         css = { "prettierd" },
         markdown = { "prettierd" },
+        bash = { "shfmt" },
+        python = { "black", "isort" },
       },
       format_on_save = {
         lsp_fallback = true,

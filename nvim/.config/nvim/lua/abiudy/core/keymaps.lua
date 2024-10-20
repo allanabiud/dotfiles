@@ -25,6 +25,7 @@ vim.keymap.set("n", "<c-up>", ":wincmd k<CR>")
 --vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Tab navigation
+vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })
 vim.keymap.set("n", "<C-S-left>", ":tabprevious<CR>", { desc = "Move to previous tab" })
 vim.keymap.set("n", "<C-S-right>", ":tabnext<CR>", { desc = "Move to next tab" })
 vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })

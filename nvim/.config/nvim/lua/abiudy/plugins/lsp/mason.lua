@@ -24,8 +24,6 @@ return {
         "lua_ls",
         "html",
         "cssls",
-        "marksman",
-        "bashls",
       },
     })
   end,

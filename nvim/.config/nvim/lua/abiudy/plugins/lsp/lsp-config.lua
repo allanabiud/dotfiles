@@ -87,9 +87,11 @@ return {
     })
     lspconfig.html.setup({
       capabilities = capabilities,
+      filetypes = { "html" },
     })
     lspconfig.cssls.setup({
       capabilities = capabilities,
+      filetypes = { "css", "html" },
     })
     lspconfig.marksman.setup({
       capabilities = capabilities,
@@ -97,8 +99,9 @@ return {
     lspconfig.bashls.setup({
       capabilities = capabilities,
     })
-    lspconfig.pylsp.setup({
+    lspconfig.pyright.setup({
       capabilities = capabilities,
+      filetypes = { "python" },
     })
   end,
 }
