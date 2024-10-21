@@ -25,11 +25,15 @@ vim.keymap.set("n", "<c-up>", ":wincmd k<CR>")
 --vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- Tab navigation
-vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })
-vim.keymap.set("n", "<C-S-left>", ":tabprevious<CR>", { desc = "Move to previous tab" })
-vim.keymap.set("n", "<C-S-right>", ":tabnext<CR>", { desc = "Move to next tab" })
-vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })
-vim.keymap.set("n", "<C-x>", ":tabclose<CR>", { desc = "Close tab" })
+-- vim.keymap.set("n", "<C-n>", ":tabnew<CR>", { desc = "Create new tab" })
+-- vim.keymap.set("n", "<C-S-left>", ":tabprevious<CR>", { desc = "Move to previous tab" })
+-- vim.keymap.set("n", "<C-S-right>", ":tabnext<CR>", { desc = "Move to next tab" })
+-- vim.keymap.set("n", "<C-x>", ":tabclose<CR>", { desc = "Close tab" })
+
+-- Buffer and Tab Navigation
+vim.keymap.set("n", "<C-S-right>", ":bnext<CR>", { desc = "Move to next buffer" })
+vim.keymap.set("n", "<C-S-left>", ":bprevious<CR>", { desc = "Move to previous buffer" })
+vim.keymap.set("n", "<C-x>", ":bdelete<CR>", { desc = "Close current buffer" })
 
 -- Run terminal commands
 vim.keymap.set("n", "<leader>Rl", ":terminal live-server<CR>", { desc = "Run live-server" })
