@@ -280,7 +280,7 @@ for_window [class="Blueman-manager"] floating enable
 #for_window [class="Free Download Manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [window_role="pop-up"] floating enable
-# for_window [class="com.github.gabutakut.gabutdm"] floating enable
+for_window [class="com.github.gabutakut.gabutdm"] floating enable
 for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch

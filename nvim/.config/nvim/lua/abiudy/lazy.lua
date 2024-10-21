@@ -20,4 +20,7 @@ require("lazy").setup({ { import = "abiudy.plugins" }, { import = "abiudy.plugin
   change_detection = {
     notify = false,
   },
+  ui = {
+    border = "rounded",
+  },
 })
