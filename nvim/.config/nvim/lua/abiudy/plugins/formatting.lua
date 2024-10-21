@@ -6,11 +6,11 @@ return {
     conform.setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        html = { "prettierd" },
-        css = { "prettierd" },
-        markdown = { "prettierd" },
+        html = { "prettier" },
+        css = { "prettier" },
+        markdown = { "prettier" },
         bash = { "shfmt" },
-        python = { "black", "isort" },
+        python = { "isort", "black" },
       },
       format_on_save = {
         lsp_fallback = true,
