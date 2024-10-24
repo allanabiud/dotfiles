@@ -1,8 +1,8 @@
-live_config_reload = true
+general.live_config_reload = true
 working_directory = "None"
 
 # Themes --
-import = [ 
+general.import = [ 
   "~/.config/alacritty/keybinds.toml"
 ]
 
