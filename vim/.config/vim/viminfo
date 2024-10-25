@@ -11,10 +11,10 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:qa
+|2,0,1729758934,,"qa"
 :wqa
 |2,0,1729531399,,"wqa"
-:qa
-|2,0,1724345600,,"qa"
 :number
 |2,0,1724345338,,"number"
 :colorscheme default
@@ -134,26 +134,50 @@
 # Jumplist (newest first):
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  31  ~/.zshenv
@@ -220,96 +244,70 @@
 |4,39,1,31,1728391828,"~/.zshenv"
 -'  1  31  ~/.zshenv
 |4,39,1,31,1728391828,"~/.zshenv"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
--'  1  0  ~/.xinitrc
-|4,39,1,0,1725099420,"~/.xinitrc"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
+-'  1  31  ~/.zshenv
+|4,39,1,31,1728391828,"~/.zshenv"
 -'  1  0  ~/.xinitrc
 |4,39,1,0,1725099420,"~/.xinitrc"
 -'  1  0  ~/.xinitrc
