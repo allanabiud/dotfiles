@@ -20,6 +20,10 @@ return {
             color = { fg = "#ff9e64" },
           },
         },
+        lualine_c = {
+          { "filename", path = 1 },
+          { "diagnostics" },
+        },
         lualine_x = {
           {
             lazy_status.updates,

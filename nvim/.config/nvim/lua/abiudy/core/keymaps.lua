@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 -- vim.keymap.set('i', '<left><right>', '<ESC>', { desc = "Exit insert mode with left&right arrow keys"})
 
 -- clear search highlights
--- vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- -- Move window focus
 -- vim.keymap.set("n", "<C-left>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -37,6 +37,7 @@ vim.keymap.set("n", "<C-x>", ":bdelete<CR>", { desc = "Close current buffer" })
 
 -- Run terminal commands
 vim.keymap.set("n", "<leader>Rl", ":terminal live-server<CR>", { desc = "Run live-server" })
+vim.keymap.set("n", "<leader>Rs", ":terminal npm run watch:sass<CR>", { desc = "Run npm run watch:sass" })
 
 -- Comment
 vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
