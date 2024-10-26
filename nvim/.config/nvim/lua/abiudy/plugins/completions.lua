@@ -107,19 +107,27 @@ return {
       -- configure lspkind for vs-code like pictograms and colors in completion menu
       formatting = {
         format = function(entry, item)
-          local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+          -- Step 1: Check if the item is an Emmet suggestion
+          if entry.source.name == "nvim_lsp" and entry.completion_item.detail == "Emmet Abbreviation" then
+            item.kind = "Emmet Abbreviation" -- Customize the label for Emmet
+          end
 
+          -- Step 2: Apply color formatting
+          local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+          if color_item.abbr_hl_group then
+            item.kind_hl_group = color_item.abbr_hl_group
+            item.kind = color_item.abbr
+          end
+
+          -- Step 3: Apply lspkind formatting
           item = lspkind.cmp_format({
-            -- any lspkind format settings here
             mode = "symbol_text",
             symbol_map = { Supermaven = "" },
             maxwidth = 50,
             ellipsis_char = "...",
           })(entry, item)
-          if color_item.abbr_hl_group then
-            item.kind_hl_group = color_item.abbr_hl_group
-            item.kind = color_item.abbr
-          end
+
+          -- Optional: Set custom highlights for Emmet or any other items
           vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 
           return item

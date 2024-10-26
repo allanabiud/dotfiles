@@ -29,6 +29,7 @@ return {
         "pyright",
         "marksman",
         "bashls",
+        "emmet_language_server",
       },
     })
 
