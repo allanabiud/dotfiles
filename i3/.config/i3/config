@@ -227,6 +227,7 @@ bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 # bindsym $mod+y exec kitty --class yazi -e yazi
 # bindsym $mod+m exec kitty --class ncmpcpp -e ncmpcpp
 # bindsym $mod+y exec alacritty --class yazi -e yazi
+bindsym $mod+t exec alacritty --class tmux -e tmux
 # bindsym $mod+t exec alacritty --class tmux -e '/home/abiudy/.config/tmux/scripts/tmuxdef.sh'
 # bindsym $mod+m exec alacritty --class mc -e mc
 

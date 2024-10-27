@@ -1,3 +1,4 @@
 .zsh_history
 .zcompdump
 ./ncmpcpp/.config/ncmpcpp/lyrics/*
+./tmux/.config/tmux/plugins/*
