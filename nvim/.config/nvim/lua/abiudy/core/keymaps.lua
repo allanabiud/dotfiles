@@ -35,10 +35,6 @@ vim.keymap.set("n", "<C-S-right>", ":bnext<CR>", { desc = "Move to next buffer" 
 vim.keymap.set("n", "<C-S-left>", ":bprevious<CR>", { desc = "Move to previous buffer" })
 vim.keymap.set("n", "<C-x>", ":bdelete<CR>", { desc = "Close current buffer" })
 
--- Run terminal commands
-vim.keymap.set("n", "<leader>Rl", ":terminal live-server<CR>", { desc = "Run live-server" })
-vim.keymap.set("n", "<leader>Rs", ":terminal npm run watch:sass<CR>", { desc = "Run npm run watch:sass" })
-
 -- Comment
 vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })

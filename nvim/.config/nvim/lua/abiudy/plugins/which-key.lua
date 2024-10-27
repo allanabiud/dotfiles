@@ -13,22 +13,6 @@ return {
           hidden = true,
         },
         {
-          "<leader>R",
-          group = "[R]un",
-        },
-        {
-          "<leader>R_",
-          hidden = true,
-        },
-        {
-          "<leader>T",
-          group = "[T]odo",
-        },
-        {
-          "<leader>T_",
-          hidden = true,
-        },
-        {
           "<leader>c",
           group = "[c]ode",
         },
