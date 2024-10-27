@@ -224,12 +224,6 @@ bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
 bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
-# bindsym $mod+y exec kitty --class yazi -e yazi
-# bindsym $mod+m exec kitty --class ncmpcpp -e ncmpcpp
-# bindsym $mod+y exec alacritty --class yazi -e yazi
-bindsym $mod+t exec alacritty --class tmux -e tmux
-# bindsym $mod+t exec alacritty --class tmux -e '/home/abiudy/.config/tmux/scripts/tmuxdef.sh'
-# bindsym $mod+m exec alacritty --class mc -e mc
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -340,7 +334,8 @@ hide_edge_borders none
 # for_window [class=".*"] border normal 2
 
 # Border for specific applications
-for_window [class="Alacritty"] border normal 2
+# for_window [class="Alacritty"] border normal 2
+for_window [class="Alacritty"] border pixel 2
 for_window [class="tmux"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2

@@ -97,8 +97,7 @@ alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
 # ----- neovim ---------------------------------
 alias v="nvim"
-# ----- yt-dlp ---------------------------------
-#
+
 ### ----------------------------------------------------------------------------
 
 ### ---- Starship -----------------------------------
@@ -117,12 +116,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ### VSCODE Terminal Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
-### Yazi Shell Wrapper
-# function yy() {
-# local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-# 	yazi "$@" --cwd-file="$tmp"
-# 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-# 		builtin cd -- "$cwd"
-# 	fi
-# 	rm -f -- "$tmp"
-# }
+### Tmux Default Session
+if command -v tmux &> /dev/null; then
+    if [ -z "$TMUX" ]; then
+        # Kill any existing session named 'default' (ignore error if it doesn't exist)
+        tmux kill-session -t default 2>/dev/null
+        # Start a new session named 'default'
+        tmux new-session -s default
+    fi
+fi
