@@ -26,6 +26,8 @@ $line_break\
 $character
 """
 
+command_timeout = 2000
+
 [username]
 show_always = true
 format = '[\[$user\]]($style)'
