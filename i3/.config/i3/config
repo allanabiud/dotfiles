@@ -231,6 +231,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id mpDris2
 exec --no-startup-id caffeine-indicator
 # exec --no-startup-id keepassxc
+
 # POLKIT AGENT
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
@@ -334,8 +335,8 @@ hide_edge_borders none
 # for_window [class=".*"] border normal 2
 
 # Border for specific applications
-# for_window [class="Alacritty"] border normal 2
-for_window [class="Alacritty"] border pixel 2
+for_window [class="Alacritty"] border normal 2
+# for_window [class="Alacritty"] border pixel 2
 for_window [class="tmux"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2

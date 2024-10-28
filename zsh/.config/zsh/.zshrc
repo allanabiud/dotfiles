@@ -47,8 +47,9 @@ export EDITOR=/usr/bin/nvim
 #########################
 #### PATH VARIABLES
 #########################
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$JAVA_HOME/bin"
+export PATH=$PATH:"$HOME/.tmuxifier/bin"
 
 ####################################################################################################
 ### ---- autocompletions -----------------------------------
@@ -117,11 +118,11 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 ### Tmux Default Session
-if command -v tmux &> /dev/null; then
-    if [ -z "$TMUX" ]; then
-        # Kill any existing session named 'default' (ignore error if it doesn't exist)
-        tmux kill-session -t default 2>/dev/null
-        # Start a new session named 'default'
-        tmux new-session -s default
-    fi
-fi
+# if command -v tmux &> /dev/null; then
+#     if [ -z "$TMUX" ]; then
+#         # Kill any existing session named 'default' (ignore error if it doesn't exist)
+#         tmux kill-session -t default 2>/dev/null
+#         # Start a new session named 'default'
+#         tmux new-session -s default
+#     fi
+# fi
