@@ -6,7 +6,7 @@ return {
 
     lint.linters_by_ft = {
       shell = { "shellcheck" },
-      python = { "mypy" },
+      -- python = { "mypy" },
       html = { "htmlhint" },
     }
 
