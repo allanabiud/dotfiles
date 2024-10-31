@@ -13,8 +13,8 @@ return {
         pylsp = {
           plugins = {
             pycodestyle = {
-              ignore = { "W391" },
-              maxLineLength = 150,
+              ignore = { "W391", "E501" },
+              -- maxLineLength = 150,
             },
             ruff = {
               enabled = true, -- Enable Ruff
