@@ -32,6 +32,10 @@ vim.opt.breakindent = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
+-- Set folding behaviour
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+
 -- Enable termguicolors
 vim.opt.termguicolors = true
 
