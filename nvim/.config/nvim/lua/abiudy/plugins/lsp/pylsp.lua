@@ -1,6 +1,7 @@
 return {
   "python-lsp/python-lsp-ruff",
   dependencies = {
+    "williamboman/mason-lspconfig.nvim",
     "python-lsp/python-lsp-black",
     "chantera/python-lsp-isort",
   },
