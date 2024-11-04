@@ -4,9 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
-    {
-      "hrsh7th/cmp-nvim-lsp",
-    },
+    "hrsh7th/cmp-nvim-lsp",
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -23,13 +21,13 @@ return {
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    -- Set up custom highlight for PmenuSel (selector in the completion window)
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })
-
-    -- Include snippets not in global snippets for friendly-snippets
-    luasnip.filetype_extend("html", { "loremipsum" })
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+    -- Include snippets not in global snippets for friendly-snippets
+    luasnip.filetype_extend("html", { "loremipsum" })
+
+    -- Set up custom highlight for PmenuSel (selector in the completion window)
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })
 
     cmp.setup({
       completion = {
@@ -75,32 +73,32 @@ return {
           behavior = cmp.ConfirmBehavior.Insert,
           select = false,
         }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if require("luasnip").expand_or_jumpable() then
-            require("luasnip").expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif require("luasnip").jumpable(-1) then
-            require("luasnip").jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --   if require("luasnip").expand_or_jumpable() then
+        --     require("luasnip").expand_or_jump()
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
+        --
+        -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     cmp.select_prev_item()
+        --   elseif require("luasnip").jumpable(-1) then
+        --     require("luasnip").jump(-1)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
       }),
 
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "supermaven" },
         { name = "luasnip" }, -- snippets
+        { name = "nvim_lsp" },
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "supermaven" },
         -- { name = 'vim-dadbod-completion' },
       }),
 
