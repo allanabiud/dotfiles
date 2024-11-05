@@ -8,7 +8,8 @@ return {
         accept_word = "<A-l>",
       },
       ignore_filetypes = {
-        -- cpp = true,
+        "neo-tree",
+        -- "cpp"
       },
       color = {
         suggestion_color = "#9e5b03",
