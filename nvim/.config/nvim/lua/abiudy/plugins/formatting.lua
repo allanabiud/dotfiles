@@ -7,6 +7,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         html = { "prettier" },
+        htmldjango = { "prettier" },
         css = { "prettier" },
         markdown = { "prettier" },
         bash = { "shfmt" },
