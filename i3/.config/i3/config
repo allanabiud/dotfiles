@@ -335,8 +335,8 @@ hide_edge_borders none
 # for_window [class=".*"] border normal 2
 
 # Border for specific applications
-for_window [class="Alacritty"] border normal 2
-# for_window [class="Alacritty"] border pixel 2
+# for_window [class="Alacritty"] border normal 2
+for_window [class="Alacritty"] border pixel 2
 for_window [class="tmux"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
