@@ -7,9 +7,12 @@ return {
   config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      ensure_installed = { "lua", "markdown", "html", "htmldjango", "css", "bash" },
+      ensure_installed = { "lua", "markdown", "htmldjango", "html", "css", "bash" },
       auto_install = true,
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        -- disable = { "html" },
+      },
       indent = { enable = true },
       autotag = { enable = true },
     })
