@@ -42,12 +42,13 @@ return {
         "stylua", -- lua formatter
         "htmlhint", -- html linter
         "prettier", -- prettier formatter
-        -- "isort", -- python formatter
-        -- "black", -- python formatter
+        "isort", -- python formatter
+        "black", -- python formatter
         "mypy", -- python linter
         "ruff",
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
+        "debugpy",
       },
     })
   end,
