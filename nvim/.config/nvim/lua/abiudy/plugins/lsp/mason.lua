@@ -26,7 +26,8 @@ return {
         "lua_ls",
         "html",
         "cssls",
-        "pylsp",
+        "pyright",
+        -- "pylsp",
         "marksman",
         "bashls",
         "emmet_language_server",
@@ -43,7 +44,8 @@ return {
         "prettier", -- prettier formatter
         -- "isort", -- python formatter
         -- "black", -- python formatter
-        -- "mypy", -- python linter
+        "mypy", -- python linter
+        "ruff",
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
       },

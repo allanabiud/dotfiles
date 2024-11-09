@@ -84,9 +84,11 @@ return {
         })
       end,
 
+      -- Lua_ls
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
+          on_attach = on_attach,
           capabilities = capabilities,
           settings = {
             Lua = {
@@ -101,6 +103,36 @@ return {
           },
         })
       end,
+
+      -- Pyright
+      ["pyright"] = function()
+        lspconfig["pyright"].setup({
+          handlers = {
+            ["textDocument/publishDiagnostics"] = function() end,
+          },
+          on_attach = function(client, _)
+            client.server_capabilities.codeActionProvider = false
+          end,
+          settings = {
+            pyright = {
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                typeCheckingMode = "basic",
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+          -- capabilities = capabilities,
+          -- on_attach = on_attach,
+          -- filetypes = { "python" },
+          -- typeCheckingMode = "basic",
+        })
+      end,
+
+      -- Emmet Language Server
       ["emmet-language-server"] = function()
         lspconfig["emmet_language_server"].setup({
           capabilities = capabilities,

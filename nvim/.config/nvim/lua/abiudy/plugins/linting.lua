@@ -6,15 +6,22 @@ return {
 
     lint.linters_by_ft = {
       shell = { "shellcheck" },
-      -- python = { "mypy" },
+      python = { "mypy", "ruff" },
       html = { "htmlhint" },
     }
 
+    -- configure linters
+    -- htmlhint
     lint.linters.htmlhint.args = {
       "--config",
       vim.json.encode({
         ["spec-char-escape"] = false,
       }),
+    }
+    -- mypy
+    lint.linters.mypy.args = {
+      "--config",
+      ["ignore_missing_imports"] = true,
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
