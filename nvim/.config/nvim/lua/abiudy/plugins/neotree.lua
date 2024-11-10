@@ -12,6 +12,10 @@ return {
       popup_border_style = "rounded",
       enable_git_status = true,
       enable_diagnostics = true,
+      source_selector = {
+        winbar = true,
+        -- statusline = false,
+      },
       default_component_configs = {
         indent = {
           padding = 0,
@@ -58,6 +62,7 @@ return {
         --group_empty_dirs = true,
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
+        -- cwd_target = "shortened",
       },
       --buffers = {
       --follow_current_file = true,

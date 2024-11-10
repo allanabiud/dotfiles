@@ -8,6 +8,10 @@ return {
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         numbers = "ordinal",
         separator_style = "slant",
+        indicator = {
+          icon = "▎", -- this should be omitted if indicator style is not 'icon'
+          style = "underline",
+        },
         offsets = {
           {
             filetype = "neo-tree",
