@@ -22,7 +22,7 @@ return {
         },
         {
           "<leader>d",
-          group = "[d]iagnostics",
+          group = "[d]ebugging",
         },
         {
           "<leader>d_",
