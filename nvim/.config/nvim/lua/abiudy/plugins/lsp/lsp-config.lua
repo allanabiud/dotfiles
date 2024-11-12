@@ -84,6 +84,15 @@ return {
         })
       end,
 
+      --html
+      ["html"] = function()
+        lspconfig["html"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          filetypes = { "html", "htmldjango" },
+        })
+      end,
+
       -- Lua_ls
       ["lua_ls"] = function()
         -- configure lua server (with special settings)

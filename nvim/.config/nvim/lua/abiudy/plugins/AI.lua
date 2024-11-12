@@ -9,7 +9,7 @@ return {
         accept_word = "<A-l>",
       },
       ignore_filetypes = {
-        "neo-tree",
+        "neo-tree-popup",
         -- "cpp"
       },
       color = {
