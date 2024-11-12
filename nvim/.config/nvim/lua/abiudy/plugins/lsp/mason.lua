@@ -27,7 +27,6 @@ return {
         "html",
         "cssls",
         "pyright",
-        -- "pylsp",
         "marksman",
         "bashls",
         "emmet_language_server",
@@ -48,7 +47,7 @@ return {
         "ruff",
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
-        "debugpy",
+        -- "debugpy",
       },
     })
   end,

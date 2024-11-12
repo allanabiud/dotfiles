@@ -12,7 +12,7 @@ mpd_music_dir = ~/Music
 #mpd_crossfade_time = 5
 
 ### STARTUP COMMANDS #####
-# execute_on_song_change = "~/.local/bin/songinfo"
+execute_on_song_change = songinfo
 
 ##### SONG FORMAT #####
 ## For a song format you can use:

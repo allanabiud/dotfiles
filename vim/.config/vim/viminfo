@@ -193,40 +193,92 @@
 |3,0,36,0,1,0,1724345437,"# This "
 
 # File marks:
-'0  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
-|4,48,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
-'1  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
-|4,49,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
-'2  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
-|4,50,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
-'3  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,51,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
-'4  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,52,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
-'5  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,53,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
-'6  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,54,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
-'7  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,55,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+'0  1  0  ~/dotfiles/ncmpcpp/.config/ncmpcpp/config
+|4,48,1,0,1731437045,"~/dotfiles/ncmpcpp/.config/ncmpcpp/config"
+'1  7  0  ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+|4,49,7,0,1731437026,"~/dotfiles/ncmpcpp/.config/mpd/mpd.conf"
+'2  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,50,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+'3  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,51,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+'4  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,52,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+'5  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,53,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+'6  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,54,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+'7  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,55,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 '8  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,56,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 '9  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,57,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+|4,57,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 
 # Jumplist (newest first):
+-'  1  0  ~/dotfiles/ncmpcpp/.config/ncmpcpp/config
+|4,39,1,0,1731437045,"~/dotfiles/ncmpcpp/.config/ncmpcpp/config"
+-'  7  0  ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+|4,39,7,0,1731437026,"~/dotfiles/ncmpcpp/.config/mpd/mpd.conf"
+-'  7  0  ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+|4,39,7,0,1731437026,"~/dotfiles/ncmpcpp/.config/mpd/mpd.conf"
+-'  1  0  ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+|4,39,1,0,1731437017,"~/dotfiles/ncmpcpp/.config/mpd/mpd.conf"
+-'  1  0  ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+|4,39,1,0,1731437017,"~/dotfiles/ncmpcpp/.config/mpd/mpd.conf"
 -'  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  103  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,103,0,1731392036,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391841,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391841,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391841,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,1,0,1731391841,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  78  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,78,0,1731391687,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  2  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,2,0,1731391677,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391674,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391674,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
+|4,39,1,0,1731391674,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 |4,39,1,0,1731391674,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
@@ -245,6 +297,102 @@
 |4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,21,0,1729531399,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
+-'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
+|4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,1,0,1729531387,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
@@ -267,156 +415,16 @@
 |4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 -'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
 |4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  11  2  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,11,2,1729530631,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530621,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530575,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530564,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530196,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530186,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  21  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,21,0,1729530127,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
--'  1  0  ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua
-|4,39,1,0,1729530117,"~/dotfiles/nvim/.config/nvim/lua/abiudy/core/autocmds.lua"
 
 # History of marks within files (newest to oldest):
+
+> ~/dotfiles/ncmpcpp/.config/ncmpcpp/config
+	*	1731437042	0
+	"	1	0
+
+> ~/dotfiles/ncmpcpp/.config/mpd/mpd.conf
+	*	1731437019	0
+	"	7	0
 
 > ~/dotfiles/nvim/.config/nvim/lua/abiudy/core/options.lua
 	*	1731391881	0
