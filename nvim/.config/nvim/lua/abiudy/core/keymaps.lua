@@ -31,9 +31,9 @@ vim.keymap.set("n", "<c-up>", ":wincmd k<CR>")
 -- vim.keymap.set("n", "<C-x>", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Buffer and Tab Navigation
-vim.keymap.set("n", "<C-S-right>", ":bnext<CR>", { desc = "Move to next buffer" })
-vim.keymap.set("n", "<C-S-left>", ":bprevious<CR>", { desc = "Move to previous buffer" })
-vim.keymap.set("n", "<C-x>", ":bdelete<CR>", { desc = "Close current buffer" })
+-- vim.keymap.set("n", "<C-S-right>", ":bnext<CR>", { desc = "Move to next buffer" })
+-- vim.keymap.set("n", "<C-S-left>", ":bprevious<CR>", { desc = "Move to previous buffer" })
+-- vim.keymap.set("n", "<C-x>", ":bdelete<CR>", { desc = "Close current buffer" })
 
 -- Comment
 vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })

@@ -13,7 +13,7 @@ return {
       enable_git_status = true,
       enable_diagnostics = true,
       source_selector = {
-        winbar = true,
+        winbar = "Neo-tree",
         -- statusline = false,
       },
       default_component_configs = {

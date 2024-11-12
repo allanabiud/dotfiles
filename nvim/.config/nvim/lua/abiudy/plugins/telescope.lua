@@ -29,6 +29,10 @@ return {
               ["<C-j>"] = actions.move_selection_next,
               ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
             },
+            n = {
+              ["d"] = require("telescope.actions").delete_buffer,
+              ["q"] = require("telescope.actions").close,
+            },
           },
         },
         -- pickers = {}
@@ -46,6 +50,7 @@ return {
       local keymap = vim.keymap -- for conciseness
       local builtin = require("telescope.builtin")
 
+      keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [O]pen Buffers" })
       keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
       keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
