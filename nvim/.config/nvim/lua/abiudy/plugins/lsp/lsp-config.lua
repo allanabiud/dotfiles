@@ -92,9 +92,17 @@ return {
       --html
       ["html"] = function()
         lspconfig["html"].setup({
-          on_attach = on_attach,
+          -- on_attach = on_attach,
           capabilities = capabilities,
           filetypes = { "html", "htmldjango" },
+          init_options = {
+            -- configurationSection = { "html", "css", "javascript" },
+            embeddedLanguages = {
+              htmldjango = true,
+              css = true,
+              javascript = true,
+            },
+          },
         })
       end,
 
@@ -141,10 +149,6 @@ return {
               },
             },
           },
-          -- capabilities = capabilities,
-          -- on_attach = on_attach,
-          -- filetypes = { "python" },
-          -- typeCheckingMode = "basic",
         })
       end,
 
@@ -153,37 +157,29 @@ return {
         lspconfig["emmet_language_server"].setup({
           capabilities = capabilities,
           filetypes = {
-            "css",
-            "eruby",
             "html",
+            "htmldjango",
+            "css",
             "javascript",
             "javascriptreact",
+            "typescriptreact",
             "less",
             "sass",
             "scss",
             "pug",
-            "typescriptreact",
+            "eruby",
           },
           -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
           -- **Note:** only the options listed in the table are supported.
           init_options = {
-            ---@type table<string, string>
             includeLanguages = {},
-            --- @type string[]
             excludeLanguages = {},
-            --- @type string[]
             extensionsPath = {},
-            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
             preferences = {},
-            --- @type boolean Defaults to `true`
             showAbbreviationSuggestions = true,
-            --- @type "always" | "never" Defaults to `"always"`
             showExpandedAbbreviation = "always",
-            --- @type boolean Defaults to `false`
             showSuggestionsAsSnippets = false,
-            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
             syntaxProfiles = {},
-            --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
             variables = {},
           },
         })
