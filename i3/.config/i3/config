@@ -223,7 +223,7 @@ bindsym $mod+j exec jellyfinmediaplayer
 # bindsym $mod+k exec kitty
 
 ## Terminal Applications
-bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
+# bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -248,19 +248,19 @@ assign [class="Pcmanfm"] $ws3
 assign [class="Code"] $ws4
 # assign [class="obsidian"] $ws4
 # assign [class="code-oss"] $ws4
-assign [class="Mysql-workbench-bin"] $ws4
+# assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
-assign [class="jetbrains-pycharm"] $ws5
+# assign [class="jetbrains-pycharm"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 # assign [class="elisa"] $ws6
 # assign [class="Rhythmbox"] $ws6
-assign [class="ncmpcpp"] $ws6
+# assign [class="ncmpcpp"] $ws6
 #assign [class="Harmonoid"] $ws6
-assign [class="64Gram"] $ws7
-# assign [class="TelegramDesktop"] $ws7
-assign [class="YACReaderLibrary"] $ws8
+# assign [class="64Gram"] $ws7
+assign [class="TelegramDesktop"] $ws7
+# assign [class="YACReaderLibrary"] $ws8
 # assign [class="heroic"] $ws8
 assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
@@ -275,8 +275,8 @@ for_window [class="Blueman-manager"] floating enable
 #for_window [class="Free Download Manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [window_role="pop-up"] floating enable
-for_window [class="com.github.gabutakut.gabutdm"] floating enable
-for_window [class="file-roller"] floating enable
+# for_window [class="com.github.gabutakut.gabutdm"] floating enable
+# for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch
 # for_window [class="Xfce4-terminal"] focus

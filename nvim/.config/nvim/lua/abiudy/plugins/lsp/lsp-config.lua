@@ -131,6 +131,8 @@ return {
             pyright = {
               disableOrganizeImports = true,
             },
+            venvPath = vim.fn.getcwd() .. "/venv",
+            venv = "venv",
             python = {
               analysis = {
                 autoSearchPaths = true,
