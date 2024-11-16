@@ -8,12 +8,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Associate Django template files with htmldjango filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = {
     "*/templates/*.html",
     "*/templates/*/*.html",
+    "*/templates/*.django",
   },
-  command = "set filetype=html",
+  command = "set filetype=htmldjango",
 })
 
 -- Open a file in a new tab when opening a new file

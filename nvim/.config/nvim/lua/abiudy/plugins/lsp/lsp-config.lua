@@ -96,7 +96,7 @@ return {
           capabilities = capabilities,
           filetypes = { "html", "htmldjango" },
           init_options = {
-            -- configurationSection = { "html", "css", "javascript" },
+            configurationSection = { "html", "css", "javascript" },
             embeddedLanguages = {
               htmldjango = true,
               css = true,
