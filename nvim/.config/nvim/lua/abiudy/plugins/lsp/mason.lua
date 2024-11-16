@@ -40,6 +40,7 @@ return {
       ensure_installed = {
         "stylua", -- lua formatter
         "htmlhint", -- html linter
+        "djlint", -- htmldjango linter
         "prettier", -- prettier formatter
         "isort", -- python formatter
         "black", -- python formatter

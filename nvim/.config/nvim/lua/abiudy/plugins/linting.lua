@@ -8,7 +8,7 @@ return {
       sh = { "shellcheck" },
       python = { "mypy", "ruff" },
       html = { "htmlhint" },
-      htmldjango = { "htmlhint" },
+      htmldjango = { "djlint" },
     }
 
     -- configure linters

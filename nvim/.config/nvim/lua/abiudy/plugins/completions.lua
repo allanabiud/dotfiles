@@ -24,8 +24,8 @@ return {
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
     -- Include snippets not in global snippets for friendly-snippets
-    luasnip.filetype_extend("htmldjango", { "html" })
-    luasnip.filetype_extend("html", { "loremipsum", "djangohtml" })
+    luasnip.filetype_extend("htmldjango", { "html", "djangohtml" })
+    luasnip.filetype_extend("html", { "loremipsum" })
     luasnip.filetype_extend("python", { "django" })
 
     -- Set up custom highlight for PmenuSel (selector in the completion window)

@@ -128,27 +128,56 @@ return {
 
       -- Pyright
       ["pyright"] = function()
-        lspconfig["pyright"].setup({
+        lspconfig.pyright.setup({
           handlers = {
             ["textDocument/publishDiagnostics"] = function() end,
           },
           on_attach = function(client, _)
             client.server_capabilities.codeActionProvider = false
           end,
+          on_init = function(client)
+            local venv_paths = {
+              vim.fn.getcwd() .. "/venv/bin/python",
+              vim.fn.getcwd() .. "/.venv/bin/python",
+              vim.fn.getcwd() .. "/env/bin/python",
+            }
+            for _, venv in ipairs(venv_paths) do
+              if vim.fn.executable(venv) == 1 then
+                client.config.settings.python.pythonPath = venv
+                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+                break
+              end
+            end
+          end,
           settings = {
             pyright = {
               disableOrganizeImports = true,
             },
-            venvPath = vim.fn.getcwd() .. "/venv",
-            venv = "venv",
             python = {
               analysis = {
                 autoSearchPaths = true,
+                diagnosticMode = "workspace",
                 typeCheckingMode = "basic",
                 useLibraryCodeForTypes = true,
+                extraPaths = {
+                  vim.fn.getcwd(), -- Add project root
+                  vim.fn.getcwd() .. "/src", -- Source directory
+                  vim.fn.getcwd() .. "/apps", -- Common Django apps directory
+                },
+                reportGeneralTypeIssues = "warning",
+                reportPropertyTypeMismatch = "warning",
+                reportMissingImports = true,
+                reportMissingTypeStubs = false,
               },
             },
           },
+          root_dir = function(fname)
+            -- Look for Django-specific files to determine project root
+            local util = require("lspconfig.util")
+            return util.root_pattern("manage.py", "setup.py", "pyproject.toml", "requirements.txt")(fname)
+              or util.find_git_ancestor(fname)
+              or util.path.dirname(fname)
+          end,
         })
       end,
 

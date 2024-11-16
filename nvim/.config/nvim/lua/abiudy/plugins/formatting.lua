@@ -7,7 +7,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         html = { "prettier" },
-        htmldjango = { "prettier" },
+        htmldjango = { "djlint" },
         css = { "prettier" },
         markdown = { "prettier" },
         bash = { "shfmt" },
@@ -16,7 +16,12 @@ return {
       format_on_save = {
         lsp_fallback = true,
         async = false,
-        timeout_ms = 3000,
+        timeout_ms = 5000,
+      },
+      formatters = {
+        djlint = {
+          prepend_args = { "--indent", "2" },
+        },
       },
     })
 
@@ -24,7 +29,7 @@ return {
       conform.format({
         lsp_fallback = true,
         async = false,
-        timeout_ms = 3000,
+        timeout_ms = 5000,
       })
     end, { desc = "Format file or range (in visual mode)" })
   end,
