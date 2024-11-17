@@ -241,6 +241,7 @@ exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 assign [class="Alacritty"] $ws1
 # assign [class="kitty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
+assign [class="Free Download Manager"] $ws2
 #assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws3
 # assign [class="Thunar"] $ws3
@@ -264,7 +265,7 @@ assign [class="YACReaderLibrary"] $ws8
 assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
 # assign [class="KeePassXC"] $ws9
-assign [class="org.nickvision.tubeconverter.gnome"] $ws9
+# assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="Shotwell"] $ws10
 assign [class="Localsend"] $ws10
 
