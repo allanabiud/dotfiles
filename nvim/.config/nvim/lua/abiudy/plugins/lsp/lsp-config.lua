@@ -92,17 +92,8 @@ return {
       --html
       ["html"] = function()
         lspconfig["html"].setup({
-          -- on_attach = on_attach,
+          on_attach = on_attach,
           capabilities = capabilities,
-          filetypes = { "html", "htmldjango" },
-          init_options = {
-            configurationSection = { "html", "css", "javascript" },
-            embeddedLanguages = {
-              htmldjango = true,
-              css = true,
-              javascript = true,
-            },
-          },
         })
       end,
 
@@ -132,15 +123,20 @@ return {
           handlers = {
             ["textDocument/publishDiagnostics"] = function() end,
           },
-          on_attach = function(client, _)
+          on_attach = function(client, bufnr)
             client.server_capabilities.codeActionProvider = false
+
+            -- Enable completion triggered by <c-x><c-o>
+            vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
           end,
           on_init = function(client)
+            -- Check multiple common virtualenv locations
             local venv_paths = {
               vim.fn.getcwd() .. "/venv/bin/python",
               vim.fn.getcwd() .. "/.venv/bin/python",
               vim.fn.getcwd() .. "/env/bin/python",
             }
+
             for _, venv in ipairs(venv_paths) do
               if vim.fn.executable(venv) == 1 then
                 client.config.settings.python.pythonPath = venv
@@ -161,9 +157,10 @@ return {
                 useLibraryCodeForTypes = true,
                 extraPaths = {
                   vim.fn.getcwd(), -- Add project root
-                  vim.fn.getcwd() .. "/src", -- Source directory
+                  vim.fn.getcwd() .. "/src",
                   vim.fn.getcwd() .. "/apps", -- Common Django apps directory
                 },
+                -- Django-specific settings
                 reportGeneralTypeIssues = "warning",
                 reportPropertyTypeMismatch = "warning",
                 reportMissingImports = true,
@@ -171,13 +168,6 @@ return {
               },
             },
           },
-          root_dir = function(fname)
-            -- Look for Django-specific files to determine project root
-            local util = require("lspconfig.util")
-            return util.root_pattern("manage.py", "setup.py", "pyproject.toml", "requirements.txt")(fname)
-              or util.find_git_ancestor(fname)
-              or util.path.dirname(fname)
-          end,
         })
       end,
 
