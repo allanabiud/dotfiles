@@ -219,7 +219,7 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
-bindsym $mod+m exec com.github.neithern.g4music
+bindsym $mod+m exec gapless
 # bindsym $mod+o exec obsidian
 # bindsym $mod+k exec kitty
 
@@ -261,9 +261,12 @@ assign [class="com.github.neithern.g4music"] $ws6
 # assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
-# assign [class="heroic"] $ws8
+assign [class="heroic"] $ws8
 assign [class="Lutris"] $ws8
+assign [class="cartridges"] $ws8
+assign [class="bottles"] $ws8
 assign [class="qBittorrent"] $ws9
+assign [class="com.vysp3r.ProtonPlus"] $ws9
 # assign [class="KeePassXC"] $ws9
 # assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="Shotwell"] $ws10
