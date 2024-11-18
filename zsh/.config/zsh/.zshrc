@@ -87,6 +87,10 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt APPEND_HISTORY            # append to history file
 
+# History Search
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
 ### ------ ALIASES ---------------------------
 ### ------------------------------------------
 
