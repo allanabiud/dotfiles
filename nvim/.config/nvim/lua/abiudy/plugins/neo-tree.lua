@@ -94,13 +94,16 @@ return {
       },
       window = {
         position = "left",
-        width = 35,
+        width = 30,
         mappings = {
           ["\\"] = "close_window",
         },
       },
       filesystem = {
-        --follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = true,
+        },
         --group_empty_dirs = true,
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,

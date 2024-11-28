@@ -23,10 +23,11 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+
     -- Include snippets not in global snippets for friendly-snippets
+    luasnip.filetype_extend("htmldjango", { "html", "loremipsum", "djangohtml" })
     luasnip.filetype_extend("html", { "loremipsum" })
     luasnip.filetype_extend("python", { "django" })
-    luasnip.filetype_extend("htmldjango", { "html", "djangohtml" })
 
     -- Set up custom highlight for PmenuSel (selector in the completion window)
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })

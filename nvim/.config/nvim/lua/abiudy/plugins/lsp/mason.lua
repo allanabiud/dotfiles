@@ -45,10 +45,9 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "mypy", -- python linter
-        "ruff",
+        "ruff", -- python linter and formatter
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
-        -- "debugpy",
       },
     })
   end,

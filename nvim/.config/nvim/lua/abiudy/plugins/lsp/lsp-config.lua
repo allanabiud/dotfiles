@@ -84,15 +84,14 @@ return {
       -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup({
-          on_attach = on_attach,
           capabilities = capabilities,
+          -- on_attach = on_attach,
         })
       end,
 
       --html
       ["html"] = function()
         lspconfig["html"].setup({
-          on_attach = on_attach,
           capabilities = capabilities,
           filetypes = { "html", "htmldjango" },
         })
@@ -102,7 +101,6 @@ return {
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
-          on_attach = on_attach,
           capabilities = capabilities,
           settings = {
             Lua = {
@@ -178,7 +176,6 @@ return {
           capabilities = capabilities,
           filetypes = {
             "html",
-            "htmldjango",
             "css",
             "javascript",
             "javascriptreact",
