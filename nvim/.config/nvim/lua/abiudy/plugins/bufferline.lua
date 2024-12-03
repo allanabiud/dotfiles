@@ -50,6 +50,6 @@ return {
   -- Close Buffers
   vim.keymap.set("n", "<leader>bcr", ":BufferLineCloseRight<CR>", { desc = "Close Buffers to the Right" }),
   vim.keymap.set("n", "<leader>bcl", ":BufferLineCloseLeft<CR>", { desc = "Close Buffers to the Left" }),
-  vim.keymap.set("n", "<leader>bco", ":BufferLineCloseOthers<CR>", { desc = "Close Buffers to the Right" }),
+  vim.keymap.set("n", "<leader>bco", ":BufferLineCloseOthers<CR>", { desc = "Close Other Buffers" }),
   vim.keymap.set("n", "<leader>bcp", ":BufferLinePickClose<CR>", { desc = "Pick Buffers to Close" }),
 }
