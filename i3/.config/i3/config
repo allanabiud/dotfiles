@@ -219,12 +219,11 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
-bindsym $mod+m exec aimp
 # bindsym $mod+o exec obsidian
 # bindsym $mod+k exec kitty
 
 ## Terminal Applications
-# bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
+bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -253,7 +252,7 @@ assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 assign [class="aimp.exe"] $ws6
-# assign [class="ncmpcpp"] $ws6
+assign [class="ncmpcpp"] $ws6
 # assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
