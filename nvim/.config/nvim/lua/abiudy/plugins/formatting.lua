@@ -9,6 +9,7 @@ return {
         html = { "prettier" },
         htmldjango = { "djlint" },
         css = { "prettier" },
+        javascript = { "prettier" },
         markdown = { "prettier" },
         bash = { "shfmt" },
         python = { "isort", "black" },
