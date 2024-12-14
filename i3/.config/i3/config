@@ -260,8 +260,8 @@ assign [class="heroic"] $ws8
 assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
 assign [class="com.vysp3r.ProtonPlus"] $ws9
-# assign [class="KeePassXC"] $ws9
-# assign [class="org.nickvision.tubeconverter.gnome"] $ws9
+assign [class="KeePassXC"] $ws9
+assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="Shotwell"] $ws10
 assign [class="Localsend"] $ws10
 
