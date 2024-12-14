@@ -85,14 +85,13 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
-          -- on_attach = on_attach,
+          on_attach = on_attach,
         })
       end,
 
       --html
       ["html"] = function()
         lspconfig["html"].setup({
-          capabilities = capabilities,
           filetypes = { "html", "htmldjango" },
         })
       end,
@@ -101,7 +100,6 @@ return {
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
           settings = {
             Lua = {
               -- make the language server recognize "vim" global
@@ -171,36 +169,35 @@ return {
       end,
 
       -- Emmet Language Server
-      ["emmet_language_server"] = function()
-        lspconfig["emmet_language_server"].setup({
-          capabilities = capabilities,
-          filetypes = {
-            "html",
-            "css",
-            "javascript",
-            "javascriptreact",
-            "typescriptreact",
-            "less",
-            "sass",
-            "scss",
-            "pug",
-            "eruby",
-          },
-          -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-          -- **Note:** only the options listed in the table are supported.
-          init_options = {
-            includeLanguages = {},
-            excludeLanguages = {},
-            extensionsPath = {},
-            preferences = {},
-            showAbbreviationSuggestions = true,
-            showExpandedAbbreviation = "always",
-            showSuggestionsAsSnippets = false,
-            syntaxProfiles = {},
-            variables = {},
-          },
-        })
-      end,
+      lspconfig["emmet_language_server"].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = {
+          "html",
+          "css",
+          "javascript",
+          "javascriptreact",
+          "typescriptreact",
+          "less",
+          "sass",
+          "scss",
+          "pug",
+          "eruby",
+        },
+        -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+        -- **Note:** only the options listed in the table are supported.
+        init_options = {
+          includeLanguages = {},
+          excludeLanguages = {},
+          extensionsPath = {},
+          preferences = {},
+          showAbbreviationSuggestions = true,
+          showExpandedAbbreviation = "always",
+          showSuggestionsAsSnippets = false,
+          syntaxProfiles = {},
+          variables = {},
+        },
+      }),
     })
   end,
 }
