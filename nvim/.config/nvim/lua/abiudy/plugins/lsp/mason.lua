@@ -40,9 +40,9 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         "stylua", -- lua formatter
+        "prettier", -- prettier formatter
         "htmlhint", -- html linter
         "djlint", -- htmldjango linter
-        "prettier", -- prettier formatter
         "isort", -- python formatter
         "black", -- python formatter
         "mypy", -- python linter

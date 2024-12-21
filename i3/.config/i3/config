@@ -59,8 +59,8 @@ bindsym $mod+q kill
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 # There also is j4-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
-bindsym $mod+space exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
+bindsym $mod+space exec --no-startup-id j4-dmenu-desktop
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
 
 # change focus
 #bindsym $mod+j focus left
@@ -204,7 +204,7 @@ bar {
     focused_workspace    #cc6a02    #8a1919    #FFFFFF
     # active_workspace     #6b4822    #6b4822    #FFFFFF
     inactive_workspace   #8C8C8C    #4C4C4C    #888888
-    urgent_workspace     #EC69A0    #DB3279    #FFFFFF
+    urgent_workspace     #EC69A0    #3d85c6    #FFFFFF
     binding_mode         #b691d3    #A07CBC    #FFFFFF
   }
 }
@@ -251,18 +251,18 @@ assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
-assign [class="aimp.exe"] $ws6
 assign [class="ncmpcpp"] $ws6
 # assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
-assign [class="heroic"] $ws8
-assign [class="Lutris"] $ws8
+# assign [class="heroic"] $ws8
+# assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
-assign [class="com.vysp3r.ProtonPlus"] $ws9
-assign [class="KeePassXC"] $ws9
+# assign [class="com.vysp3r.ProtonPlus"] $ws9
+# assign [class="KeePassXC"] $ws9
 assign [class="org.nickvision.tubeconverter.gnome"] $ws9
-assign [class="Shotwell"] $ws10
+# assign [class="Shotwell"] $ws10
+assign [class="XnViewMP"] $ws10
 assign [class="Localsend"] $ws10
 
 ### Libreoffice workaround
