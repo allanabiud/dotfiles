@@ -214,13 +214,10 @@ bar {
 ######################
 ## Extra Key Bindings
 bindsym $mod+n exec pcmanfm
-# bindsym $mod+n exec thunar
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
-# bindsym $mod+o exec obsidian
-# bindsym $mod+k exec kitty
 
 ## Terminal Applications
 bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
@@ -230,38 +227,24 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
 exec --no-startup-id mpDris2
 exec --no-startup-id caffeine-indicator
-# exec --no-startup-id keepassxc
 
 # POLKIT AGENT
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Lanch Apps in specified workspaces
-#assign [class="Xfce4-terminal"] $ws1
 assign [class="Alacritty"] $ws1
-# assign [class="kitty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Free Download Manager"] $ws2
-#assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws3
-# assign [class="Thunar"] $ws3
-# assign [class="Code"] $ws4
-# assign [class="obsidian"] $ws4
-# assign [class="Mysql-workbench-bin"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 assign [class="ncmpcpp"] $ws6
-# assign [class="64Gram"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
-# assign [class="heroic"] $ws8
-# assign [class="Lutris"] $ws8
 assign [class="qBittorrent"] $ws9
-# assign [class="com.vysp3r.ProtonPlus"] $ws9
-# assign [class="KeePassXC"] $ws9
 assign [class="org.nickvision.tubeconverter.gnome"] $ws9
-# assign [class="Shotwell"] $ws10
 assign [class="XnViewMP"] $ws10
 assign [class="Localsend"] $ws10
 
@@ -275,34 +258,21 @@ for_window [window_role="pop-up"] floating enable
 for_window [title="Preferences"] floating enable
 #for_window [class="Free Download Manager"] floating enable
 # for_window [class="Nitrogen"] floating enable
-# for_window [class="com.github.gabutakut.gabutdm"] floating enable
-# for_window [class="file-roller"] floating enable
 
 # Apps to focus on launch
-# for_window [class="Xfce4-terminal"] focus
 for_window [class="Alacritty"] focus
-# for_window [class="kitty"] focus
 for_window [class="Pcmanfm"] focus
-# for_window [class="Thunar"] focus
-# for_window [class="firefox"] focus
 for_window [class="Vivaldi-stable"] focus
-# for_window [class="KeePassXC"] focus
-# for_window [class="yazi"] focus
-
-# Workspace to focus when app is launched
-# for_window [class="Thunar"] focus workspace
-# for_window [class="Vivaldi-stable"] focus workspace
 
 # Layout mode for new containers
 workspace_layout tabbed
 
 # Layout mode for specific workspaces
-for_window [workspace="3"] layout default
+# for_window [workspace="3"] layout default
 #for_window [workspace="1"] layout default
 
 # Layout mode for specific applications
-# for_window [class="Pcmanfm"] layout default
-# for_window [class="Thunar"] layout default
+for_window [class="Pcmanfm"] layout default
 
 #################
 ###### Gaps
@@ -340,8 +310,6 @@ for_window [class="Alacritty"] border pixel 2
 for_window [class="tmux"] border normal 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
-# for_window [class="Thunar"] border pixel 2
-for_window [class="Code"] border pixel 2
 
 #######################
 ##### Changing colors
@@ -362,11 +330,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
-# bindsym XF86AudioPlay exec playerctl --player=mpd play-pause
-# bindsym XF86AudioPause exec playerctl --player=mpd play-pause
-# bindsym XF86AudioNext exec playerctl --player=mpd next
-# bindsym XF86AudioPrev exec playerctl --player-mpd previous
 
 #############################
 ##### Compositing #########
