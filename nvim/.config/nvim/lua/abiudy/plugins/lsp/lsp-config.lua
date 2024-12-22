@@ -89,13 +89,6 @@ return {
         })
       end,
 
-      --html
-      ["html"] = function()
-        lspconfig["html"].setup({
-          filetypes = { "html", "htmldjango" },
-        })
-      end,
-
       -- Lua_ls
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
