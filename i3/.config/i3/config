@@ -243,6 +243,7 @@ assign [class="Spotify"] $ws6
 assign [class="ncmpcpp"] $ws6
 assign [class="TelegramDesktop"] $ws7
 assign [class="YACReaderLibrary"] $ws8
+assign [class="YACReader"] $ws8
 assign [class="qBittorrent"] $ws9
 assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="XnViewMP"] $ws10
