@@ -27,6 +27,7 @@ return {
         python = "python3 -u $dir/$fileName",
         sh = "bash $file",
         html = "vivaldi $dir/$fileName",
+        dart = "dart $file",
       },
     })
 

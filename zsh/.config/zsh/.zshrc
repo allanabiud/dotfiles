@@ -29,6 +29,7 @@ export JAVA_HOME="/usr/lib/jvm/java-23-openjdk/"
 
 ### FLUTTER PATH VARIABLES
 export ANDROID_HOME="$HOME/DEV/Tools/android-sdk/"
+# export ANDROID_AVD_HOME="$HOME/.android/avd"
 export PATH=$PATH:"$HOME/DEV/Tools/flutter/bin/" # flutter-sdk
 export PATH=$PATH:"$ANDROID_HOME/cmdline-tools/latest/bin" # cmdline-tools
 export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
