@@ -3,6 +3,20 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy", -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
+      local wk = require("which-key")
+
+      wk.add({
+        -- Define a group for file-related actions
+        { "<leader>b", group = "Buffer Actions" },
+        { "<leader>c", group = "Code Actions" },
+        { "<leader>f", group = "Formatting" },
+        { "<leader>F", group = "Flutter Tools" },
+        { "<leader>n", group = "No Highlight" },
+        { "<leader>r", group = "Restart/Rename" },
+        { "<leader>s", group = "Search with Telescope" },
+        { "<leader>S", group = "Snacks.nvim Tools" },
+        { "<leader>w", group = "Workspace Sessions" },
+      })
     end,
   },
 }

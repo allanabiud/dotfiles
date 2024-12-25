@@ -6,7 +6,7 @@ return {
       function()
         require("code_runner").run_code()
       end,
-      desc = "[e]xcute code",
+      desc = "[E]xcute code",
     },
   },
   config = function()

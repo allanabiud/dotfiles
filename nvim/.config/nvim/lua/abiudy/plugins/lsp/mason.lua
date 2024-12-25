@@ -30,7 +30,6 @@ return {
         "marksman",
         "bashls",
         "emmet_language_server",
-        "eslint",
       },
       -- automatic installation of servers
       automatic_installation = true, -- not the same as ensure_installed
