@@ -255,10 +255,22 @@ for_window [instance="libreoffice"] move container to workspace $ws8
 # Launch Apps in floating mode
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-services"] floating enable
-for_window [window_role="pop-up"] floating enable
 for_window [title="Preferences"] floating enable
 #for_window [class="Free Download Manager"] floating enable
 # for_window [class="Nitrogen"] floating enable
+
+# Dialogs
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 # Apps to focus on launch
 for_window [class="Alacritty"] focus
