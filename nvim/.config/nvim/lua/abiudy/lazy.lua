@@ -12,7 +12,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "abiudy.plugins" }, { import = "abiudy.plugins.lsp" } }, {
+require("lazy").setup({
+  { import = "abiudy.plugins" },
+  { import = "abiudy.plugins.lsp" },
+  { import = "abiudy.plugins.AI" },
+  { import = "abiudy.plugins.ui" },
+  { import = "abiudy.plugins.tools" },
+  { import = "abiudy.plugins.framework-tools" },
+}, {
   checker = {
     enabled = true,
     notify = false,

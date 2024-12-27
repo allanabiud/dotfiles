@@ -12,6 +12,7 @@ return {
         { "<leader>f", group = "Formatting" },
         { "<leader>F", group = "Flutter Tools" },
         { "<leader>n", group = "No Highlight" },
+        { "<leader>o", group = "Obsidian" },
         { "<leader>r", group = "Restart/Rename" },
         { "<leader>s", group = "Search with Telescope" },
         { "<leader>S", group = "Snacks.nvim Tools" },
