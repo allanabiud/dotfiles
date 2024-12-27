@@ -11,6 +11,7 @@ return {
         { "<leader>c", group = "Code Actions" },
         { "<leader>f", group = "Formatting" },
         { "<leader>F", group = "Flutter Tools" },
+        { "<leader>l", group = "Live Server" },
         { "<leader>n", group = "No Highlight" },
         { "<leader>o", group = "Obsidian" },
         { "<leader>r", group = "Restart/Rename" },

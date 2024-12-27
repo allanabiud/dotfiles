@@ -24,6 +24,11 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
+### NPM VARIABLES
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
+
 ### JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-23-openjdk/"
 
@@ -132,3 +137,11 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #         tmux new-session -s default
 #     fi
 # fi
+
+# pnpm
+export PNPM_HOME="/home/abiudy/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
