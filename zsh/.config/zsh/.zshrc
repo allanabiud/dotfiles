@@ -40,7 +40,8 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 # alias mysql-workbench="mysql-workbench --configdir=$XDG_DATA_HOME/mysql/workbench"
 
 ### SET DEFAULT TERMINAL
-export TERMINAL=/usr/bin/alacritty
+# export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/sbin/ghostty
 
 ### SET DEFAULT EDITOR
 export EDITOR=/usr/bin/nvim
