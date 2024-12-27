@@ -220,7 +220,7 @@ bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
-bindsym $mod+m exec alacritty --class ncmpcpp -e ncmpcpp
+bindsym $mod+m exec ghostty --title=ncmpcpp -e ncmpcpp
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -249,6 +249,8 @@ assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="XnViewMP"] $ws10
 assign [class="Localsend"] $ws10
 
+### ncmpcpp workaround
+for_window [title="ncmpcpp"] move container to workspace $ws6
 ### Libreoffice workaround
 for_window [instance="libreoffice"] move container to workspace $ws8
 
