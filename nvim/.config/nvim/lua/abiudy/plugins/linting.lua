@@ -9,6 +9,8 @@ return {
       python = { "mypy", "ruff" },
       html = { "htmlhint" },
       htmldjango = { "htmlhint", "djlint" },
+      javascript = { "eslint_d" },
+      typescript = { "eslint_d" },
     }
 
     -- configure linters
