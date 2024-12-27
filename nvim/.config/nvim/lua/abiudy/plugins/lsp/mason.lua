@@ -31,7 +31,7 @@ return {
         "marksman",
         "bashls",
         "emmet_language_server",
-        "eslint",
+        "ts_ls",
       },
       -- automatic installation of servers
       automatic_installation = true, -- not the same as ensure_installed
@@ -50,7 +50,7 @@ return {
         "ruff", -- python linter and formatter
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
-        "eslint_d", -- javascript linter
+        { "eslint_d", version = "13.1.2" }, -- javascript linter
       },
     })
   end,

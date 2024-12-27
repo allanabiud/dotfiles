@@ -80,6 +80,15 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- ts_ls organize imports
+    local function organize_imports()
+      local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+      }
+      vim.lsp.buf.execute_command(params)
+    end
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
@@ -161,6 +170,22 @@ return {
         })
       end,
 
+      -- ts_ls
+      ["ts_ls"] = function()
+        lspconfig["ts_ls"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          init_options = {
+            preferences = {
+              disableSuggestions = true,
+            },
+          },
+          commands = {
+            OrganizeImports = { organize_imports, description = "Organize Imports" },
+          },
+        })
+      end,
+
       -- Emmet Language Server
       lspconfig["emmet_language_server"].setup({
         on_attach = on_attach,
@@ -168,14 +193,6 @@ return {
         filetypes = {
           "html",
           "css",
-          "javascript",
-          "javascriptreact",
-          "typescriptreact",
-          "less",
-          "sass",
-          "scss",
-          "pug",
-          "eruby",
         },
         -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
         -- **Note:** only the options listed in the table are supported.
