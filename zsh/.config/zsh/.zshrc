@@ -128,16 +128,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ### VSCODE Terminal Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
-### Tmux Default Session
-# if command -v tmux &> /dev/null; then
-#     if [ -z "$TMUX" ]; then
-#         # Kill any existing session named 'default' (ignore error if it doesn't exist)
-#         tmux kill-session -t default 2>/dev/null
-#         # Start a new session named 'default'
-#         tmux new-session -s default
-#     fi
-# fi
-
 # pnpm
 export PNPM_HOME="/home/abiudy/.local/share/pnpm"
 case ":$PATH:" in
@@ -145,3 +135,13 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+### --- Yazi -----------------------------------
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
