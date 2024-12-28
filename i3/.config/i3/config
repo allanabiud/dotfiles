@@ -221,6 +221,7 @@ bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
 bindsym $mod+m exec ghostty --title=ncmpcpp -e ncmpcpp
+bindsym $mod+y exec ghostty --title=yazi -e yazi
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -253,6 +254,8 @@ assign [class="Localsend"] $ws10
 for_window [title="ncmpcpp"] move container to workspace $ws6
 ### Libreoffice workaround
 for_window [instance="libreoffice"] move container to workspace $ws8
+### yazi workaround
+for_window [title="yazi"] move container to workspace $ws3
 
 # Launch Apps in floating mode
 for_window [class="Blueman-manager"] floating enable
@@ -278,6 +281,7 @@ for_window [window_type="menu"] floating enable
 for_window [class="Alacritty"] focus
 for_window [class="Pcmanfm"] focus
 for_window [class="Vivaldi-stable"] focus
+for_window [title="yazi"] focus
 
 # Layout mode for new containers
 workspace_layout tabbed

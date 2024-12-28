@@ -11,7 +11,7 @@ sort_dir_first = true
 sort_translit  = false
 linemode       = "none"
 show_hidden    = true
-show_symlink   = true
+show_symlink   = false
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
 title_format   = "Yazi: {cwd}"
@@ -85,7 +85,11 @@ image_bound      = [ 0, 0 ]
 suppress_preload = false
 
 [plugin]
-
+prepend_fetchers = [
+  # Git
+  { id = "git", name = "*", run = "git" },
+  { id = "git", name = "*/", run = "git" },
+]
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
@@ -101,6 +105,19 @@ preloaders = [
 	# Font
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
+]
+prepend_previewers = [
+	# Markdown
+	{ name = "*.md", run = "glow" },
+  # eza-preview
+  { name = "*/", run = "eza-preview" },
+  # Archive previewer
+	{ mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
 ]
 previewers = [
 	{ name = "*/", run = "folder", sync = true },

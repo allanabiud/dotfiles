@@ -47,6 +47,7 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 ### SET DEFAULT TERMINAL
 # export TERMINAL=/usr/bin/alacritty
 export TERMINAL=/sbin/ghostty
+export TERMCMD="ghostty"
 
 ### SET DEFAULT EDITOR
 export EDITOR=/usr/bin/nvim
@@ -145,3 +146,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+source "$ZDOTDIR"/.yazi.sh
