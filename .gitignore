@@ -1,5 +1,6 @@
 .zsh_history
 lazy-lock.json
 .zcompdump
-ncmpcpp/.config/ncmpcpp/lyrics/
+mpd/.config/gomp/cache/
+mpd/.config/ncmpcpp/lyrics/
 tmux/.config/tmux/plugins/
