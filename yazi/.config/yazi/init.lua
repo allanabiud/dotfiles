@@ -129,3 +129,8 @@ require("bunny"):setup({
 	notify = true, -- notify after hopping, default is false
 	fuzzy_cmd = "fzf", -- fuzzy searching command, default is fzf
 })
+
+-- Fuse Archive
+require("fuse-archive"):setup({
+	smart_enter = true,
+})

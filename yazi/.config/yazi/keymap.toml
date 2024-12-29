@@ -23,10 +23,14 @@ prepend_keymap = [
   { on = "<C-1>", run = "plugin toggle-view --args=parent", desc = "Toggle parent" },
   { on = "<C-2>", run = "plugin toggle-view --args=current", desc = "Toggle current" },
   { on = "<C-3>", run = "plugin toggle-view --args=preview", desc = "Toggle preview" },
+    # Bunny
+  { on = "\\", run = "plugin bunny", desc = "Start bunny.yazi" },
+  # Fuse archive
+  { on   = [ "<Right>" ], run = "plugin fuse-archive --args=mount", desc = "Enter or Mount selected archive" },
+  { on   = [ "<Enter>" ], run = "plugin fuse-archive --args=mount", desc = "Enter or Mount selected archive" },
+  { on   = [ "<Left>" ], run = "plugin fuse-archive --args=unmount", desc = "Leave or Unmount selected archive" },
   # Smart enter
   { on = "<Enter>", run = "plugin smart-enter", desc = "Smart enter" },
-  # Bunny
-  { on = "\\", run = "plugin bunny", desc = "Start bunny.yazi" },
 ]
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
