@@ -244,6 +244,7 @@ assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 assign [class="ncmpcpp"] $ws6
 assign [class="TelegramDesktop"] $ws7
+assign [class="ZapZap"] $ws7
 assign [class="YACReaderLibrary"] $ws9
 assign [class="YACReader"] $ws9
 assign [class="qBittorrent"] $ws9
