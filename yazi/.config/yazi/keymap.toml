@@ -41,6 +41,8 @@ prepend_keymap = [
   { on = [ "g", "r" ], run = '''
 	  shell 'ya emit cd "$(git rev-parse --show-toplevel)"'
     ''', desc = "Go to the root of the current Git repository" },
+  # Smart tab
+  { on = "t", run = "plugin smart-tab", desc = "Create a tab and enter the hovered directory" },
 ]
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
@@ -49,6 +51,11 @@ keymap = [
 	{ on = "Q",     run = "quit --no-cwd-file", desc = "Quit the process without outputting cwd-file" },
 	{ on = "<C-c>", run = "close",              desc = "Close the current tab, or quit if it's last" },
 	{ on = "<C-z>", run = "suspend",            desc = "Suspend the process" },
+
+  # Mount Rclone Remotes
+  { on = [ "M", "n" ], run = 'shell "$SHELL $HOME/.config/rclone/scripts/mount/mount_NYAGAKA-PC.sh" --block', desc = "Mount NYAGAKA-PC SMB Share" },
+  # Unmount Rclone Remotes
+  { on = [ "U", "n" ], run = 'shell "$SHELL $HOME/.config/rclone/scripts/unmount/unmount_NYAGAKA-PC.sh"', desc = "Unmount NYAGAKA-PC SMB Share" },
 
 	# Hopping
 	{ on = "k", run = "arrow -1", desc = "Move cursor up" },

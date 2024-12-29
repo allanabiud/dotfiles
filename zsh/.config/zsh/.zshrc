@@ -58,6 +58,9 @@ export EDITOR=/usr/bin/nvim
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$JAVA_HOME/bin"
 export PATH=$PATH:"$HOME/.tmuxifier/bin"
+# My Scripts
+export PATH=$PATH:"$HOME/.config/rclone/scripts/mount/"
+export PATH=$PATH:"$HOME/.config/rclone/scripts/unmount/"
 
 ####################################################################################################
 ### ---- autocompletions -----------------------------------
