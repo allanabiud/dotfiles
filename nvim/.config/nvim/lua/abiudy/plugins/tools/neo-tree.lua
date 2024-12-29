@@ -120,7 +120,7 @@ return {
         },
       },
     })
-    -- vim.keymap.set("n", "\\", ":Neotree filesystem reveal left<CR>", {})
+    vim.keymap.set("n", "\\", ":Neotree filesystem reveal left<CR>", {})
     vim.keymap.set("n", "1", ":Neotree source=filesystem<CR>", { silent = true })
     vim.keymap.set("n", "2", ":Neotree source=buffers<CR>", { silent = true })
     vim.keymap.set("n", "3", ":Neotree source=git_status<CR>", { silent = true })

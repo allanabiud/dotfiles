@@ -25,6 +25,8 @@ prepend_keymap = [
   { on = "<C-3>", run = "plugin toggle-view --args=preview", desc = "Toggle preview" },
   # Smart enter
   { on = "<Enter>", run = "plugin smart-enter", desc = "Smart enter" },
+  # Bunny
+  { on = "\\", run = "plugin bunny", desc = "Start bunny.yazi" },
 ]
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },

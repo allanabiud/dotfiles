@@ -111,3 +111,21 @@ require("yatline-githead"):setup()
 
 -- Git
 require("git"):setup()
+
+-- Bunny
+local home = os.getenv("HOME")
+require("bunny"):setup({
+	hops = {
+		{ tag = "Home", path = home, key = "h" },
+		{ tag = "config", path = home .. "/.config", key = "c" },
+		{ tag = "Desktop", path = home .. "/Desktop", key = "D" },
+		{ tag = "Documents", path = home .. "/Documents", key = "o" },
+		{ tag = "Downloads", path = home .. "/Downloads", key = "d" },
+		{ tag = "Music", path = home .. "/Music", key = "m" },
+		{ tag = "Pictures", path = home .. "/Pictures", key = "p" },
+		{ tag = "Videos", path = home .. "/Videos", key = "v" },
+		{ tag = "NYAGAKA-PC", path = home .. "/Desktop/SMB/NYAGAKA-PC", key = "S" },
+	},
+	notify = true, -- notify after hopping, default is false
+	fuzzy_cmd = "fzf", -- fuzzy searching command, default is fzf
+})
