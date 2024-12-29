@@ -61,6 +61,11 @@ current_item_prefix = $(red)$r
 current_item_inactive_column_prefix = $(cyan)$r
 #current_item_inactive_column_suffix = $/r$(end)
 
+##### VARIOUS SETTINGS #####
+#incremental_seeking = "yes"
+seek_time = "5"
+#follow_now_playing_lyrics = "no"
+
 ##### GENERAL COLORS #####
 colors_enabled = yes
 main_window_color = white
@@ -86,7 +91,7 @@ progress_bar_look "=>"
 ##### NOW PLAYING #####
 now_playing_prefix = "> "
 centered_cursor = "yes"
-#now_playing_suffix = $/b
+now_playing_suffix = "< "
 
 ##### SELECTED ITEM #####
 selected_item_prefix = "* "
