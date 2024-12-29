@@ -220,8 +220,8 @@ bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
-bindsym $mod+m exec ghostty --title=ncmpcpp -e ncmpcpp
-bindsym $mod+y exec ghostty --title=Yazi -e yazi
+bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
+bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -238,11 +238,12 @@ assign [class="com.mitchellh.ghostty"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Free Download Manager"] $ws2
 assign [class="Pcmanfm"] $ws3
+assign [instance="yazi"] $ws3
 assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
-assign [class="ncmpcpp"] $ws6
+assign [instance="rmpc"] $ws6
 assign [class="TelegramDesktop"] $ws7
 assign [class="ZapZap"] $ws7
 assign [class="YACReaderLibrary"] $ws9
@@ -252,12 +253,8 @@ assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="XnViewMP"] $ws10
 assign [class="Localsend"] $ws10
 
-### ncmpcpp workaround
-for_window [title="ncmpcpp"] move container to workspace $ws6
 ### Libreoffice workaround
 for_window [instance="libreoffice"] move container to workspace $ws8
-### yazi workaround
-# for_window [title="Yazi"] move container to workspace $ws3
 
 # Launch Apps in floating mode
 for_window [class="Blueman-manager"] floating enable
@@ -281,10 +278,10 @@ for_window [window_type="menu"] floating enable
 
 # Apps to focus on launch
 for_window [class="Alacritty"] focus
-for_window [class="com.mitchellh.ghostty"] focus
+for_window [instance="ghostty"] focus
 for_window [class="Pcmanfm"] focus
 for_window [class="Vivaldi-stable"] focus
-for_window [title="Yazi"] focus
+for_window [instance="yazi"] focus
 
 # Layout mode for new containers
 workspace_layout tabbed
