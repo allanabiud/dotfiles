@@ -31,6 +31,16 @@ prepend_keymap = [
   { on   = [ "<Left>" ], run = "plugin fuse-archive --args=unmount", desc = "Leave or Unmount selected archive" },
   # Smart enter
   { on = "<Enter>", run = "plugin smart-enter", desc = "Smart enter" },
+  # Smart paste
+  { on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
+  # Copy selected files to the system clipboard while yanking
+  { on = "y", run = [ '''
+	  shell 'echo "$@" | xclip -i -selection clipboard -t text/uri-list'
+    ''', "yank" ], desc = "Yank selected files to the system clipboard" },
+  # cd back to the root of the current Git repository
+  { on = [ "g", "r" ], run = '''
+	  shell 'ya emit cd "$(git rev-parse --show-toplevel)"'
+    ''', desc = "Go to the root of the current Git repository" },
 ]
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },

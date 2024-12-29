@@ -213,7 +213,7 @@ bar {
 ##### MY CONFIGS
 ######################
 ## Extra Key Bindings
-bindsym $mod+n exec pcmanfm
+bindsym $mod+y exec pcmanfm
 bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec i3lock -i '/home/abiudy/.config/i3/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+c exec flameshot gui
@@ -221,7 +221,7 @@ bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
 bindsym $mod+m exec ghostty --title=ncmpcpp -e ncmpcpp
-bindsym $mod+y exec ghostty --title=Yazi -e yazi
+bindsym $mod+n exec ghostty --title=Yazi -e yazi
 
 # Launch Apps at Startup
 exec --no-startup-id nitrogen --restore
@@ -256,7 +256,7 @@ for_window [title="ncmpcpp"] move container to workspace $ws6
 ### Libreoffice workaround
 for_window [instance="libreoffice"] move container to workspace $ws8
 ### yazi workaround
-# for_window [title="Yazi"] move container to workspace $ws3
+for_window [title="Yazi"] move container to workspace $ws3
 
 # Launch Apps in floating mode
 for_window [class="Blueman-manager"] floating enable
