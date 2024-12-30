@@ -13,6 +13,7 @@ return {
         markdown = { "prettier" },
         bash = { "shfmt" },
         python = { "isort", "black" },
+        go = { "gofmt" },
       },
       format_on_save = {
         lsp_fallback = true,

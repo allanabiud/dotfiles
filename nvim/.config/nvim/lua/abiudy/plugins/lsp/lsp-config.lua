@@ -14,6 +14,7 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap -- for conciseness
+    local util = require("lspconfig.util")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -182,6 +183,26 @@ return {
           },
           commands = {
             OrganizeImports = { organize_imports, description = "Organize Imports" },
+          },
+        })
+      end,
+
+      -- gopls
+      ["gopls"] = function()
+        lspconfig["gopls"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
           },
         })
       end,
