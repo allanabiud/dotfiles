@@ -15,8 +15,8 @@ DEFAULT_ALBUM_ART_PATH="$TMP_DIR/default_album_art.jpg"
 
 # Save album art of the currently playing song to a file
 if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
-    # Use default album art if rmpc returns non-zero exit code
-    ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
+  # Use default album art if rmpc returns non-zero exit code
+  ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
 fi
 
 # Send the notification

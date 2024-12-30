@@ -29,10 +29,10 @@
             "<S-Tab>": PreviousTab,
             "1":       SwitchToTab("Queue"),
             "2":       SwitchToTab("Folders"),
-            "3":       SwitchToTab("Playlists"),
-            "4":       SwitchToTab("Album Artists"),
-            "5":       SwitchToTab("Albums"),
-            "6":       SwitchToTab("Search"),
+            "3":       SwitchToTab("Search"),
+            "4":       SwitchToTab("Playlists"),
+            "5":       SwitchToTab("Album Artists"),
+            "6":       SwitchToTab("Albums"),
             // "7":       SwitchToTab("Artists"),
             "q":       Quit,
             ">":       NextTrack,
@@ -143,6 +143,11 @@
             pane: Pane(Directories),
         ),
         (
+            name: "Search",
+            border_type: Full,
+            pane: Pane(Search),
+        ),
+        (
             name: "Playlists",
             border_type: Full,
             pane: Pane(Playlists),
@@ -161,11 +166,6 @@
             name: "Albums",
             border_type: Full,
             pane: Pane(Albums),
-        ),
-        (
-            name: "Search",
-            border_type: Full,
-            pane: Pane(Search),
         ),
     ],
 )

@@ -32,6 +32,9 @@ export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm
 ### JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-23-openjdk/"
 
+### GO
+export GOPATH="$XDG_DATA_HOME"/go
+
 ### FLUTTER PATH VARIABLES
 export ANDROID_HOME="$HOME/DEV/Tools/android-sdk/"
 # export ANDROID_AVD_HOME="$HOME/.android/avd"
