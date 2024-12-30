@@ -6,10 +6,10 @@
     password: None,
     theme: Some("mytheme1"),
     cache_dir: None,
-    lyrics_dir: Some("~/.config/rmpc/lyrics"),
-    on_song_change: ["~/.config/rmpc/notify"],
+    lyrics_dir: Some("~/Music/"),
+    on_song_change: ["~/.config/rmpc/scripts/notify"],
     volume_step: 5,
-    scrolloff: 0,
+    scrolloff: 15,
     wrap_navigation: false,
     enable_mouse: true,
     status_update_interval_ms: 1000,
@@ -115,7 +115,26 @@
             border_type: Full,
             pane: Split(
                 direction: Horizontal,
-                panes: [(size: "25%", pane: Pane(AlbumArt)), (size: "75%", pane: Pane(Queue))],
+                panes: [
+                    (
+                        size: "45%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "80%",
+                                    pane: Pane(AlbumArt),
+                                ),
+                                (
+                                    size: "20%",
+                                    pane: Pane(Lyrics),
+                                )
+                                
+                            ]
+                        ),
+                    ),
+                    (size: "55%", pane: Pane(Queue))
+                ],
             ),
         ),
         (
