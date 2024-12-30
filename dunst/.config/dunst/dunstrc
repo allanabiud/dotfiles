@@ -412,6 +412,13 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+# Disable notifications for Music Player Daemon
+[nop_mpd]
+appname = "Music Player Daemon"
+summary = "*"
+skip_display = true
+
+
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
@@ -484,3 +491,4 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
