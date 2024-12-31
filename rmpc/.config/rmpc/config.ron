@@ -118,22 +118,12 @@
                 panes: [
                     (
                         size: "45%",
-                        pane: Split(
-                            direction: Vertical,
-                            panes: [
-                                (
-                                    size: "80%",
-                                    pane: Pane(AlbumArt),
-                                ),
-                                (
-                                    size: "20%",
-                                    pane: Pane(Lyrics),
-                                )
-                                
-                            ]
-                        ),
+                        pane: Pane(AlbumArt),
                     ),
-                    (size: "55%", pane: Pane(Queue))
+                    (
+                        size: "55%",
+                        pane: Pane(Queue)
+                    )
                 ],
             ),
         ),
