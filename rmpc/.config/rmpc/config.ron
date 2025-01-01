@@ -6,10 +6,10 @@
     password: None,
     theme: Some("mytheme1"),
     cache_dir: None,
-    lyrics_dir: Some("~/Music/"),
+    // lyrics_dir: Some("~/Music/"),
     on_song_change: ["~/.config/rmpc/scripts/notify"],
     volume_step: 5,
-    scrolloff: 15,
+    scrolloff: 0,
     wrap_navigation: false,
     enable_mouse: true,
     status_update_interval_ms: 1000,
@@ -28,9 +28,9 @@
             "<Tab>":   NextTab,
             "<S-Tab>": PreviousTab,
             "1":       SwitchToTab("Queue"),
-            "2":       SwitchToTab("Folders"),
-            "3":       SwitchToTab("Search"),
-            "4":       SwitchToTab("Playlists"),
+            "2":       SwitchToTab("Directories"),
+            "3":       SwitchToTab("Playlists"),
+            "4":       SwitchToTab("Search"),
             "5":       SwitchToTab("Album Artists"),
             "6":       SwitchToTab("Albums"),
             // "7":       SwitchToTab("Artists"),
@@ -117,36 +117,31 @@
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "45%",
+                        size: "42%",
                         pane: Pane(AlbumArt),
                     ),
                     (
-                        size: "55%",
+                        size: "58%",
                         pane: Pane(Queue)
                     )
                 ],
             ),
         ),
         (
-            name: "Folders",
+            name: "Directories",
             border_type: Full,
             pane: Pane(Directories),
-        ),
-        (
-            name: "Search",
-            border_type: Full,
-            pane: Pane(Search),
         ),
         (
             name: "Playlists",
             border_type: Full,
             pane: Pane(Playlists),
         ),
-        // (
-        //     name: "Artists",
-        //     border_type: Full,
-        //     pane: Pane(Artists),
-        // ),
+        (
+            name: "Search",
+            border_type: Full,
+            pane: Pane(Search),
+        ),
         (
             name: "Album Artists",
             border_type: Full,
@@ -157,6 +152,7 @@
             border_type: Full,
             pane: Pane(Albums),
         ),
+        
     ],
 )
 

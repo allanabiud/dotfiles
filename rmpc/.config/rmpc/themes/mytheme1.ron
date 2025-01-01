@@ -38,7 +38,7 @@
                 style: (fg: "cyan"),
                 default: (kind: Text("Unknown"))
             ),
-            width: "62%",
+            width: "55%",
             alignment: Left,
         ),
         (
@@ -46,8 +46,16 @@
                 style: (fg: "blue"),
                 default: (kind: Text("Unknown"))
             ),
-            width: "38%",
+            width: "35%",
             alignment: Left,
+        ),
+        (
+            prop: (kind: Property(Duration),
+                style: (fg: "yellow"),
+                default: (kind: Text("-"))
+            ),
+            width: "10%",
+            alignment: Right,
         ),
     ],
     header: (
