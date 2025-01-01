@@ -9,14 +9,17 @@ if initialize_session "easy_pay"; then
   # Create a new window inline within session layout definition.
   new_window "neovim"
   run_cmd "source venv/bin/activate"
+  run_cmd "clear"
   new_window "django-server"
   select_window 2
   run_cmd "source venv/bin/activate"
   run_cmd "cd src"
+  run_cmd "clear"
   new_window "django-shell"
   select_window 3
   run_cmd "source venv/bin/activate"
   run_cmd "cd src"
+  run_cmd "clear"
 
   # Back to the first window.
   select_window 1

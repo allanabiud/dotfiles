@@ -4,8 +4,11 @@ background-opacity = 0.9
 theme = Wez
 bold-is-bright = true
 gtk-titlebar = false
+
+#FONTS
 font-size = 11
 font-family = MesloLGS Nerd Font
+
 gtk-single-instance = true
 gtk-adwaita = false
 confirm-close-surface = false

@@ -223,6 +223,7 @@ bindsym $mod+j exec jellyfinmediaplayer
 # bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e /home/abiudy/.local/share/cargo/bin/rmpc
 bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
 # bindsym $mod+t exec ~/DEV/PROJECTS/my_projects/scripts/dmenu-tmux-launcher/dmenu-tmux-launcher.sh
+bindsym $mod+t exec ~/.config/rofi/scripts/tmux-menu.py
 bindsym $mod+v exec ghostty --class=org.example.nvim --x11-instance-name=nvim -e nvim
 bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 
@@ -336,7 +337,7 @@ hide_edge_borders none
 for_window [class="Alacritty"] border pixel 2
 for_window [class="ghostty"] border pixel 2
 for_window [instance="rmpc"] border pixel 2
-for_window [class="tmux"] border normal 2
+for_window [class="tmux"] border pixel 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
 
