@@ -221,8 +221,6 @@ bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
 bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
-bindsym $mod+p exec ghostty --class=org.example.ncmpcpp --x11-instance-name=ncmpcpp -e ncmpcpp
-bindsym $mod+g exec ghostty --class=org.example.gomp --x11-instance-name=gomp -e gomp
 bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 
 # Launch Apps at Startup
@@ -245,8 +243,6 @@ assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
-assign [class="ncmpcpp"] $ws6
-assign [class="gomp"] $ws6
 assign [class="rmpc"] $ws6
 assign [class="TelegramDesktop"] $ws7
 assign [class="ZapZap"] $ws7
