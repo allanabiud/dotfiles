@@ -62,7 +62,7 @@
         rows: [
             (
                 left: [
-                    (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Property(Status(State)), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
                 ],
@@ -72,38 +72,57 @@
                     )
                 ],
                 right: [
-                    (kind: Property(Widget(Volume)), style: (fg: "red"))
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "red", modifiers: "Bold"),
+                            separator_style: (fg: "white", modifiers: "Bold")))
+                        ),
+                        style: (fg: "dark_gray")
+                    ),
+                    (kind: Text(" ")),
                 ]
             ),
             (
                 left: [
+                    (kind: Text(" ")),
                     (kind: Property(Status(Elapsed)), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
                     (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Text(" (")),
-                    (kind: Property(Status(Bitrate))),
-                    (kind: Text(" kbps)"))
                 ],
                 center: [
                     (kind: Property(Song(Artist)), style: (fg: "blue", modifiers: "Bold"),
                         default: (kind: Text("Unknown"), style: (fg: "blue", modifiers: "Bold"))
                     ),
-                    (kind: Text(" - "), style: (fg: "red", modifiers: "Bold")
-                    ),
+                ],
+                right: [
+                ]
+            ),
+            (
+                left: [
+                    (kind: Text(" ("), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(Bitrate)), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text(" kbps)"), style: (fg: "red", modifiers: "Bold")),
+                ],
+                center: [
                     (kind: Property(Song(Album)),
                         style: (fg: "magenta", modifiers: "Bold"),
                         default: (kind: Text("Unknown Album"))
                     ),
+                    (kind: Text(" - "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Property(Song(Other("date"))),
+                        style: (fg: "yellow", modifiers: "Bold"),
+                        default: (kind: Text("Unknown Date"))
+                    ),
+                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
                 ],
                 right: [
-                    (
-                        kind: Property(Widget(States(
-                            active_style: (fg: "white", modifiers: "Bold"),
-                            separator_style: (fg: "white")))
-                        ),
-                        style: (fg: "dark_gray")
-                    ),
-                ]
+                    (kind: Text("Vol: "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "yellow", modifiers: "Bold")),
+                    // (kind: Property(Widget(Volume)), style: (fg: "red", modifiers: "Bold"))
+                    (kind: Text("%"), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" ")),
+                ],
             ),
         ],
     ),

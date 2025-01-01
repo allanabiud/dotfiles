@@ -7,9 +7,9 @@
     theme: Some("mytheme1"),
     cache_dir: None,
     // lyrics_dir: Some("~/Music/"),
-    on_song_change: ["~/.config/rmpc/scripts/notify"],
+    on_song_change: ["~/.config/rmpc/scripts/notify"], 
     volume_step: 5,
-    scrolloff: 0,
+    scrolloff: 10,
     wrap_navigation: false,
     enable_mouse: true,
     status_update_interval_ms: 1000,
@@ -107,7 +107,7 @@
     ),
     artists: (
         album_display_mode: SplitByDate,
-        album_sort_by: Date,
+        album_sort_by: Name,
     ),
     tabs: [
         (

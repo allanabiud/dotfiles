@@ -220,6 +220,7 @@ bindsym $mod+c exec flameshot gui
 bindsym $mod+j exec jellyfinmediaplayer
 
 ## Terminal Applications
+# bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e /home/abiudy/.local/share/cargo/bin/rmpc
 bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
 bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 

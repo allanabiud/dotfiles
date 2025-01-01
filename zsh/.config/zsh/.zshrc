@@ -59,6 +59,7 @@ export EDITOR=/usr/bin/nvim
 #### PATH VARIABLES
 #########################
 export PATH=$PATH:"$HOME/.local/bin"
+export PATH=$PATH:"$HOME/.local/share/cargo/bin/"
 export PATH=$PATH:"$JAVA_HOME/bin"
 export PATH=$PATH:"$HOME/.tmuxifier/bin"
 # My Scripts
