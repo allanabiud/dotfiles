@@ -35,23 +35,23 @@
     song_table_format: [
         (
             prop: (kind: Property(Title),
-                style: (fg: "cyan"),
+                style: (fg: "cyan", modifiers: "Bold"),
                 default: (kind: Text("Unknown"))
             ),
-            width: "55%",
+            width: "50%",
             alignment: Left,
         ),
         (
             prop: (kind: Property(Artist),
-                style: (fg: "blue"),
+                style: (fg: "blue", modifiers: "Bold"),
                 default: (kind: Text("Unknown"))
             ),
-            width: "35%",
+            width: "40%",
             alignment: Left,
         ),
         (
             prop: (kind: Property(Duration),
-                style: (fg: "yellow"),
+                style: (fg: "yellow", modifiers: "Bold"),
                 default: (kind: Text("-"))
             ),
             width: "10%",
@@ -67,7 +67,7 @@
                     (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (fg: "green", modifiers: "Bold"),
+                    (kind: Property(Song(Title)), style: (fg: "cyan", modifiers: "Bold"),
                         default: (kind: Text("No Song"), style: (modifiers: "Bold"))
                     )
                 ],
@@ -105,11 +105,10 @@
                 ],
                 center: [
                     (kind: Property(Song(Album)),
-                        style: (fg: "magenta", modifiers: "Bold"),
+                        style: (fg: "red", modifiers: "Bold"),
                         default: (kind: Text("Unknown Album"))
                     ),
-                    (kind: Text(" - "), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Property(Song(Other("date"))),
                         style: (fg: "yellow", modifiers: "Bold"),
                         default: (kind: Text("Unknown Date"))

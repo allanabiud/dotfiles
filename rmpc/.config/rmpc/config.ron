@@ -6,7 +6,7 @@
     password: None,
     theme: Some("mytheme1"),
     cache_dir: None,
-    // lyrics_dir: Some("~/Music/"),
+    lyrics_dir: Some("~/Music/"),
     on_song_change: ["~/.config/rmpc/scripts/notify"], 
     volume_step: 5,
     scrolloff: 10,
@@ -118,11 +118,24 @@
                 panes: [
                     (
                         size: "42%",
-                        pane: Pane(AlbumArt),
+                        pane: Pane(AlbumArt)
+                        
                     ),
                     (
                         size: "58%",
-                        pane: Pane(Queue)
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "85%",
+                                    pane: Pane(Queue)
+                                ),
+                                (
+                                    size: "15%",
+                                    pane: Pane(Lyrics)
+                                )
+                            ]
+                        )
                     )
                 ],
             ),
