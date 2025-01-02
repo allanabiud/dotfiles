@@ -10,50 +10,64 @@ Clone this repository to your home directory:
 git clone https://github.com/abiud254/dotfiles.git ~/.dotfiles
 ```
 
-- It contains the following dotfiles:
+### Dotfiles
 
-1. alacritty
-2. dunst
-3. fastfetch
-4. i3
-5. kitty
-6. mpv
-7. ncmpcpp
-8. nvim
-9. starship
-10. vim
-11. yazi
-12. zsh
+<details>
+    <summary>Dotfiles</summary>
 
-- The i3 package contains dotfiles for:
+        1. alacritty
+        2. dunst
+        3. fastfetch
+        4. ghostty
+        5. gomp
+        6. i3
+        7. kitty
+        8. mpd
+        9. mpv
+        10. ncmpcpp
+        11. nvim
+        12. rclone
+        13. rmpc
+        14. rofi
+        15. starship
+        16. tmux
+        17. tmuxifier
+        18. vim
+        19. yazi
+        20. zsh
 
-  1. i3
-  2. picom
+</details>
 
-- Neovim contains the following plugins:
-  1. alpha-nvim - Dashboard
-  2. auto-session.nvim - Sessions
-  3. nvim-autopairs
-  4. vs-code.nvim - Colorscheme
-  5. Comment.nvim
-  6. nvim-cmp - Autocompletion
-  7. conform.nvim - Formatting
-  8. lazygit.nvim, gitsigns.nvim - Git
-  9. highlight-colors.nvim - Highlighting Colors
-  10. indent-blankline.nvim - Indentation
-  11. lualine.nvim - Statusline
-  12. render-markdown.nvim, markdown-preview.nvim - Markdown
-  13. mini.nvim
-  14. neo-tree.nvim - File Explorer
-  15. none-ls.nvim - Linters and Formatters
-  16. obsidian.nvim - Obsdian
-  17. supermaven.nvim - Copilot
-  18. telescope.nvim - Fuzzy Finder
-  19. tiny-inline-diagnostics.nvim - Prettier Diagnostics
-  20. todo-comments.nvim - Todo Comments
-  21. toggleterm.nvim - Terminal
-  22. nvim-treesitter - Syntax Highlighting
-  23. which-key.nvim - Keybindings
-  24. mason.nvim - LSP Installer
-  25. mason-lspconfig.nvim - LSP
-  26. nvim-lspconfig - LSP
+### Neovim
+
+  <details>
+    <summary>Neovim Plugins</summary>
+
+        1. alpha-nvim - Dashboard
+        2. auto-session.nvim - Sessions
+        3. nvim-autopairs
+        4. vs-code.nvim - Colorscheme
+        5. Comment.nvim
+        6. nvim-cmp - Autocompletion
+        7. conform.nvim - Formatting
+        8. lazygit.nvim, gitsigns.nvim - Git
+        9. highlight-colors.nvim - Highlighting Colors
+        10. indent-blankline.nvim - Indentation
+        11. lualine.nvim - Statusline
+        12. render-markdown.nvim, markdown-preview.nvim - Markdown
+        13. mini.nvim
+        14. neo-tree.nvim - File Explorer
+        15. none-ls.nvim - Linters and Formatters
+        16. obsidian.nvim - Obsdian
+        17. supermaven.nvim - Copilot
+        18. telescope.nvim - Fuzzy Finder
+        19. tiny-inline-diagnostics.nvim - Prettier Diagnostics
+        20. todo-comments.nvim - Todo Comments
+        21. toggleterm.nvim - Terminal
+        22. nvim-treesitter - Syntax Highlighting
+        23. which-key.nvim - Keybindings
+        24. mason.nvim - LSP Installer
+        25. mason-lspconfig.nvim - LSP
+        26. nvim-lspconfig - LSP
+
+</details>
