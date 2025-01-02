@@ -47,10 +47,15 @@ def notify(message):
 
 def tmuxifier_menu():
     """Display the Tmuxifier submenu."""
-    options = ["New Session", "Edit Session", "Load Session", "Delete Session"]
+    options = [
+        " New Session Layout",  # Add icon for 'New Session Layout'
+        " Edit Session Layout",  # Icon for 'Edit Session Layout'
+        " Load Session Layout",  # Icon for 'Load Session Layout'
+        " Delete Session Layout",  # Icon for 'Delete Session Layout'
+    ]
     choice = show_rofi_menu(options, "Tmuxifier")
 
-    if choice == "New Session":
+    if choice == " New Session Layout":
         session_name = show_rofi_menu([], "Enter Session Name:")
         if session_name:
             # Create a new Tmuxifier session
@@ -75,7 +80,7 @@ def tmuxifier_menu():
                 notify(f"Failed to create or locate session file for '{session_name}'.")
         else:
             notify("No session name provided.")
-    elif choice == "Edit Session":
+    elif choice == " Edit Session Layout":
         # List available Tmuxifier sessions
         sessions = get_tmuxifier_sessions()
         if not sessions:
@@ -98,7 +103,7 @@ def tmuxifier_menu():
                 notify(f"Session file for '{session_name}' does not exist.")
         else:
             notify("No session selected.")
-    elif choice == "Load Session":
+    elif choice == " Load Session Layout":
         # List available Tmuxifier sessions
         sessions = get_tmuxifier_sessions()
         if not sessions:
@@ -114,7 +119,7 @@ def tmuxifier_menu():
             notify(f"Loaded Tmuxifier session: {session_name}")
         else:
             notify("No session selected.")
-    elif choice == "Delete Session":
+    elif choice == " Delete Session Layout":
         # List available Tmuxifier sessions
         sessions = get_tmuxifier_sessions()
         if not sessions:
@@ -173,13 +178,13 @@ def main():
 
     # Add options based on session states
     if attachable_sessions or detachable_sessions or sessions:
-        options.append("---")
+        options.append("-------------------")
     if attachable_sessions:
         options.append("Attach to Session")
     if detachable_sessions:
         options.append("Detach from Session")
     if sessions:
-        options.append("---")
+        options.append("-------------------")
         options.append("Kill Session")
         options.append("Kill Tmux Server")
 
