@@ -60,7 +60,7 @@ bindsym $mod+space exec "rofi -modi drun,run -show drun"
 # There also is j4-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym $mod+space exec --no-startup-id j4-dmenu-desktop -b --dmenu="dmenu -l 10 -p 'Apps' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -l 5 -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop -b --dmenu "dmenu_run -l 10 -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
 
 # change focus
 #bindsym $mod+j focus left
@@ -252,6 +252,7 @@ assign [class="zoom"] $ws5
 assign [class="Spotify"] $ws6
 assign [class="rmpc"] $ws6
 assign [class="TelegramDesktop"] $ws7
+assign [class="materialgram"] $ws7
 assign [class="ZapZap"] $ws7
 assign [class="YACReaderLibrary"] $ws9
 assign [class="YACReader"] $ws9
