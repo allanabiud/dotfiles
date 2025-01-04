@@ -117,6 +117,12 @@ alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
 # ----- neovim ---------------------------------
 alias v="nvim"
+# ----- keepassxc-cli -----------------------
+alias kp-search="keepassxc-cli search /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
+alias kp-show="keepassxc-cli show /home/abiudy/Documents/KeePassXC/Passwords.kdbx --all"
+alias kp-clip="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
+alias kp-clip-a="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx -a"
+
 
 ### ----------------------------------------------------------------------------
 
@@ -154,3 +160,8 @@ function y() {
 	rm -f -- "$tmp"
 }
 source "$ZDOTDIR"/.yazi.sh
+
+### Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
