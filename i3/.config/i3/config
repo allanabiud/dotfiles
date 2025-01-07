@@ -117,7 +117,7 @@ bindsym $mod+a focus parent
 set $ws1 "1:  "
 set $ws2 "2:  "
 set $ws3 "3:  "
-set $ws4 "4:  "
+set $ws4 "4:  "
 set $ws5 "5:  "
 set $ws6 "6:  "
 set $ws7 "7:  "
@@ -222,7 +222,6 @@ bindsym $mod+j exec jellyfinmediaplayer
 ## Terminal Applications
 # bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e /home/abiudy/.local/share/cargo/bin/rmpc
 bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
-# bindsym $mod+t exec ~/DEV/PROJECTS/my_projects/scripts/dmenu-tmux-launcher/dmenu-tmux-launcher.sh
 bindsym $mod+t exec ~/.config/rofi/scripts/tmux-menu.py
 bindsym $mod+v exec ghostty --class=org.example.nvim --x11-instance-name=nvim -e nvim
 bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
@@ -239,13 +238,13 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Lanch Apps in specified workspaces
 # assign [class="Alacritty"] $ws1
 assign [class="com.mitchellh.ghostty"] $ws1
+assign [class="nvim"] $ws1
+assign [class="tmux"] $ws1
+assign [class="tmuxifier"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Free Download Manager"] $ws2
 assign [class="Pcmanfm"] $ws3
 assign [instance="yazi"] $ws3
-assign [class="nvim"] $ws4
-assign [class="tmux"] $ws4
-assign [class="tmuxifier"] $ws4
 assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
@@ -254,8 +253,8 @@ assign [class="rmpc"] $ws6
 assign [class="TelegramDesktop"] $ws7
 assign [class="materialgram"] $ws7
 assign [class="ZapZap"] $ws7
-assign [class="YACReaderLibrary"] $ws9
-assign [class="YACReader"] $ws9
+assign [class="YACReaderLibrary"] $ws8
+assign [class="YACReader"] $ws8
 assign [class="qBittorrent"] $ws9
 assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="XnViewMP"] $ws10
@@ -263,7 +262,7 @@ assign [class="Localsend"] $ws10
 # assign [class="KeePassXC"] $ws10
 
 ### Libreoffice workaround
-for_window [instance="libreoffice"] move container to workspace $ws8
+for_window [instance="libreoffice"] move container to workspace $ws4
 
 # Launch Apps in floating mode
 for_window [class="Blueman-manager"] floating enable
