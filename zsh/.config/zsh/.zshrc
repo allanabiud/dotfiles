@@ -47,6 +47,9 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 # alias mysql-workbench="mysql-workbench --configdir=$XDG_DATA_HOME/mysql/workbench"
 
+### PIPENV
+export PIPENV_SHELL_FANCY=1
+
 ### SET DEFAULT TERMINAL
 # export TERMINAL=/usr/bin/alacritty
 export TERMINAL=/sbin/ghostty
@@ -162,6 +165,6 @@ function y() {
 source "$ZDOTDIR"/.yazi.sh
 
 ### Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"

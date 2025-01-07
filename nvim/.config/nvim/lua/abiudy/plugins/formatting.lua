@@ -22,7 +22,7 @@ return {
       },
       formatters = {
         djlint = {
-          prepend_args = { "--indent", "2" },
+          prepend_args = { "--indent", "4" },
         },
       },
     })
