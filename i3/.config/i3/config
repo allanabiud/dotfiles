@@ -367,4 +367,4 @@ bindsym XF86AudioPrev exec playerctl previous
 ##### Compositing #########
 #############################
 # exec_always --no-startup-id picom --experimental-backends
-exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+# exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
