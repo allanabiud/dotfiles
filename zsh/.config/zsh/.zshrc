@@ -50,6 +50,9 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 ### PIPENV
 export PIPENV_SHELL_FANCY=1
 
+### PYENV
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
+
 ### SET DEFAULT TERMINAL
 # export TERMINAL=/usr/bin/alacritty
 export TERMINAL=/sbin/ghostty
