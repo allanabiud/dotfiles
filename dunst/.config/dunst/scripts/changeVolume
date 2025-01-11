@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# changeVolume
+
+# Arbitrary but unique message tag
+msgTag="myvolume"
+
+# Change the volume using pactl
+if [[ "$1" == "toggle" ]]; then
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+else
+  pactl set-sink-volume @DEFAULT_SINK@ "$@"
+fi
+
+# Get the current volume and mute status
+volume="$(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print $5}' | sed 's/[^0-9]*//g')"
+mute="$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')"
+
+if [[ $volume == 0 || "$mute" == "yes" ]]; then
+  # Show the sound muted notification
+  dunstify -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag "Volume muted"
+else
+  # Show the volume notification
+  dunstify -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
+    -h int:value:"$volume" "Volume: ${volume}%"
+fi
+
+# Play the volume changed sound
+canberra-gtk-play -i audio-volume-change -d "changeVolume"

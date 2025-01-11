@@ -71,6 +71,7 @@ export PATH=$PATH:"$HOME/.tmuxifier/bin"
 # My Scripts
 export PATH=$PATH:"$HOME/.config/rclone/scripts/mount/"
 export PATH=$PATH:"$HOME/.config/rclone/scripts/unmount/"
+export PATH=$PATH:"$HOME/.config/dunst/scripts/"
 
 ####################################################################################################
 ### ---- autocompletions -----------------------------------
