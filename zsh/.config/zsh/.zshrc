@@ -129,6 +129,8 @@ alias kp-search="keepassxc-cli search /home/abiudy/Documents/KeePassXC/Passwords
 alias kp-show="keepassxc-cli show /home/abiudy/Documents/KeePassXC/Passwords.kdbx --all"
 alias kp-clip="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
 alias kp-clip-a="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx -a"
+# ----- obsidian.nvim -----------------------
+alias notes="nvim ~/Desktop/Obsidian/"
 
 
 ### ----------------------------------------------------------------------------

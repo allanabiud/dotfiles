@@ -15,7 +15,7 @@ return {
           filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
           resolve_image_path = function(document_path, image_path, fallback)
             -- Define the working directory and notes directory
-            local notes_dir = "/home/abiudy/Documents/Obsidian"
+            local notes_dir = "/home/abiudy/Desktop/Obsidian"
 
             -- Check if the current working directory is within the notes directory
             if document_path:find(notes_dir, 1, true) then
