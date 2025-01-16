@@ -16,3 +16,9 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   },
   command = "set filetype=htmldjango",
 })
+
+-- Ensures that when exiting NeoVim, Zellij returns to normal mode
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  command = "silent !zellij action switch-mode normal",
+})

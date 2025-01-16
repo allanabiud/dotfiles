@@ -1,16 +1,21 @@
+#GENERAL
+# command = zellij -l welcome
 shell-integration = zsh
+#gtk-single-instance = true
+gtk-adwaita = false
+confirm-close-surface = false
+
+#WINDOW
 window-decoration = false
 background-opacity = 0.9
 theme = Wez
 bold-is-bright = true
 gtk-titlebar = false
+window-padding-y = 0
+window-padding-x = 0
 
 #FONTS
 font-size = 11
 font-family = MesloLGS Nerd Font
 
-gtk-single-instance = true
-gtk-adwaita = false
-confirm-close-surface = false
-window-padding-y = 0
-window-padding-x = 0
+
