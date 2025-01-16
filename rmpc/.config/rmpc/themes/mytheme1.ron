@@ -21,7 +21,7 @@
     highlight_border_style: (fg: "red"),
     symbols: ( song: "", dir: "", marker: "\u{e0b0}", ellipsis: "..."),
     progress_bar: (
-        symbols: ["", "⭘", "-"],
+        symbols: ["—", "⭘", "-"],
         track_style: (fg: "#1e2030"),
         elapsed_style: (fg: "red"),
         thumb_style: (fg: "red"),
@@ -125,15 +125,15 @@
             ),
         ],
     ),
-  browser_song_format: [
-      (
-          kind: Group([
-              (kind: Property(Title), alignment: Left),
-              (kind: Text(" - "), alignment: Center),
-              (kind: Property(Artist), alignment: Right),
-          ]),
-          default: (kind: Property(Filename))
-      ),
-  ],
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Title), alignment: Left),
+                (kind: Text(" - "), alignment: Center),
+                (kind: Property(Artist), alignment: Right),
+            ]),
+            default: (kind: Property(Filename))
+        ),
+    ],
 )
 

@@ -110,62 +110,60 @@
         album_sort_by: Name,
     ),
     tabs: [
-        (
-            name: "Queue",
-            border_type: Full,
-            pane: Split(
-                direction: Horizontal,
-                panes: [
-                    (
-                        size: "42%",
-                        pane: Pane(AlbumArt)
-                        
-                    ),
-                    (
-                        size: "58%",
-                        pane: Split(
-                            direction: Vertical,
-                            panes: [
-                                (
-                                    size: "85%",
-                                    pane: Pane(Queue)
-                                ),
-                                (
-                                    size: "15%",
-                                    pane: Pane(Lyrics)
-                                )
-                            ]
-                        )
-                    )
-                ],
-            ),
-        ),
-        (
-            name: "Directories",
-            border_type: Full,
-            pane: Pane(Directories),
-        ),
-        (
-            name: "Playlists",
-            border_type: Full,
-            pane: Pane(Playlists),
-        ),
-        (
-            name: "Search",
-            border_type: Full,
-            pane: Pane(Search),
-        ),
-        (
-            name: "Album Artists",
-            border_type: Full,
-            pane: Pane(AlbumArtists),
-        ),
-        (
-            name: "Albums",
-            border_type: Full,
-            pane: Pane(Albums),
-        ),
-        
+       (
+           name: "Queue",
+           border_type: Full,
+           pane: Split(
+               direction: Horizontal,
+               panes: [
+                   (
+                       size: "42%",
+                       pane: Pane(AlbumArt)
+                   ),
+                   (
+                       size: "58%",
+                       pane: Split(
+                           direction: Vertical,
+                           panes: [
+                               (
+                                   size: "85%",
+                                   pane: Pane(Queue)
+                               ),
+                               (
+                                   size: "15%",
+                                   pane: Pane(Lyrics)
+                               )
+                           ]
+                       )
+                   )
+               ],
+           ),
+       ),
+       (
+           name: "Directories",
+           border_type: Full,
+           pane: Pane(Directories),
+       ),
+       (
+           name: "Playlists",
+           border_type: Full,
+           pane: Pane(Playlists),
+       ),
+       (
+           name: "Search",
+           border_type: Full,
+           pane: Pane(Search),
+       ),
+       (
+           name: "Album Artists",
+           border_type: Full,
+           pane: Pane(AlbumArtists),
+       ),
+       (
+           name: "Albums",
+           border_type: Full,
+           pane: Pane(Albums),
+       ),
     ],
 )
 
