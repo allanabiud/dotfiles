@@ -67,7 +67,7 @@ export EDITOR=/usr/bin/nvim
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.local/share/cargo/bin/"
 export PATH=$PATH:"$JAVA_HOME/bin"
-export PATH=$PATH:"$HOME/.tmuxifier/bin"
+# export PATH=$PATH:"$HOME/.tmuxifier/bin"
 # My Scripts
 export PATH=$PATH:"$HOME/.config/rclone/scripts/mount/"
 export PATH=$PATH:"$HOME/.config/rclone/scripts/unmount/"
@@ -125,12 +125,15 @@ alias ll="eza --icons --group-directories-first -la"
 # ----- neovim ---------------------------------
 alias v="nvim"
 # ----- keepassxc-cli -----------------------
-alias kp-search="keepassxc-cli search /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
-alias kp-show="keepassxc-cli show /home/abiudy/Documents/KeePassXC/Passwords.kdbx --all"
-alias kp-clip="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
-alias kp-clip-a="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx -a"
+# alias kp-search="keepassxc-cli search /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
+# alias kp-show="keepassxc-cli show /home/abiudy/Documents/KeePassXC/Passwords.kdbx --all"
+# alias kp-clip="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
+# alias kp-clip-a="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx -a"
 # ----- obsidian.nvim -----------------------
 alias notes="nvim ~/Desktop/Obsidian/"
+# ----- zellij -----------------------
+alias zellij="zellij -l welcome"
+alias zel="zellij -l welcome"
 
 
 ### ----------------------------------------------------------------------------
