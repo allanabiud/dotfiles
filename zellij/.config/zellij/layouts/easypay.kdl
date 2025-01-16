@@ -1,0 +1,23 @@
+layout {
+  cwd "~/DEV/PROJECTS/my_projects/easy_pay"
+  tab name="NVIM" {
+    pane command="zsh" {
+      args "-c" "eval \"$(direnv export zsh)\" && nvim"
+    }
+    compact-bar size=1
+  }
+  tab name="django-server" cwd="src" {
+    pane command="zsh" start_suspended=true {
+      args "-c" "eval \"$(direnv export zsh)\" && python manage.py runserver"
+    }
+    compact-bar size=1
+  }
+  tab name="django-shell" cwd="src" {
+    pane
+    compact-bar size=1
+  }
+  pane_template name="compact-bar" {
+      borderless true
+      plugin location="compact-bar"
+  }
+}
