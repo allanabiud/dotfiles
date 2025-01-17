@@ -6,17 +6,17 @@ vim.g.mapleader = " "
 -- clear search highlights
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- Move window focus
-vim.keymap.set("n", "<C-left>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-right>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-down>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-up>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- -- Move window focus
+-- vim.keymap.set("n", "<C-left>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- vim.keymap.set("n", "<C-right>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+-- vim.keymap.set("n", "<C-down>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+-- vim.keymap.set("n", "<C-up>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Move window focus
--- vim.keymap.set("n", "<c-left>", ":wincmd h<CR>")
--- vim.keymap.set("n", "<c-right>", ":wincmd l<CR>")
--- vim.keymap.set("n", "<c-down>", ":wincmd j<CR>")
--- vim.keymap.set("n", "<c-up>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-left>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-right>", ":wincmd l<CR>")
+vim.keymap.set("n", "<c-down>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-up>", ":wincmd k<CR>")
 
 -- Split navigation
 --vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })

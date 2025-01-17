@@ -256,18 +256,12 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    // autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
-    //           triggers "nvim|vim|v|nv"  // Lock when any open these programs open. They are expected to unlock themselves when closed (e.g., using zellij.vim plugin).
-    //           watch_triggers "fzf|zoxide|atuin|atac"  // Lock when any of these open and monitor until closed.
-    //           watch_interval "1.0"  // When monitoring, check every X seconds.
-    // }
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
-    // autolock
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)
