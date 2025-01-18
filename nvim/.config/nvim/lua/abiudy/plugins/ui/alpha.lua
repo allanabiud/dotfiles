@@ -21,12 +21,13 @@ return {
 
     -- Set menu
     dashboard.section.buttons.val = {
-      dashboard.button("e", "󰝒  > New File", "<cmd>ene<CR>"),
+      dashboard.button("n", "󰝒  > New File", "<cmd>ene<CR>"),
       dashboard.button("\\", "  > Toggle file explorer", "<cmd>:Neotree filesystem reveal left<CR>"),
-      dashboard.button("SPC sf", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
-      dashboard.button("SPC s.", "󱋡  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
-      dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
-      dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
+      dashboard.button("f", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
+      dashboard.button("r", "󱋡  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
+      dashboard.button("s", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+      dashboard.button("L", "󰒲  > Lazy", "<cmd>Lazy<CR>"),
+      dashboard.button("q", "  > Quit", "<cmd>qa<CR>"),
     }
 
     -- Send config to alpha
