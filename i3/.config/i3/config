@@ -228,9 +228,9 @@ bindsym $mod+j exec jellyfinmediaplayer
 ## Terminal Applications
 # bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e /home/abiudy/.local/share/cargo/bin/rmpc
 bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e rmpc
-# bindsym $mod+t exec ~/.config/rofi/scripts/tmux-menu.py
 bindsym $mod+z exec  ghostty --class=org.example.zellij --x11-instance-name=zellij -e zellij -l welcome
 bindsym $mod+v exec ghostty --class=org.example.nvim --x11-instance-name=nvim -e nvim
+# bindsym $mod+t exec ~/.config/rofi/scripts/tmux-menu.py
 # bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 
 # Launch Apps at Startup
@@ -243,16 +243,12 @@ exec --no-startup-id caffeine-indicator
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Lanch Apps in specified workspaces
-# assign [class="Alacritty"] $ws1
 assign [class="ghostty"] $ws1
 assign [class="nvim"] $ws1
-# assign [class="tmux"] $ws1
 assign [class="zellij"] $ws1
-assign [class="tmuxifier"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [class="Free Download Manager"] $ws2
 assign [class="Pcmanfm"] $ws3
-# assign [instance="yazi"] $ws3
 assign [class="Jellyfin Media Player"] $ws5
 assign [class="mpv"] $ws5
 assign [class="zoom"] $ws5
@@ -264,9 +260,13 @@ assign [class="ZapZap"] $ws7
 assign [class="YACReaderLibrary"] $ws8
 assign [class="YACReader"] $ws8
 assign [class="qBittorrent"] $ws9
-assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 assign [class="XnViewMP"] $ws10
 assign [class="Localsend"] $ws10
+# assign [class="Alacritty"] $ws1
+# assign [class="tmux"] $ws1
+# assign [class="tmuxifier"] $ws1
+# assign [instance="yazi"] $ws3
+# assign [class="org.nickvision.tubeconverter.gnome"] $ws9
 # assign [class="KeePassXC"] $ws10
 
 ### Libreoffice workaround
@@ -276,7 +276,7 @@ for_window [instance="libreoffice"] move container to workspace $ws4
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [title="Preferences"] floating enable
-#for_window [class="Free Download Manager"] floating enable
+# for_window [class="Free Download Manager"] floating enable
 # for_window [class="Nitrogen"] floating enable
 
 # Dialogs
@@ -294,12 +294,12 @@ for_window [window_type="menu"] floating enable
 for_window [class="zenity"] floating enable
 
 # Apps to focus on launch
-# for_window [class="Alacritty"] focus
 for_window [instance="ghostty"] focus
 for_window [class="Pcmanfm"] focus
 for_window [class="nvim"] focus
-for_window [class="tmux"] focus
 for_window [class="Vivaldi-stable"] focus
+# for_window [class="Alacritty"] focus
+# for_window [class="tmux"] focus
 # for_window [instance="yazi"] focus
 # for_window [class="KeePassXC"] focus
 
@@ -344,13 +344,13 @@ hide_edge_borders none
 # for_window [class=".*"] border normal 2
 
 # Border for specific applications
-# for_window [class="Alacritty"] border normal 2
 for_window [class="Alacritty"] border pixel 2
 for_window [class="ghostty"] border pixel 2
 for_window [instance="rmpc"] border pixel 2
 for_window [class="tmux"] border pixel 2
 for_window [class="Vivaldi-stable"] border pixel 2
 for_window [class="Pcmanfm"] border pixel 2
+# for_window [class="Alacritty"] border normal 2
 
 #######################
 ##### Changing colors
