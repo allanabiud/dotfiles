@@ -10,4 +10,6 @@ return {
   opts = {
     -- configuration goes here
   },
+  -- keymaps
+  vim.keymap.set("n", "<leader>L", "<cmd>Leet<cr>", { desc = "Leetcode" }),
 }
