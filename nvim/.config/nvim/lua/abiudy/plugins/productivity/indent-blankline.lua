@@ -27,12 +27,13 @@ return {
 
       require("ibl").setup({
         indent = {
-          char = "┊",
-          highlight = highlight,
+          -- char = "┊",
+          char = "│",
+          -- highlight = highlight,
         },
         scope = {
           enabled = true,
-          char = "│", -- Character used for scope visualization
+          char = "│",
           show_start = true,
           show_end = false,
           highlight = highlight,
