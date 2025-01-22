@@ -233,6 +233,7 @@ bindsym $mod+b exec vivaldi-stable
 bindsym $mod+l exec swaylock -i '/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png'
 bindsym $mod+j exec jellyfinmediaplayer
 bindsym $mod+c exec zsh -c 'grimshot save anything /home/abiudy/Pictures/Screenshots/$(date +\%H-\%M-\%S_\%d-\%m-\%Y).png'
+bindsym $mod+Delete exec wlogout
 
 ## Set Wallpaper
 exec swaybg -i /home/abiudy/Pictures/Wallpapers/superman2024.jpeg -m fill
