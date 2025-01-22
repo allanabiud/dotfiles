@@ -62,9 +62,10 @@
         rows: [
             (
                 left: [
-                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Property(Status(State)), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
+                    (kind: Text(" ")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
                 ],
                 center: [
                     (kind: Property(Song(Title)), style: (fg: "cyan", modifiers: "Bold"),
@@ -84,10 +85,9 @@
             ),
             (
                 left: [
-                    (kind: Text(" ")),
-                    (kind: Property(Status(Elapsed)), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text(" ("), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(Bitrate)), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text(" kbps)"), style: (fg: "red", modifiers: "Bold")),
                 ],
                 center: [
                     (kind: Property(Song(Artist)), style: (fg: "blue", modifiers: "Bold"),
@@ -99,9 +99,9 @@
             ),
             (
                 left: [
-                    (kind: Text(" ("), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(Bitrate)), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Text(" kbps)"), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
                 ],
                 center: [
                     (kind: Property(Song(Album)),
@@ -135,5 +135,51 @@
             default: (kind: Property(Filename))
         ),
     ],
+    layout: Split(
+      direction: Vertical,
+      panes: [
+          (
+              size: "10%",
+              pane: Split(
+                  direction: Horizontal,
+                  panes: [
+                      (
+                          size: "100%",
+                          pane: Split(
+                              direction: Vertical,
+                              panes: [
+                                  (
+                                      size: "5",
+                                      pane: Pane(Header),
+                                  ),
+                                  (
+                                      size: "1",
+                                      pane: Pane(ProgressBar),
+                                  ),
+                                  
+                              ]
+                          )
+                      ),
+                  ]
+              ),
+          ),
+          (
+              size: "90%",
+              pane: Split(
+                  direction: Vertical,
+                  panes: [
+                      (
+                          size: "10%",
+                          pane: Pane(Tabs),
+                      ),
+                      (
+                          size: "90%",
+                          pane: Pane(TabContent),
+                      ),
+                  ],
+              ),
+          ),
+      ],
+  ),
 )
 
