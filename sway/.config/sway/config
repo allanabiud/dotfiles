@@ -336,14 +336,8 @@ gaps outer 3px
 ########################
 ##### Border Style
 ########################
-default_border normal 2px
+default_border pixel 2
 hide_edge_borders none
-
-# Border for specific applications
-for_window [app_id="com.mitchellh.ghostty"] default_border pixel 2
-for_window [instance="rmpc"] default_border pixel 2
-for_window [class="Vivaldi-stable"] default_border pixel 2
-for_window [class="Pcmanfm"] default_border pixel 2
 
 #######################
 ##### Changing colors
