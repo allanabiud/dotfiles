@@ -39,7 +39,7 @@
             "p":       TogglePause,
             "<":       PreviousTrack,
             "f":       SeekForward,
-            "r":       ToggleRepeat,
+            "R":       ToggleRepeat,
             "z":       ToggleRandom,
             "c":       ToggleConsume,
             "y":       ToggleSingle,

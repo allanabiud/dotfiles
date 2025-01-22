@@ -1,6 +1,6 @@
 {
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["mpd", "clock", "clock#2", "idle_inhibitor"],
+    "modules-left": ["clock", "idle_inhibitor", "mpd"],
+    "modules-center": ["sway/workspaces", "sway/mode"],
     "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/power"],
 
     "sway/mode": {
@@ -16,10 +16,16 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "nm-connection-editor",
     },
+    "disk": {
+      "interval": 30,
+      "format": "{specific_free:0.2f} GB / {specific_total:0.2f} GB",
+      "unit": "GB"
+      // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
+    },
     "mpd": {
-        "format": "{stateIcon} {randomIcon}{repeatIcon}{singleIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
         "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
         "unknown-tag": "N/A",
         "interval": 5,
         "consume-icons": {
@@ -40,7 +46,16 @@
             "playing": ""
         },
         "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "rmpc togglepause",
+        "menu": "on-click-right",
+        "menu-file": "$HOME/.config/waybar/scripts/mpd_menu.xml",
+        "menu-actions": {
+          "random": "$HOME/.config/waybar/scripts/rmpc_toggle.sh random",
+          "repeat": "$HOME/.config/waybar/scripts/rmpc_toggle.sh repeat",
+          "single": "$HOME/.config/waybar/scripts/rmpc_toggle.sh single",
+          "consume": "$HOME/.config/waybar/scripts/rmpc_toggle.sh consume",
+        },
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -55,11 +70,28 @@
     },
     "clock": {
       "format": "{:%H:%M}",
-      "tooltip": false
-    },
-    "clock#2": {
-      "format": "{:%a %d-%m-%Y}",
-      "tooltip": false
+      "format-alt": "{:%A, %B %d, %Y (%R)}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode"          : "year",
+        "mode-mon-col"  : 3,
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "<span color='#ffead3'><b>{}</b></span>",
+          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+          }
+      },
+      "actions":  {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      },
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -77,7 +109,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "$HOME/.config/dunst/scripts/changeVolume toggle",
+        "on-click-right": "pavucontrol",
     },
     "battery": {
       "states": {
@@ -103,7 +136,7 @@
     //   "format" : "⏻ ",
     //   "tooltip": false,
     //   "menu": "on-click",
-    //   "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    //   "menu-file": "$HOME/.config/waybar/scripts/power_menu.xml", // Menu file in resources folder
     //   "menu-actions": {
     //     "shutdown": "shutdown",
     //     "reboot": "reboot",
@@ -120,7 +153,7 @@
     //         "default": "🎜"
     //     },
     //     "escape": true,
-    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
-    //     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    //     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
+    //     // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     // },
 }

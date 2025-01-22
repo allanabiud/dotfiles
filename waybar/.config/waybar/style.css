@@ -48,16 +48,21 @@ window#waybar {
 }
 
 #clock {
-  font-size: 14px;
+  padding-left: 10px;
+  font-size: 13.5px;
 }
 #mpd {
   color: #ffa500;
 }
 
-#clock,
+tooltip {
+  background-color: #222222;
+}
+
 #mpd,
 #battery,
 #cpu,
+#disk,
 #memory,
 #temperature,
 #network,
