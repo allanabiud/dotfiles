@@ -246,6 +246,7 @@ bindsym $mod+v exec ghostty --class=org.example.nvim -e nvim
 # bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
 
 # Launch Apps at Startup
+exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id mpDris2
 exec --no-startup-id caffeine-indicator
