@@ -1,0 +1,392 @@
+# Read `man 5 sway` for a complete reference.
+
+##########################################
+########### GTK Theme ##################
+##########################################
+exec_always "/home/abiudy/.config/sway/scripts/import-gsettings"
+
+##########################################
+########### Fonts ##################
+##########################################
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:MesloLGS Nerd Font Regular 9.5
+
+##########################################
+########### Variables ##################
+##########################################
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left Left
+set $down Down
+set $up Up
+set $right Right
+
+# Your preferred terminal emulator
+set $term ghostty
+
+# Your preferred application launcher
+set $menu rofi -show drun
+
+##########################################
+########### Output configuration ##################
+##########################################
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+##########################################
+########### Idle configuration ##################
+##########################################
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+##########################################
+########### Input configuration #########
+##########################################
+input "type:touchpad" {
+    tap enabled                   # Enables tap-to-click
+    natural_scroll enabled        # Enables natural scrolling
+    dwt enabled                   # Disables the touchpad while typing
+}
+
+##########################################
+########### Key bindings ################
+##########################################
+
+################
+### Basics
+################
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+space exec $menu
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop -b --dmenu "dmenu_run -l 10 -p 'cmd' -nf '#BBBBBB' -nb '#222222' -sb '#8a1919' -sf '#EEEEEE' -fn 'MesloLGS Nerd Font Regular-10'"
+
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+####################
+### Moving around
+####################
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+    
+####################
+### Workspaces
+####################
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6:  "
+set $ws7 "7:  "
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+####################
+### Layout
+####################
+# split in horizontal orientation
+# bindsym $mod+h split h
+
+# split in vertical orientation
+# bindsym $mod+v split v
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+Shift+v focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+####################
+### Resizing containers
+####################
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+####################
+### Utilities
+####################
+# Special keys to adjust volume via PulseAudio
+# bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+# bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# Use my own volume notification script
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/dunst/scripts/changeVolume +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/dunst/scripts/changeVolume -5%
+bindsym XF86AudioMute exec --no-startup-id ~/.config/dunst/scripts/changeVolume toggle
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+# Special key to take a screenshot with grim
+# bindsym Print exec grim
+
+##########################################
+########### Status Bar ##################
+##########################################
+bar {
+  swaybar_command waybar
+  # position top
+  # status_command i3status -c /home/abiudy/.config/i3/i3status.conf
+  # colors {
+  #   background #222222
+  #   statusline #FFFFFF
+  #   separator  #8a1919
+  #
+  #   # <colorclass>       <border> <background> <text>
+  #   focused_workspace    #cc6a02    #8a1919    #FFFFFF
+  #   # active_workspace     #6b4822    #6b4822    #FFFFFF
+  #   inactive_workspace   #8C8C8C    #4C4C4C    #888888
+  #   urgent_workspace     #EC69A0    #3d85c6    #FFFFFF
+  #   binding_mode         #b691d3    #A07CBC    #FFFFFF
+  # }
+}
+
+include /etc/sway/config.d/*
+
+################################################################################
+##### MY CONFIGS ##############################################################
+################################################################################
+## Extra Key Bindings
+bindsym $mod+n exec pcmanfm
+bindsym $mod+b exec vivaldi-stable
+bindsym $mod+l exec swaylock -i '/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png'
+bindsym $mod+j exec jellyfinmediaplayer
+bindsym $mod+c exec zsh -c 'grimshot save anything /home/abiudy/Pictures/Screenshots/$(date +\%H-\%M-\%S_\%d-\%m-\%Y).png'
+
+## Set Wallpaper
+exec swaybg -i /home/abiudy/Pictures/Wallpapers/superman2024.jpeg -m fill
+
+## Terminal Applications
+# bindsym $mod+m exec ghostty --class=org.example.rmpc --x11-instance-name=rmpc -e /home/abiudy/.local/share/cargo/bin/rmpc
+bindsym $mod+m exec ghostty --class=org.example.rmpc -e rmpc
+bindsym $mod+z exec  ghostty --class=org.example.zellij -e zellij -l welcome
+bindsym $mod+v exec ghostty --class=org.example.nvim -e nvim
+# bindsym $mod+t exec ~/.config/rofi/scripts/tmux-menu.py
+# bindsym $mod+y exec ghostty --class=org.example.yazi --x11-instance-name=yazi -e yazi
+
+# Launch Apps at Startup
+exec --no-startup-id blueman-applet
+exec --no-startup-id mpDris2
+exec --no-startup-id caffeine-indicator
+
+# POLKIT AGENT
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Lanch Apps in specified workspaces
+assign [app_id="com.mitchellh.ghostty"] $ws1
+assign [app_id="org.example.nvim"] $ws1
+assign [app_id="org.example.zellij"] $ws1
+assign [class="Vivaldi-stable"] $ws2
+assign [app_id="fdm"] $ws2
+assign [class="Pcmanfm"] $ws3
+assign [app_id="com.github.iwalton3.jellyfin-media-player"] $ws5
+assign [app_id="mpv"] $ws5
+assign [class="zoom"] $ws5
+assign [app_id="Spotify"] $ws6
+assign [app_id="org.example.rmpc"] $ws6
+assign [app_id="TelegramDesktop"] $ws7
+assign [app_id="io.github.kukuruzka165.materialgram"] $ws7
+assign [app_id="YACReaderLibrary"] $ws8
+assign [app_id="YACReader"] $ws8
+assign [app_id="qBittorrent"] $ws9
+assign [app_id="XnView"] $ws10
+assign [app_id="localsend"] $ws10
+# assign [class="Alacritty"] $ws1
+# assign [class="tmux"] $ws1
+# assign [class="tmuxifier"] $ws1
+# assign [instance="yazi"] $ws3
+# assign [class="org.nickvision.tubeconverter.gnome"] $ws9
+# assign [class="KeePassXC"] $ws10
+
+### Libreoffice workaround
+for_window [instance="libreoffice"] move container to workspace $ws4
+
+# Launch Apps in floating mode
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="blueman-services"] floating enable
+for_window [title="Preferences"] floating enable
+# for_window [class="Free Download Manager"] floating enable
+# for_window [class="Nitrogen"] floating enable
+
+# Dialogs
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [class="zenity"] floating enable
+
+# Apps to focus on launch
+for_window [app_id="com.mitchellh.ghostty"] focus
+for_window [class="Pcmanfm"] focus
+for_window [class="nvim"] focus
+for_window [class="Vivaldi-stable"] focus
+
+# Layout mode for new containers
+# workspace_layout tabbed
+
+# Layout mode for specific workspaces
+# for_window [workspace="1"] layout tabbed
+# for_window [workspace="3"] layout default
+
+# Layout mode for specific applications
+# for_window [class="Pcmanfm"] layout default
+
+#################
+###### Gaps
+#################
+# Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 2px
+
+# Outer gaps for all windows: space along the screen edges.
+gaps outer 3px
+
+# Inner and outer gaps for all windows on a specific workspace.
+# <ws> can be a workspace number or name.
+#workspace <ws> gaps inner <gap_size>[px]
+#workspace <ws> gaps outer|horizontal|vertical|top|left|bottom|right <gap_size>[px]
+
+# Enabling “Smart Gaps” means no gaps will be shown when there is
+# precisely one window or split container on the workspace.
+#
+# inverse_outer only enables outer gaps when there is exactly one
+# window or split container on the workspace.
+#smart_gaps on|off|inverse_outer
+
+########################
+##### Border Style
+########################
+default_border normal 2px
+hide_edge_borders none
+
+# Border for all applications
+# for_window [class=".*"] border normal 2
+
+# Border for specific applications
+for_window [app_id="com.mitchellh.ghostty"] default_border pixel 2
+for_window [instance="rmpc"] default_border pixel 2
+for_window [class="Vivaldi-stable"] default_border pixel 2
+for_window [class="Pcmanfm"] default_border pixel 2
+
+#######################
+##### Changing colors
+#######################
+#  class                   border     backgr.    text       indicator  child_border
+client.focused             #915e00    #8a1919    #ffffff    #ffa500    #8a1919
+#client.focused_inactive    #333333    #5f676a    #ffffff    #484e50    #5f676a
+# client.unfocused          #333333    #222222    #888888    #292d2e    #222222
+#client.urgent              #2f343a    #900000    #ffffff    #900000    #900000
+#client.placeholder         #000000    #0c0c0c    #ffffff    #000000    #0c0c0c
+#client.background          #ffffff
+
+
+##############################
+##### Media player controls
+##############################
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#############################
+##### Compositing #########
+#############################
+# exec_always --no-startup-id picom --experimental-backends
+# exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+
+#############################
+##### Screen Lock #########
+#############################
+# Lock screen when suspend, hibernate, or shutdown. Use loginctl lock-session to lock your
+# xss-lock grabs a logind suspend inhibit lock and will use swaylock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- swaylock -i '/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png' 
+
+

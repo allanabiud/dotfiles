@@ -1,0 +1,93 @@
+* {
+  border: none;
+  font-family:
+    Font Awesome,
+    /* MesloLGS NF, */ Roboto,
+    Arial,
+    sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+window {
+  font-weight: bold;
+}
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+}
+/*-----module groups----*/
+.modules-right {
+  background-color: #222222;
+  margin: 2px 5px 0 0;
+}
+.modules-center {
+  background-color: #222222;
+  margin: 2px 0 0 0;
+}
+.modules-left {
+  margin: 2px 0 0 5px;
+  background-color: #222222;
+}
+/*-----modules indv----*/
+#workspaces button {
+  padding: 2px 7px;
+  transition: none;
+}
+
+#workspaces button.focused {
+  background-color: #8a1919;
+}
+
+#workspaces button:hover {
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
+  background-color: #8a1919;
+}
+
+#clock {
+  font-size: 14px;
+}
+#mpd {
+  color: #ffa500;
+}
+
+#clock,
+#mpd,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor {
+  padding: 0 10px;
+}
+#mode {
+  color: #cc3436;
+  font-weight: bold;
+}
+/*-----Indicators----*/
+#idle_inhibitor.activated {
+  color: #2dcc36;
+}
+#pulseaudio.muted {
+  color: #cc3436;
+}
+#battery.charging {
+  color: #2dcc36;
+}
+#battery.warning:not(.charging) {
+  color: #e6e600;
+}
+#battery.critical:not(.charging) {
+  color: #cc3436;
+}
+#temperature.critical {
+  color: #cc3436;
+}
