@@ -10,6 +10,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 # export XDG_RUNTIME_DIR=$HOME/.var/run
+export XDG_CURRENT_DESKTOP=sway
+
 
 ### EXPORT OTHER VARIABLES
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -45,6 +47,7 @@ export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.local/share/cargo/bin/"
 export PATH=$PATH:"$JAVA_HOME/bin"
+export PATH=$PATH:"/usr/share/sway-contrib/"
 
 # My Scripts
 export PATH=$PATH:"$HOME/.config/rclone/scripts/mount/"
