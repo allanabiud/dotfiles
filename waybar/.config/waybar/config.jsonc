@@ -1,7 +1,7 @@
 {
-    "modules-left": ["clock", "idle_inhibitor", "mpd"],
+    "modules-left": ["custom/updates", "disk", "mpris"],
     "modules-center": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/power"],
+    "modules-right": ["custom/timer", "idle_inhibitor", "tray",  "pulseaudio", "network", "battery", "clock"],
 
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -18,7 +18,7 @@
     },
     "disk": {
       "interval": 30,
-      "format": "{specific_free:0.2f} GB / {specific_total:0.2f} GB",
+      "format": "  {specific_free:0.2f} GB / {specific_total:0.2f} GB",
       "unit": "GB"
       // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
     },
@@ -57,6 +57,27 @@
           "consume": "$HOME/.config/waybar/scripts/rmpc_toggle.sh consume",
         },
     },
+    "mpris": {
+      "format": "{status_icon} {player} [{position}/{length}] {player_icon}",
+      "format-paused": "{status_icon} {player} {position}/{length} {player_icon}",
+      "tooltip-format": "{player}: {dynamic}",
+      "player-icons": {
+        "default": "▶ ",
+        "mpv": " ",
+        "mpd": " ",
+        "chromium": " ",
+      },
+      "status-icons": {
+        "paused": "▶",
+        "playing": "",
+      },
+      "dynamic-order": [
+        "title", 
+        "artist",
+      ],
+      "interval": 1,
+      // "ignored-players": ["firefox"]
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -73,7 +94,7 @@
       "format-alt": "{:%A, %B %d, %Y (%R)}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
-        "mode"          : "year",
+        "mode"          : "month",
         "mode-mon-col"  : 3,
         "weeks-pos"     : "right",
         "on-scroll"     : 1,
@@ -145,7 +166,7 @@
     //   }
     // }
     // "custom/media": {
-    //     "format": "{icon} {text}",
+    //     "format": "{0} {1}",
     //     "return-type": "json",
     //     "max-length": 40,
     //     "format-icons": {
@@ -156,4 +177,30 @@
     //     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
     //     // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     // },
+    "custom/timer": {
+      "exec": "/home/abiudy/.local/bin/waybar_timer hook",
+      "exec-on-event": false,
+      "return-type": "json",
+      "format": "{icon} {0}",
+      "format-icons": {
+          "standby": " ",
+          "running": " ",
+          "paused": " "
+      },
+      "on-click": "/home/abiudy/.local/bin/waybar_timer new 25 'notify-send \"Session finished\"'",
+      "on-click-middle": "/home/abiudy/.local/bin/waybar_timer cancel",
+      "on-click-right": "/home/abiudy/.local/bin/waybar_timer togglepause",
+      "on-scroll-up": "/home/abiudy/.local/bin/waybar_timer increase 60 || /home/abiudy/.local/bin/waybar_timer/ new 1 'notify-send -u critical \"Timer expired\"'",
+      "on-scroll-down": "/home/abiudy/.local/bin/waybar_timer decrease 60"
+    },
+    "custom/updates": {
+      "format": "{} {icon}",
+      "return-type": "json",
+      "format-icons": {
+          "has-updates": "󱍷",
+          "updated": "󰂪"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --no-zero-output"
+    },
 }

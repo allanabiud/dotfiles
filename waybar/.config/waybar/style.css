@@ -48,26 +48,56 @@ window#waybar {
 }
 
 #clock {
-  padding-left: 10px;
   font-size: 13.5px;
 }
 #mpd {
   color: #ffa500;
+  margin-right: 5px;
 }
 
 tooltip {
   background-color: #222222;
 }
 
-#mpd,
-#battery,
-#cpu,
+.timer {
+  background-color: #8a1919;
+}
+
+#battery {
+  padding: 0 0 0 10px;
+}
+
+#mpris.paused {
+  color: #ffa500;
+}
+#mpris.playing {
+  color: #2dcc36;
+}
+#mpris.mpd {
+  color: coral;
+}
+#mpris.mpv {
+  color: plum;
+}
+#mpris.chromium {
+  color: steelblue;
+}
+
+#mpris,
 #disk,
+.timer,
+#custom-media,
+#custom-updates,
+#mpd {
+  padding: 0 10px;
+}
+
+#clock,
+#cpu,
 #memory,
 #temperature,
 #network,
 #pulseaudio,
-#custom-media,
 #tray,
 #mode,
 #idle_inhibitor {
