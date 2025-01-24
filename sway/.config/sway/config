@@ -43,7 +43,6 @@ exec swayidle -w \
          timeout 300 'swaylock -f -i "/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png"' \
          timeout 360 'swaymsg "output * power off"' \
          resume 'swaymsg "output * power on"' \
-         timeout 600 'systemctl suspend' \
          before-sleep 'swaylock -f -i "/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png"'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -259,13 +258,24 @@ exec --no-startup-id shikane
 # POLKIT AGENT
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+#####################################
 # Lanch Apps in specified workspaces
+#####################################
 assign [app_id="com.mitchellh.ghostty"] $ws1
 assign [app_id="org.example.nvim"] $ws1
 assign [app_id="org.example.zellij"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [app_id="fdm"] $ws2
 assign [class="Pcmanfm"] $ws3
+
+### Libreoffice
+assign [app_id="libreoffice-startcenter"] $ws4
+assign [app_id="libreoffice-writer"] $ws4
+assign [app_id="libreoffice-calc"] $ws4
+assign [app_id="libreoffice-impress"] $ws4
+assign [app_id="libreoffice-draw"] $ws4
+assign [app_id="libreoffice-base"] $ws4
+
 assign [app_id="com.github.iwalton3.jellyfin-media-player"] $ws5
 assign [app_id="mpv"] $ws5
 assign [class="zoom"] $ws5
@@ -279,8 +289,6 @@ assign [app_id="qBittorrent"] $ws9
 assign [app_id="XnView"] $ws10
 assign [app_id="localsend"] $ws10
 
-### Libreoffice workaround
-for_window [instance="libreoffice"] move container to workspace $ws4
 
 # Launch Apps in floating mode
 for_window [app_id="blueman-manager"] floating enable
@@ -303,6 +311,7 @@ for_window [class="zenity"] floating enable
 
 # Apps to focus on launch
 for_window [app_id="com.mitchellh.ghostty"] focus
+for_window [app_id="org.example.zellij"] focus
 for_window [class="Pcmanfm"] focus
 for_window [class="nvim"] focus
 for_window [class="Vivaldi-stable"] focus
