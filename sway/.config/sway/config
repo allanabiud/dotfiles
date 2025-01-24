@@ -41,8 +41,9 @@ set $menu rofi -show drun
 ##########################################
 exec swayidle -w \
          timeout 300 'swaylock -f -i "/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png"' \
-         timeout 360 'swaymsg "output * power off" && systemctl suspend' \
+         timeout 360 'swaymsg "output * power off"' \
          resume 'swaymsg "output * power on"' \
+         timeout 600 'systemctl suspend' \
          before-sleep 'swaylock -f -i "/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png"'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
