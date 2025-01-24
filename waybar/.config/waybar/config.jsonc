@@ -75,8 +75,8 @@
     //     },
     // },
     "mpris": {
-      "format": "{status_icon} {player} [{position}/{length}] {player_icon}",
-      "format-paused": "{status_icon} {player} {position}/{length} {player_icon}",
+      "format": "{status_icon} [{position}/{length}] {player} {player_icon}",
+      "format-paused": "{status_icon} [{position}/{length}] {player} {player_icon}",
       "tooltip-format": "{dynamic}",
       "player-icons": {
         "default": "▶ ",
