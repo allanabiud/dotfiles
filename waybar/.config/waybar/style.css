@@ -48,12 +48,12 @@ window#waybar {
 }
 
 #clock {
-  font-size: 13.5px;
+  font-size: 14px;
 }
-#mpd {
-  color: #ffa500;
-  margin-right: 5px;
-}
+/* #mpd { */
+/*   color: #ffa500; */
+/*   margin-right: 5px; */
+/* } */
 
 tooltip {
   background-color: #222222;

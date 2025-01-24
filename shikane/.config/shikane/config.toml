@@ -10,10 +10,12 @@ name = " LAPTOP + SAMSUNG HOME TV"
 exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
 
     [[profile.output]]
+    # Laptop
     search = ["m=0x1332", "s=", "v=Chi Mei Optoelectronics corp."]
     enable = false
 
     [[profile.output]]
+    # TV
     enable = true
     search = ["m=SAMSUNG", "s=", "v=Samsung Electric Company"]
     mode = "1366x768@59.79Hz"

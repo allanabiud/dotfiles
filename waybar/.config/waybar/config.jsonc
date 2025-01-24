@@ -1,7 +1,22 @@
 {
-    "modules-left": ["custom/updates", "disk", "mpris"],
-    "modules-center": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["custom/timer", "idle_inhibitor", "tray",  "pulseaudio", "network", "battery", "clock"],
+    "modules-left": [
+      "custom/updates",
+      "disk",
+      "mpris"
+    ],
+    "modules-center": [
+      "sway/workspaces",
+      "sway/mode"
+    ],
+    "modules-right": [
+      "custom/timer",
+      "idle_inhibitor",
+      "tray",
+      "pulseaudio",
+      "network",
+      "battery",
+      "clock"
+    ],
 
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -9,9 +24,11 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ifname} {ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{ifname} via {gwaddr} ",
+        "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (Linked) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "nm-connection-editor",
@@ -22,45 +39,45 @@
       "unit": "GB"
       // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": " 1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)",
-        "on-click": "rmpc togglepause",
-        "menu": "on-click-right",
-        "menu-file": "$HOME/.config/waybar/scripts/mpd_menu.xml",
-        "menu-actions": {
-          "random": "$HOME/.config/waybar/scripts/rmpc_toggle.sh random",
-          "repeat": "$HOME/.config/waybar/scripts/rmpc_toggle.sh repeat",
-          "single": "$HOME/.config/waybar/scripts/rmpc_toggle.sh single",
-          "consume": "$HOME/.config/waybar/scripts/rmpc_toggle.sh consume",
-        },
-    },
+    // "mpd": {
+    //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    //     "format-disconnected": "Disconnected ",
+    //     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+    //     "unknown-tag": "N/A",
+    //     "interval": 5,
+    //     "consume-icons": {
+    //         "on": " "
+    //     },
+    //     "random-icons": {
+    //         "off": "<span color=\"#f53c3c\"></span> ",
+    //         "on": " "
+    //     },
+    //     "repeat-icons": {
+    //         "on": " "
+    //     },
+    //     "single-icons": {
+    //         "on": " 1 "
+    //     },
+    //     "state-icons": {
+    //         "paused": "",
+    //         "playing": ""
+    //     },
+    //     "tooltip-format": "MPD (connected)",
+    //     "tooltip-format-disconnected": "MPD (disconnected)",
+    //     "on-click": "rmpc togglepause",
+    //     "menu": "on-click-right",
+    //     "menu-file": "$HOME/.config/waybar/scripts/mpd_menu.xml",
+    //     "menu-actions": {
+    //       "random": "$HOME/.config/waybar/scripts/rmpc_toggle.sh random",
+    //       "repeat": "$HOME/.config/waybar/scripts/rmpc_toggle.sh repeat",
+    //       "single": "$HOME/.config/waybar/scripts/rmpc_toggle.sh single",
+    //       "consume": "$HOME/.config/waybar/scripts/rmpc_toggle.sh consume",
+    //     },
+    // },
     "mpris": {
       "format": "{status_icon} {player} [{position}/{length}] {player_icon}",
       "format-paused": "{status_icon} {player} {position}/{length} {player_icon}",
-      "tooltip-format": "{player}: {dynamic}",
+      "tooltip-format": "{dynamic}",
       "player-icons": {
         "default": "▶ ",
         "mpv": " ",
@@ -148,11 +165,11 @@
         ""
       ]
     },
-    "custom/power": {
-      "format": " ",
-      "on-click": "wlogout",
-      "tooltip": false,
-    },
+    // "custom/power": {
+    //   "format": " ",
+    //   "on-click": "wlogout",
+    //   "tooltip": false,
+    // },
     // "custom/power": {
     //   "format" : "⏻ ",
     //   "tooltip": false,
@@ -184,8 +201,8 @@
       "format": "{icon} {0}",
       "format-icons": {
           "standby": " ",
-          "running": " ",
-          "paused": " "
+          "running": " ",
+          "paused": " "
       },
       "on-click": "/home/abiudy/.local/bin/waybar_timer new 25 'notify-send \"Session finished\"'",
       "on-click-middle": "/home/abiudy/.local/bin/waybar_timer cancel",
