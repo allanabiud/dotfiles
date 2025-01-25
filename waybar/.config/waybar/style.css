@@ -27,7 +27,8 @@ window#waybar {
 }
 .modules-left {
   margin: 2px 0 0 5px;
-  background-color: #222222;
+  /* background-color: #222222; */
+  background-color: transparent;
 }
 /*-----modules indv----*/
 #workspaces button {
@@ -61,6 +62,7 @@ tooltip {
 
 .timer {
   background-color: #8a1919;
+  padding: 0 10px;
 }
 
 #battery {
@@ -85,11 +87,12 @@ tooltip {
 
 #mpris,
 #disk,
-.timer,
 #custom-media,
 #custom-updates,
 #mpd {
   padding: 0 10px;
+  background-color: #222222;
+  margin: 0 0 0 5px;
 }
 
 #clock,
