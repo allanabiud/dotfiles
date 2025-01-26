@@ -22,14 +22,10 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "interface": "wl*",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} {ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr}",
         "tooltip-format-wifi": "{ifname} via {gwaddr} ",
-        "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (Linked) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "nm-connection-editor",
     },
