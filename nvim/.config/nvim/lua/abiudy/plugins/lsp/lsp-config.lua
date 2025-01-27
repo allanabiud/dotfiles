@@ -99,6 +99,15 @@ return {
         })
       end,
 
+      -- cssls
+      ["cssls"] = function()
+        lspconfig["cssls"].setup({
+          filetypes = { "css", "tcss" },
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
+      end,
+
       -- Lua_ls
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
