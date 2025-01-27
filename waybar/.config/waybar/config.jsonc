@@ -1,6 +1,5 @@
 {
     "modules-left": [
-      "custom/updates",
       "disk",
       "mpris"
     ],
@@ -205,15 +204,5 @@
       "on-click-right": "/home/abiudy/.local/bin/waybar_timer togglepause",
       "on-scroll-up": "/home/abiudy/.local/bin/waybar_timer increase 60 || /home/abiudy/.local/bin/waybar_timer/ new 1 'notify-send -u critical \"Timer expired\"'",
       "on-scroll-down": "/home/abiudy/.local/bin/waybar_timer decrease 60"
-    },
-    "custom/updates": {
-      "format": "{} {icon}",
-      "return-type": "json",
-      "format-icons": {
-          "has-updates": "󱍷",
-          "updated": "󰂪"
-      },
-      "exec-if": "which waybar-module-pacman-updates",
-      "exec": "waybar-module-pacman-updates --no-zero-output"
     },
 }
