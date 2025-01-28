@@ -267,7 +267,6 @@ assign [app_id="org.example.zellij"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [app_id="fdm"] $ws2
 assign [class="Pcmanfm"] $ws3
-assign [app_id="thunar"] $ws3
 
 ### Libreoffice
 assign [app_id="libreoffice-startcenter"] $ws4
