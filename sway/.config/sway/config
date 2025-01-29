@@ -247,7 +247,6 @@ exec swaybg -i /home/abiudy/Pictures/Wallpapers/Wallpaper_Zagreus01.jpg
 ## Terminal Applications
 bindsym $mod+m exec ghostty --class=org.example.rmpc -e rmpc
 bindsym $mod+z exec  ghostty --class=org.example.zellij -e zellij -l welcome
-bindsym $mod+v exec ghostty --class=org.example.nvim -e nvim
 
 # Launch Apps at Startup
 exec --no-startup-id nm-applet
@@ -262,7 +261,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Lanch Apps in specified workspaces
 #####################################
 assign [app_id="com.mitchellh.ghostty"] $ws1
-assign [app_id="org.example.nvim"] $ws1
 assign [app_id="org.example.zellij"] $ws1
 assign [class="Vivaldi-stable"] $ws2
 assign [app_id="fdm"] $ws2

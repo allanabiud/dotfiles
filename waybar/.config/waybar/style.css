@@ -106,10 +106,13 @@ tooltip {
 #network,
 #pulseaudio,
 #tray,
+#submap,
 #mode,
 #idle_inhibitor {
   padding: 0 8px;
 }
+
+#submap,
 #mode {
   color: #cc3436;
   font-weight: bold;

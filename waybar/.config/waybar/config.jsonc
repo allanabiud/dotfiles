@@ -6,7 +6,8 @@
     "modules-center": [
       "sway/workspaces",
       "hyprland/workspaces",
-      "sway/mode"
+      "sway/mode",
+      "hyprland/submap",
     ],
     "modules-right": [
       "custom/timer",
@@ -38,6 +39,11 @@
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>",
+        "max-length": 8,
+        "tooltip": false
     },
     "network": {
         // "interface": "wl*",

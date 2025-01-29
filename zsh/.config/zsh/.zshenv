@@ -4,13 +4,13 @@ export TERMCMD="ghostty"
 export EDITOR=/usr/bin/nvim
 
 ### XDG VARIABLES
-export XDG_SESSION_TYPE=X11
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
-# export XDG_RUNTIME_DIR=$HOME/.var/run
-export XDG_CURRENT_DESKTOP=sway
+export XDG_RUNTIME_DIR=$HOME/.var/run
+# export XDG_SESSION_TYPE=X11
+# export XDG_CURRENT_DESKTOP=sway
 
 
 ### EXPORT OTHER VARIABLES
