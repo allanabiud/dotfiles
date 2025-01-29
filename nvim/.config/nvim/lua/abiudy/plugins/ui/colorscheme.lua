@@ -7,7 +7,7 @@ return {
     config = function()
       require("onedarkpro").setup({
         highlights = {
-          Comment = { italic = true },
+          Comment = { italic = true, fg = "#a3a6ad" },
           Directory = { bold = true },
           ErrorMsg = { italic = true, bold = true },
         },
