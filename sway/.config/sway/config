@@ -242,7 +242,7 @@ bindsym $mod+j exec jellyfinmediaplayer
 bindsym Print exec zsh -c 'grimshot save anything /home/abiudy/Pictures/Screenshots/$(date +\%H-\%M-\%S_\%d-\%m-\%Y).png'
 
 ## Set Wallpaper
-exec swaybg -i /home/abiudy/Pictures/Wallpapers/superman2024.jpeg -m fill
+exec swaybg -i /home/abiudy/Pictures/Wallpapers/Wallpaper_Zagreus01.jpg
 
 ## Terminal Applications
 bindsym $mod+m exec ghostty --class=org.example.rmpc -e rmpc
