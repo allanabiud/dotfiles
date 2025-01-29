@@ -33,7 +33,7 @@ window#waybar {
 /*-----modules indv----*/
 #workspaces button {
   padding: 2px 7px;
-  transition: none;
+  transition: all 0.3s;
 }
 
 #workspaces button.focused {
@@ -45,6 +45,11 @@ window#waybar {
   box-shadow: none;
   text-shadow: none;
   transition: none;
+  background-color: #8a1919;
+}
+
+/* hyprland-workspaces */
+#workspaces button.active {
   background-color: #8a1919;
 }
 
