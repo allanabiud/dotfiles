@@ -156,12 +156,4 @@ terminal: "ghostty";
   }
 }
 
-//@theme "/usr/share/rofi/themes/arthur.rasi"
-
-//@theme "/home/abiudy/.local/share/rofi/themes/rounded-red-dark.rasi"
-
-//@theme "/home/abiudy/.local/share/rofi/themes/squared-material-red.rasi"
-
-//@theme "/home/abiudy/.local/share/rofi/themes/rounded-red-dark.rasi"
-
-@theme "/home/abiudy/.local/share/rofi/themes/squared-material-red.rasi"
+@theme "/home/allanabiud/.config/rofi/themes/squared-material-red.rasi"
