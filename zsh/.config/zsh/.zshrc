@@ -72,7 +72,7 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 # ------ Zoxide -------------------------------------
 eval "$(zoxide init --cmd cd zsh)"
 
-### --- ZSH Syntax HIghlighting ------------------------------
+### --- ZSH Syntax Highlighting ------------------------------
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### --- ZSH AutoSuggestions ---------------------------------
