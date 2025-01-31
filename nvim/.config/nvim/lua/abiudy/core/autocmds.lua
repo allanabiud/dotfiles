@@ -17,6 +17,19 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "set filetype=htmldjango",
 })
 
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  pattern = { "*.hl", "hypr*.conf" },
+  callback = function(event)
+    print(string.format("starting hyprls for %s", vim.inspect(event)))
+    vim.lsp.start({
+      name = "hyprlang",
+      cmd = { "hyprls" },
+      root_dir = vim.fn.getcwd(),
+    })
+  end,
+})
+
 -- Ensures that when exiting NeoVim, Zellij returns to normal mode
 -- vim.api.nvim_create_autocmd("VimLeave", {
 --   pattern = "*",

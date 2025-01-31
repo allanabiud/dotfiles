@@ -7,7 +7,7 @@ return {
   config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      ensure_installed = { "lua", "markdown", "html", "htmldjango", "css", "bash", "javascript" },
+      ensure_installed = { "lua", "markdown", "html", "htmldjango", "css", "bash", "javascript", "hyprlang" },
       auto_install = true,
       highlight = {
         enable = true,
@@ -16,6 +16,10 @@ return {
       },
       indent = { enable = true },
       autotag = { enable = true },
+    })
+    -- Hyprlang Auto-Detection
+    vim.filetype.add({
+      pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
     })
   end,
 }

@@ -33,6 +33,7 @@ return {
         "emmet_language_server",
         "ts_ls",
         "gopls",
+        "hyprls",
       },
       -- automatic installation of servers
       automatic_installation = true, -- not the same as ensure_installed
