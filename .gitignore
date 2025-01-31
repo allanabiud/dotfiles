@@ -1,6 +1,7 @@
 .zsh_history
 lazy-lock.json
 .zcompdump
+database
 rmpc/.config/rmpc/lyrics/
 gomp/.config/gomp/cache/
 ncmpcpp/.config/ncmpcpp/lyrics/
