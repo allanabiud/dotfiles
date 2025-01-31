@@ -215,7 +215,7 @@
     //     // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     // },
     "custom/timer": {
-      "exec": "/home/abiudy/.local/bin/waybar_timer hook",
+      "exec": "/home/allanabiud/.local/bin/waybar_timer hook",
       "exec-on-event": false,
       "return-type": "json",
       "format": "{icon} {0}",
@@ -224,10 +224,10 @@
           "running": " ",
           "paused": " "
       },
-      "on-click": "/home/abiudy/.local/bin/waybar_timer new 25 'notify-send \"Session finished\"'",
-      "on-click-middle": "/home/abiudy/.local/bin/waybar_timer cancel",
-      "on-click-right": "/home/abiudy/.local/bin/waybar_timer togglepause",
-      "on-scroll-up": "/home/abiudy/.local/bin/waybar_timer increase 60 || /home/abiudy/.local/bin/waybar_timer/ new 1 'notify-send -u critical \"Timer expired\"'",
-      "on-scroll-down": "/home/abiudy/.local/bin/waybar_timer decrease 60"
+      "on-click": "/home/allanabiud/.local/bin/waybar_timer new 25 'notify-send \"Session finished\"'",
+      "on-click-middle": "/home/allanabiud/.local/bin/waybar_timer cancel",
+      "on-click-right": "/home/allanabiud/.local/bin/waybar_timer togglepause",
+      "on-scroll-up": "/home/allanabiud/.local/bin/waybar_timer increase 60 || /home/allanabiud/.local/bin/waybar_timer/ new 1 'notify-send -u critical \"Timer expired\"'",
+      "on-scroll-down": "/home/allanabiud/.local/bin/waybar_timer decrease 60"
     },
 }
