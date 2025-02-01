@@ -49,7 +49,7 @@
     },
     "disk": {
       "interval": 30,
-      "format": "  {specific_free:0.2f} GB / {specific_total:0.2f} GB",
+      "format": "  {free} GB / {total} GB",
       "unit": "GB"
     },
     "mpris": {
