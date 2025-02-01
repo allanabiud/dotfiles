@@ -1,0 +1,58 @@
+#!/bin/sh
+
+last_commands=""
+
+handle() {
+  case $1 in
+  activewindow*)
+    # Fetching data from hyprctl
+    monitors=$(hyprctl -j monitors)
+    clients=$(hyprctl -j clients)
+
+    # Searching for the active monitor
+    active_monitor=$(echo "$monitors" | jq '.[] | select(.focused==true)')
+
+    # Checking if there is a specialWorkspace
+    if [ -n "$(echo "$active_monitor" | jq -r '.specialWorkspace.name')" ]; then
+      active_workspace=$(echo "$active_monitor" | jq -r '.specialWorkspace.name')
+    else
+      active_workspace=$(echo "$active_monitor" | jq -r '.activeWorkspace.name')
+    fi
+
+    # Checking if windows in the active workspace have 'grouped'
+    windows_in_active_workspace=$(echo "$clients" | jq -c ".[] | select(.workspace.name==\"$active_workspace\")")
+    grouped_windows_in_active_workspace=$(echo "$windows_in_active_workspace" | jq -c 'select(.grouped | length > 0)')
+
+    # Checking if windows in the group are the only ones in the active workspace
+    if [ "$(echo "$grouped_windows_in_active_workspace" | jq -s '. | length')" -gt 0 ] && [ "$(echo "$windows_in_active_workspace" | jq -s '. | length')" == "$(echo "$grouped_windows_in_active_workspace" | jq -s '. | length')" ]; then
+      new_commands="group"
+      if [ "$last_commands" != "$new_commands" ]; then
+        hyprctl keyword unbind SUPER,left
+        hyprctl keyword unbind SUPER,right
+        hyprctl keyword unbind SUPER SHIFT,left
+        hyprctl keyword unbind SUPER SHIFT,right
+        hyprctl keyword bind SUPER,left, changegroupactive, b
+        hyprctl keyword bind SUPER,right, changegroupactive, f
+        hyprctl keyword bind SUPER SHIFT,left, movegroupwindow, b
+        hyprctl keyword bind SUPER SHIFT,right, movegroupwindow, f
+        last_commands=$new_commands
+      fi
+    else
+      new_commands="layout"
+      if [ "$last_commands" != "$new_commands" ]; then
+        hyprctl keyword unbind SUPER,left
+        hyprctl keyword unbind SUPER,right
+        hyprctl keyword unbind SUPER SHIFT,left
+        hyprctl keyword unbind SUPER SHIFT,right
+        hyprctl keyword bind SUPER,left, movefocus, l
+        hyprctl keyword bind SUPER,right, movefocus, r
+        hyprctl keyword bind SUPER SHIFT,left, movewindow, l
+        hyprctl keyword bind SUPER SHIFT,right, movewindow, r
+        last_commands=$new_commands
+      fi
+    fi
+    ;;
+  esac
+}
+
+socat -U - UNIX-CONNECT:/run/user/1000/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
