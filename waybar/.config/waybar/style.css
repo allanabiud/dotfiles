@@ -2,7 +2,7 @@
   border: none;
   font-family:
     Font Awesome,
-    /* MesloLGS NF, */ Roboto,
+    Roboto,
     Arial,
     sans-serif;
   font-size: 13px;
@@ -26,41 +26,25 @@ window#waybar {
   margin: 2px 0 0 0;
 }
 .modules-left {
-  margin: 2px 0 0 5px;
+  margin: 2px 0 0 2px;
   /* background-color: #222222; */
   background-color: transparent;
 }
 /*-----modules indv----*/
 #workspaces button {
-  padding: 2px 7px;
+  padding: 1px 7px;
   transition: all 0.3s;
 }
-
-#workspaces button.focused {
-  background-color: #8a1919;
-}
-
-#workspaces button:hover {
-  background: none;
-  box-shadow: none;
-  text-shadow: none;
-  transition: none;
-  background-color: #8a1919;
-}
-
-/* hyprland-workspaces */
 #workspaces button.active {
   background-color: #8a1919;
+}
+workspaces button.urgent {
+  background-color: #cc3436;
 }
 
 #clock {
   font-size: 14px;
 }
-/* #mpd { */
-/*   color: #ffa500; */
-/*   margin-right: 5px; */
-/* } */
-
 tooltip {
   background-color: #222222;
 }
@@ -90,10 +74,13 @@ tooltip {
   color: steelblue;
 }
 
-#mpris,
+#mpris {
+  background-color: #222222;
+  margin: 0 0 0 5px;
+}
+
 #disk,
-#custom-media,
-#mpd {
+#custom-media {
   padding: 0 8px;
   background-color: #222222;
   margin: 0 0 0 5px;

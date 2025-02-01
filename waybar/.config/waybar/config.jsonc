@@ -1,7 +1,7 @@
 {
     "modules-left": [
       "disk",
-      "mpris"
+      "mpris",
     ],
     "modules-center": [
       "hyprland/workspaces",
@@ -35,9 +35,6 @@
       },
       "sort-by-number": true
     },
-    // "sway/mode": {
-    //     "format": "<span style=\"italic\">{}</span>"
-    // },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>",
         "max-length": 8,
@@ -54,46 +51,10 @@
       "interval": 30,
       "format": "  {specific_free:0.2f} GB / {specific_total:0.2f} GB",
       "unit": "GB"
-      // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
     },
-    // "mpd": {
-    //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-    //     "format-disconnected": "Disconnected ",
-    //     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
-    //     "unknown-tag": "N/A",
-    //     "interval": 5,
-    //     "consume-icons": {
-    //         "on": " "
-    //     },
-    //     "random-icons": {
-    //         "off": "<span color=\"#f53c3c\"></span> ",
-    //         "on": " "
-    //     },
-    //     "repeat-icons": {
-    //         "on": " "
-    //     },
-    //     "single-icons": {
-    //         "on": " 1 "
-    //     },
-    //     "state-icons": {
-    //         "paused": "",
-    //         "playing": ""
-    //     },
-    //     "tooltip-format": "MPD (connected)",
-    //     "tooltip-format-disconnected": "MPD (disconnected)",
-    //     "on-click": "rmpc togglepause",
-    //     "menu": "on-click-right",
-    //     "menu-file": "$HOME/.config/waybar/scripts/mpd_menu.xml",
-    //     "menu-actions": {
-    //       "random": "$HOME/.config/waybar/scripts/rmpc_toggle.sh random",
-    //       "repeat": "$HOME/.config/waybar/scripts/rmpc_toggle.sh repeat",
-    //       "single": "$HOME/.config/waybar/scripts/rmpc_toggle.sh single",
-    //       "consume": "$HOME/.config/waybar/scripts/rmpc_toggle.sh consume",
-    //     },
-    // },
     "mpris": {
-      "format": "{status_icon} [{position}/{length}] {player} {player_icon}",
-      "format-paused": "{status_icon} [{position}/{length}] {player} {player_icon}",
+      "format": " {status_icon} [{position}/{length}] {player} {player_icon} ",
+      "format-paused": " {status_icon} [{position}/{length}] {player} {player_icon} ",
       "tooltip-format": "{dynamic}",
       "player-icons": {
         "default": "▶ ",
@@ -110,7 +71,6 @@
         "artist",
       ],
       "interval": 1,
-      // "ignored-players": ["firefox"]
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -182,35 +142,6 @@
         ""
       ]
     },
-    // "custom/power": {
-    //   "format": " ",
-    //   "on-click": "wlogout",
-    //   "tooltip": false,
-    // },
-    // "custom/power": {
-    //   "format" : "⏻ ",
-    //   "tooltip": false,
-    //   "menu": "on-click",
-    //   "menu-file": "$HOME/.config/waybar/scripts/power_menu.xml", // Menu file in resources folder
-    //   "menu-actions": {
-    //     "shutdown": "shutdown",
-    //     "reboot": "reboot",
-    //     "suspend": "systemctl suspend",
-    //     "hibernate": "systemctl hibernate"
-    //   }
-    // }
-    // "custom/media": {
-    //     "format": "{0} {1}",
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     "format-icons": {
-    //         "spotify": "",
-    //         "default": "🎜"
-    //     },
-    //     "escape": true,
-    //     "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null",
-    //     // "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    // },
     "custom/timer": {
       "exec": "/home/allanabiud/.local/bin/waybar_timer hook",
       "exec-on-event": false,
