@@ -298,7 +298,7 @@ default_mode "normal"
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
-layout_dir "/home/abiudy/.config/zellij/layouts"
+layout_dir "/home/allanabiud/.config/zellij/layouts"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)

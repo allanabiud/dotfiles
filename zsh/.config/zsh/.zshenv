@@ -9,6 +9,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 #export XDG_RUNTIME_DIR=$HOME/.var/run
+XDG_PICTURES_DIR=$HOME/Pictures
 # export XDG_SESSION_TYPE=X11
 # export XDG_CURRENT_DESKTOP=sway
 
@@ -25,6 +26,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export HYPRSHOT_DIR="$XDG_PICTURES_DIR"/Screenshots
 
 ### NPM VARIABLES
 export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js

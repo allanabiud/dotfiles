@@ -4,9 +4,7 @@
       "mpris"
     ],
     "modules-center": [
-      "sway/workspaces",
       "hyprland/workspaces",
-      "sway/mode",
       "hyprland/submap",
     ],
     "modules-right": [
@@ -37,16 +35,15 @@
       },
       "sort-by-number": true
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
+    // "sway/mode": {
+    //     "format": "<span style=\"italic\">{}</span>"
+    // },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>",
         "max-length": 8,
         "tooltip": false
     },
     "network": {
-        // "interface": "wl*",
         "format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-wifi": "{ifname} via {gwaddr} ",
         "format-disconnected": "",
