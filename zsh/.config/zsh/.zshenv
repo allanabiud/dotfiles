@@ -1,7 +1,7 @@
 ### DEFAULT TERMINAL AND EDITOR
-export TERMINAL=/sbin/ghostty
+export TERMINAL="/sbin/ghostty"
 export TERMCMD="ghostty"
-export EDITOR=/usr/bin/nvim
+export EDITOR="/usr/bin/nvim"
 
 ### XDG VARIABLES
 export XDG_DATA_HOME=$HOME/.local/share
@@ -28,6 +28,12 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export HYPRSHOT_DIR="$XDG_PICTURES_DIR"/Screenshots
 
+### asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# python
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.asdf"
+# export ASDF_PYTHON_VERSION="system"
+
 ### NPM VARIABLES
 export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
@@ -49,19 +55,14 @@ export PATH=$PATH:"$ANDROID_HOME/platform-tools" # platform-tools
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.local/share/cargo/bin/"
 export PATH=$PATH:"$JAVA_HOME/bin"
-export PATH=$PATH:"/usr/share/sway-contrib/"
-
-# My Scripts
-export PATH=$PATH:"$HOME/.config/rclone/scripts/mount/"
-export PATH=$PATH:"$HOME/.config/rclone/scripts/unmount/"
-export PATH=$PATH:"$HOME/.config/dunst/scripts/"
+# export PATH=$PATH:"/usr/share/sway-contrib/"
 
 ### pnpm
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 
 ### EXPORT ALIAS VARIABLES
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
@@ -72,5 +73,5 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 export PIPENV_SHELL_FANCY=1
 
 ### PYENV
-export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
+# export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 

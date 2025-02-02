@@ -1,6 +1,8 @@
 ####################################################################################################
 ### ---- autocompletions -----------------------------------
 fpath=(~/.zsh/site-functions $fpath)
+### asdf completions
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
 ### ---- Completion options and styling -----------------------------------
@@ -79,11 +81,11 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # pnpm
-export PNPM_HOME="/home/abiudy/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="/home/abiudy/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 # pnpm end
 
 ### --- Yazi -----------------------------------
@@ -98,7 +100,7 @@ esac
 # source "$ZDOTDIR"/.yazi.sh
 
 ### Direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 ### Pyenv
 # export PYENV_ROOT="$HOME/.pyenv"
