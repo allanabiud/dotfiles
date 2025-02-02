@@ -36,15 +36,8 @@ inputbar {
     background-color:   @bg1;
 }
 
-prompt, entry, element-icon, element-text {
+entry, element-icon, element-text {
     vertical-align: 0.5;
-}
-
-prompt {
-    text-color: @fg0;
-    background-color:   @accent-color;
-    padding:    8px;
-    border-radius: 5px;
 }
 
 textbox {
