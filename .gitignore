@@ -1,4 +1,5 @@
 .zsh_history
+.env
 lazy-lock.json
 .zcompdump
 database
