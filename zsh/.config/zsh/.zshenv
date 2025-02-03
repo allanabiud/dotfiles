@@ -8,8 +8,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
+export XDG_PICTURES_DIR=$HOME/Pictures
 #export XDG_RUNTIME_DIR=$HOME/.var/run
-XDG_PICTURES_DIR=$HOME/Pictures
 # export XDG_SESSION_TYPE=X11
 # export XDG_CURRENT_DESKTOP=sway
 
@@ -25,8 +25,8 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export HYPRSHOT_DIR="$XDG_PICTURES_DIR"/Screenshots
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
@@ -57,13 +57,6 @@ export PATH=$PATH:"$HOME/.local/share/cargo/bin/"
 export PATH=$PATH:"$JAVA_HOME/bin"
 # export PATH=$PATH:"/usr/share/sway-contrib/"
 
-### pnpm
-# export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-
 ### EXPORT ALIAS VARIABLES
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
@@ -71,7 +64,3 @@ alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
 ### PIPENV
 export PIPENV_SHELL_FANCY=1
-
-### PYENV
-# export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
-
