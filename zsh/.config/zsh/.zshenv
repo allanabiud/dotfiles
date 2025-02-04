@@ -29,9 +29,9 @@ export HYPRSHOT_DIR="$XDG_PICTURES_DIR"/Screenshots
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # python
-export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.asdf"
+# export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.asdf"
 # export ASDF_PYTHON_VERSION="system"
 
 ### NPM VARIABLES
