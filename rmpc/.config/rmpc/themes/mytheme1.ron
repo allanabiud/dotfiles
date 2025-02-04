@@ -62,10 +62,9 @@
         rows: [
             (
                 left: [
-                    (kind: Text(" ")),
-                    (kind: Property(Status(Elapsed)), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(StateV2(playing_label: "  Playing", paused_label: "  Paused", stopped_label: "  Stopped"))),
+                        style: (fg: "yellow", modifiers: "Bold")
+                    ),
                 ],
                 center: [
                     (kind: Property(Song(Title)), style: (fg: "cyan", modifiers: "Bold"),
@@ -73,22 +72,22 @@
                     )
                 ],
                 right: [
-                    (
-                        kind: Property(Widget(States(
-                            active_style: (fg: "red", modifiers: "Bold"),
-                            separator_style: (fg: "white", modifiers: "Bold")))
-                        ),
-                        style: (fg: "dark_gray")
-                    ),
-                    (kind: Text(" ")),
+                    (kind: Property(Status(RepeatV2(on_label: " Repeat", off_label: ""))), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(RepeatV2(on_label: "", off_label: " "))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Text(" - "), style: (fg: "yellow")),
+                    (kind: Property(Status(RandomV2(on_label: " Random", off_label: ""))), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(RandomV2(on_label: "", off_label: " "))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Text(" - "), style: (fg: "yellow")),
+                    (kind: Property(Status(ConsumeV2(on_label: " Consume", off_label: "", oneshot_label: ""))), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(ConsumeV2(on_label: "", off_label: "", oneshot_label: ""))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Text(" - "), style: (fg: "yellow")),
+                    (kind: Property(Status(SingleV2(on_label: " Single ", off_label: "", oneshot_label: " Oneshot"))), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(SingleV2(on_label: "", off_label: " ", oneshot_label: ""))), style: (fg: "red", modifiers: "Dim")),
                 ]
             ),
             (
                 left: [
-                    (kind: Text(" ("), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(Bitrate)), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Text(" kbps)"), style: (fg: "red", modifiers: "Bold")),
-                ],
+                ], 
                 center: [
                     (kind: Property(Song(Artist)), style: (fg: "blue", modifiers: "Bold"),
                         default: (kind: Text("Unknown"), style: (fg: "blue", modifiers: "Bold"))
@@ -99,9 +98,10 @@
             ),
             (
                 left: [
-                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Property(Status(State)), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
+                    (kind: Text(" ")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
                 ],
                 center: [
                     (kind: Property(Song(Album)),
@@ -116,9 +116,8 @@
                     (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
                 ],
                 right: [
-                    (kind: Text("Vol: "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text("  Vol: "), style: (fg: "red", modifiers: "Bold")),
                     (kind: Property(Status(Volume)), style: (fg: "yellow", modifiers: "Bold")),
-                    // (kind: Property(Widget(Volume)), style: (fg: "red", modifiers: "Bold"))
                     (kind: Text("%"), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Text(" ")),
                 ],
