@@ -14,7 +14,7 @@ return {
           border = true,
         },
       },
-      suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+      suppressed_dirs = { "~/", "~/DEV", "~/Downloads", "~/Documents", "~/Desktop/" },
     })
 
     vim.keymap.set("n", "<leader>wl", require("auto-session.session-lens").search_session, { desc = "List Sessions" }) -- list all saved sessions

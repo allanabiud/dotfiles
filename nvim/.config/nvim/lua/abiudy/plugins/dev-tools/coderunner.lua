@@ -28,6 +28,7 @@ return {
         sh = "bash $file",
         html = "vivaldi $dir/$fileName",
         dart = "dart $file",
+        javascript = "node $file",
       },
     })
 

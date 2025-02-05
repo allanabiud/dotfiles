@@ -16,7 +16,7 @@ return {
         { "<leader>o", group = "Obsidian" },
         { "<leader>r", group = "Restart/Rename" },
         { "<leader>s", group = "Search with Telescope" },
-        { "<leader>S", group = "Snacks.nvim Tools" },
+        { "<leader>S", group = "Snacks Tools" },
         { "<leader>w", group = "Workspace Sessions" },
       })
     end,
