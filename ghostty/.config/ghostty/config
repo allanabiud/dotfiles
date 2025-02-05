@@ -2,7 +2,7 @@
 # command = zellij -l welcome
 shell-integration = zsh
 #gtk-single-instance = true
-gtk-adwaita = false
+gtk-adwaita = true
 confirm-close-surface = false
 
 #WINDOW
@@ -12,7 +12,7 @@ theme = Wez
 bold-is-bright = true
 gtk-titlebar = false
 window-padding-y = 0
-window-padding-x = 0
+window-padding-x = 3
 
 #FONTS
 font-size = 11
