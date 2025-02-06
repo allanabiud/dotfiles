@@ -8,9 +8,10 @@
       "hyprland/submap",
     ],
     "modules-right": [
-      "custom/timer",
-      "idle_inhibitor",
-      "tray",
+      // "custom/timer",
+      // "idle_inhibitor",
+      // "tray",
+      "group/extra",
       "pulseaudio",
       "network",
       "battery",
@@ -72,6 +73,22 @@
         "artist",
       ],
       "interval": 1,
+    },
+    "group/extra": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": false,
+      },
+      "modules": [
+        "custom/group_icon",
+        "custom/timer",
+        "idle_inhibitor",
+        "tray",
+      ]
+    },
+    "custom/group_icon": {
+      "format": "",
     },
     "idle_inhibitor": {
         "format": "{icon}",
