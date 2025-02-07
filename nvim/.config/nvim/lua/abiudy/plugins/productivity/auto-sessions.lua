@@ -5,6 +5,7 @@ return {
 
     auto_session.setup({
       auto_restore = false,
+      bypass_save_filetypes = { "alpha" },
       log_level = "error",
       session_lens = {
         buftypes_to_ignore = {},
@@ -14,7 +15,6 @@ return {
           border = true,
         },
       },
-      suppressed_dirs = { "~/", "~/DEV", "~/Downloads", "~/Documents", "~/Desktop/" },
     })
 
     vim.keymap.set("n", "<leader>wl", require("auto-session.session-lens").search_session, { desc = "List Sessions" }) -- list all saved sessions

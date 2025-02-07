@@ -70,9 +70,7 @@ return {
       window = {
         position = "left",
         width = 30,
-        mappings = {
-          ["\\"] = "close_window",
-        },
+        mappings = {},
       },
       filesystem = {
         follow_current_file = {
@@ -89,6 +87,6 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "\\", ":Neotree filesystem reveal left<CR>", {})
+    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", {})
   end,
 }

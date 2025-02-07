@@ -32,10 +32,11 @@ return {
               ["<C-k>"] = actions.move_selection_previous,
               ["<C-j>"] = actions.move_selection_next,
               ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+              ["<C-d>"] = actions.delete_buffer,
             },
             n = {
-              ["d"] = require("telescope.actions").delete_buffer,
-              ["q"] = require("telescope.actions").close,
+              ["d"] = actions.delete_buffer,
+              ["q"] = actions.close,
             },
           },
         },
