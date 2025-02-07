@@ -7,16 +7,16 @@ return {
 
       wk.add({
         -- Define a group for file-related actions
-        { "<leader>b", group = "Buffer Actions" },
         { "<leader>c", group = "Code Actions" },
-        { "<leader>f", group = "Formatting" },
-        { "<leader>F", group = "Flutter Tools" },
-        { "<leader>l", group = "Live Preview" },
-        { "<leader>n", group = "No Highlight" },
-        { "<leader>o", group = "Obsidian" },
+        -- { "<leader>g", group = "Git" },
+        { "<leader>l", group = "Lazygit" },
+        { "<leader>M", group = "Markdown" },
         { "<leader>r", group = "Restart/Rename" },
-        { "<leader>s", group = "Search with Telescope" },
-        { "<leader>S", group = "Snacks Tools" },
+        { "<leader>s", group = "Search" },
+        { "<leader>S", group = "Snacks" },
+        { "<leader>t", group = "Tools" },
+        { "<leader>tl", group = "Live Preview" },
+        { "<leader>tf", group = "Flutter Tools" },
         { "<leader>w", group = "Workspace Sessions" },
       })
     end,

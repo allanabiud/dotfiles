@@ -22,7 +22,11 @@ return {
 
       telescope.setup({
         defaults = {
-          path_display = { "smart" },
+          path_display = { "tail" },
+          sorting_strategy = "ascending",
+          layout_config = {
+            prompt_position = "top",
+          },
           mappings = {
             i = {
               ["<C-k>"] = actions.move_selection_previous,
@@ -81,7 +85,7 @@ return {
         })
       end, { desc = "[S]earch [/] in Open Files" })
 
-      -- Shortcut for searching your Neovim configuration files
+      -- Shortcut for searching Neovim configuration files
       keymap.set("n", "<leader>sn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, { desc = "[S]earch [N]eovim files" })

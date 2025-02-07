@@ -2,7 +2,6 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 -- Make line numbers default
 vim.opt.number = true
--- vim.opt.relativenumber = true
 
 -- Set title
 vim.opt.title = true
@@ -25,7 +24,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.breakindent = true
 -- vim.opt.softtabstop = 2
---vim.opt.smarttab = true
+-- vim.opt.smarttab = true
 -- vim.opt.smartindent = true
 
 -- Set wrap behaviour
@@ -60,10 +59,6 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---vim.opt.list = true
---vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
@@ -75,3 +70,59 @@ vim.opt.scrolloff = 10
 
 -- Ensure lualine is a global statusline
 vim.o.laststatus = 3
+
+-- Winbar
+local colors = {
+  blue = "#569cd6", -- Example blue
+  red = "#f44747", -- Example red
+  green = "#4c914c", -- Example green
+  gray = "#6b6b6b", -- Example gray
+  yellow = "#ffa500", -- Example yellow
+}
+
+vim.cmd(string.format([[highlight WinBar1 guifg=%s]], colors["yellow"]))
+vim.cmd(string.format([[highlight WinBar2 guifg=%s]], colors["red"]))
+vim.cmd(string.format([[highlight WinBar3 guifg=%s gui=bold]], colors["green"]))
+-- Function to get the full path and replace the home directory with ~
+local function get_winbar_path()
+  local full_path = vim.fn.expand("%:p:h")
+  return full_path:gsub(vim.fn.expand("$HOME"), "~")
+end
+-- Function to get the number of open buffers using the :ls command
+local function get_buffer_count()
+  local buffers = vim.fn.execute("ls")
+  local count = 0
+  -- Match only lines that represent buffers, typically starting with a number followed by a space
+  for line in string.gmatch(buffers, "[^\r\n]+") do
+    if string.match(line, "^%s*%d+") then
+      count = count + 1
+    end
+  end
+  return count
+end
+-- Function to update the winbar
+local function update_winbar()
+  local filetype = vim.bo.filetype
+
+  -- Disable winbar for neo-tree
+  if filetype == "neo-tree" then
+    return
+  end
+
+  local home_replaced = get_winbar_path()
+  local buffer_count = get_buffer_count()
+  vim.opt.winbar = "%#WinBar1#%m "
+    .. "%#WinBar2#("
+    .. buffer_count
+    .. ") "
+    -- this shows the filename on the left
+    .. "%#WinBar3#"
+    .. vim.fn.expand("%:t")
+    -- This shows the file path on the right
+    .. "%*%=%#WinBar1#"
+    .. home_replaced
+end
+-- Autocmd to update the winbar on BufEnter and WinEnter events
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+  callback = update_winbar,
+})

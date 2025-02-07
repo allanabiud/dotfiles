@@ -15,14 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- { import = "abiudy.plugins" },
   { import = "abiudy.plugins.AI" },
-  { import = "abiudy.plugins.code-editing" },
-  { import = "abiudy.plugins.code-navigation" },
   { import = "abiudy.plugins.format-and-lint" },
-  { import = "abiudy.plugins.dev-tools" },
-  { import = "abiudy.plugins.dev-tools.framework" },
-  { import = "abiudy.plugins.git-integration" },
   { import = "abiudy.plugins.lsp" },
+  { import = "abiudy.plugins.navigation" },
   { import = "abiudy.plugins.productivity" },
+  { import = "abiudy.plugins.tools" },
+  { import = "abiudy.plugins.tools.framework" },
   { import = "abiudy.plugins.ui" },
 }, {
   checker = {

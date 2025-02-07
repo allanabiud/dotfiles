@@ -3,7 +3,6 @@ return {
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim", -- optional for vim.ui.select
   },
   config = function()
     local flutter_tools = require("flutter-tools")
@@ -110,18 +109,18 @@ return {
     })
 
     -- Flutter Run
-    vim.api.nvim_set_keymap("n", "<leader>Fr", ":FlutterRun<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfr", ":FlutterRun<CR>", { noremap = true, silent = true })
     -- Flutter Reload
-    vim.api.nvim_set_keymap("n", "<leader>Fl", ":FlutterReload<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfl", ":FlutterReload<CR>", { noremap = true, silent = true })
     -- Flutter Restart
-    vim.api.nvim_set_keymap("n", "<leader>Fs", ":FlutterRestart<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfs", ":FlutterRestart<CR>", { noremap = true, silent = true })
     -- Flutter Devices
-    vim.api.nvim_set_keymap("n", "<leader>Fd", ":FlutterDevices<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfd", ":FlutterDevices<CR>", { noremap = true, silent = true })
     -- Flutter Emulators
-    vim.api.nvim_set_keymap("n", "<leader>Fe", ":FlutterEmulators<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfe", ":FlutterEmulators<CR>", { noremap = true, silent = true })
     -- Flutter Quit
-    vim.api.nvim_set_keymap("n", "<leader>Fq", ":FlutterQuit<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfq", ":FlutterQuit<CR>", { noremap = true, silent = true })
     -- Flutter Outline Toggle
-    vim.api.nvim_set_keymap("n", "<leader>Fo", ":FlutterOutlineToggle<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>tfo", ":FlutterOutlineToggle<CR>", { noremap = true, silent = true })
   end,
 }
