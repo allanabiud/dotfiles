@@ -67,6 +67,11 @@ return {
       keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
+      -- Git
+      keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "[G]it [C]ommits" })
+      keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "[G]it [B]ranches" })
+      keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[G]it [S]tatus" })
+
       -- Slightly advanced example of overriding default behavior and theme
       keymap.set("n", "<leader>/", function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.

@@ -8,7 +8,7 @@ return {
       wk.add({
         -- Define a group for file-related actions
         { "<leader>c", group = "Code Actions" },
-        -- { "<leader>g", group = "Git" },
+        { "<leader>g", group = "Git" },
         { "<leader>l", group = "Lazygit" },
         { "<leader>M", group = "Markdown" },
         { "<leader>r", group = "Restart/Rename" },
