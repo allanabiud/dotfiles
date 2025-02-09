@@ -49,11 +49,6 @@ tooltip {
   background-color: #222222;
 }
 
-.timer {
-  background-color: #8a1919;
-  padding: 0 10px;
-}
-
 #mpris.paused {
   color: #ffa500;
 }

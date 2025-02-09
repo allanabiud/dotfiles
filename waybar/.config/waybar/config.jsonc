@@ -75,9 +75,11 @@
     "idle_inhibitor": {
         "format": "{icon} ",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "",
+            "deactivated": ""
         },
+        "tooltip-format-activated": "Caffeine On",
+        "tooltip-format-deactivated": "Caffeine Off"
     },
     "tray": {
         "icon-size": 15,
@@ -85,7 +87,7 @@
     },
     "clock": {
       "format": "  {:%H:%M}",
-      "format-alt": "  {:%A, %B %d, %Y (%R)}",
+      "format-alt": "  {:%A, %B %d, %Y}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode"          : "month",
@@ -109,7 +111,7 @@
       },
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": "0%  {icon} ",
