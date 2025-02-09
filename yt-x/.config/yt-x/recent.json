@@ -227,6 +227,94 @@
       "live_status": null,
       "channel_is_verified": true,
       "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "pUh2Wa3uzSg",
+      "url": "https://www.youtube.com/watch?v=pUh2Wa3uzSg",
+      "title": "DAREDEVIL 1x9 & 1x10 Reaction w/ Kristen & Vivian | First Time Watch | Charlie Cox",
+      "description": "Kristen and Vivian watch the Netflix produced Daredevil series for the first time! \n\nSeason 1 of Daredevil features Charlie Cox (The Theory of Everything, Boardwalk Empire, Stardust) as Matt...",
+      "duration": 4714.0,
+      "channel_id": null,
+      "channel": null,
+      "channel_url": null,
+      "uploader": null,
+      "uploader_id": null,
+      "uploader_url": null,
+      "thumbnails": [
+        {
+          "url": "https://i9.ytimg.com/vi/pUh2Wa3uzSg/hqdefault_custom_1.jpg?sqp=CMj0ob0G-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCVFVnWCz_hTn2h33lWWpv3DRhswg",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i9.ytimg.com/vi/pUh2Wa3uzSg/hqdefault_custom_1.jpg?sqp=CMj0ob0G-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA7dTOTG2lxrrJVHl5IOL6xZ4bwLw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i9.ytimg.com/vi/pUh2Wa3uzSg/hqdefault_custom_1.jpg?sqp=CMj0ob0G-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDC2m3lzV9L15F9LZehCbXovJtESw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i9.ytimg.com/vi/pUh2Wa3uzSg/hqdefault_custom_1.jpg?sqp=CMj0ob0G-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAx5RBk0FKyJDaFsTGZ-qcQ9JBrmg",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": 1738713600,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 21286,
+      "live_status": null,
+      "channel_is_verified": true,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "Prpb3rjEFZc",
+      "url": "https://www.youtube.com/watch?v=Prpb3rjEFZc",
+      "title": "Top Android Apps! (February 2025)",
+      "description": "We are BACK with yet another list of incredible applications! Links below ⬇️\n\nTry the Best Data Recovery Tool to Recover All Your Lost Files: https://bit.ly/3ChwPog \nRecoverit Exclusive...",
+      "duration": 499.0,
+      "channel_id": null,
+      "channel": null,
+      "channel_url": null,
+      "uploader": null,
+      "uploader_id": null,
+      "uploader_url": null,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/Prpb3rjEFZc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAWRerlRagbuaFCCfEMOZUciwD2cw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Prpb3rjEFZc/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDIrAQz_xWnRnd6Usi-3RbeR65QDw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Prpb3rjEFZc/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbkHXzasa3WVssd0URQxjutpPnHw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/Prpb3rjEFZc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAGpI-MkCdd0J6TrNfduSXmCXGvIw",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": 1738368000,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": 46592,
+      "live_status": null,
+      "channel_is_verified": true,
+      "__x_forwarded_for_ip": null
     }
   ]
 }
