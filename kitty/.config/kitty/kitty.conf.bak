@@ -1,9 +1,11 @@
 # BEGIN_KITTY_THEME
-# Default
+# Wez
 include current-theme.conf
 # END_KITTY_THEME
 
-font_size 11.5
+font_size 12
+background_opacity 0.90
+window_padding_width 0 3
 
 text_composition_strategy legacy
 
@@ -17,3 +19,4 @@ bold_italic_font family='MesloLGS Nerd Font' postscript_name=MesloLGSNF-BoldItal
 # Kitty close confirmation
 confirm_os_window_close 0
 
+scrollback_lines 2000
