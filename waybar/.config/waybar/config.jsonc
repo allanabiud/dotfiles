@@ -1,16 +1,14 @@
 {
     "modules-left": [
-      "disk",
-      "mpris",
-    ],
-    "modules-center": [
       "hyprland/workspaces",
       "hyprland/submap",
     ],
+    "modules-center": [
+      "mpris",
+      "idle_inhibitor",
+      "tray",
+    ],
     "modules-right": [
-      // "custom/timer",
-      // "idle_inhibitor",
-      // "tray",
       "group/extra",
       "pulseaudio",
       "network",
@@ -42,8 +40,8 @@
         "tooltip": false
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-wifi": "{ifname} via {gwaddr} ",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "tooltip-format-wifi": "{ifname} via {gwaddr}  ",
         "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "nm-connection-editor",
@@ -74,24 +72,8 @@
       ],
       "interval": 1,
     },
-    "group/extra": {
-      "orientation": "inherit",
-      "drawer": {
-        "transition-duration": 500,
-        "transition-left-to-right": false,
-      },
-      "modules": [
-        "custom/group_icon",
-        "custom/timer",
-        "idle_inhibitor",
-        "tray",
-      ]
-    },
-    "custom/group_icon": {
-      "format": "",
-    },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -102,8 +84,8 @@
         "spacing": 10
     },
     "clock": {
-      "format": "{:%H:%M}",
-      "format-alt": "{:%A, %B %d, %Y (%R)}",
+      "format": "  {:%H:%M}",
+      "format-alt": "  {:%A, %B %d, %Y (%R)}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode"          : "month",
@@ -152,6 +134,7 @@
         "critical": 15
       },
       "format": "{icon}  {capacity}%",
+      "format-charging": "  {capacity}%",
       "format-icons": [
         "",
         "",
@@ -159,21 +142,5 @@
         "",
         ""
       ]
-    },
-    "custom/timer": {
-      "exec": "/home/allanabiud/.local/bin/waybar_timer hook",
-      "exec-on-event": false,
-      "return-type": "json",
-      "format": "{icon} {0}",
-      "format-icons": {
-          "standby": " ",
-          "running": " ",
-          "paused": " "
-      },
-      "on-click": "/home/allanabiud/.local/bin/waybar_timer new 25 'notify-send \"Session finished\"'",
-      "on-click-middle": "/home/allanabiud/.local/bin/waybar_timer cancel",
-      "on-click-right": "/home/allanabiud/.local/bin/waybar_timer togglepause",
-      "on-scroll-up": "/home/allanabiud/.local/bin/waybar_timer increase 60 || /home/allanabiud/.local/bin/waybar_timer/ new 1 'notify-send -u critical \"Timer expired\"'",
-      "on-scroll-down": "/home/allanabiud/.local/bin/waybar_timer decrease 60"
     },
 }

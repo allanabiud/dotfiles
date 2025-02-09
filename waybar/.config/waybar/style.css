@@ -18,17 +18,17 @@ window#waybar {
 }
 /*-----module groups----*/
 .modules-right {
-  background-color: #222222;
+  /* background-color: #222222; */
+  background-color: transparent;
   margin: 2px 5px 0 0;
 }
 .modules-center {
-  background-color: #222222;
+  background-color: transparent;
   margin: 2px 0 0 0;
 }
 .modules-left {
-  margin: 2px 0 0 2px;
-  /* background-color: #222222; */
-  background-color: transparent;
+  margin: 2px 0 0 5px;
+  background-color: #222222;
 }
 /*-----modules indv----*/
 #workspaces button {
@@ -54,10 +54,6 @@ tooltip {
   padding: 0 10px;
 }
 
-#battery {
-  padding: 0 0 0 10px;
-}
-
 #mpris.paused {
   color: #ffa500;
 }
@@ -79,7 +75,7 @@ tooltip {
   margin: 0 0 0 5px;
 }
 
-#disk,
+#tray,
 #custom-media {
   padding: 0 8px;
   background-color: #222222;
@@ -92,12 +88,13 @@ tooltip {
 #temperature,
 #network,
 #pulseaudio,
-#tray,
 #submap,
 #mode,
-#custom-group_icon,
+#battery,
 #idle_inhibitor {
   padding: 0 8px;
+  background-color: #222222;
+  margin: 0 0 0 5px;
 }
 
 #submap,
