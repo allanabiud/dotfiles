@@ -1,68 +1,36 @@
 #!/bin/bash
 
-WAYBAR_CONFIG_DIR="$HOME/.config/waybar"
-DISPLAY_SCRIPT="$HOME/.config/hypr/scripts/hdmi-display"
+INTERNAL_DISPLAY="LVDS-1"
+EXTERNAL_DISPLAY=$(hyprctl monitors | grep "HDMI" | awk '{print $1}')
 
-# Function to detect if HDMI is connected
-is_hdmi_connected() {
-  hyprctl monitors | grep "HDMI" >/dev/null
-}
-
-# Function to get current display mode
-get_current_mode() {
-  if ! is_hdmi_connected; then
-    echo "laptop-only"
-    return
-  fi
-
-  # Check if HDMI is disabled
-  if hyprctl monitors | grep "HDMI.*disabled" >/dev/null; then
-    echo "laptop-only"
-  # Check if mirroring
-  elif hyprctl monitors | grep "mirror" >/dev/null; then
-    echo "mirror"
-  # Check if both are enabled (extend)
-  elif hyprctl monitors | grep -c "enabled" | grep -q "2"; then
-    echo "extend"
-  # Must be HDMI only
-  else
-    echo "hdmi-only"
-  fi
-}
-
-# Function to output JSON for Waybar
-output_json() {
-  local mode=$(get_current_mode)
-  echo "{\"text\": \"$mode\", \"class\": \"$mode\"}"
-}
-
-# Function to set display mode
-set_mode() {
-  case "$1" in
-  "laptop-only")
-    hyprctl keyword monitor LVDS-1,preferred,auto,1
-    hyprctl keyword monitor HDMI-A-1,disable
-    ;;
-  "hdmi-only")
-    hyprctl keyword monitor LVDS-1,disable
-    hyprctl keyword monitor HDMI-A-1,preferred,auto,1
-    ;;
-  "extend")
-    hyprctl keyword monitor LVDS-1,preferred,auto,1
-    hyprctl keyword monitor HDMI-A-1,preferred,auto,1
-    ;;
-  "mirror")
-    hyprctl keyword monitor LVDS-1,preferred,auto,1
-    hyprctl keyword monitor HDMI-A-1,preferred,0x0,1,mirror,eDP-1
-    ;;
-  esac
-}
-
-# If no arguments, print current mode
-if [ $# -eq 0 ]; then
-  get_current_mode
-  exit 0
+# Check if HDMI is connected
+if [ -z "$EXTERNAL_DISPLAY" ]; then
+  notify-send "No external display detected!"
+  exit 1
 fi
 
-# Set mode if argument provided
-set_mode "$1"
+# Rofi menu options
+MODE=$(echo -e "Internal Only\nMirror\nExtend\nProject\nDisconnect" | rofi -dmenu -p "Display Mode")
+
+case "$MODE" in
+"Internal Only")
+  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,disable"
+  ;;
+"Mirror")
+  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,preferred,0x0,1,mirror,$INTERNAL_DISPLAY"
+  ;;
+"Extend")
+  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,preferred,1920x0,1"
+  ;;
+"Project")
+  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,disable ; keyword monitor $EXTERNAL_DISPLAY,preferred,0x0,1"
+  ;;
+"Disconnect")
+  hyprctl --batch "keyword monitor $EXTERNAL_DISPLAY,disable ; keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1"
+  ;;
+*)
+  exit 0
+  ;;
+esac
+
+notify-send "Display mode set to: $MODE"
