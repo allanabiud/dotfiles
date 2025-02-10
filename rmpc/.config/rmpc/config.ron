@@ -126,11 +126,11 @@
                            direction: Vertical,
                            panes: [
                                (
-                                   size: "85%",
+                                   size: "83%",
                                    pane: Pane(Queue)
                                ),
                                (
-                                   size: "15%",
+                                   size: "17%",
                                    pane: Pane(Lyrics)
                                )
                            ]

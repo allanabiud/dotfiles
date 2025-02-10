@@ -11,7 +11,7 @@ background-opacity = 0.9
 theme = Wez
 bold-is-bright = true
 gtk-titlebar = false
-window-padding-y = 5
+window-padding-y = 3
 window-padding-x = 3
 
 #FONTS
