@@ -138,9 +138,10 @@
       direction: Vertical,
       panes: [
           (
-              size: "10%",
+              size: "15%",
               pane: Split(
                   direction: Horizontal,
+                  borders: "ALL",
                   panes: [
                       (
                           size: "100%",
@@ -163,7 +164,7 @@
               ),
           ),
           (
-              size: "90%",
+              size: "85%",
               pane: Split(
                   direction: Vertical,
                   panes: [
@@ -174,6 +175,7 @@
                       (
                           size: "90%",
                           pane: Pane(TabContent),
+                          borders: "ALL",
                       ),
                   ],
               ),
