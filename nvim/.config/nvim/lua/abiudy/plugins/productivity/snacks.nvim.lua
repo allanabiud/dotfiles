@@ -12,6 +12,31 @@ return {
       timeout = 3000,
       render = "compact",
     },
+    -- IMAGE
+    image = {
+      enabled = true,
+      max_width = 40, -- Limit the maximum width
+      max_height = 20, -- Limit the maximum height
+      min_width = 10, -- Optional: Set a minimum width
+      min_height = 5, -- Optional: Set a minimum height
+      pos = { 1, 0 }, -- Position the image at the top-left corner
+      markdown = {
+        enabled = true,
+        max_width = 80,
+        max_height = 40,
+      },
+      wo = {
+        wrap = false,
+        number = false,
+        relativenumber = false,
+        cursorcolumn = false,
+        signcolumn = "no",
+        foldcolumn = "0",
+        list = false,
+        spell = false,
+        statuscolumn = "",
+      },
+    },
     -- SCOPE
     scope = { enabled = true },
     -- QUICKFILE
