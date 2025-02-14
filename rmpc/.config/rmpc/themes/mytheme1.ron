@@ -72,17 +72,14 @@
                     )
                 ],
                 right: [
-                    (kind: Property(Status(RepeatV2(on_label: " Repeat", off_label: ""))), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(RepeatV2(on_label: "", off_label: " "))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Property(Status(RepeatV2(on_label: " Repeat", off_label: " ", on_style: (fg: "red", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
                     (kind: Text(" - "), style: (fg: "yellow")),
-                    (kind: Property(Status(RandomV2(on_label: " Random", off_label: ""))), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(RandomV2(on_label: "", off_label: " "))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Property(Status(RandomV2(on_label: " Random", off_label: " ", on_style: (fg: "red", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
                     (kind: Text(" - "), style: (fg: "yellow")),
-                    (kind: Property(Status(ConsumeV2(on_label: " Consume", off_label: "", oneshot_label: ""))), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(ConsumeV2(on_label: "", off_label: "", oneshot_label: ""))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Property(Status(ConsumeV2(on_label: " Consume", off_label: "", oneshot_label: "", on_style: (fg: "red", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
                     (kind: Text(" - "), style: (fg: "yellow")),
-                    (kind: Property(Status(SingleV2(on_label: " Single ", off_label: "", oneshot_label: " Oneshot"))), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(SingleV2(on_label: "", off_label: " ", oneshot_label: ""))), style: (fg: "red", modifiers: "Dim")),
+                    (kind: Property(Status(SingleV2(on_label: " Single ", off_label: " ", oneshot_label: " Oneshot", on_style: (fg: "red", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
+
                 ]
             ),
             (
