@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Function to apply a specific display configuration
+apply_config() {
+  case "$1" in
+  "Internal Only")
+    hyprctl monitor HDMI-A-1,disable
+    ;;
+  "Mirror")
+    hyprctl monitor LVDS-1,1366x768@60,0x0,1
+    hyprctl monitor HDMI-A-1,1366x768@60,0x0,1,mirror,LVDS-1
+    ;;
+  "Extend")
+    hyprctl monitor LVDS-1,1366x768@60,0x0,1
+    hyprctl monitor HDMI-A-1,1920x1080@60,1366x0,1
+    ;;
+  "Project")
+    hyprctl monitor LVDS-1,1366x768@60,0x0,1
+    hyprctl monitor HDMI-A-1,1920x1080@60,1366x0,1,scale,0.5
+    ;;
+  "Disconnect")
+    hyprctl monitor HDMI-A-1,disable
+    ;;
+  *)
+    echo "Invalid configuration option."
+    return 1
+    ;;
+  esac
+
+  # Reload Hyprland config to apply changes
+  hyprctl reload
+}
+
+# Launch rofi and get selected option
+MODE=$(echo -e "Internal Only\nMirror\nExtend\nProject\nDisconnect" | rofi -dmenu -p "Display Mode")
+
+# Check if a mode was selected (important!)
+if [[ -n "$MODE" ]]; then
+  apply_config "$MODE"
+fi

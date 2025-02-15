@@ -44,8 +44,11 @@ bindkey '^[[B' history-search-forward
 ####################################################################################################
 ### ------ ALIASES ---------------------------
 
-# ---- switched to abbreviations ------------
+# ---- yay ------------
+alias s="yay -Ss"
+# ---- git ------------
 alias gst="git status"
+# ---- grep ------------
 alias grep='grep --color'
 # ----- eza ---------------------------------
 alias ls="eza --icons --group-directories-first -l"
@@ -80,32 +83,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ### --- ZSH AutoSuggestions ---------------------------------
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# pnpm
-# export PNPM_HOME="/home/abiudy/.local/share/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-# pnpm end
-
-### --- Yazi -----------------------------------
-# function y() {
-# 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-# 	yazi "$@" --cwd-file="$tmp"
-# 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-# 		builtin cd -- "$cwd"
-# 	fi
-# 	rm -f -- "$tmp"
-# }
-# source "$ZDOTDIR"/.yazi.sh
-
 ### Direnv
-# eval "$(direnv hook zsh)"
-
-### Pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init - zsh)"
+eval "$(direnv hook zsh)"
 
 ### Fastfetch
 fastfetch -c examples/21.jsonc

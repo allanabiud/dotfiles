@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INTERNAL_DISPLAY="LVDS-1"
-EXTERNAL_DISPLAY=$(hyprctl monitors | grep "HDMI" | awk '{print $1}')
+INTERNAL_DISPLAY="LVDS-1"                                             # Or whatever hyprctl monitors shows
+EXTERNAL_DISPLAY=$(hyprctl monitors | grep "HDMI" | awk '{print $1}') # More robust grep
 
 # Check if HDMI is connected
 if [ -z "$EXTERNAL_DISPLAY" ]; then
@@ -9,28 +9,42 @@ if [ -z "$EXTERNAL_DISPLAY" ]; then
   exit 1
 fi
 
+# Get internal display resolution
+INTERNAL_RESOLUTION=$(hyprctl monitors | grep "$INTERNAL_DISPLAY" | awk '{print $2}')
+
 # Rofi menu options
 MODE=$(echo -e "Internal Only\nMirror\nExtend\nProject\nDisconnect" | rofi -dmenu -p "Display Mode")
 
 case "$MODE" in
 "Internal Only")
-  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,disable"
+  hyprctl monitor "$EXTERNAL_DISPLAY",disable
+  hyprctl monitor "$INTERNAL_DISPLAY","$INTERNAL_RESOLUTION",0x0,1
   ;;
 "Mirror")
-  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,preferred,0x0,1,mirror,$INTERNAL_DISPLAY"
+  hyprctl monitor "$INTERNAL_DISPLAY","$INTERNAL_RESOLUTION",0x0,1
+  hyprctl monitor "$EXTERNAL_DISPLAY","$INTERNAL_RESOLUTION",0x0,1,mirror,"$INTERNAL_DISPLAY"
   ;;
 "Extend")
-  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1 ; keyword monitor $EXTERNAL_DISPLAY,preferred,1920x0,1"
+  hyprctl monitor "$INTERNAL_DISPLAY","$INTERNAL_RESOLUTION",0x0,1
+  # Calculate external display x position
+  INTERNAL_WIDTH=$(echo "$INTERNAL_RESOLUTION" | cut -dx -f1)
+  EXTERNAL_X_POS="$INTERNAL_WIDTH"x0 # Construct the position string
+
+  hyprctl monitor "$EXTERNAL_DISPLAY","1920x1080",$EXTERNAL_X_POS,1
   ;;
 "Project")
-  hyprctl --batch "keyword monitor $INTERNAL_DISPLAY,disable ; keyword monitor $EXTERNAL_DISPLAY,preferred,0x0,1"
+  hyprctl monitor "$INTERNAL_DISPLAY",disable
+  hyprctl monitor "$EXTERNAL_DISPLAY","1920x1080",0x0,1 # Or preferred resolution
   ;;
 "Disconnect")
-  hyprctl --batch "keyword monitor $EXTERNAL_DISPLAY,disable ; keyword monitor $INTERNAL_DISPLAY,preferred,0x0,1"
+  hyprctl monitor "$EXTERNAL_DISPLAY",disable
+  hyprctl monitor "$INTERNAL_DISPLAY","$INTERNAL_RESOLUTION",0x0,1
   ;;
 *)
   exit 0
   ;;
 esac
+
+hyprctl reload # Important! Reload Hyprland
 
 notify-send "Display mode set to: $MODE"
