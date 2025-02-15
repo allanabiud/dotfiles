@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock -i '/home/abiudy/.config/sway/images/i3lock-fancyimage(into-the-spider-verse).png'",
+    "action" : "hyprlock",
     "text" : "Lock",
     "keybind" : "l"
 }
