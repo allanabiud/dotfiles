@@ -26,7 +26,7 @@ while [ ! -s "$ALBUM_ART_PATH" ] && [ ! -f "$DEFAULT_ALBUM_ART_PATH" ]; do
 done
 
 # Send the notification using dunstify with a tag
-dunstify -i "${ALBUM_ART_PATH}" \
+notify-send -i "${ALBUM_ART_PATH}" \
   -h string:x-dunst-stack-tag:now-playing \
   "Now Playing" "$ARTIST - $TITLE"
 
