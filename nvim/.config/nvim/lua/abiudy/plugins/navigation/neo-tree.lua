@@ -87,6 +87,6 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", {})
+    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", { silent = true })
   end,
 }
