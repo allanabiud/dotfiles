@@ -92,6 +92,23 @@ tooltip {
   margin: 0 0 0 5px;
 }
 
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#submap,
+#mode,
+#battery,
+#idle_inhibitor,
+#tray,
+#custom-media,
+#mpris {
+  border: 1px solid grey;
+}
+
 #submap,
 #mode {
   color: #cc3436;
