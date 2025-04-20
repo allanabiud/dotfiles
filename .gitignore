@@ -8,3 +8,4 @@ gomp/.config/gomp/cache/
 ncmpcpp/.config/ncmpcpp/lyrics/
 tmux/.config/tmux/plugins/
 yt-x/.config/yt-x/*.json
+dunst/.config/dunst/dunstrc
