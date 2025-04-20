@@ -87,4 +87,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(direnv hook zsh)"
 
 ### Fastfetch
-fastfetch -c examples/21.jsonc
+fastfetch
+
+### Pywal
+# Import colorscheme from 'wal' asynchronously
+(cat ~/.cache/wal/sequences &)

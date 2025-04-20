@@ -1,3 +1,5 @@
+@import "/home/allanabiud/.cache/wal/colors-waybar.css";
+
 * {
   border: none;
   font-family:
@@ -6,7 +8,7 @@
     Arial,
     sans-serif;
   font-size: 13px;
-  color: #ffffff;
+  color: @foreground;
   border-radius: 5px;
 }
 
@@ -14,11 +16,10 @@ window {
   font-weight: bold;
 }
 window#waybar {
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
 }
 /*-----module groups----*/
 .modules-right {
-  /* background-color: #222222; */
   background-color: transparent;
   margin: 2px 5px 0 0;
 }
@@ -28,7 +29,7 @@ window#waybar {
 }
 .modules-left {
   margin: 2px 0 0 5px;
-  background-color: #222222;
+  background-color: @color0;
 }
 /*-----modules indv----*/
 #workspaces button {
@@ -36,47 +37,42 @@ window#waybar {
   transition: all 0.3s;
 }
 #workspaces button.active {
-  background-color: #8a1919;
+  background-color: @color1;
 }
 workspaces button.urgent {
-  background-color: #cc3436;
+  background-color: @color1;
 }
 
 #clock {
   font-size: 14px;
 }
 tooltip {
-  background-color: #222222;
+  background-color: @color0;
 }
 
 #mpris.paused {
-  color: #ffa500;
+  color: @color4;
 }
 #mpris.playing {
-  color: #2dcc36;
+  color: @color2;
 }
 #mpris.mpd {
-  color: coral;
+  color: @color3;
 }
 #mpris.mpv {
-  color: plum;
+  color: @color5;
 }
 #mpris.chromium {
-  color: steelblue;
+  color: @color6;
 }
 
 #mpris {
-  background-color: #222222;
+  background-color: @color0;
   margin: 0 0 0 5px;
 }
 
 #tray,
-#custom-media {
-  padding: 0 8px;
-  background-color: #222222;
-  margin: 0 0 0 5px;
-}
-
+#custom-media,
 #clock,
 #cpu,
 #memory,
@@ -88,7 +84,7 @@ tooltip {
 #battery,
 #idle_inhibitor {
   padding: 0 8px;
-  background-color: #222222;
+  background-color: @color0;
   margin: 0 0 0 5px;
 }
 
@@ -106,30 +102,28 @@ tooltip {
 #tray,
 #custom-media,
 #mpris {
-  border: 1px solid grey;
+  border: 1px solid @color8;
 }
 
 #submap,
 #mode {
-  color: #cc3436;
+  color: @color1;
   font-weight: bold;
 }
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-  color: #2dcc36;
+  color: @color2;
 }
 #pulseaudio.muted {
-  color: #cc3436;
+  color: @color1;
 }
 #battery.charging {
-  color: #2dcc36;
+  color: @color4;
 }
 #battery.warning:not(.charging) {
-  color: #e6e600;
+  color: @color6;
 }
-#battery.critical:not(.charging) {
-  color: #cc3436;
-}
+#battery.critical:not(.charging),
 #temperature.critical {
-  color: #cc3436;
+  color: @color1;
 }

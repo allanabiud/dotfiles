@@ -156,4 +156,4 @@ display-drun: "";
   }
 }
 
-@theme "/home/allanabiud/.config/rofi/themes/squared-material-red.rasi"
+@theme "/home/allanabiud/.config/rofi/themes/mytheme.rasi"
