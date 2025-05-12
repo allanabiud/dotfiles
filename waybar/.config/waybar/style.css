@@ -86,6 +86,12 @@ tooltip {
   padding: 0 8px;
   background-color: @color0;
   margin: 0 0 0 5px;
+  border: 1px solid @color3;
+}
+
+#workspaces,
+#mpris {
+  border: 1px solid @color3;
 }
 
 #submap,
