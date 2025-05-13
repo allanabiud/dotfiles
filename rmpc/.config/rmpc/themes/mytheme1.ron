@@ -138,7 +138,7 @@
               size: "15%",
               pane: Split(
                   direction: Horizontal,
-                  borders: "ALL",
+                  borders:  "TOP",
                   panes: [
                       (
                           size: "100%",

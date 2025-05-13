@@ -89,7 +89,7 @@ tooltip {
 
 #clock {
   font-size: 14px;
-  background-color: @color1;
+  color: @color1;
   font-weight: bold;
 }
 

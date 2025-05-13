@@ -8,7 +8,8 @@ confirm-close-surface = false
 #WINDOW
 window-decoration = false
 background-opacity = 0.9
-theme = Wez
+# theme = Wez
+theme = "/home/allanabiud/.cache/wal/colors-ghostty"
 bold-is-bright = true
 gtk-titlebar = false
 window-padding-y = 0
