@@ -1,3 +1,6 @@
+/* import pywal colors in .cache/wal/colors.css */
+@import url("/home/allanabiud/.cache/wal/colors-waybar.css");
+
 * {
   background-image: none;
   box-shadow: none;
@@ -8,11 +11,11 @@ window {
 }
 
 button {
-  border-radius: 0;
-  border-color: black;
-  text-decoration-color: #ffffff;
-  color: #ffffff;
-  background-color: #1e1e1e;
+  border-radius: 5;
+  /* border-color: @color2; */
+  text-decoration-color: @foreground;
+  color: @foreground;
+  background-color: @color0;
   border-style: solid;
   border-width: 1px;
   background-repeat: no-repeat;
@@ -23,7 +26,7 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: #8a1919;
+  background-color: @color5;
   outline-style: none;
 }
 

@@ -9,11 +9,11 @@
       "tray",
     ],
     "modules-right": [
-      "group/extra",
       "pulseaudio",
       "network",
       "battery",
-      "clock"
+      "clock",
+      "custom/power",
     ],
 
     "hyprland/workspaces": {
@@ -110,6 +110,10 @@
         "on-scroll-up": "shift_up",
         "on-scroll-down": "shift_down"
       },
+    },
+    "custom/power": {
+      "format": " ",
+      "on-click": "wlogout"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
