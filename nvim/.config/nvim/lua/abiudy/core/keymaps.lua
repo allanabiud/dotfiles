@@ -6,6 +6,7 @@ vim.g.maplocalleader = " "
 
 -- clear search highlights
 vim.keymap.set("n", "<C-c", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
 
 -- Move window focus
 vim.keymap.set("n", "<C-left>", "<C-w><C-h>", { desc = "Move focus to the left window" })
