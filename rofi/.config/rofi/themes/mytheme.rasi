@@ -34,6 +34,9 @@ inputbar {
     padding:    8px;
 
     background-color:   @bg1;
+    border-radius:      5px;
+    border:             2px;
+    border-color:       @accent-color;
 }
 
 entry, element-icon, element-text {
@@ -79,7 +82,10 @@ element selected {
 }
 
 element selected normal, element selected active {
-    background-color:   @accent-color;
+    background-color:   transparent;
+    border-radius:      10px;
+    border:             2px;
+    border-color:       @urgent-color;
 }
 
 element selected urgent {

@@ -1,4 +1,6 @@
 {
+    "reload_style_on_change": true,
+
     "modules-left": [
       "hyprland/workspaces",
       "hyprland/submap",
@@ -12,8 +14,8 @@
       "pulseaudio",
       "network",
       "battery",
-      "clock",
-      "custom/power",
+      "clock"
+      // "custom/power",
     ],
 
     "hyprland/workspaces": {
@@ -30,7 +32,6 @@
         "8": "8",
         "9": "9",
         "10": "10",
-        
       },
       "sort-by-number": true
     },
@@ -87,7 +88,7 @@
         "spacing": 10
     },
     "clock": {
-      "format": "  {:%H:%M    %d/%m/%y}",
+      "format": "  {:%H:%M    %B %d}",
       "format-alt": "  {:%A, %B %d, %Y}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {

@@ -8,12 +8,13 @@
     Arial,
     sans-serif;
   font-size: 12px;
-  color: @foreground;
   border-radius: 5px;
+  background: transparent;
 }
 
 window {
   font-weight: bold;
+  background-color: @background;
 }
 window#waybar {
   background: transparent;
@@ -35,12 +36,14 @@ window#waybar {
 #workspaces button {
   padding: 1px 7px;
   transition: all 0.3s;
+  color: gray;
 }
 #workspaces button.active {
-  background-color: @color1;
+  color: @color1;
+  /* font-weight: bold; */
 }
 workspaces button.urgent {
-  background-color: @color1;
+  background-color: @color2;
 }
 
 tooltip {
@@ -116,7 +119,7 @@ tooltip {
 }
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-  color: @color2;
+  color: @color1;
 }
 #pulseaudio.muted {
   color: @color1;
