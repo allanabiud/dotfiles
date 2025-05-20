@@ -215,8 +215,7 @@
 
 
     # Set icon theme (only used for recursive icon lookup)
-    # icon_theme = "Papirus, Zorin"
-    icon_theme = Papirus
+    icon_theme = "Zorin, Papirus"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 

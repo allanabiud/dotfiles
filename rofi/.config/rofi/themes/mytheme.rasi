@@ -82,7 +82,7 @@ element selected {
 }
 
 element selected normal, element selected active {
-    background-color:   transparent;
+    // background-color:   transparent;
     border-radius:      10px;
     border:             2px;
     border-color:       @urgent-color;

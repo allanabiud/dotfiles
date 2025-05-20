@@ -11,16 +11,17 @@ window {
 }
 
 button {
-  border-radius: 5;
-  /* border-color: @color2; */
+  border-radius: 8;
+  border-color: @color2;
   text-decoration-color: @foreground;
   color: @foreground;
   background-color: @background;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25%;
+  background-size: 20%;
+  margin: 5px;
 }
 
 button:focus,

@@ -8,7 +8,7 @@
     Arial,
     sans-serif;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: transparent;
 }
 
@@ -38,9 +38,12 @@ window#waybar {
   transition: all 0.3s;
   color: gray;
 }
+#workspaces button:hover {
+  color: @color2;
+}
 #workspaces button.active {
   color: @color1;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 workspaces button.urgent {
   background-color: @color2;
@@ -87,12 +90,12 @@ tooltip {
   padding: 0 8px;
   background-color: @color0;
   margin: 0 0 0 5px;
-  border: 1px solid @color3;
+  border: 2px solid @color3;
 }
 
 #clock {
   font-size: 14px;
-  color: @color1;
+  color: @color2;
   font-weight: bold;
 }
 
@@ -109,7 +112,7 @@ tooltip {
 
 #workspaces,
 #mpris {
-  border: 1px solid @color3;
+  border: 2px solid @color3;
 }
 
 #submap,
@@ -119,7 +122,10 @@ tooltip {
 }
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-  color: @color1;
+  color: @color2;
+}
+#pulseaudio {
+  color: @color2;
 }
 #pulseaudio.muted {
   color: @color1;
@@ -133,4 +139,13 @@ tooltip {
 #battery.critical:not(.charging),
 #temperature.critical {
   color: @color1;
+}
+#mpris.paused {
+  color: @color1;
+}
+#network.wifi {
+  color: @color2;
+}
+#network.ethernet {
+  color: @color3;
 }

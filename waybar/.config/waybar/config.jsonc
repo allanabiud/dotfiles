@@ -6,16 +6,16 @@
       "hyprland/submap",
     ],
     "modules-center": [
-      "mpris",
+      "clock",
       "idle_inhibitor",
-      "tray",
+      "mpris",
     ],
     "modules-right": [
+      "tray",
       "pulseaudio",
       "network",
-      "battery",
-      "clock"
-      // "custom/power",
+      "battery"
+      // "custom/power"
     ],
 
     "hyprland/workspaces": {
@@ -47,14 +47,9 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click-right": "nm-connection-editor",
     },
-    "disk": {
-      "interval": 30,
-      "format": "  {free} GB / {total} GB",
-      "unit": "GB"
-    },
     "mpris": {
-      "format": " {status_icon} [{position}/{length}] {player} {player_icon} ",
-      "format-paused": " {status_icon} [{position}/{length}] {player} {player_icon} ",
+      "format": " {status_icon} {player} {player_icon} ",
+      "format-paused": " {status_icon} {player} {player_icon} ",
       "tooltip-format": "{dynamic}",
       "player-icons": {
         "default": "▶ ",
@@ -71,6 +66,8 @@
       "dynamic-order": [
         "title", 
         "artist",
+        "position",
+        "length",
       ],
       "interval": 1,
     },
@@ -88,8 +85,8 @@
         "spacing": 10
     },
     "clock": {
-      "format": "  {:%H:%M    %B %d}",
-      "format-alt": "  {:%A, %B %d, %Y}",
+      "format": "{:%H:%M · %B %d}",
+      "format-alt": "{:%A, %B %d, %Y}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
         "mode"          : "month",
@@ -117,11 +114,11 @@
       "on-click": "wlogout"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": " {icon}  {format_source}",
-        "format-muted": "0%  {icon} ",
-        "format-source": "{volume}% ",
+        "format": "{icon}    {volume}%",
+        "format-bluetooth": "{icon}  {volume}%  {format_source}",
+        "format-bluetooth-muted": " {icon}   {format_source}",
+        "format-muted": "",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
