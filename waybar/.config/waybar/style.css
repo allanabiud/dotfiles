@@ -122,7 +122,7 @@ tooltip {
 }
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-  color: @color2;
+  color: @color1;
 }
 #pulseaudio {
   color: @color2;
