@@ -1,151 +1,144 @@
 {
-    "reload_style_on_change": true,
+  "reload_style_on_change": true,
 
-    "modules-left": [
-      "hyprland/workspaces",
-      "hyprland/submap",
-      "mpris",
-    ],
-    "modules-center": [
-      "clock",
-    ],
-    "modules-right": [
-      "idle_inhibitor",
-      "tray",
-      "pulseaudio",
-      "network",
-      "battery"
-      // "custom/power"
-    ],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "idle_inhibitor",
+    "tray",
+    "group/audio",
+    "battery"
+  ],
 
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-click": "activate",
-      "format-icons": {
-        "1": "1:  ",
-        "2": "2:  ",
-        "3": "3:  ",
-        "4": "4:  ",
-        "5": "5:  ",
-        "6": "6:  ",
-        "7": "7:  ",
-        "8": "8",
-        "9": "9",
-        "10": "10",
-      },
-      "sort-by-number": true
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1:  ",
+      "2": "2:  ",
+      "3": "3:  ",
+      "4": "4:  ",
+      "5": "5:  ",
+      "6": "6:  ",
+      "7": "7:  ",
+      "8": "8",
+      "9": "9",
+      "10": "10"
     },
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>",
-        "max-length": 8,
-        "tooltip": false
+    "sort-by-number": true
+  },
+
+  "hyprland/window": {
+    "format": "",
+    "icon": true,
+    "icon-size": 16,
+    "separate-outputs": true
+  },
+
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>",
+    "max-length": 8,
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%H:%M · %B %d}",
+    "format-alt": "{:%A, %B %d, %Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%)  ",
-        "tooltip-format-wifi": "{ifname} via {gwaddr}  ",
-        "format-disconnected": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "nm-connection-editor",
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": ["mpris", "pulseaudio"],
+    "tooltip": false
+  },
+
+  "mpris": {
+    "format": "{status_icon} {player} {player_icon}   · ",
+    "format-paused": " {status_icon} {player} {player_icon}   · ",
+    "format-stopped": "",
+    "tooltip-format": "{dynamic}",
+    "player-icons": {
+      "default": "▶ ",
+      "mpv": " ",
+      "mpd": " ",
+      "chromium": " ",
+      "firefox": " ",
+      "spotify": " "
     },
-    "mpris": {
-      "format": " {status_icon} {player} {player_icon} ",
-      "format-paused": " {status_icon} {player} {player_icon} ",
-      "tooltip-format": "{dynamic}",
-      "player-icons": {
-        "default": "▶ ",
-        "mpv": " ",
-        "mpd": " ",
-        "chromium": " ",
-        "firefox": " ",
-        "spotify": " ",
-      },
-      "status-icons": {
-        "paused": "▶",
-        "playing": "",
-      },
-      "dynamic-order": [
-        "title", 
-        "artist",
-        "position",
-        "length",
-      ],
-      "interval": 1,
+    "status-icons": {
+      "paused": "▶",
+      "playing": ""
     },
-    "idle_inhibitor": {
-        "format": "{icon} ",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip-format-activated": "Caffeine On",
-        "tooltip-format-deactivated": "Caffeine Off"
+    "dynamic-order": ["title", "artist", "position", "length"],
+    "interval": 1
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} ",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-bluetooth-muted": " {icon} ",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
-    "tray": {
-        "icon-size": 15,
-        "spacing": 10
+    "on-click": "$HOME/.config/dunst/scripts/changeVolume toggle",
+    "on-click-right": "pavucontrol"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon} ",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
     },
-    "clock": {
-      "format": "{:%H:%M · %B %d}",
-      "format-alt": "{:%A, %B %d, %Y}",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-        "mode"          : "month",
-        "mode-mon-col"  : 3,
-        "weeks-pos"     : "right",
-        "on-scroll"     : 1,
-        "format": {
-          "months":     "<span color='#ffead3'><b>{}</b></span>",
-          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-          }
-      },
-      "actions":  {
-        "on-click-right": "mode",
-        "on-scroll-up": "tz_up",
-        "on-scroll-down": "tz_down",
-        "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down"
-      },
+    "tooltip-format-activated": "Caffeine On",
+    "tooltip-format-deactivated": "Caffeine Off"
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "custom/power": {
-      "format": " ",
-      "on-click": "wlogout"
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon} ",
-        "format-bluetooth-muted": " {icon} ",
-        "format-muted": "",
-        // "format-source": " {volume}%",
-        // "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "$HOME/.config/dunst/scripts/changeVolume toggle",
-        "on-click-right": "pavucontrol",
-    },
-    "battery": {
-      "states": {
-        "good": 95,
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon}   {capacity}%",
-      "format-charging": "  {capacity}%",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
+    "format": "{icon}   {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  }
 }

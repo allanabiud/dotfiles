@@ -12,6 +12,7 @@
   background: transparent;
 }
 
+/* Window styling */
 window {
   font-weight: bold;
   background-color: @background;
@@ -19,21 +20,29 @@ window {
 window#waybar {
   background: transparent;
 }
-/*-----module groups----*/
-.modules-right {
+window#waybar.empty #window {
   background-color: transparent;
-  margin: 2px 5px 0 0;
+  border: none;
+  color: transparent;
+}
+
+/* Module groups */
+.modules-left {
+  margin: 2px 0 0 5px;
+  background-color: transparent;
 }
 .modules-center {
   background-color: transparent;
   margin: 2px 0 0 0;
 }
-.modules-left {
-  margin: 2px 0 0 5px;
+.modules-right {
   background-color: transparent;
+  margin: 2px 5px 0 0;
 }
-/*-----modules indv----*/
+
+/* Workspaces module */
 #workspaces {
+  border: 2px solid @color3;
   background-color: @color0;
 }
 #workspaces button {
@@ -52,17 +61,30 @@ workspaces button.urgent {
   background-color: @color2;
 }
 
+/* Tooltip */
 tooltip {
   background-color: @color0;
 }
 
-#workspaces,
-#mpris {
+/* Audio group */
+#audio {
   border: 2px solid @color3;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 8px;
 }
 
+/* Window module */
+#window {
+  border: 2px solid @color3;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 8px;
+}
+
+/* MPRIS states */
 #mpris.paused {
-  color: @color4;
+  color: @color1;
 }
 #mpris.playing {
   color: @color2;
@@ -76,75 +98,61 @@ tooltip {
 #mpris.chromium {
   color: @color6;
 }
+#mpris.firefox {
+  color: @color7;
+}
 
+/* Tray and other modules */
 #tray,
-#mpris,
-#custom-media,
-#custom-power,
+#audio,
 #clock,
-#cpu,
-#memory,
-#temperature,
-#network,
-#pulseaudio,
 #submap,
-#mode,
 #battery,
-#idle_inhibitor {
+#idle_inhibitor,
+#pulseaudio {
   padding: 0 8px;
   background-color: @color0;
   margin: 0 0 0 5px;
   border: 2px solid @color3;
 }
 
+/* Clock */
 #clock {
   font-size: 14px;
   color: @color2;
   font-weight: bold;
 }
 
-#custom-power {
+/* Submap */
+#submap {
+  color: @color1;
   font-weight: bold;
-  padding: 0 4px 0 8px;
-  margin: 0 0 0 5px;
-  color: @color2;
-}
-#custom-power:hover {
-  background: @color1;
-  color: @foreground;
 }
 
-#submap,
-#mode {
-  color: @color1;
-  font-weight: bold;
-}
-/*-----Indicators----*/
-#idle_inhibitor.activated {
-  color: @color1;
-}
-#pulseaudio {
-  color: @color2;
-}
-#pulseaudio.muted {
-  color: @color1;
-}
+/* Battery */
 #battery.charging {
   color: @color4;
 }
 #battery.warning:not(.charging) {
   color: @color6;
 }
-#battery.critical:not(.charging),
-#temperature.critical {
+#battery.critical:not(.charging) {
   color: @color1;
 }
-#mpris.paused {
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
   color: @color1;
 }
-#network.wifi {
+
+/* PulseAudio */
+#pulseaudio {
   color: @color2;
+  padding: 0 4px; /* keep padding for spacing */
+  background-color: transparent; /* inherit or transparent to avoid extra background */
+  margin: 0; /* remove margin to avoid shifting */
+  border: none; /* remove border */
 }
-#network.ethernet {
-  color: @color3;
+#pulseaudio.muted {
+  color: @color1;
 }
