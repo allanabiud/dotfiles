@@ -9,3 +9,16 @@ Clone this repository to your home directory:
 ```bash
 git clone https://github.com/allanabiud/dotfiles.git ~/dotfiles
 ```
+
+## Usage
+
+All stow-managed packages are inside the `stow/` directory. For example:
+
+- `stow/nvim/.config/nvim/`
+
+Use GNU Stow to symlink everything:
+
+```bash
+cd stow
+stow -t nvim zsh mpv
+```
