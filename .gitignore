@@ -3,9 +3,10 @@
 lazy-lock.json
 .zcompdump
 database
-rmpc/.config/rmpc/lyrics/
-gomp/.config/gomp/cache/
-ncmpcpp/.config/ncmpcpp/lyrics/
-tmux/.config/tmux/plugins/
-yt-x/.config/yt-x/*.json
-dunst/.config/dunst/dunstrc
+stow/rmpc/.config/rmpc/lyrics/
+stow/gomp/.config/gomp/cache/
+stow/ncmpcpp/.config/ncmpcpp/lyrics/
+stow/tmux/.config/tmux/plugins/
+stow/yt-x/.config/yt-x/*.json
+stow/dunst/.config/dunst/dunstrc
+stow/waypaper/.config/waypaper/config.ini
