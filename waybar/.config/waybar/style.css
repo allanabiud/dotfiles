@@ -30,9 +30,12 @@ window#waybar {
 }
 .modules-left {
   margin: 2px 0 0 5px;
-  background-color: @color0;
+  background-color: transparent;
 }
 /*-----modules indv----*/
+#workspaces {
+  background-color: @color0;
+}
 #workspaces button {
   padding: 1px 7px;
   transition: all 0.3s;
@@ -53,6 +56,11 @@ tooltip {
   background-color: @color0;
 }
 
+#workspaces,
+#mpris {
+  border: 2px solid @color3;
+}
+
 #mpris.paused {
   color: @color4;
 }
@@ -69,12 +77,8 @@ tooltip {
   color: @color6;
 }
 
-#mpris {
-  background-color: @color0;
-  margin: 0 0 0 5px;
-}
-
 #tray,
+#mpris,
 #custom-media,
 #custom-power,
 #clock,
@@ -108,11 +112,6 @@ tooltip {
 #custom-power:hover {
   background: @color1;
   color: @foreground;
-}
-
-#workspaces,
-#mpris {
-  border: 2px solid @color3;
 }
 
 #submap,

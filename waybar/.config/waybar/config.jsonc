@@ -4,13 +4,13 @@
     "modules-left": [
       "hyprland/workspaces",
       "hyprland/submap",
+      "mpris",
     ],
     "modules-center": [
       "clock",
-      "idle_inhibitor",
-      "mpris",
     ],
     "modules-right": [
+      "idle_inhibitor",
       "tray",
       "pulseaudio",
       "network",
@@ -114,12 +114,12 @@
       "on-click": "wlogout"
     },
     "pulseaudio": {
-        "format": "{icon}    {volume}%",
-        "format-bluetooth": "{icon}  {volume}%  {format_source}",
-        "format-bluetooth-muted": " {icon}   {format_source}",
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": " {icon} ",
         "format-muted": "",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
+        // "format-source": " {volume}%",
+        // "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
