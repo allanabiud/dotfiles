@@ -8,5 +8,3 @@ stow/gomp/.config/gomp/cache/
 stow/ncmpcpp/.config/ncmpcpp/lyrics/
 stow/tmux/.config/tmux/plugins/
 stow/yt-x/.config/yt-x/*.json
-stow/dunst/.config/dunst/dunstrc
-stow/waypaper/.config/waypaper/config.ini
