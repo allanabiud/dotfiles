@@ -18,4 +18,4 @@ pkill waybar && waybar &
 # Tell Hyprland to reload its config (to apply new colors)
 hyprctl reload
 
-notify-send -i "$WALLPAPER" "Wallpaper and colorscheme changed"
+dunstify -i "$WALLPAPER" -a "pywal" "🎨 Colorscheme Applied" "$WALLPAPER"
