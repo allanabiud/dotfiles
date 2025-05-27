@@ -159,9 +159,9 @@ return {
         })
       end,
 
-      -- ts_ls
-      ["ts_ls"] = function()
-        lspconfig["ts_ls"].setup({
+      -- tsserver
+      ["tsserver"] = function()
+        lspconfig["tsserver"].setup({
           on_attach = on_attach,
           capabilities = capabilities,
           init_options = {
