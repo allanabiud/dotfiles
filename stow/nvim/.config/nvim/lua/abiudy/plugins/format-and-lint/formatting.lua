@@ -14,6 +14,7 @@ return {
         bash = { "shfmt" },
         python = { "isort", "black" },
         go = { "gofmt" },
+        ejs = { "prettier_ejs" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -23,6 +24,17 @@ return {
       formatters = {
         djlint = {
           prepend_args = { "--indent", "4" },
+        },
+        prettier_ejs = {
+          command = "prettier",
+          args = {
+            "--plugin",
+            "prettier-plugin-ejs",
+            "--stdin-filepath",
+            "$FILENAME",
+          },
+          stdin = true,
+          require_cwd = true, -- ensures it's only used when Prettier is installed in the project
         },
       },
     })

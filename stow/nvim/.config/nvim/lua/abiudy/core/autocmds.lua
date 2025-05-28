@@ -17,6 +17,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "set filetype=htmldjango",
 })
 
+-- Associate EJS files with ejs filetype
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*/views/*.ejs" },
+  command = "set filetype=ejs",
+})
+
 -- Hyprlang LSP
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = { "*.hl", "hypr*.conf", "hypr/*.conf" },

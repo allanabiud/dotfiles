@@ -21,5 +21,8 @@ return {
     vim.filetype.add({
       pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
     })
+
+    vim.treesitter.language.register("html", "ejs")
+    vim.treesitter.language.register("javascript", "ejs")
   end,
 }

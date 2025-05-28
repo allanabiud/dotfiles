@@ -11,6 +11,7 @@ return {
       htmldjango = { "htmlhint", "djlint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
+      ejs = { "ejslint" },
     }
 
     -- configure linters
@@ -26,6 +27,7 @@ return {
       "--config",
       ["ignore_missing_imports"] = true,
     }
+    -- eslint_d
     lint.linters.eslint_d = {
       cmd = "eslint_d",
       args = { "--stdin", "--stdin-filename", vim.fn.expand("%:p"), "--format", "compact" },
@@ -38,6 +40,18 @@ return {
         nil,
         { source = "eslint_d" }
       ),
+    }
+    -- ejslint
+    lint.linters.ejslint = {
+      cmd = "ejslint",
+      stdin = false,
+      args = { "$FILENAME" },
+      stream = "stderr",
+      ignore_exitcode = true,
+      parser = require("lint.parser").from_errorformat("%f:%l\n  %m", {
+        source = "ejslint",
+        severity = vim.diagnostic.severity.ERROR,
+      }),
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
