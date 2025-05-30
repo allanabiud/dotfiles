@@ -10,10 +10,12 @@
     on_song_change: ["~/.config/rmpc/scripts/notify"], 
     volume_step: 5,
     scrolloff: 10,
+    browser_song_sort: [Title, Artist, Disc, Track],
     wrap_navigation: false,
     enable_mouse: true,
     status_update_interval_ms: 1000,
-    select_current_song_on_change: false,
+    select_current_song_on_change: true,
+    center_current_song_on_change: true,
     album_art: (
         method: Auto,
         max_size_px: (width: 600, height: 600),
@@ -116,17 +118,17 @@
                direction: Horizontal,
                panes: [
                    (
-                       size: "30%",
-                       borders: "RIGHT",
+                       size: "35%",
                        pane: Split(
                            direction: Vertical,
                            panes: [
                                (
-                                   size: "70%",
-                                   pane: Pane(AlbumArt)
+                                   size: "83%",
+                                   pane: Pane(AlbumArt),
+                                   borders: "ALL",
                                ),
                                (
-                                   size: "30%",
+                                   size: "17%",
                                    borders: "ALL",
                                    pane: Pane(Lyrics)
                                )
@@ -134,13 +136,14 @@
                        )
                    ),
                    (
-                       size: "70%",
+                       size: "65%",
                        pane: Split(
                            direction: Vertical,
                            panes: [
                                (
                                    size: "100%",
-                                   pane: Pane(Queue)
+                                   pane: Pane(Queue),
+                                   borders: "ALL",
                                ),
                            ]
                        )
