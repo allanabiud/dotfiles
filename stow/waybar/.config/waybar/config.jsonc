@@ -83,12 +83,14 @@
     "format-stopped": "",
     "tooltip-format": "{dynamic}",
     "player-icons": {
-      "default": "▶ ",
+      "default": "▶",
       "mpv": " ",
       "mpd": " ",
       "chromium": " ",
       "firefox": " ",
-      "spotify": " "
+      "spotify": " ",
+      "vlc": " ",
+
     },
     "status-icons": {
       "paused": "▶",
