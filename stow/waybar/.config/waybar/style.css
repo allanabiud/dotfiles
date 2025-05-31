@@ -46,7 +46,7 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 1px 7px;
+  padding: 0px 7px;
   transition: all 0.3s;
   color: gray;
 }
