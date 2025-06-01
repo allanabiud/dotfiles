@@ -87,7 +87,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(direnv hook zsh)"
 
 ### Fastfetch
-fastfetch
+fastfetch -c examples/8
 
 ### Pywal
 # Import colorscheme from 'wal' asynchronously
