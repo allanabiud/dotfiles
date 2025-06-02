@@ -65,6 +65,10 @@ alias notes="nvim ~/Desktop/Obsidian/"
 # ----- zellij -----------------------
 alias zellij="zellij -l welcome"
 alias zel="zellij -l welcome"
+# ----- python venv -----------------------
+alias activate="source .venv/bin/activate"
+# ----- uv -----------------------
+alias uvr="uv run"
 
 
 ####################################################################################################
