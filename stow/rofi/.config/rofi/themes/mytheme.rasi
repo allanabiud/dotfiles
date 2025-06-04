@@ -30,6 +30,7 @@ window {
 
 inputbar {
     children:   [ prompt,entry,case-indicator ];
+    prompt:     " ";
     spacing:    8px;
     padding:    8px;
 
@@ -39,6 +40,10 @@ inputbar {
     border-color:       @accent-color;
 }
 
+entry {
+  placeholder: "Search...";
+}
+
 entry, element-icon, element-text {
     vertical-align: 0.5;
 }
@@ -46,6 +51,10 @@ entry, element-icon, element-text {
 textbox {
     padding:            8px;
     background-color:   @bg1;
+}
+
+textbox-prompt-colon {
+  str: "";
 }
 
 listview {
