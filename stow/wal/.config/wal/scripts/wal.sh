@@ -13,7 +13,8 @@ cp /home/allanabiud/.cache/wal/dunstrc /home/allanabiud/.config/dunst/dunstrc
 pkill dunst && dunst &
 
 # Restart waybar to apply new theme
-pkill waybar && waybar &
+pkill waybar
+waybar &
 
 # Tell Hyprland to reload its config (to apply new colors)
 # hyprctl reload

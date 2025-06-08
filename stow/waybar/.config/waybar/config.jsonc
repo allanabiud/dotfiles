@@ -4,6 +4,7 @@
 
   "modules-left": [
     "niri/workspaces",
+    "custom/niri_windows",
     "niri/window",
   ],
   "modules-center": [
@@ -20,11 +21,11 @@
     "format": "{icon}",
     "format-icons": {
       // Named Workspaces
-      "DEV": "",
+      "DEV": "",
       "Web": "",
       "File Management": "",
       "Multimedia": "",
-      "Documents": "",
+      "Documents": "",
       "Music": "",
       "Messaging": "",
       "Misc": "",
@@ -35,6 +36,13 @@
 		  "default": ""
      },
     "current-only": true
+  },
+
+  "custom/niri_windows": {
+    "exec": "~/.config/waybar/scripts/niri_windows.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
   },
 
   "niri/window": {
