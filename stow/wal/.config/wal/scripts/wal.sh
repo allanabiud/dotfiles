@@ -16,6 +16,6 @@ pkill dunst && dunst &
 pkill waybar && waybar &
 
 # Tell Hyprland to reload its config (to apply new colors)
-hyprctl reload
+# hyprctl reload
 
 dunstify -i "$WALLPAPER" -a "pywal" "🎨 Colorscheme Applied" "$WALLPAPER"

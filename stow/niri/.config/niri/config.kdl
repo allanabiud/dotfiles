@@ -287,28 +287,6 @@ layout {
 }
 
 ///////////////////////
-////// > STARTUP
-///////////////////////
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-spawn-at-startup "nm-applet"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "waybar"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "mpDris2"
-spawn-at-startup "waypaper" "--restore"
-spawn-at-startup "wal" "-R"
-spawn-at-startup "ghostty" "--initial-window=false"
-spawn-at-startup "hypridle"
-// Clipboard Manager
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "store"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "store"
-// POLKIT AGENT
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-
-///////////////////////
 ////// > MISC
 ///////////////////////
 
@@ -674,3 +652,26 @@ binds {
     // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
 }
+
+///////////////////////
+////// > STARTUP
+///////////////////////
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "waybar"
+spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "waypaper" "--restore"
+spawn-at-startup "hypridle"
+spawn-at-startup "mpDris2"
+// spawn-at-startup "wal" "-R"
+spawn-at-startup "ghostty" "--initial-window=false"
+spawn-at-startup "keepassxc"
+// Clipboard Manager
+// spawn-at-startup "wl-paste" "--type" "text" "--watch" "store"
+// spawn-at-startup "wl-paste" "--type" "image" "--watch" "store"
+// // POLKIT AGENT
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
