@@ -492,6 +492,8 @@ window-rule {
 window-rule {
     match app-id="blueman-manager"
     match app-id="blueman-services"
+    match title="Removable medium is inserted"
+    match app-id="zenity"
     open-floating true
     default-column-width { proportion 0.35; }
     default-window-height { proportion 0.5; }
@@ -535,7 +537,7 @@ binds {
     Mod+M      { spawn "ghostty" "--title=rmpc" "-e" "rmpc"; } // Music Player Client (rmpc)
     Mod+P      { spawn "waypaper"; }            // Wallpaper Setter
     Mod+Z      { spawn "ghostty" "--title=zellij" "-e" "zellij" "-l" "welcome"; } // Zellij
-    Mod+C      { spawn "cliphist" "list" "|" "rofi" "-dmenu" "|" "cliphist" "decode" "|" "wl-copy"; } // Clipboard History
+    Mod+C      { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; } // Clipboard History
 
     // --- WINDOW MANAGEMENT ---
     Mod+Q { close-window; } // Close focused window
