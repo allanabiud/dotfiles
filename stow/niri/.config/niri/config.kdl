@@ -18,7 +18,6 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "hypridle"
 spawn-at-startup "mpDris2"
 spawn-at-startup "ghostty" "--initial-window=false"
-spawn-at-startup "keepassxc"
 // Clipboard Manager
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "store"
@@ -211,7 +210,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#da8036"
 
         // Color of the ring on inactive monitors.
         inactive-color "#505050"
@@ -299,7 +298,7 @@ layout {
     }
 
     tab-indicator {
-        width 5
+        width 6
         gap 8
         length total-proportion=1.0
         position "left"
@@ -394,6 +393,8 @@ window-rule {
 window-rule {
     match app-id="com.mitchellh.ghostty"
     match title="zellij"
+    match app-id="Code"
+    match app-id="Postman"
     open-on-workspace "DEV"
     open-focused true
 }
@@ -417,7 +418,7 @@ window-rule {
     match app-id="org.gnome.Nautilus"
     open-on-workspace "File Management"
     open-focused true
-    default-column-width { proportion 0.5; }
+    // default-column-width { proportion 0.75; }
 }
 window-rule {
     match app-id="XnView"
@@ -463,6 +464,7 @@ window-rule {
 window-rule {
     match app-id="org.telegram.desktop"
     match app-id="com.rtosta.zapzap"
+    match app-id="vesktop"
     open-on-workspace "Messaging"
     open-focused true
     open-maximized true
