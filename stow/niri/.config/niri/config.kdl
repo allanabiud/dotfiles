@@ -33,10 +33,9 @@ workspace "Web"
 workspace "File Management"
 workspace "Multimedia"
 workspace "Documents"
-workspace "Music"
 workspace "Messaging"
-workspace "Misc"
 workspace "Gaming"
+workspace "Misc"
 
 ///////////////////////
 ////// > INPUT
@@ -180,7 +179,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.9; }
+    default-column-width { proportion 1.0; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -427,12 +426,22 @@ window-rule {
     open-focused true
 }
 //// MULTIMEDIA
+// video apps
 window-rule {
     match app-id="vlc"
     match app-id="mpv"
     match app-id="com.github.iwalton3.jellyfin-media-player"
     match app-id="zoom"
     match app-id="teams-for-linux"
+    open-on-workspace "Multimedia"
+    open-focused true
+    open-maximized true
+}
+// audio apps
+window-rule {
+    match title="rmpc"
+    match app-id="Spotify"
+    match app-id="org.musicbrainz.Picard"
     open-on-workspace "Multimedia"
     open-focused true
     open-maximized true
@@ -450,30 +459,11 @@ window-rule {
     open-focused true
     open-maximized true
 }
-//// MUSIC
-window-rule {
-    match title="rmpc"
-    match app-id="Spotify"
-    match app-id="org.musicbrainz.Picard"
-    open-on-workspace "Music"
-    open-focused true
-    open-maximized true
-}
 //// MESSAGING
 window-rule {
     match app-id="org.telegram.desktop"
     match app-id="com.rtosta.zapzap"
     open-on-workspace "Messaging"
-    open-focused true
-    open-maximized true
-}
-//// MISC
-window-rule {
-    match app-id="YACReaderLibrary"
-    match app-id="YACReader"
-    match app-id="obsidian"
-    // match app-id="joplin"
-    open-on-workspace "Misc"
     open-focused true
     open-maximized true
 }
@@ -487,6 +477,17 @@ window-rule {
     open-focused true
     open-maximized true
 }
+//// MISC
+window-rule {
+    match app-id="YACReaderLibrary"
+    match app-id="YACReader"
+    match app-id="obsidian"
+    // match app-id="joplin"
+    open-on-workspace "Misc"
+    open-focused true
+    open-maximized true
+}
+
 
 //// Floating Window Rules
 window-rule {
@@ -596,9 +597,9 @@ binds {
     Mod+3 { focus-workspace "File Management"; }
     Mod+4 { focus-workspace "Multimedia"; }
     Mod+5 { focus-workspace "Documents"; }
-    Mod+6 { focus-workspace "Music"; }
-    Mod+7 { focus-workspace "Messaging"; }
-    Mod+8 { focus-workspace 8; } // Generic index if no named workspace
+    Mod+6 { focus-workspace "Messaging"; }
+    Mod+7 { focus-workspace "Gaming"; }
+    Mod+8 { focus-workspace "Misc"; }
     Mod+9 { focus-workspace 9; } // Generic index if no named workspace
     Mod+Page_Down { focus-workspace-down; }
     Mod+Page_Up   { focus-workspace-up; }
@@ -609,10 +610,10 @@ binds {
     Mod+Shift+3 { move-column-to-workspace "File Management"; }
     Mod+Shift+4 { move-column-to-workspace "Multimedia"; }
     Mod+Shift+5 { move-column-to-workspace "Documents"; }
-    Mod+Shift+6 { move-column-to-workspace "Music"; }
-    Mod+Shift+7 { move-column-to-workspace "Messaging"; }
+    Mod+Shift+6 { move-column-to-workspace "Messaging"; }
+    Mod+Shift+7 { move-column-to-workspace "Gaming"; }
     Mod+Shift+8 { move-column-to-workspace "Misc"; }
-    Mod+Shift+9 { move-column-to-workspace "Gaming"; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+Page_Down { move-column-to-workspace-down; }
     Mod+Shift+Page_Up   { move-column-to-workspace-up; }
 
