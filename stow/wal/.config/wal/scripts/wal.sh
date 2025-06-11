@@ -5,6 +5,9 @@ WALLPAPER="$1"
 # Apply colorscheme with pywal16
 /home/allanabiud/.local/bin/wal --contrast 2.5 --saturate 0.6 -i "$WALLPAPER"
 
+# Niri
+cp "${HOME}/.cache/wal/niri-config.kdl" "${HOME}/.config/niri/config.kdl"
+
 # walogram (telegram pywal16 colorscheme)
 walogram
 
