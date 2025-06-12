@@ -1,12 +1,11 @@
 {
   "layer": "top",
-  "exclusive": true,
   "reload_style_on_change": true,
 
   "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/window",
-    "hyprland/submap"
+    "niri/workspaces",
+    "custom/niri_windows",
+    "niri/window",
   ],
   "modules-center": [
     "clock"
@@ -18,35 +17,38 @@
     "battery"
   ],
 
-  "hyprland/workspaces": {
+  "niri/workspaces": {
     "format": "{icon}",
-    "on-click": "activate",
     "format-icons": {
-      "1": "1:  ",
-      "2": "2:  ",
-      "3": "3:  ",
-      "4": "4:  ",
-      "5": "5:  ",
-      "6": "6:  ",
-      "7": "7:  ",
-      "8": "8",
-      "9": "9",
-      "10": "10"
-    },
-    "sort-by-number": true
+      // Named Workspaces
+      "DEV": "",
+      "Web": "",
+      "File Management": "",
+      "Multimedia": "",
+      "Documents": "",
+      "Messaging": "",
+      "Gaming": "",
+      "Misc": "",
+
+      // Dynamic Workspaces
+      // "active": "",
+		  "default": ""
+     },
+    "current-only": true
   },
 
-  "hyprland/window": {
+  "custom/niri_windows": {
+    "exec": "~/.config/waybar/scripts/niri_windows.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "niri/window": {
     "format": "",
     "icon": true,
     "icon-size": 16,
     "separate-outputs": true
-  },
-
-  "hyprland/submap": {
-    "format": "<span style=\"italic\">{}</span>",
-    "max-length": 8,
-    "tooltip": false
   },
 
   "clock": {
