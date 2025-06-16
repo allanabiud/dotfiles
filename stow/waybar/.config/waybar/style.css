@@ -147,12 +147,12 @@ tooltip {
 
 /* Idle inhibitor */
 #idle_inhibitor.activated {
-  color: @color1;
+  color: @color6;
 }
 
 /* PulseAudio */
 #pulseaudio {
-  color: @color2;
+  color: @foreground;
   padding: 0 4px; /* keep padding for spacing */
   background-color: transparent; /* inherit or transparent to avoid extra background */
   margin: 0; /* remove margin to avoid shifting */
