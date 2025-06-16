@@ -9,21 +9,26 @@
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "waypaper" "--restore" // Restore wallpaper on startup and launches waybar
-spawn-at-startup "wal" "-R"
-// spawn-at-startup "waybar"
+// Waybar
+spawn-at-startup "waybar"
+// Wallpaper
+spawn-at-startup "waypaper" "--restore" "--no-post-command"
+// System Tray
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "hypridle"
-spawn-at-startup "mpDris2"
-spawn-at-startup "ghostty" "--initial-window=false"
+// POLKIT AGENT
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // Clipboard Manager
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "store"
-// // POLKIT AGENT
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-
+// XWayland Satellite
+spawn-at-startup "xwayland-satellite"
+// Idle Daemon (hypridle)
+spawn-at-startup "hypridle"
+// MPDris2 (media controls)
+spawn-at-startup "mpDris2"
+// Terminal Daemon (ghostty)
+spawn-at-startup "ghostty" "--initial-window=false"
 ///////////////////////
 ////// > WORKSPACES
 ///////////////////////
