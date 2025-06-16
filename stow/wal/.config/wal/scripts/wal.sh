@@ -13,11 +13,18 @@ walogram
 
 # dunst
 cp /home/allanabiud/.cache/wal/dunstrc /home/allanabiud/.config/dunst/dunstrc
-pkill dunst && dunst &
+pkill dunst && sleep 0.5 && dunst &
 
-# Restart waybar to apply new theme
-pkill waybar
+# Wait briefly for everything to settle (important!)
+sleep 0.5
+
+# Smooth Waybar restart
+if pgrep -x "waybar" >/dev/null; then
+  pkill waybar
+  sleep 1 # Let it fully shut down before relaunching
+fi
 waybar &
+disown
 
 # Tell Hyprland to reload its config (to apply new colors)
 # hyprctl reload
