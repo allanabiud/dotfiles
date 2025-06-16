@@ -47,9 +47,9 @@ window#waybar.empty #window {
 }
 #workspaces button {
   padding: 0px;
-  padding-right: 4px;
+  padding-right: 0px;
   transition: all 0.3s;
-  color: gray;
+  color: @foreground;
 }
 #workspaces button:hover {
   color: @color2;
@@ -57,6 +57,9 @@ window#waybar.empty #window {
 #workspaces button.active {
   color: @color1;
   font-weight: bold;
+}
+#workspaces button.empty {
+  opacity: 0.35;
 }
 workspaces button.urgent {
   background-color: @color2;

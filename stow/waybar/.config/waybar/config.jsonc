@@ -34,7 +34,7 @@
       // "active": "",
 		  "default": ""
      },
-    "current-only": true
+    // "current-only": true
   },
 
   "custom/niri_windows": {
