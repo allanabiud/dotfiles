@@ -9,21 +9,26 @@
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "waypaper" "--restore" // Restore wallpaper on startup and launches waybar
-spawn-at-startup "wal" "-R"
-// spawn-at-startup "waybar"
+// Waybar
+spawn-at-startup "waybar"
+// Wallpaper
+spawn-at-startup "waypaper" "--restore" "--no-post-command"
+// System Tray
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "hypridle"
-spawn-at-startup "mpDris2"
-spawn-at-startup "ghostty" "--initial-window=false"
+// POLKIT AGENT
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // Clipboard Manager
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "store"
-// // POLKIT AGENT
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-
+// XWayland Satellite
+spawn-at-startup "xwayland-satellite"
+// Idle Daemon (hypridle)
+spawn-at-startup "hypridle"
+// MPDris2 (media controls)
+spawn-at-startup "mpDris2"
+// Terminal Daemon (ghostty)
+spawn-at-startup "ghostty" "--initial-window=false"
 ///////////////////////
 ////// > WORKSPACES
 ///////////////////////
@@ -210,10 +215,10 @@ layout {{
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "{color1}"
+        active-color "#1b6870"
 
         // Color of the ring on inactive monitors.
-        inactive-color "{color8}"
+        inactive-color "#556267"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -222,7 +227,7 @@ layout {{
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="{color1}" to="{foreground}" angle=45
+        // active-gradient from="#1b6870" to="#c0c2c2" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -238,11 +243,11 @@ layout {{
         off
 
         width 4
-        active-color "{color1}"
-        inactive-color "{color8}"
+        active-color "#1b6870"
+        inactive-color "#556267"
 
         // Color of the border around windows that request your attention.
-        urgent-color "{color9}"
+        urgent-color "#1b6870"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -282,7 +287,7 @@ layout {{
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "{background}77"
+        color "#040B0E77"
     }}
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -349,10 +354,10 @@ environment {{
 
 overview {{
     zoom 0.4
-    backdrop-color "{background}"
+    backdrop-color "#040B0E"
     workspace-shadow {{
         softness 10
-        color "{background}77"
+        color "#040B0E77"
         offset x=0 y=5
     }}
 }}
