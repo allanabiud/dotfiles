@@ -59,7 +59,7 @@ window#waybar.empty #window {
   font-weight: bold;
 }
 #workspaces button.empty {
-  opacity: 0.35;
+  opacity: 0.3;
 }
 workspaces button.urgent {
   background-color: @color2;
@@ -151,6 +151,9 @@ tooltip {
 /* Idle inhibitor */
 #idle_inhibitor.activated {
   color: @color6;
+}
+#idle_inhibitor.deactivated {
+  color: rgba(150, 150, 150, 0.5); /* grayed out when not active */
 }
 
 /* PulseAudio */

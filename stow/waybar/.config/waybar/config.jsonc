@@ -31,7 +31,7 @@
       "Misc": "",
 
       // Dynamic Workspaces
-      // "active": "",
+      "active": "",
 		  "default": ""
      },
     // "current-only": true
@@ -129,7 +129,8 @@
       "deactivated": ""
     },
     "tooltip-format-activated": "Caffeine On",
-    "tooltip-format-deactivated": "Caffeine Off"
+    "tooltip-format-deactivated": "Caffeine Off",
+    "start-activated": true,
   },
 
   "tray": {
