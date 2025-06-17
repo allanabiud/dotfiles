@@ -215,10 +215,10 @@ layout {{
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#1b6870"
+        active-color "{color1}"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#556267"
+        inactive-color "{background}"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -287,7 +287,7 @@ layout {{
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "#040B0E77"
+        color "{background}"
     }}
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -354,10 +354,10 @@ environment {{
 
 overview {{
     zoom 0.4
-    backdrop-color "#040B0E"
+    backdrop-color "{background}"
     workspace-shadow {{
         softness 10
-        color "#040B0E77"
+        color "{background}"
         offset x=0 y=5
     }}
 }}
