@@ -141,7 +141,7 @@ return {
               analysis = {
                 autoSearchPaths = true,
                 diagnosticMode = "workspace",
-                typeCheckingMode = "basic",
+                typeCheckingMode = "off",
                 useLibraryCodeForTypes = true,
                 extraPaths = {
                   vim.fn.getcwd(), -- Add project root
@@ -149,8 +149,8 @@ return {
                   vim.fn.getcwd() .. "/apps", -- Common Django apps directory
                 },
                 -- Django-specific settings
-                reportGeneralTypeIssues = "warning",
-                reportPropertyTypeMismatch = "warning",
+                reportGeneralTypeIssues = "none",
+                reportPropertyTypeMismatch = "none",
                 reportMissingImports = true,
                 reportMissingTypeStubs = false,
               },

@@ -23,7 +23,7 @@ return {
       },
       formatters = {
         djlint = {
-          prepend_args = { "--indent", "4" },
+          prepend_args = { "--indent", "2" },
         },
         prettier_ejs = {
           command = "prettier",
