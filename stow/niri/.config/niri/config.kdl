@@ -488,7 +488,9 @@ window-rule {
     match app-id="YACReaderLibrary"
     match app-id="YACReader"
     match app-id="obsidian"
-    match app-id="VirtualBox Manager"
+    // match app-id="VirtualBox Manager"
+    match app-id="draw.io"
+    match app-id="org.gnome.Boxes"
     // match app-id="joplin"
     open-on-workspace "Misc"
     open-focused true

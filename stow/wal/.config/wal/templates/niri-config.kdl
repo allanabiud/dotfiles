@@ -215,10 +215,10 @@ layout {{
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "{color1}"
+        active-color "#3b6bef"
 
         // Color of the ring on inactive monitors.
-        inactive-color "{background}"
+        inactive-color "#06070F"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -287,7 +287,7 @@ layout {{
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "{background}"
+        color "#06070F"
     }}
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -354,10 +354,10 @@ environment {{
 
 overview {{
     zoom 0.4
-    backdrop-color "{background}"
+    backdrop-color "#06070F"
     workspace-shadow {{
         softness 10
-        color "{background}"
+        color "#06070F"
         offset x=0 y=5
     }}
 }}
@@ -488,7 +488,9 @@ window-rule {{
     match app-id="YACReaderLibrary"
     match app-id="YACReader"
     match app-id="obsidian"
-    match app-id="VirtualBox Manager"
+    // match app-id="VirtualBox Manager"
+    match app-id="draw.io"
+    match app-id="org.gnome.Boxes"
     // match app-id="joplin"
     open-on-workspace "Misc"
     open-focused true
