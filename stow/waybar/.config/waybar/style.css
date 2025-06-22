@@ -28,16 +28,16 @@ window#waybar.empty #window {
 
 /* Module groups */
 .modules-left {
-  margin: 2px 0 0 5px;
+  margin: 0 0 0 5px;
   background-color: transparent;
 }
 .modules-center {
   background-color: transparent;
-  margin: 2px 0 0 0;
+  margin: 0 0 0 0;
 }
 .modules-right {
   background-color: transparent;
-  margin: 2px 5px 0 0;
+  margin: 0 5px 0 0;
 }
 
 /* Workspaces module */
@@ -46,10 +46,9 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px;
-  padding-right: 0px;
+  padding: 0px 7px;
   transition: all 0.3s;
-  color: @foreground;
+  color: gray;
 }
 #workspaces button:hover {
   color: @color2;
@@ -58,22 +57,8 @@ window#waybar.empty #window {
   color: @color1;
   font-weight: bold;
 }
-#workspaces button.empty {
-  opacity: 0.3;
-}
 workspaces button.urgent {
   background-color: @color2;
-}
-
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 2px solid @color3;
-  background-color: @color0;
-  color: @color1;
-  padding: 2px 6px;
-  margin-left: 4px;
-  font-weight: bold;
-  border-radius: 4px;
 }
 
 /* Tooltip */
@@ -94,7 +79,7 @@ tooltip {
   border: 2px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding-left: 8px;
+  padding: 0 8px;
 }
 
 /* MPRIS states */
@@ -121,6 +106,7 @@ tooltip {
 #tray,
 #audio,
 #clock,
+#submap,
 #battery,
 #idle_inhibitor,
 #pulseaudio {
@@ -137,6 +123,12 @@ tooltip {
   font-weight: bold;
 }
 
+/* Submap */
+#submap {
+  color: @color1;
+  font-weight: bold;
+}
+
 /* Battery */
 #battery.charging {
   color: @color4;
@@ -150,10 +142,7 @@ tooltip {
 
 /* Idle inhibitor */
 #idle_inhibitor.activated {
-  color: @color6;
-}
-#idle_inhibitor.deactivated {
-  color: rgba(150, 150, 150, 0.5); /* grayed out when not active */
+  color: @color1;
 }
 
 /* PulseAudio */
