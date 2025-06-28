@@ -1,14 +1,6 @@
-// Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
-
 ///////////////////////
 ////// > STARTUP
 ///////////////////////
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-
 // Waybar
 spawn-at-startup "waybar"
 // Wallpaper
@@ -29,45 +21,23 @@ spawn-at-startup "hypridle"
 spawn-at-startup "mpDris2"
 // Terminal Daemon (ghostty)
 spawn-at-startup "ghostty" "--initial-window=false"
-///////////////////////
-////// > WORKSPACES
-///////////////////////
-workspace "DEV"
-workspace "Web"
-workspace "File Management"
-workspace "Multimedia"
-workspace "Documents"
-workspace "Messaging"
-workspace "Gaming"
-workspace "Misc"
 
 ///////////////////////
 ////// > INPUT
 ///////////////////////
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {{
     keyboard {{
         xkb {{
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }}
-
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }}
 
-    // Next sections include libinput settings.
-    // Omitting settings disables them, or leaves them at their default values.
     touchpad {{
         // off
         tap
-        // dwt
+        dwt
         // dwtp
         // drag false
         // drag-lock
@@ -96,205 +66,71 @@ input {{
         // middle-emulation
     }}
 
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
     warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="50%"
-
     disable-power-key-handling
-
 }}
 
 ///////////////////////
 ////// > OUTPUTS
 ///////////////////////
-// You can configure outputs by their name, which you can find
-// by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
 /-output "eDP-1" {{
-    // Uncomment this line to disable this output.
     // off
-
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
     mode "1920x1080@120.030"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 2
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
     position x=1280 y=0
 }}
 
 ///////////////////////
 ////// > LAYOUT
 ///////////////////////
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {{
-    // Set gaps around windows in logical pixels.
-    gaps 10
-
-    // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
-    // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
+    gaps 8
     center-focused-column "never"
     always-center-single-column
 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {{
-        // Proportion sets the width as a fraction of the output width, taking gaps into account.
-        // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
-        // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
-
-        // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }}
 
-    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights {{ }}
-
-    // You can change the default width of the new windows.
     default-column-width {{ proportion 1.0; }}
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {{}}
-
-    // By default focus ring and border are rendered as a solid background rectangle
-    // behind windows. That is, they will show up through semitransparent windows.
-    // This is because windows using client-side decorations can have an arbitrary shape.
-    //
-    // If you don't like that, you should uncomment `prefer-no-csd` below.
-    // Niri will draw focus ring and border *around* windows that agree to omit their
-    // client-side decorations.
-    //
-    // Alternatively, you can override it with a window rule called
-    // `draw-border-with-background`.
-
-    // Set transparent workspace background color.
     background-color "transparent"
 
-    // You can change how the focus ring looks.
     focus-ring {{
-        // Uncomment this line to disable the focus ring.
         // off
-
-        // How many logical pixels the ring extends out from the windows.
-        width 3
-
-        // Colors can be set in a variety of ways:
-        // - CSS named colors: "red"
-        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
-
-        // Color of the ring on the active monitor.
+        width 2
         active-color "{color1}"
-
-        // Color of the ring on inactive monitors.
         inactive-color "{color0}"
-
-        // You can also use gradients. They take precedence over solid colors.
-        // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
-        // You can use any CSS linear-gradient tool on the web to set these up.
-        // Changing the color space is also supported, check the wiki for more info.
-        //
         // active-gradient from="#1b6870" to="#c0c2c2" angle=45
-
-        // You can also color the gradient relative to the entire view
-        // of the workspace, rather than relative to just the window itself.
-        // To do that, set relative-to="workspace-view".
-        //
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }}
 
-    // You can also add a border. It's similar to the focus ring, but always visible.
     border {{
-        // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
         off
-
         width 4
         active-color "{color1}"
         inactive-color "{color0}"
-
-        // Color of the border around windows that request your attention.
         urgent-color "#1b6870"
-
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }}
 
-    // You can enable drop shadows for windows.
     shadow {{
-        // Uncomment the next line to enable shadows.
         // on
-
-        // By default, the shadow draws only around its window, and not behind it.
-        // Uncomment this setting to make the shadow draw behind its window.
-        //
-        // Note that niri has no way of knowing about the CSD window corner
-        // radius. It has to assume that windows have square corners, leading to
-        // shadow artifacts inside the CSD rounded corners. This setting fixes
-        // those artifacts.
-        // 
-        // However, instead you may want to set prefer-no-csd and/or
-        // geometry-corner-radius. Then, niri will know the corner radius and
-        // draw the shadow correctly, without having to draw it behind the
-        // window. These will also remove client-side shadows if the window
-        // draws any.
-        // 
         // draw-behind-window true
-
-        // You can change how shadows look. The values below are in logical
-        // pixels and match the CSS box-shadow properties.
-
-        // Softness controls the shadow blur radius.
         softness 30
-
-        // Spread expands the shadow.
         spread 5
-
-        // Offset moves the shadow relative to the window.
         offset x=0 y=5
-
-        // You can also change the shadow color and opacity.
         color "#06070F"
     }}
 
-    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-    // You can think of them as a kind of outer gaps. They are set in logical pixels.
-    // Left and right struts will cause the next window to the side to always be visible.
-    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
-    // layer-shell panels and regular gaps.
     struts {{
         // left 64
         // right 64
@@ -316,30 +152,12 @@ layout {{
 ///////////////////////
 ////// > MISC
 ///////////////////////
-
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
-
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {{
-    // Uncomment to turn off all animations.
     // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }}
 
@@ -381,9 +199,6 @@ gestures {{
 ///////////////////////
 ////// > WINDOW RULES
 ///////////////////////
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
 ////// General Window Rules
 window-rule {{
@@ -393,110 +208,6 @@ window-rule {{
 }}
 
 ////// App Specific Window Rules
-//// DEV
-window-rule {{
-    match app-id="com.mitchellh.ghostty"
-    match title="zellij"
-    match app-id="Code"
-    match app-id="Postman"
-    open-on-workspace "DEV"
-    open-focused true
-}}
-//// WEB
-// browser
-window-rule {{
-    match app-id="vivaldi-stable"
-    open-on-workspace "Web"
-    open-focused true
-    open-maximized true
-}}
-window-rule {{
-    match app-id="fdm"
-    match app-id="org.qbittorrent.qBittorrent"
-    open-on-workspace "Web"
-}}
-//// FILE MANAGEMENT
-// file manager
-window-rule {{
-    match app-id="Pcmanfm"
-    match app-id="org.gnome.Nautilus"
-    open-on-workspace "File Management"
-    open-focused true
-    // default-column-width {{ proportion 0.75; }}
-}}
-window-rule {{
-    match app-id="XnView"
-    match app-id="org.localsend.localsend_app"
-    open-on-workspace "File Management"
-    open-focused true
-}}
-//// MULTIMEDIA
-// video apps
-window-rule {{
-    match app-id="vlc"
-    match app-id="mpv"
-    match app-id="com.github.iwalton3.jellyfin-media-player"
-    match app-id="zoom"
-    match app-id="teams-for-linux"
-    open-on-workspace "Multimedia"
-    open-focused true
-    open-maximized true
-}}
-// audio apps
-window-rule {{
-    match title="rmpc"
-    match app-id="Spotify"
-    match app-id="org.musicbrainz.Picard"
-    open-on-workspace "Multimedia"
-    open-focused true
-    open-maximized true
-}}
-//// DOCUMENTS
-window-rule {{
-    match app-id="libreoffice-startcenter"
-    match app-id="libreoffice-writer"
-    match app-id="libreoffice-calc"
-    match app-id="libreoffice-impress"
-    match app-id="libreoffice-draw"
-    match app-id="libreoffice-base"
-    match app-id="libreoffice-math"
-    open-on-workspace "Documents"
-    open-focused true
-    open-maximized true
-}}
-//// MESSAGING
-window-rule {{
-    match app-id="org.telegram.desktop"
-    match app-id="com.rtosta.zapzap"
-    match app-id="vesktop"
-    open-on-workspace "Messaging"
-    open-focused true
-    open-maximized true
-}}
-//// GAMING
-window-rule {{
-    // match app-id="com.valvesoftware.Steam"
-    match app-id="net.lutris.Lutris"
-    match app-id="heroic"
-    match app-id="com.vysp3r.ProtonPlus"
-    open-on-workspace "Gaming"
-    open-focused true
-    open-maximized true
-}}
-//// MISC
-window-rule {{
-    match app-id="YACReaderLibrary"
-    match app-id="YACReader"
-    match app-id="obsidian"
-    // match app-id="VirtualBox Manager"
-    match app-id="draw.io"
-    match app-id="org.gnome.Boxes"
-    // match app-id="joplin"
-    open-on-workspace "Misc"
-    open-focused true
-    open-maximized true
-}}
-
 
 //// Floating Window Rules
 window-rule {{
@@ -529,23 +240,13 @@ window-rule {{
 ////// > BINDS
 ///////////////////////
 binds {{
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
-    // like wev.
-    //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-    // when running as a winit window.
-    //
-    // Most actions that you can bind here can also be invoked programmatically with
-    // `niri msg action do-something`.
-
     // --- APPLICATION LAUNCHERS ---
-    Mod+Return {{ spawn "ghostty"; }}             // Terminal
+    Mod+Return {{ spawn "ghostty"; }} // Terminal
     Mod+Space  {{ spawn "rofi" "-show" "drun"; }} // Application Launcher (Rofi)
-    Mod+N      {{ spawn "pcmanfm"; }}             // File Manager
-    Mod+B      {{ spawn "vivaldi-stable"; }}      // Web Browser
+    Mod+N      {{ spawn "pcmanfm"; }} // File Manager
+    Mod+B      {{ spawn "vivaldi-stable"; }} // Web Browser
     Mod+M      {{ spawn "ghostty" "--title=rmpc" "-e" "rmpc"; }} // Music Player Client (rmpc)
-    Mod+P      {{ spawn "waypaper"; }}            // Wallpaper Setter
+    Mod+P      {{ spawn "waypaper"; }} // Wallpaper Setter
     Mod+Z      {{ spawn "ghostty" "--title=zellij" "-e" "zellij" "-l" "welcome"; }} // Zellij
     Mod+C      {{ spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }} // Clipboard History
 
@@ -566,8 +267,8 @@ binds {{
 
     // Window Sizing / State
     Mod+Shift+R {{ switch-preset-window-height; }} // Cycle through preset window heights
-    Mod+Ctrl+R {{ reset-window-height; }}          // Reset window height
-    Mod+Shift+F {{ fullscreen-window; }}           // Toggle fullscreen for focused window
+    Mod+Ctrl+R {{ reset-window-height; }} // Reset window height
+    Mod+Shift+F {{ fullscreen-window; }} // Toggle fullscreen for focused window
     Mod+Shift+Minus {{ set-window-height "-10%"; }} // Finer height adjustments
     Mod+Shift+Equal {{ set-window-height "+10%"; }}
 
@@ -581,19 +282,17 @@ binds {{
     Mod+Shift+Right {{ move-column-right; }}
 
     // Column Sizing / State
-    Mod+R {{ switch-preset-column-width; }}      // Cycle through preset column widths
-    Mod+F {{ maximize-column; }}                 // Maximize focused column
+    Mod+R {{ switch-preset-column-width; }} // Cycle through preset column widths
+    Mod+F {{ maximize-column; }} // Maximize focused column
     Mod+Ctrl+F {{ expand-column-to-available-width; }} // Expand column to fill available space
-    Mod+Shift+C {{ center-column; }}                   // Center focused column
-    Mod+Ctrl+C {{ center-visible-columns; }}     // Center all fully visible columns
-    Mod+Minus {{ set-column-width "-10%"; }}     // Finer width adjustments
+    Mod+Shift+C {{ center-column; }} // Center focused column
+    Mod+Ctrl+C {{ center-visible-columns; }} // Center all fully visible columns
+    Mod+Minus {{ set-column-width "-10%"; }} // Finer width adjustments
     Mod+Equal {{ set-column-width "+10%"; }}
 
     // Column Content Management (Consume/Expel)
-    Mod+BracketLeft  {{ consume-or-expel-window-left; }}  // Move window into/out of column to the left
-    Mod+BracketRight {{ consume-or-expel-window-right; }} // Move window into/out of column to the right
-    Mod+Comma  {{ consume-window-into-column; }}          // Consume window from right to bottom of focused column
-    Mod+Period {{ expel-window-from-column; }}            // Expel bottom window from focused column to the right
+    Mod+Comma  {{ consume-or-expel-window-left; }} // Move window into/out of column to the left
+    Mod+Period {{ consume-or-expel-window-right; }} // Move window into/out of column to the right
 
     // Tabbed Column Display
     Mod+W {{ toggle-column-tabbed-display; }} // Toggle tabbed display mode for a column
@@ -601,43 +300,45 @@ binds {{
     // --- WORKSPACE MANAGEMENT ---
     // Focus / Navigation between Workspaces
     Mod+Tab repeat=false {{ toggle-overview; }} // Open/close the Overview (main way to navigate)
-    Mod+1 {{ focus-workspace "DEV"; }}
-    Mod+2 {{ focus-workspace "Web"; }}
-    Mod+3 {{ focus-workspace "File Management"; }}
-    Mod+4 {{ focus-workspace "Multimedia"; }}
-    Mod+5 {{ focus-workspace "Documents"; }}
-    Mod+6 {{ focus-workspace "Messaging"; }}
-    Mod+7 {{ focus-workspace "Gaming"; }}
-    Mod+8 {{ focus-workspace "Misc"; }}
-    Mod+9 {{ focus-workspace 9; }} // Generic index if no named workspace
+    Mod+1 {{ focus-workspace 1; }}
+    Mod+2 {{ focus-workspace 2; }}
+    Mod+3 {{ focus-workspace 3; }}
+    Mod+4 {{ focus-workspace 4; }}
+    Mod+5 {{ focus-workspace 5; }}
+    Mod+6 {{ focus-workspace 6; }}
+    Mod+7 {{ focus-workspace 7; }}
+    Mod+8 {{ focus-workspace 8; }}
+    Mod+9 {{ focus-workspace 9; }}
+    Mod+0 {{ focus-workspace 10; }}
     Mod+Page_Down {{ focus-workspace-down; }}
     Mod+Page_Up   {{ focus-workspace-up; }}
 
     // Move Column to Workspace
-    Mod+Shift+1 {{ move-column-to-workspace "DEV"; }}
-    Mod+Shift+2 {{ move-column-to-workspace "Web"; }}
-    Mod+Shift+3 {{ move-column-to-workspace "File Management"; }}
-    Mod+Shift+4 {{ move-column-to-workspace "Multimedia"; }}
-    Mod+Shift+5 {{ move-column-to-workspace "Documents"; }}
-    Mod+Shift+6 {{ move-column-to-workspace "Messaging"; }}
-    Mod+Shift+7 {{ move-column-to-workspace "Gaming"; }}
-    Mod+Shift+8 {{ move-column-to-workspace "Misc"; }}
+    Mod+Shift+1 {{ move-column-to-workspace 1; }}
+    Mod+Shift+2 {{ move-column-to-workspace 2; }}
+    Mod+Shift+3 {{ move-column-to-workspace 3; }}
+    Mod+Shift+4 {{ move-column-to-workspace 4; }}
+    Mod+Shift+5 {{ move-column-to-workspace 5; }}
+    Mod+Shift+6 {{ move-column-to-workspace 6; }}
+    Mod+Shift+7 {{ move-column-to-workspace 7; }}
+    Mod+Shift+8 {{ move-column-to-workspace 8; }}
     Mod+Shift+9 {{ move-column-to-workspace 9; }}
+    Mod+Shift+0 {{ move-column-to-workspace 10; }}
     Mod+Shift+Page_Down {{ move-column-to-workspace-down; }}
     Mod+Shift+Page_Up   {{ move-column-to-workspace-up; }}
 
     // Move Entire Workspace (Alternative)
     Mod+Ctrl+Page_Down {{ move-workspace-down; }}
-    Mod+Ctrl+Page_Up   {{ move-workspace-up; }}
-    Mod+Ctrl+Down      {{ move-workspace-down; }}
-    Mod+Ctrl+Up        {{ move-workspace-up; }}
+    Mod+Ctrl+Page_Up    {{ move-workspace-up; }}
+    Mod+Ctrl+Down       {{ move-workspace-down; }}
+    Mod+Ctrl+Up         {{ move-workspace-up; }}
 
     // --- MEDIA & HARDWARE CONTROLS ---
     // Volume Control (using dunst script)
     XF86AudioRaiseVolume allow-when-locked=true {{ spawn "~/.config/dunst/scripts/changeVolume" "+5%"; }}
     XF86AudioLowerVolume allow-when-locked=true {{ spawn "~/.config/dunst/scripts/changeVolume" "-5%"; }}
-    XF86AudioMute        allow-when-locked=true {{ spawn "~/.config/dunst/scripts/changeVolume" "toggle"; }}
-    XF86AudioMicMute     allow-when-locked=true {{ spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }}
+    XF86AudioMute         allow-when-locked=true {{ spawn "~/.config/dunst/scripts/changeVolume" "toggle"; }}
+    XF86AudioMicMute      allow-when-locked=true {{ spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }}
 
     // Brightness Control
     XF86MonBrightnessDown allow-when-locked=true {{ spawn "brightnessctl" "s" "10%-"; }}
@@ -657,7 +358,7 @@ binds {{
     Mod+Shift+P {{ power-off-monitors; }} // Power off monitors
 
     // Screenshot Utilities
-    Print      {{ screenshot; }}       // Take a screenshot
+    Print       {{ screenshot; }} // Take a screenshot
     Ctrl+Print {{ screenshot-screen; }} // Screenshot current screen
     Alt+Print  {{ screenshot-window; }} // Screenshot focused window
 
@@ -669,22 +370,22 @@ binds {{
 
     // --- MOUSE WHEEL & TOUCHPAD NAVIGATION ---
     // Workspace Navigation
-    Mod+WheelScrollDown        cooldown-ms=150 {{ focus-workspace-down; }}
-    Mod+WheelScrollUp          cooldown-ms=150 {{ focus-workspace-up; }}
-    Mod+Ctrl+WheelScrollDown   cooldown-ms=150 {{ move-column-to-workspace-down; }}
-    Mod+Ctrl+WheelScrollUp     cooldown-ms=150 {{ move-column-to-workspace-up; }}
+    Mod+WheelScrollDown         cooldown-ms=150 {{ focus-workspace-down; }}
+    Mod+WheelScrollUp           cooldown-ms=150 {{ focus-workspace-up; }}
+    Mod+Ctrl+WheelScrollDown    cooldown-ms=150 {{ move-column-to-workspace-down; }}
+    Mod+Ctrl+WheelScrollUp      cooldown-ms=150 {{ move-column-to-workspace-up; }}
 
     // Column Navigation (Horizontal Scrolling)
-    Mod+WheelScrollRight       {{ focus-column-right; }}
-    Mod+WheelScrollLeft        {{ focus-column-left; }}
+    Mod+WheelScrollRight        {{ focus-column-right; }}
+    Mod+WheelScrollLeft         {{ focus-column-left; }}
     Mod+Ctrl+WheelScrollRight  {{ move-column-right; }}
-    Mod+Ctrl+WheelScrollLeft   {{ move-column-left; }}
+    Mod+Ctrl+WheelScrollLeft    {{ move-column-left; }}
     Mod+Shift+WheelScrollDown  {{ focus-column-right; }} // Replicates horizontal scrolling
     Mod+Shift+WheelScrollUp    {{ focus-column-left; }}  // Replicates horizontal scrolling
     Mod+Ctrl+Shift+WheelScrollDown {{ move-column-right; }}
-    Mod+Ctrl+Shift+WheelScrollUp   {{ move-column-left; }}
+    Mod+Ctrl+Shift+WheelScrollUp    {{ move-column-left; }}
 
     // Touchpad Scroll Example (Currently commented out, but placed in relevant section)
     // Mod+TouchpadScrollDown {{ spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }}
-    // Mod+TouchpadScrollUp   {{ spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }}
+    // Mod+TouchpadScrollUp    {{ spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }}
 }}

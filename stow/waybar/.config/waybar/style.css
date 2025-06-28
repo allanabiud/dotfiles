@@ -58,9 +58,6 @@ window#waybar.empty #window {
   color: @color1;
   font-weight: bold;
 }
-#workspaces button.empty {
-  opacity: 0.3;
-}
 workspaces button.urgent {
   background-color: @color2;
 }

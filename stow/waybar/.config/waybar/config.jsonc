@@ -20,26 +20,15 @@
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      // Named Workspaces
-      "DEV": "",
-      "Web": "",
-      "File Management": "",
-      "Multimedia": "",
-      "Documents": "",
-      "Messaging": "",
-      "Gaming": "",
-      "Misc": "",
-
       // Dynamic Workspaces
       "active": "",
+      "empty": "",
 		  "default": ""
      },
-    // "current-only": true
   },
 
   "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windows.sh",
-    "interval": 1,
+    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
     "format": "{}",
     "tooltip": false
   },
