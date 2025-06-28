@@ -5,6 +5,7 @@
 spawn-at-startup "waybar"
 // Wallpaper
 spawn-at-startup "waypaper" "--restore" "--no-post-command"
+spawn-at-startup "hyprpaper" // for overview backdrop
 // System Tray
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
@@ -185,8 +186,7 @@ gestures {{
 ////// > LAYER RULES
 ///////////////////////
 // wallpaper layer on overview
-/-layer-rule {{
-    match namespace="^wallpaper$"
+layer-rule {{
     match namespace="hyprpaper"
     place-within-backdrop true
 }}
