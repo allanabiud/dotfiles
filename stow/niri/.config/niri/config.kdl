@@ -88,7 +88,7 @@ input {
 layout {
     gaps 8
     center-focused-column "never"
-    always-center-single-column
+    // always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
@@ -173,11 +173,6 @@ environment {
 overview {
     zoom 0.4
     backdrop-color "#161006"
-    workspace-shadow {
-        softness 10
-        color "#06070F"
-        offset x=0 y=5
-    }
 }
 
 gestures {

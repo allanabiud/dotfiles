@@ -49,7 +49,7 @@ window#waybar.empty #window {
   padding: 0px;
   padding-right: 0px;
   transition: all 0.3s;
-  color: @foreground;
+  color: @color2;
 }
 #workspaces button:hover {
   color: @color2;
