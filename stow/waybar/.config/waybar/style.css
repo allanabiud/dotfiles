@@ -46,7 +46,7 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px 7px;
+  padding: 0px 5px;
   transition: all 0.3s;
   color: gray;
 }
@@ -71,7 +71,7 @@ tooltip {
   border: 2px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 8px;
+  padding: 0 7px;
 }
 
 /* Window module */
@@ -79,7 +79,7 @@ tooltip {
   border: 2px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 8px;
+  padding: 0 7px;
 }
 
 /* MPRIS states */
@@ -108,9 +108,8 @@ tooltip {
 #clock,
 #submap,
 #battery,
-#idle_inhibitor,
-#pulseaudio {
-  padding: 0 8px;
+#idle_inhibitor {
+  padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
   border: 2px solid @color3;
@@ -144,11 +143,14 @@ tooltip {
 #idle_inhibitor.activated {
   color: @color1;
 }
+#idle_inhibitor.deactivated {
+  color: grey;
+}
 
 /* PulseAudio */
 #pulseaudio {
   color: @foreground;
-  padding: 0 4px; /* keep padding for spacing */
+  padding: 0 2px; /* keep padding for spacing */
   background-color: transparent; /* inherit or transparent to avoid extra background */
   margin: 0; /* remove margin to avoid shifting */
   border: none; /* remove border */
