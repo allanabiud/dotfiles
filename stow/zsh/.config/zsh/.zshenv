@@ -25,7 +25,6 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
-export HYPRSHOT_DIR="$XDG_PICTURES_DIR"/Screenshots
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### asdf
