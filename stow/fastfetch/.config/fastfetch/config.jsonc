@@ -4,38 +4,39 @@
         "type": "small"
     },
     "display": {
-        "constants": [
-            "██ "
-        ]
+        "separator": "  ",
+        "color": {
+            "keys": "magenta"
+        },
+        "size": {
+            "ndigits": 0,
+            "maxPrefix": "MB"
+        },
+        "key": {
+            "type": "icon"
+        }
     },
     "modules": [
         {
-            "key": "{$1}Distro",
-            "type": "os"
+            "type": "title",
+            "color": {
+                "user": "green",
+                "at": "red",
+                "host": "blue"
+            }
         },
+        "os",
+        "kernel",
+        "memory",
+        "disk",
+        "packages",
+        "uptime",
         {
-            "key": "{$1}Kernel",
-            "type": "kernel"
-        },
-        {
-            "key": "{$1}Shell",
-            "type": "shell"
-        },
-        {
-            "key": "{$1}Packages",
-            "type": "packages"
-        },
-        {
-            "key": "{$1}WM",
-            "type": "wm"
-        },
-        {
-            "key": "{$1}CPU",
-            "type": "cpu"
-        },
-        {
-            "key": "{$1}Memory",
-            "type": "memory"
+            "type": "colors",
+            "key": "Colors", // For printing icon
+            "block": {
+                "range": [1, 6]
+            }
         }
     ]
 }
