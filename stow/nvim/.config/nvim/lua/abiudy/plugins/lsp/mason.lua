@@ -32,6 +32,7 @@ return {
         "bashls",
         "emmet_language_server",
         "ts_ls",
+        "csharp_ls",
       },
       -- automatic installation of servers
       automatic_installation = true, -- not the same as ensure_installed

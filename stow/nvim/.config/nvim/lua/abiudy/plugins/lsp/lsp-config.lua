@@ -175,6 +175,15 @@ return {
         })
       end,
 
+      -- csharp_ls
+      ["csharp_ls"] = function()
+        lspconfig["csharp_ls"].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          filetypes = { "cs" },
+        })
+      end,
+
       -- gopls
       -- ["gopls"] = function()
       --   lspconfig["gopls"].setup({

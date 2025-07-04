@@ -15,6 +15,7 @@ return {
         python = { "isort", "black" },
         go = { "gofmt" },
         ejs = { "prettier_ejs" },
+        csharp = { "csharpier" },
       },
       format_on_save = {
         lsp_fallback = true,
