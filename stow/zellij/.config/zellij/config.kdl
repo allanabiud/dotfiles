@@ -262,7 +262,7 @@ load_plugins {
 //   - true
 //   - false (Default)
 // 
-// simplified_ui true
+simplified_ui true
  
 // Choose the theme that is specified in the themes section.
 // Default: default
@@ -286,7 +286,7 @@ default_mode "normal"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-// default_layout "compact"
+default_layout "compact"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
@@ -395,7 +395,7 @@ scrollback_editor "/usr/bin/nvim"
 //   - true (default)
 //   - false
 // 
-// session_serialization true
+session_serialization true
  
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
