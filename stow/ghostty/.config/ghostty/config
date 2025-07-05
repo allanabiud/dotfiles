@@ -13,8 +13,8 @@ background-opacity = 0.9
 theme = "/home/allanabiud/.cache/wal/colors-ghostty"
 bold-is-bright = true
 gtk-titlebar = false
-window-padding-y = 3,0
-window-padding-x = 2,2
+# window-padding-y = 3,0
+# window-padding-x = 2,2
 
 #FONTS
 font-size = 11
