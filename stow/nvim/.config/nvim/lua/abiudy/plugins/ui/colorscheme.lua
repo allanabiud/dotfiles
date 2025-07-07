@@ -4,7 +4,7 @@ return {
   config = function()
     require("onedarkpro").setup({
       options = {
-        transparency = true,
+        transparency = false,
       },
       highlights = {
         Comment = { italic = true, fg = "#a3a6ad" },
