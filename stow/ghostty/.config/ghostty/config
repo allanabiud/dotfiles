@@ -18,4 +18,4 @@ gtk-titlebar = false
 
 #FONTS
 font-size = 11
-font-family = MesloLGM Nerd Font
+font-family = MesloLGM Nerd Font Mono
