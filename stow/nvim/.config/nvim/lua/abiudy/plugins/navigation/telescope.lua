@@ -51,7 +51,7 @@ return {
       -- Enable Telescope extensions if they are installed
       telescope.load_extension("fzf")
       telescope.load_extension("ui-select")
-      telescope.load_extension("flutter")
+      -- telescope.load_extension("flutter")
 
       local keymap = vim.keymap -- for conciseness
       local builtin = require("telescope.builtin")

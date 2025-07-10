@@ -20,7 +20,6 @@ require("lazy").setup({
   { import = "abiudy.plugins.navigation" },
   { import = "abiudy.plugins.productivity" },
   { import = "abiudy.plugins.tools" },
-  { import = "abiudy.plugins.tools.framework" },
   { import = "abiudy.plugins.ui" },
 }, {
   checker = {
