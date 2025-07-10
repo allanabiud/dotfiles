@@ -24,11 +24,12 @@ return {
       },
       startinsert = true,
       filetype = {
-        python = "python3 -u $dir/$fileName",
+        python = "python -u $dir/$fileName",
         sh = "bash $file",
         html = "vivaldi $dir/$fileName",
         dart = "dart $file",
         javascript = "node $file",
+        cs = "dotnet run",
       },
     })
 
