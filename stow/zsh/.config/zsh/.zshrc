@@ -46,6 +46,8 @@ bindkey '^[[B' history-search-forward
 
 # ---- yay ------------
 alias s="yay -Ss"
+alias i="yay -S"
+alias y="yay -Syu"
 # ---- git ------------
 alias gst="git status"
 # ---- grep ------------
