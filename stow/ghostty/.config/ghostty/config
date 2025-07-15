@@ -9,13 +9,13 @@ confirm-close-surface = false
 #WINDOW
 window-decoration = false
 background-opacity = 0.9
-# theme = Wez
 theme = "/home/allanabiud/.cache/wal/colors-ghostty"
 bold-is-bright = true
 gtk-titlebar = false
-# window-padding-y = 3,0
-# window-padding-x = 2,2
+window-padding-balance = true
+window-padding-y = 0
+window-padding-x = 0
 
 #FONTS
 font-size = 11
-font-family = MesloLGM Nerd Font Mono
+font-family = "JetBrainsMono Nerd Font Propo"

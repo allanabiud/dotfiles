@@ -17,6 +17,8 @@ return {
     lualine.setup({
       options = {
         theme = "onedark_dark",
+        component_separators = "|",
+        section_separators = "",
       },
       sections = {
         lualine_b = {
@@ -31,19 +33,14 @@ return {
           { "diagnostics" },
         },
         lualine_x = {
-          -- Use the custom function to show Flutter app version and device
-          {
-            get_flutter_status,
-            color = { fg = "#3e8fb0" },
-          },
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
           },
-          { "encoding" },
-          { "fileformat" },
+          { "lsp_status", color = { fg = "#ff9e64" } },
           { "filetype" },
+          { "encoding" },
         },
       },
     })

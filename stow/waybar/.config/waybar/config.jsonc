@@ -85,18 +85,18 @@
     "format-stopped": "",
     "tooltip-format": "{dynamic}",
     "player-icons": {
-      "default": "▶ ",
-      "mpv": " ",
+      "default": " ",
+      "mpv": " ",
       "mpd": " ",
       "chromium": " ",
       "vivaldi": " ",
-      "firefox": " ",
-      "spotify": " ",
-      "vlc": " ",
+      "firefox": "󰈹 ",
+      "spotify": "󰓇 ",
+      "vlc": "󰕼 ",
 
     },
     "status-icons": {
-      "paused": "▶",
+      "paused": "",
       "playing": ""
     },
     "dynamic-order": ["title", "artist", "position", "length"],
@@ -104,14 +104,14 @@
   },
 
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon} ",
-    "format-bluetooth-muted": " {icon} ",
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} 󰂱 {volume}%",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
     "format-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
       "phone": "",
       "portable": "",
       "car": "",
@@ -139,7 +139,7 @@
 
   "battery": {
     "states": {
-      "good": 95,
+      "good": 90,
       "warning": 30,
       "critical": 15
     },

@@ -35,7 +35,12 @@ return {
       },
       default_component_configs = {
         indent = {
-          padding = 0,
+          padding = 1,
+          with_expanders = true,
+          with_markers = true,
+          expander_collapsed = "▶",
+          expander_expanded = "▼",
+          expander_highlight = "NeoTreeExpander",
         },
         icon = {
           folder_closed = "",

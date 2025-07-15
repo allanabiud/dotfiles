@@ -1,7 +1,7 @@
 @import "/home/allanabiud/.cache/wal/colors-rofi-dark.rasi"
 
 * {
-    font:   "FiraCode Nerd Font Medium 12";
+    font:   "JetBrainsMono Nerd Font Medium 12";
 
     bg0:     @background;
     bg1:     #404040;

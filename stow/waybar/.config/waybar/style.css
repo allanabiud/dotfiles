@@ -3,7 +3,7 @@
 * {
   border: none;
   font-family:
-    MesloLGS Nerd Font Propo,
+    JetBrainsMono Nerd Font Propo,
     Font Awesome,
     sans-serif;
   font-size: 12px;
@@ -29,14 +29,17 @@ window#waybar.empty #window {
 .modules-left {
   margin: 0 0 0 5px;
   background-color: transparent;
+  margin-top: 2px;
 }
 .modules-center {
   background-color: transparent;
   margin: 0 0 0 0;
+  margin-top: 2px;
 }
 .modules-right {
   background-color: transparent;
   margin: 0 5px 0 0;
+  margin-top: 2px;
 }
 
 /* Workspaces module */
