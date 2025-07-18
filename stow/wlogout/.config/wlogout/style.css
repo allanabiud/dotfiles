@@ -7,11 +7,11 @@
 }
 
 window {
-  background-color: rgba(12, 12, 12, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 button {
-  border-radius: 8;
+  border-radius: 10px;
   border-color: @color3;
   text-decoration-color: @foreground;
   color: @foreground;
@@ -21,7 +21,8 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20%;
-  margin: 5px;
+  margin: 10px;
+  font-size: 13px;
 }
 
 button:focus,
