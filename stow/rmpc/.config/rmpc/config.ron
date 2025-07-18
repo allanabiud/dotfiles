@@ -123,12 +123,12 @@
                            direction: Vertical,
                            panes: [
                                (
-                                   size: "83%",
+                                   size: "80%",
                                    pane: Pane(AlbumArt),
                                    borders: "ALL",
                                ),
                                (
-                                   size: "17%",
+                                   size: "20%",
                                    borders: "ALL",
                                    pane: Pane(Lyrics)
                                )
