@@ -11,12 +11,14 @@ return {
       popup_border_style = "rounded",
       enable_git_status = true,
       enable_diagnostics = true,
+      sources = { "filesystem", "document_symbols", "git_status" },
       source_selector = {
         winbar = true,
         statusline = false,
         show_scrolled_off_parent_node = false,
         sources = {
           { source = "filesystem" },
+          { source = "document_symbols" },
         },
         content_layout = "center",
         tabs_layout = "equal",
@@ -35,12 +37,13 @@ return {
       },
       default_component_configs = {
         indent = {
-          padding = 1,
-          with_expanders = true,
+          indent_size = 2,
+          padding = 0,
           with_markers = true,
-          expander_collapsed = "▶",
-          expander_expanded = "▼",
-          expander_highlight = "NeoTreeExpander",
+          -- with_expanders = true,
+          -- expander_collapsed = "",
+          -- expander_expanded = "",
+          -- expander_highlight = "NeoTreeExpander",
         },
         icon = {
           folder_closed = "",
@@ -93,5 +96,7 @@ return {
       },
     })
     vim.keymap.set("n", "\\", ":Neotree toggle<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>1", ":Neotree filesystem<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>2", ":Neotree document_symbols<CR>", { silent = true })
   end,
 }
