@@ -1,10 +1,10 @@
 ///////////////////////
 ////// > STARTUP
 ///////////////////////
+// swww
+spawn-at-startup "swww" "--daemon"
 // Waybar
 spawn-at-startup "waybar"
-// Wallpaper
-spawn-at-startup "waypaper" "--restore" "--no-post-command"
 // System Tray
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
@@ -21,6 +21,8 @@ spawn-at-startup "hypridle"
 spawn-at-startup "mpDris2"
 // Terminal Daemon (ghostty)
 spawn-at-startup "ghostty" "--initial-window=false"
+// Wallpaper
+spawn-at-startup "waypaper" "--restore" "--no-post-command"
 
 ///////////////////////
 ////// > INPUT
@@ -105,21 +107,17 @@ layout {
     focus-ring {
         // off
         width 2
-        active-color "#f28a3b"
-        inactive-color "#161006"
-        // active-gradient from="#1b6870" to="#c0c2c2" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        active-color "#d76035"
+        inactive-color "#000000"
     }
 
     border {
         // If you enable the border, you probably want to disable the focus ring.
         off
         width 4
-        active-color "#f28a3b"
-        inactive-color "#161006"
+        active-color "#d76035"
+        inactive-color "#000000"
         urgent-color "#1b6870"
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     shadow {
@@ -153,8 +151,7 @@ layout {
 ////// > MISC
 ///////////////////////
 prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null
+screenshot-path "~/Pictures/Screenshots/niri/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     // off
@@ -172,7 +169,7 @@ environment {
 
 overview {
     zoom 0.4
-    backdrop-color "#161006"
+    backdrop-color "#000000"
 }
 
 gestures {
@@ -347,7 +344,7 @@ binds {
 
     // --- SYSTEM ACTIONS ---
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; } // Lock screen
-    XF86PowerOff allow-when-locked=true { spawn "wlogout"; } // Power menu
+    XF86PowerOff allow-when-locked=true { spawn "wlogout" "-b" "5" "-c" "10" "-r" "0" "-m" "80" "-s" "-n"; } // Power menu
     Mod+Shift+E { quit; } // Quit Niri (with confirmation dialog)
     Ctrl+Alt+Delete { quit; } // Quit Niri (alternative)
     Mod+Shift+P { power-off-monitors; } // Power off monitors

@@ -1,11 +1,12 @@
 {
-  "layer": "top",
+  // "layer": "top",
+  "exclusive": true,
   "reload_style_on_change": true,
 
   "modules-left": [
-    "niri/workspaces",
-    "custom/niri_windows",
-    "niri/window",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "hyprland/submap"
   ],
   "modules-center": [
     "clock"
@@ -17,27 +18,35 @@
     "battery"
   ],
 
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "format": "{icon}",
+    "on-click": "activate",
     "format-icons": {
-      // Dynamic Workspaces
-      "active": "",
-      "empty": "",
-		  "default": ""
-     },
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "sort-by-number": true
   },
 
-  "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
-    "format": "{}",
-    "tooltip": false
-  },
-
-  "niri/window": {
+  "hyprland/window": {
     "format": "",
     "icon": true,
     "icon-size": 16,
     "separate-outputs": true
+  },
+
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>",
+    "max-length": 8,
+    "tooltip": false
   },
 
   "clock": {
@@ -71,22 +80,23 @@
   },
 
   "mpris": {
-    "format": "{status_icon} {player} {player_icon}   · ",
-    "format-paused": " {status_icon} {player} {player_icon}   · ",
+    "format": "{status_icon} {player} {player_icon}· ",
+    "format-paused": "{status_icon} {player} {player_icon}· ",
     "format-stopped": "",
     "tooltip-format": "{dynamic}",
     "player-icons": {
-      "default": "▶",
-      "mpv": " ",
+      "default": " ",
+      "mpv": " ",
       "mpd": " ",
       "chromium": " ",
-      "firefox": " ",
-      "spotify": " ",
-      "vlc": " ",
+      "vivaldi": " ",
+      "firefox": "󰈹 ",
+      "spotify": "󰓇 ",
+      "vlc": "󰕼 ",
 
     },
     "status-icons": {
-      "paused": "▶",
+      "paused": "",
       "playing": ""
     },
     "dynamic-order": ["title", "artist", "position", "length"],
@@ -94,14 +104,14 @@
   },
 
   "pulseaudio": {
-    "format": "{volume}% {icon} ",
-    "format-bluetooth": "{volume}% {icon} ",
-    "format-bluetooth-muted": " {icon} ",
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} 󰂱 {volume}%",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
     "format-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
       "phone": "",
       "portable": "",
       "car": "",
@@ -112,7 +122,7 @@
   },
 
   "idle_inhibitor": {
-    "format": "{icon} ",
+    "format": "{icon}",
     "format-icons": {
       "activated": "",
       "deactivated": ""
@@ -129,12 +139,12 @@
 
   "battery": {
     "states": {
-      "good": 95,
+      "good": 90,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}   {capacity}%",
-    "format-charging": "  {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
     "format-icons": ["", "", "", "", ""]
   }
 }

@@ -3,9 +3,8 @@
 * {
   border: none;
   font-family:
+    JetBrainsMono Nerd Font Propo,
     Font Awesome,
-    Roboto,
-    Arial,
     sans-serif;
   font-size: 12px;
   border-radius: 6px;
@@ -28,16 +27,19 @@ window#waybar.empty #window {
 
 /* Module groups */
 .modules-left {
-  margin: 2px 0 0 5px;
+  margin: 0 0 0 5px;
   background-color: transparent;
+  margin-top: 2px;
 }
 .modules-center {
   background-color: transparent;
-  margin: 2px 0 0 0;
+  margin: 0 0 0 0;
+  margin-top: 2px;
 }
 .modules-right {
   background-color: transparent;
-  margin: 2px 5px 0 0;
+  margin: 0 5px 0 0;
+  margin-top: 2px;
 }
 
 /* Workspaces module */
@@ -46,10 +48,9 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px;
-  padding-right: 0px;
+  padding: 0px 5px;
   transition: all 0.3s;
-  color: @color2;
+  color: gray;
 }
 #workspaces button:hover {
   color: @color2;
@@ -62,17 +63,6 @@ workspaces button.urgent {
   background-color: @color2;
 }
 
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 2px solid @color3;
-  background-color: @color0;
-  color: @color1;
-  padding: 2px 6px;
-  margin-left: 4px;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
 /* Tooltip */
 tooltip {
   background-color: @color0;
@@ -83,7 +73,7 @@ tooltip {
   border: 2px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 8px;
+  padding: 0 7px;
 }
 
 /* Window module */
@@ -91,7 +81,7 @@ tooltip {
   border: 2px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding-left: 8px;
+  padding: 0 7px;
 }
 
 /* MPRIS states */
@@ -118,10 +108,10 @@ tooltip {
 #tray,
 #audio,
 #clock,
+#submap,
 #battery,
-#idle_inhibitor,
-#pulseaudio {
-  padding: 0 8px;
+#idle_inhibitor {
+  padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
   border: 2px solid @color3;
@@ -131,6 +121,12 @@ tooltip {
 #clock {
   font-size: 14px;
   color: @color2;
+  font-weight: bold;
+}
+
+/* Submap */
+#submap {
+  color: @color1;
   font-weight: bold;
 }
 
@@ -150,13 +146,13 @@ tooltip {
   color: @color1;
 }
 #idle_inhibitor.deactivated {
-  color: rgba(150, 150, 150, 0.5); /* grayed out when not active */
+  color: grey;
 }
 
 /* PulseAudio */
 #pulseaudio {
   color: @foreground;
-  padding: 0 4px; /* keep padding for spacing */
+  padding: 0 2px; /* keep padding for spacing */
   background-color: transparent; /* inherit or transparent to avoid extra background */
   margin: 0; /* remove margin to avoid shifting */
   border: none; /* remove border */
