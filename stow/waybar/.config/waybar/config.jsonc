@@ -14,6 +14,7 @@
   "modules-right": [
     "idle_inhibitor",
     "tray",
+    "power-profiles-daemon",
     "group/audio",
     "battery"
   ],
@@ -146,5 +147,17 @@
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
     "format-icons": ["", "", "", "", ""]
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰚀",
+      "performance": "",
+      "balanced": "󰚀",
+      "power-saver": ""
+    }
   }
 }

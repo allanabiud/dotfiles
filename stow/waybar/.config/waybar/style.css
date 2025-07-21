@@ -110,7 +110,8 @@ tooltip {
 #clock,
 #submap,
 #battery,
-#idle_inhibitor {
+#idle_inhibitor,
+#power-profiles-daemon {
   padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
