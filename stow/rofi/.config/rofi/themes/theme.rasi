@@ -23,6 +23,7 @@ window {
     y-offset:                  0px;
 
     enabled:                   true;
+    padding:                   0px;
     border:                    2px solid;
     border-color:              @accent-color;
     border-radius:             10px;
@@ -33,6 +34,7 @@ window {
 mainbox {
     enabled:                   true;
     spacing:                   0px;
+    padding:                   0px;
     background-color:          transparent;
     orientation:               horizontal;
     children:                  [ "imagebox", "listbox" ];
@@ -40,7 +42,6 @@ mainbox {
 
 imagebox {
     padding:                   20px;
-    border-radius:             10px;
     background-color:          transparent;
     background-image:          url("~/.config/wal/current_wallpaper", height);
     orientation:               vertical;
@@ -167,7 +168,7 @@ element selected.active {
 element-icon {
     background-color:          transparent;
     text-color:                inherit;
-    size:                      32px;
+    size:                      28px;
     cursor:                    inherit;
 }
 

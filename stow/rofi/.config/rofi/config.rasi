@@ -2,20 +2,11 @@
 
 configuration {
 	modi: "drun,window,run";
-  display-drun: " ";
+	display-drun: "Apps";
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
 	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
 	icon-theme: "Colloid";
-  terminal: "ghostty";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
 }
