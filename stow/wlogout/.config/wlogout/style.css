@@ -3,33 +3,40 @@
 
 * {
   background-image: none;
-  box-shadow: none;
+  font-family: "JetBrains Mono NFM";
+  font-size: 12px;
+  font-weight: bold;
 }
 
 window {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(17, 17, 17, 0.9);
 }
 
 button {
   border-radius: 10px;
-  border-color: @color3;
-  text-decoration-color: @foreground;
-  color: @foreground;
-  background-color: @background;
+  border-width: 0px;
   border-style: solid;
-  border-width: 2px;
+  margin: 10px;
+  color: @foreground;
+  border-color: @background;
+  background-color: @background;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 20%;
-  margin: 10px;
-  font-size: 13px;
+  background-size: 15%;
+  outline-style: none;
+  text-shadow: none;
+  box-shadow: none;
+  animation: gradient_f 20s ease-in infinite;
 }
 
 button:focus,
 button:active,
 button:hover {
   background-color: @color1;
-  outline-style: none;
+  background-size: 20%;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
+  color: @background;
 }
 
 #lock {

@@ -1,0 +1,200 @@
+@import "/home/allanabiud/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font:    "JetBrainsMono Nerd Font Medium 11";
+
+    bg0:     @background;
+    bg1:     #404040;
+    fg0:     @foreground;
+
+    accent-color:      @selected-active-background;
+    urgent-color:      @selected-urgent-background;
+
+}
+
+window {
+    transparency:              "real";
+    location:                  center;
+    anchor:                    center;
+    fullscreen:                false;
+    width:                     900px;
+    height:                    500px;
+    x-offset:                  0px;
+    y-offset:                  0px;
+
+    enabled:                   true;
+    border:                    2px solid;
+    border-color:              @accent-color;
+    border-radius:             10px;
+    cursor:                    "default";
+    background-color:          @bg0;
+}
+
+mainbox {
+    enabled:                   true;
+    spacing:                   0px;
+    background-color:          transparent;
+    orientation:               horizontal;
+    children:                  [ "imagebox", "listbox" ];
+}
+
+imagebox {
+    padding:                   20px;
+    border-radius:             10px;
+    background-color:          transparent;
+    background-image:          url("~/.config/wal/current_wallpaper", height);
+    orientation:               vertical;
+    children:                  [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+listbox {
+    spacing:                   20px;
+    padding:                   20px;
+    background-color:          transparent;
+    orientation:               vertical;
+    children:                  [ "message", "listview" ];
+}
+
+dummy {
+    background-color: transparent;
+}
+
+inputbar {
+    enabled:                   true;
+    spacing:                   10px;
+    padding:                   15px;
+    border-radius:             10px;
+    background-color:          @bg1;
+    text-color:                @fg0;
+    children:                  [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                   true;
+    expand:                    false;
+    str:                       "  ";
+    background-color:          inherit;
+    text-color:                inherit;
+}
+
+entry {
+    enabled:                   true;
+    background-color:          inherit;
+    text-color:                inherit;
+    cursor:                    text;
+    placeholder:               "Search";
+    placeholder-color:         inherit;
+}
+
+mode-switcher{
+    enabled:                   true;
+    spacing:                   20px;
+    background-color:          transparent;
+    text-color:                @fg0;
+}
+
+button {
+    padding:                   15px;
+    border-radius:             10px;
+    background-color:          @bg1;
+    text-color:                inherit;
+    cursor:                    pointer;
+}
+
+button selected {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+listview {
+    enabled:                   true;
+    columns:                   1;
+    lines:                     8;
+    cycle:                     true;
+    dynamic:                   true;
+    scrollbar:                 false;
+    layout:                    vertical;
+    reverse:                   false;
+    fixed-height:              true;
+    fixed-columns:             true;
+
+    spacing:                   10px;
+    background-color:          transparent;
+    text-color:                @fg0;
+    cursor:                    "default";
+}
+
+element {
+    enabled:                   true;
+    spacing:                   15px;
+    padding:                   8px;
+    border-radius:             10px;
+    background-color:          transparent;
+    text-color:                @fg0;
+    cursor:                    pointer;
+}
+
+element normal.normal {
+    background-color:          inherit;
+    text-color:                inherit;
+}
+
+element normal.urgent {
+    background-color:          @urgent-color;
+    text-color:                @fg0;
+}
+
+element normal.active {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+element selected.normal {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+element selected.urgent {
+    background-color:          @urgent-color;
+    text-color:                @background;
+}
+
+element selected.active {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+element-icon {
+    background-color:          transparent;
+    text-color:                inherit;
+    size:                      32px;
+    cursor:                    inherit;
+}
+
+element-text {
+    background-color:          transparent;
+    text-color:                inherit;
+    cursor:                    inherit;
+    vertical-align:            0.5;
+    horizontal-align:          0.0;
+}
+
+message {
+    background-color:          transparent;
+}
+
+textbox {
+    padding:                   15px;
+    border-radius:             10px;
+    background-color:          @bg1;
+    text-color:                @fg0;
+    vertical-align:            0.5;
+    horizontal-align:          0.0;
+}
+
+error-message {
+    padding:                   15px;
+    border-radius:             20px;
+    background-color:          @urgent-color;
+    text-color:                @fg0;
+}
