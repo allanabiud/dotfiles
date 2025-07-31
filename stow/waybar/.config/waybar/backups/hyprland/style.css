@@ -65,12 +65,7 @@ workspaces button.urgent {
 
 /* Tooltip */
 tooltip {
-  color: @color1;
   background-color: @color0;
-  border: 2px solid @color1;
-}
-tooltip label {
-  color: @color1;
 }
 
 /* Audio group */

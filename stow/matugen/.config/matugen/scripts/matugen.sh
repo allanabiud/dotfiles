@@ -25,18 +25,8 @@ done | rofi -dmenu -p "Choose Wallpaper:" -i)
 # get wallpaper path
 WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
-# generate colorscheme
-/home/allanabiud/.local/bin/wal --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
-
-# set wallpaper
-swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type grow --transition-pos top-right --transition-step 90
-
-# telegram colorscheme
-walogram
-
-# dunst
-cp /home/allanabiud/.cache/wal/dunstrc /home/allanabiud/.config/dunst/dunstrc
-pkill dunst && sleep 0.5 && dunst &
+# generate colorscheme & set wallpaper
+matugen image "$WALLPAPER_PATH"
 
 # create symlink
 mkdir -p "$(dirname "$SYMLINK_PATH")"
