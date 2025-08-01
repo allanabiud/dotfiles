@@ -32,7 +32,7 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: @color1;
+  background-color: @color2;
   background-size: 20%;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
