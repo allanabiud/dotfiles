@@ -101,11 +101,6 @@
                     (kind: Property(Song(Artist)), style: (fg: "blue", modifiers: "Bold"),
                         default: (kind: Text("Unknown"), style: (fg: "blue", modifiers: "Bold"))
                     ),
-                    (kind: Text(" - "), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Property(Song(Album)),
-                        style: (fg: "red", modifiers: "Bold"),
-                        default: (kind: Text("Unknown Album"))
-                    ),
                     (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Property(Song(Other("date"))),
                         style: (fg: "yellow", modifiers: "Bold"),
