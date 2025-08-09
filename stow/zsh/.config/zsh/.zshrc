@@ -71,6 +71,8 @@ alias zel="zellij -l welcome"
 alias activate="source .venv/bin/activate"
 # ----- uv -----------------------
 alias uvr="uv run"
+# ----- lazygit ----------------
+alias lg="lazygit"
 
 
 ####################################################################################################
