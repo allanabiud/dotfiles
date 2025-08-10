@@ -1,10 +1,11 @@
 @theme "/home/allanabiud/.config/rofi/themes/theme.rasi"
 
 configuration {
-	modi: "drun,window,run";
+	modi: "drun,calc,window,run";
 	display-drun: "Apps";
 	display-window: "Windows";
 	display-run: "Run";
+  display-calc: "Calc";
 	drun-display-format: "{icon} {name}";
 	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
