@@ -27,7 +27,7 @@ window {
     padding:                   0px;
     border:                    2px solid;
     border-color:              @urgent-color;
-    border-radius:             10px;
+    border-radius:             2px;
     cursor:                    "default";
     background-color:          @bg0;
 }

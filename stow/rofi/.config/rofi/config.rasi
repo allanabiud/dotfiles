@@ -1,4 +1,5 @@
-@theme "/home/allanabiud/.config/rofi/themes/theme.rasi"
+// @theme "/home/allanabiud/.config/rofi/themes/theme1.rasi"
+@theme "/home/allanabiud/.config/rofi/themes/theme2.rasi"
 
 configuration {
 	modi: "drun,calc,window,run";
