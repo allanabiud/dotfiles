@@ -2,7 +2,7 @@
 ////// > STARTUP
 ///////////////////////
 // swww
-spawn-at-startup "swww" "--daemon"
+spawn-at-startup "swww-daemon"
 // Waybar
 spawn-at-startup "waybar"
 // System Tray
@@ -21,8 +21,6 @@ spawn-at-startup "hypridle"
 spawn-at-startup "mpDris2"
 // Terminal Daemon (ghostty)
 spawn-at-startup "ghostty" "--initial-window=false"
-// Wallpaper
-spawn-at-startup "waypaper" "--restore" "--no-post-command"
 
 ///////////////////////
 ////// > INPUT
@@ -88,7 +86,7 @@ input {
 ////// > LAYOUT
 ///////////////////////
 layout {
-    gaps 8
+    gaps 7
     center-focused-column "never"
     // always-center-single-column
 
@@ -137,13 +135,14 @@ layout {
     }
 
     tab-indicator {
-        width 6
+        width 8
         gap 8
-        length total-proportion=1.0
+        length total-proportion=0.9
         position "left"
         place-within-column
-        corner-radius 5
+        corner-radius 3
         gaps-between-tabs 5
+        inactive-color "#363636"
     }
 }
 
@@ -182,9 +181,8 @@ gestures {
 ////// > LAYER RULES
 ///////////////////////
 // wallpaper layer on overview
-layer-rule {
+/-layer-rule {
     match namespace="^wallpaper$"
-    // match namespace="hyprpaper"
     place-within-backdrop true
 }
 
@@ -194,7 +192,7 @@ layer-rule {
 
 ////// General Window Rules
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 3
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -238,9 +236,14 @@ binds {
     Mod+N      { spawn "pcmanfm"; } // File Manager
     Mod+B      { spawn "vivaldi-stable"; } // Web Browser
     Mod+M      { spawn "ghostty" "--title=rmpc" "-e" "rmpc"; } // Music Player Client (rmpc)
-    Mod+P      { spawn "waypaper"; } // Wallpaper Setter
+    // Mod+P      { spawn "waypaper"; } // Wallpaper Setter
     Mod+Z      { spawn "ghostty" "--title=zellij" "-e" "zellij" "-l" "welcome"; } // Zellij
     Mod+C      { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; } // Clipboard History
+
+    // --- SCRIPTS ---
+    Mod+P { spawn "~/.config/wal/scripts/wal.sh"; } // Wallpaper Setter
+    Mod+Shift+C { spawn "rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort"; } // Calculator
+    Mod+Shift+R { spawn "~/.config/waybar/scripts/waybarrestart.sh"; } // Restart Waybar
 
     // --- WINDOW MANAGEMENT ---
     Mod+Q { close-window; } // Close focused window
@@ -258,7 +261,7 @@ binds {
     Mod+Shift+V     { switch-focus-between-floating-and-tiling; }
 
     // Window Sizing / State
-    Mod+Shift+R { switch-preset-window-height; } // Cycle through preset window heights
+    Mod+Alt+R { switch-preset-window-height; } // Cycle through preset window heights
     Mod+Ctrl+R { reset-window-height; } // Reset window height
     Mod+Shift+F { fullscreen-window; } // Toggle fullscreen for focused window
     Mod+Shift+Minus { set-window-height "-10%"; } // Finer height adjustments
@@ -277,7 +280,7 @@ binds {
     Mod+R { switch-preset-column-width; } // Cycle through preset column widths
     Mod+F { maximize-column; } // Maximize focused column
     Mod+Ctrl+F { expand-column-to-available-width; } // Expand column to fill available space
-    Mod+Shift+C { center-column; } // Center focused column
+    Mod+Alt+C { center-column; } // Center focused column
     Mod+Ctrl+C { center-visible-columns; } // Center all fully visible columns
     Mod+Minus { set-column-width "-10%"; } // Finer width adjustments
     Mod+Equal { set-column-width "+10%"; }
@@ -343,8 +346,8 @@ binds {
     XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
 
     // --- SYSTEM ACTIONS ---
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; } // Lock screen
-    XF86PowerOff allow-when-locked=true { spawn "wlogout" "-b" "5" "-c" "10" "-r" "0" "-m" "80" "-s" "-n"; } // Power menu
+    Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; } // Lock screen
+    XF86PowerOff allow-when-locked=true { spawn "wlogout" "-n"; } // Power menu
     Mod+Shift+E { quit; } // Quit Niri (with confirmation dialog)
     Ctrl+Alt+Delete { quit; } // Quit Niri (alternative)
     Mod+Shift+P { power-off-monitors; } // Power off monitors

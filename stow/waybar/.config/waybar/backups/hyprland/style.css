@@ -7,7 +7,7 @@
     Font Awesome,
     sans-serif;
   font-size: 12px;
-  border-radius: 6px;
+  border-radius: 5px;
   background: transparent;
 }
 
@@ -44,7 +44,7 @@ window#waybar.empty #window {
 
 /* Workspaces module */
 #workspaces {
-  border: 2px solid @color3;
+  border: 1.5px solid @color3;
   background-color: @color0;
 }
 #workspaces button {
@@ -65,12 +65,17 @@ workspaces button.urgent {
 
 /* Tooltip */
 tooltip {
+  color: @color1;
   background-color: @color0;
+  border: 1.5px solid @color1;
+}
+tooltip label {
+  color: @color1;
 }
 
 /* Audio group */
 #audio {
-  border: 2px solid @color3;
+  border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
@@ -78,7 +83,7 @@ tooltip {
 
 /* Window module */
 #window {
-  border: 2px solid @color3;
+  border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
@@ -114,7 +119,7 @@ tooltip {
   padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
-  border: 2px solid @color3;
+  border: 1.5px solid @color3;
 }
 
 /* Clock */
@@ -152,10 +157,10 @@ tooltip {
 /* PulseAudio */
 #pulseaudio {
   color: @foreground;
-  padding: 0 2px; /* keep padding for spacing */
-  background-color: transparent; /* inherit or transparent to avoid extra background */
-  margin: 0; /* remove margin to avoid shifting */
-  border: none; /* remove border */
+  padding: 0 2px;
+  background-color: transparent;
+  margin: 0;
+  border: none;
 }
 #pulseaudio.muted {
   color: @color1;
