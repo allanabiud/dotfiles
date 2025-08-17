@@ -10,6 +10,7 @@
     on_song_change: ["~/.config/rmpc/scripts/notify"], 
     volume_step: 5,
     scrolloff: 10,
+    rewind_to_start_sec: Some(5),
     browser_song_sort: [Title, Artist, Disc, Track],
     wrap_navigation: false,
     enable_mouse: true,
