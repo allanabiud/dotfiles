@@ -1,24 +1,25 @@
 return {
   "rmagatti/auto-session",
+  lazy = false,
+  keys = {
+    { "<leader>ws", "<cmd>SessionSearch<CR>", desc = "Session search" },
+    { "<leader>wr", "<cmd>SessionRestore<CR>", desc = "Restore session" },
+  },
   config = function()
     local auto_session = require("auto-session")
 
     auto_session.setup({
       auto_restore = false,
+      auto_save = true,
       bypass_save_filetypes = { "alpha" },
       log_level = "error",
       session_lens = {
-        buftypes_to_ignore = {},
+        picker = telescope,
         load_on_setup = true,
-        previewer = false,
-        theme_conf = {
+        picker_opts = {
           border = true,
         },
       },
     })
-
-    vim.keymap.set("n", "<leader>wl", require("auto-session.session-lens").search_session, { desc = "List Sessions" }) -- list all saved sessions
-    vim.keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-    vim.keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
   end,
 }

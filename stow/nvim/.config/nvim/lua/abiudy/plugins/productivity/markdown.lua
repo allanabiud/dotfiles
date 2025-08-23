@@ -26,6 +26,13 @@ return {
     "nvim-tree/nvim-web-devicons",
   }, -- if you use the mini.nvim suite
   config = function()
-    require("render-markdown").setup({})
+    require("render-markdown").setup({
+      latex = {
+        enabled = false,
+      },
+      yaml = {
+        enabled = false,
+      },
+    })
   end,
 }
