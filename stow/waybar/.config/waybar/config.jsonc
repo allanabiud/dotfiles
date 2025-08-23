@@ -5,6 +5,7 @@
 
   "modules-left": [
     "hyprland/workspaces",
+    "hyprland/windowcount",
     "hyprland/window",
     "hyprland/submap"
   ],
@@ -34,6 +35,12 @@
       "10": "10"
     },
     "sort-by-number": true
+  },
+
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "format-empty": "[X]",
+    "separate-outputs": true
   },
 
   "hyprland/window": {

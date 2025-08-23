@@ -81,6 +81,18 @@ tooltip label {
   padding: 0 7px;
 }
 
+/* WindowCount module */
+#windowcount {
+  border: 1.5px solid @color3;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 7px;
+  color: @color1;
+}
+window#waybar.empty #windowcount {
+  opacity: 0;
+}
+
 /* Window module */
 #window {
   border: 1.5px solid @color3;
