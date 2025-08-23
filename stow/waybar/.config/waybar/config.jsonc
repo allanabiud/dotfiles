@@ -19,12 +19,8 @@
   ],
 
   "niri/workspaces": {
-    "format": "{icon}",
+    "format": "{value}",
     "on-click": "activate",
-    "format-icons": {
-      "active": "",
-      "default": ""
-    }
   },
 
   "custom/niri_windows": {
