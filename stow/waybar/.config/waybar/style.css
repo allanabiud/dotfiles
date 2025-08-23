@@ -48,7 +48,7 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px;
+  padding: 0px 5px;
   transition: all 0.3s;
   color: gray;
 }
@@ -61,16 +61,6 @@ window#waybar.empty #window {
 }
 workspaces button.urgent {
   background-color: @color2;
-}
-
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 1.5px solid @color3;
-  background-color: @color0;
-  color: @color1;
-  padding: 2px 6px;
-  margin-left: 5px;
-  font-weight: bold;
 }
 
 /* Tooltip */
@@ -96,7 +86,7 @@ tooltip label {
   border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 0 0 8px;
+  padding: 0 7px;
 }
 
 /* MPRIS states */
@@ -116,13 +106,14 @@ tooltip label {
   color: @color6;
 }
 #mpris.firefox {
-  color: @color7;
+  color: @color8;
 }
 
 /* Tray and other modules */
 #tray,
 #audio,
 #clock,
+#submap,
 #battery,
 #idle_inhibitor {
   padding: 0 7px;
@@ -135,6 +126,12 @@ tooltip label {
 #clock {
   font-size: 14px;
   color: @color2;
+  font-weight: bold;
+}
+
+/* Submap */
+#submap {
+  color: @color1;
   font-weight: bold;
 }
 
@@ -160,10 +157,10 @@ tooltip label {
 /* PulseAudio */
 #pulseaudio {
   color: @foreground;
-  padding: 0 2px; /* keep padding for spacing */
-  background-color: transparent; /* inherit or transparent to avoid extra background */
-  margin: 0; /* remove margin to avoid shifting */
-  border: none; /* remove border */
+  padding: 0 2px;
+  background-color: transparent;
+  margin: 0;
+  border: none;
 }
 #pulseaudio.muted {
   color: @color1;
