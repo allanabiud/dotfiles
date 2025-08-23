@@ -25,6 +25,10 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
+export W3M_DIR="$XDG_DATA_HOME"/w3m
+export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME"
+export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 ### asdf
