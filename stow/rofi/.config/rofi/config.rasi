@@ -2,7 +2,7 @@
 @theme "/home/allanabiud/.config/rofi/themes/theme2.rasi"
 
 configuration {
-	modi: "drun,calc,window,run";
+	modi: "drun,calc,run";
 	display-drun: "Apps";
 	display-window: "Windows";
 	display-run: "Run";
