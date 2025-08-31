@@ -25,7 +25,7 @@ return {
       dashboard.button("\\", "  > Toggle file explorer", "<cmd>:Neotree filesystem reveal left<CR>"),
       dashboard.button("f", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
       dashboard.button("r", "󱋡  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
-      dashboard.button("s", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+      dashboard.button("s", "󰁯  > Restore Session For Current Directory", "<cmd>AutoSession restore<CR>"),
       dashboard.button("l", "󰒲  > Lazy", "<cmd>Lazy<CR>"),
       dashboard.button("q", "  > Quit", "<cmd>qa<CR>"),
     }

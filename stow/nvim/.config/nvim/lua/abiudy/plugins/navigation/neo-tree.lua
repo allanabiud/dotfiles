@@ -11,14 +11,13 @@ return {
       popup_border_style = "rounded",
       enable_git_status = true,
       enable_diagnostics = true,
-      sources = { "filesystem", "document_symbols", "git_status" },
+      sources = { "filesystem" },
       source_selector = {
         winbar = true,
         statusline = false,
         show_scrolled_off_parent_node = false,
         sources = {
           { source = "filesystem" },
-          { source = "document_symbols" },
         },
         content_layout = "center",
         tabs_layout = "equal",
