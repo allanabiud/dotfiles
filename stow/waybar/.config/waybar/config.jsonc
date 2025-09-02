@@ -2,6 +2,9 @@
   // "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-top": 2,
 
   "modules-left": [
     "hyprland/workspaces",
@@ -51,13 +54,13 @@
   },
 
   "hyprland/submap": {
-    "format": "<span style=\"italic\">{}</span>",
-    "max-length": 8,
+    "format": " <span style=\"italic\">{}</span>",
+    "max-length": 12,
     "tooltip": false
   },
 
   "clock": {
-    "format": "{:%H:%M · %a, %d %b}",
+    "format": " {:%a %d | %H:%M}",
     "format-alt": "{:%A, %B %d, %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -113,8 +116,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
-    "format-muted": "󰖁",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
+    "format-muted": "",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -148,10 +151,21 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 15
+      "critical": 20,
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   }
 }

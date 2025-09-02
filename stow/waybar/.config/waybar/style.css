@@ -7,7 +7,7 @@
     Font Awesome,
     sans-serif;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 2px;
   background: transparent;
 }
 
@@ -26,25 +26,15 @@ window#waybar.empty #window {
 }
 
 /* Module groups */
-.modules-left {
-  margin: 0 0 0 5px;
-  background-color: transparent;
-  margin-top: 2px;
-}
-.modules-center {
-  background-color: transparent;
-  margin: 0 0 0 0;
-  margin-top: 2px;
-}
+.modules-left,
+.modules-center,
 .modules-right {
   background-color: transparent;
-  margin: 0 5px 0 0;
-  margin-top: 2px;
 }
 
 /* Workspaces module */
 #workspaces {
-  border: 1.5px solid @color3;
+  border: 1.5px solid @color1;
   background-color: @color0;
 }
 #workspaces button {
@@ -65,12 +55,12 @@ workspaces button.urgent {
 
 /* Tooltip */
 tooltip {
-  color: @color1;
+  color: @color2;
   background-color: @color0;
   border: 1.5px solid @color1;
 }
 tooltip label {
-  color: @color1;
+  color: @color2;
 }
 
 /* Audio group */
@@ -83,7 +73,7 @@ tooltip label {
 
 /* WindowCount module */
 #windowcount {
-  border: 1.5px solid @color3;
+  border: 1.5px solid @color1;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
@@ -95,10 +85,13 @@ window#waybar.empty #windowcount {
 
 /* Window module */
 #window {
-  border: 1.5px solid @color3;
+  border: 1.5px solid @color1;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
+}
+window#waybar.empty #window {
+  opacity: 0;
 }
 
 /* MPRIS states */
@@ -106,19 +99,7 @@ window#waybar.empty #windowcount {
   color: @color1;
 }
 #mpris.playing {
-  color: @color2;
-}
-#mpris.mpd {
   color: @color3;
-}
-#mpris.mpv {
-  color: @color5;
-}
-#mpris.chromium {
-  color: @color6;
-}
-#mpris.firefox {
-  color: @color8;
 }
 
 /* Tray and other modules */
@@ -131,19 +112,22 @@ window#waybar.empty #windowcount {
   padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
-  border: 1.5px solid @color3;
+  border: 1.5px solid @color1;
 }
 
 /* Clock */
 #clock {
   font-size: 14px;
-  color: @color2;
+  color: @color3;
   font-weight: bold;
+  border: 1.5px solid @color3;
 }
 
 /* Submap */
 #submap {
-  color: @color1;
+  background-color: @color1;
+  border: none;
+  color: @color0;
   font-weight: bold;
 }
 

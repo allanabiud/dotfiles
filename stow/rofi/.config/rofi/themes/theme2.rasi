@@ -19,7 +19,7 @@ window {
     anchor:                    center;
     fullscreen:                false;
     width:                     400px;
-    height:                    500px;
+    height:                    450px;
     x-offset:                  0px;
     y-offset:                  0px;
 

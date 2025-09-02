@@ -34,11 +34,11 @@ window#waybar.empty #window {
 
 /* Workspaces module */
 #workspaces {
-  border: 1.5px solid gray;
+  border: 1.5px solid @color1;
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px;
+  padding: 0px 5px;
   transition: all 0.3s;
   color: gray;
 }
@@ -53,40 +53,42 @@ workspaces button.urgent {
   background-color: @color2;
 }
 
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 1.5px solid gray;
-  background-color: @color0;
-  color: @color1;
-  padding: 2px 6px;
-  margin-left: 5px;
-  font-weight: bold;
-}
-
 /* Tooltip */
 tooltip {
-  color: @color1;
+  color: @color2;
   background-color: @color0;
-  border: 1.5px solid gray;
+  border: 1.5px solid @color1;
 }
 tooltip label {
-  color: @color1;
+  color: @color2;
 }
 
 /* Audio group */
 #audio {
-  border: 1.5px solid gray;
+  border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
 }
 
-/* Window module */
-#window {
-  border: 1.5px solid gray;
+/* WindowCount module */
+#windowcount {
+  border: 1.5px solid @color1;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 0 0 8px;
+  padding: 0 7px;
+  color: @color1;
+}
+window#waybar.empty #windowcount {
+  opacity: 0;
+}
+
+/* Window module */
+#window {
+  border: 1.5px solid @color1;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 7px;
 }
 
 /* MPRIS states */
@@ -106,25 +108,35 @@ tooltip label {
   color: @color6;
 }
 #mpris.firefox {
-  color: @color7;
+  color: @color8;
 }
 
 /* Tray and other modules */
 #tray,
 #audio,
 #clock,
+#submap,
 #battery,
 #idle_inhibitor {
   padding: 0 7px;
   background-color: @color0;
   margin: 0 0 0 5px;
-  border: 1.5px solid gray;
+  border: 1.5px solid @color1;
 }
 
 /* Clock */
 #clock {
   font-size: 14px;
   color: @color3;
+  font-weight: bold;
+  border: 1.5px solid @color3;
+}
+
+/* Submap */
+#submap {
+  background-color: @color1;
+  border: none;
+  color: @color0;
   font-weight: bold;
 }
 
@@ -153,7 +165,7 @@ tooltip label {
   padding: 0 2px;
   background-color: transparent;
   margin: 0;
-  border:;
+  border: none;
 }
 #pulseaudio.muted {
   color: @color1;

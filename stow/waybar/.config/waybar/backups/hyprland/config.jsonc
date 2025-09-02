@@ -1,5 +1,5 @@
 {
-  "layer": "top",
+  // "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
   "margin-left": 5,
@@ -7,9 +7,10 @@
   "margin-top": 2,
 
   "modules-left": [
-    "niri/workspaces",
-    "custom/niri_windows",
-    "niri/window",
+    "hyprland/workspaces",
+    "hyprland/windowcount",
+    "hyprland/window",
+    "hyprland/submap"
   ],
   "modules-center": [
     "clock"
@@ -21,22 +22,41 @@
     "battery"
   ],
 
-  "niri/workspaces": {
-    "format": "{value}",
+  "hyprland/workspaces": {
+    "format": "{icon}",
     "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "sort-by-number": true
   },
 
-  "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
-    "format": "{}",
-    "tooltip": false
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "format-empty": "[X]",
+    "separate-outputs": true
   },
 
-  "niri/window": {
+  "hyprland/window": {
     "format": "",
     "icon": true,
     "icon-size": 16,
     "separate-outputs": true
+  },
+
+  "hyprland/submap": {
+    "format": " <span style=\"italic\">{}</span>",
+    "max-length": 12,
+    "tooltip": false
   },
 
   "clock": {
@@ -131,7 +151,7 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 15
+      "critical": 20,
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
