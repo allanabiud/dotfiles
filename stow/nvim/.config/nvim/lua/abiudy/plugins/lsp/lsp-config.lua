@@ -184,15 +184,6 @@ return {
       --   })
       -- end,
 
-      -- roslyn
-      ["roslyn"] = function()
-        lspconfig["roslyn"].setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          filetypes = { "cs" },
-        })
-      end,
-
       -- gopls
       -- ["gopls"] = function()
       --   lspconfig["gopls"].setup({
