@@ -14,9 +14,32 @@ return {
       return "(" .. #vim.fn.getbufinfo({ buflisted = 1 }) .. ")"
     end
 
+    local function shorten_path(path)
+      -- replace $HOME with ~
+      path = path:gsub(vim.env.HOME, "~")
+
+      -- split into parts
+      local parts = vim.split(path, "/", { trimempty = true })
+      if #parts <= 6 then
+        return table.concat(parts, "/")
+      end
+
+      -- keep first 2 and last 4
+      local new_parts = {}
+      vim.list_extend(new_parts, { parts[1], parts[2] })
+      table.insert(new_parts, "…")
+      vim.list_extend(new_parts, {
+        parts[#parts - 3],
+        parts[#parts - 2],
+        parts[#parts - 1],
+        parts[#parts],
+      })
+
+      return table.concat(new_parts, "/")
+    end
+
     local function get_file_path()
-      local path = vim.fn.expand("%:p:h"):gsub(vim.env.HOME, "~")
-      return path
+      return shorten_path(vim.fn.expand("%:p:h"))
     end
 
     lualine.setup({
