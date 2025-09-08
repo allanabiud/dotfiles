@@ -55,7 +55,7 @@
 
   "hyprland/submap": {
     "format": " <span style=\"italic\">{}</span>",
-    "max-length": 12,
+    "max-length": 16,
     "tooltip": false
   },
 
