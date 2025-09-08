@@ -41,6 +41,9 @@ setopt APPEND_HISTORY            # append to history file
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# Autocorrect
+setopt CORRECT
+
 ####################################################################################################
 ### ------ ALIASES ---------------------------
 
