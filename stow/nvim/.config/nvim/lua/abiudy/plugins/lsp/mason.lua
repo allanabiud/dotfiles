@@ -55,6 +55,7 @@ return {
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
         { "eslint_d", version = "13.1.2" }, -- javascript linter
+        "gdtoolkit",
       },
     })
   end,

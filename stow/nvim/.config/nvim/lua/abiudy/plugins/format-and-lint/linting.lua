@@ -12,7 +12,7 @@ return {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       ejs = { "ejslint" },
-      gd = { "gdtoolkit" },
+      gdscript = { "gdlint" },
     }
 
     -- configure linters
@@ -23,6 +23,7 @@ return {
         ["spec-char-escape"] = false,
       }),
     }
+
     -- mypy
     lint.linters.mypy.args = {
       "--config",
@@ -53,6 +54,26 @@ return {
         source = "ejslint",
         severity = vim.diagnostic.severity.ERROR,
       }),
+    }
+
+    lint.linters.gdlint = {
+      cmd = "gdlint",
+      stdin = false,
+      args = { "$FILENAME" },
+      stream = "stdout",
+      ignore_exitcode = true,
+      parser = require("lint.parser").from_pattern(
+        [[^([^:]+):(%d+): (%w+): (.+)$]],
+        { "file", "line", "severity", "message" },
+        nil,
+        {
+          source = "gdlint",
+          severity_map = {
+            Error = vim.diagnostic.severity.ERROR,
+            Warning = vim.diagnostic.severity.WARN,
+          },
+        }
+      ),
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

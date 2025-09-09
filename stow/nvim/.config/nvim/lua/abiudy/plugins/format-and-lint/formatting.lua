@@ -16,7 +16,7 @@ return {
         go = { "gofmt" },
         ejs = { "prettier_ejs" },
         csharp = { "csharpier" },
-        gd = { "gdtoolkit" },
+        gdscript = { "gdformat" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -37,6 +37,11 @@ return {
           },
           stdin = true,
           require_cwd = true, -- ensures it's only used when Prettier is installed in the project
+        },
+        gdformat = {
+          command = "gdformat",
+          args = { "-" },
+          stdin = true,
         },
       },
     })

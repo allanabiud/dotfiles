@@ -69,6 +69,10 @@ return {
       vim.lsp.buf.execute_command(params)
     end
 
+    -- gdscript lsp
+    require("lspconfig").gdscript.setup({ capabilities })
+
+    -- other lsp servers (mason-lspconfig)
     mason_lspconfig.setup({
       -- default handler for installed servers
       function(server_name)
@@ -172,13 +176,6 @@ return {
           commands = {
             OrganizeImports = { organize_imports, description = "Organize Imports" },
           },
-        })
-      end,
-
-      -- gdscript
-      ["gdscript"] = function()
-        lspconfig["gdscript"].setup({
-          capabilities = capabilities,
         })
       end,
 

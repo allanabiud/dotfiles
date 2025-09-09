@@ -1,7 +1,7 @@
 #GENERAL
 # command = zellij -l welcome
 shell-integration = zsh
-gtk-single-instance = true
+# gtk-single-instance = true
 quit-after-last-window-closed = false
 gtk-adwaita = true
 confirm-close-surface = false
