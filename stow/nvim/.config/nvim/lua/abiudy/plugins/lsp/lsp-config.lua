@@ -177,7 +177,9 @@ return {
 
       -- gdscript
       ["gdscript"] = function()
-        lspconfig["gdscript"].setup({})
+        lspconfig["gdscript"].setup({
+          capabilities = capabilities,
+        })
       end,
 
       -- csharp_ls
