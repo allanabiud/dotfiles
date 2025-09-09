@@ -12,6 +12,7 @@ return {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       ejs = { "ejslint" },
+      gd = { "gdtoolkit" },
     }
 
     -- configure linters

@@ -7,14 +7,27 @@ return {
   config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      ensure_installed = { "lua", "markdown", "html", "htmldjango", "css", "bash", "javascript", "hyprlang", "c_sharp" },
+      ensure_installed = {
+        "lua",
+        "markdown",
+        "html",
+        "htmldjango",
+        "css",
+        "bash",
+        "javascript",
+        "hyprlang",
+        "c_sharp",
+        "gdscript",
+        "godot_resource",
+        "gdshader",
+      },
       auto_install = true,
       highlight = {
         enable = true,
         -- disable = { "html" },
         -- additional_vim_regex_highlighting = false,
       },
-      indent = { enable = true },
+      indent = { enable = false },
       autotag = { enable = true },
     })
     -- Hyprlang Auto-Detection

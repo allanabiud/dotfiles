@@ -29,6 +29,7 @@ return {
     luasnip.filetype_extend("html", { "loremipsum" })
     luasnip.filetype_extend("python", { "django" })
     luasnip.filetype_extend("ejs", { "html", "ejs" })
+    luasnip.filetype_extend("gdscript", { "gdscript" })
 
     -- Set up custom highlight for PmenuSel (selector in the completion window)
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })

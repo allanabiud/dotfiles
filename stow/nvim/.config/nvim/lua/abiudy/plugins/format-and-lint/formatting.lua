@@ -16,6 +16,7 @@ return {
         go = { "gofmt" },
         ejs = { "prettier_ejs" },
         csharp = { "csharpier" },
+        gd = { "gdtoolkit" },
       },
       format_on_save = {
         lsp_fallback = true,

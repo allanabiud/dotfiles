@@ -175,6 +175,11 @@ return {
         })
       end,
 
+      -- gdscript
+      ["gdscript"] = function()
+        lspconfig["gdscript"].setup({})
+      end,
+
       -- csharp_ls
       -- ["csharp_ls"] = function()
       --   lspconfig["csharp_ls"].setup({
