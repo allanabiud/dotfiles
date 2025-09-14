@@ -6,7 +6,6 @@ spawn-sh-at-startup "blueman-applet"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "wl-paste --type text --watch store"
 spawn-at-startup "wl-paste --type image --watch store"
-// spawn-sh-at-startup "xwayland-satellite"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "mpDris2"
 spawn-sh-at-startup "ghostty --initial-window=false"
@@ -179,6 +178,7 @@ binds {
 
 
     // WINDOW/COLUMN MANAGEMENT
+    //Close
     Mod+Q          { close-window; }
     //Focus
     Mod+Up         { focus-window-up; }

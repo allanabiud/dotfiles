@@ -90,25 +90,16 @@ window#waybar.empty #windowcount {
   margin: 0 0 0 5px;
   padding: 0 7px;
 }
+window#waybar.empty #window {
+  opacity: 0;
+}
 
 /* MPRIS states */
 #mpris.paused {
   color: @color1;
 }
 #mpris.playing {
-  color: @color2;
-}
-#mpris.mpd {
   color: @color3;
-}
-#mpris.mpv {
-  color: @color5;
-}
-#mpris.chromium {
-  color: @color6;
-}
-#mpris.firefox {
-  color: @color8;
 }
 
 /* Tray and other modules */

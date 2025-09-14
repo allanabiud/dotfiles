@@ -55,7 +55,7 @@
 
   "hyprland/submap": {
     "format": " <span style=\"italic\">{}</span>",
-    "max-length": 12,
+    "max-length": 16,
     "tooltip": false
   },
 
@@ -116,8 +116,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
-    "format-muted": "󰖁",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
+    "format-muted": "",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
