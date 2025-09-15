@@ -109,6 +109,7 @@
                     (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
                 ],
                 right: [
+                    (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
                     (kind: Text("  Vol: "), style: (fg: "red", modifiers: "Bold")),
                     (kind: Property(Status(Volume)), style: (fg: "yellow", modifiers: "Bold")),
                     (kind: Text("%"), style: (fg: "yellow", modifiers: "Bold")),
