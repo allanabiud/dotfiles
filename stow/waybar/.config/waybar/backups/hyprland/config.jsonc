@@ -41,8 +41,8 @@
   },
 
   "hyprland/windowcount": {
-    "format": "[{}]",
-    "format-empty": "[X]",
+    "format": "{}",
+    "format-empty": "",
     "separate-outputs": true
   },
 

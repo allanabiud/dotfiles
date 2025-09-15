@@ -36,6 +36,7 @@ window#waybar.empty #window {
 #workspaces {
   border: 1.5px solid @color1;
   background-color: @color0;
+  padding: 2px;
 }
 #workspaces button {
   padding: 0px 5px;
@@ -46,7 +47,8 @@ window#waybar.empty #window {
   color: @color2;
 }
 #workspaces button.active {
-  color: @color1;
+  color: @color0;
+  background-color: @color2;
   font-weight: bold;
 }
 workspaces button.urgent {
@@ -85,7 +87,7 @@ window#waybar.empty #windowcount {
 
 /* Window module */
 #window {
-  border: 1.5px solid @color1;
+  border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
   padding: 0 7px;
