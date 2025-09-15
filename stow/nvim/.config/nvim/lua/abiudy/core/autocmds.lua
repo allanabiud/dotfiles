@@ -40,5 +40,19 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 local gdproject = io.open(vim.fn.getcwd() .. "/project.godot", "r")
 if gdproject then
   io.close(gdproject)
-  vim.fn.serverstart("./godothost")
+  local socket = vim.fn.getcwd() .. "/.godothost"
+  pcall(vim.fn.serverstart, socket)
+end
+
+-- Unity Project Listener
+local cwd = vim.fn.getcwd()
+local assets = io.open(cwd .. "/Assets", "r")
+local project_settings = io.open(cwd .. "/ProjectSettings", "r")
+
+if assets and project_settings then
+  io.close(assets)
+  io.close(project_settings)
+
+  local socket = "/tmp/nvimsocket"
+  pcall(vim.fn.serverstart, socket)
 end
