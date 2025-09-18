@@ -3,7 +3,6 @@
 shell-integration = zsh
 # gtk-single-instance = true
 quit-after-last-window-closed = false
-gtk-adwaita = true
 confirm-close-surface = false
 
 #WINDOW
