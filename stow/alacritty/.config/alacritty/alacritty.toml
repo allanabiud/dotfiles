@@ -3,7 +3,7 @@ working_directory = "None"
 
 # Themes --
 general.import = [ 
-  "~/.config/alacritty/keybinds.toml"
+  "~/.cache/wal/colors-alacritty.toml",
 ]
 
 [window]
@@ -22,4 +22,4 @@ TERM = "xterm-256color"
 [font]
 normal.family = "JetBrainsMono Nerd Font Propo"
 normal.style = "Regular"
-size = 11.0
+size = 11.5
