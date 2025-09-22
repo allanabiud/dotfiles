@@ -7,6 +7,9 @@ return {
   config = function()
     require("noice").setup({
       lsp = {
+        progress = {
+          enabled = false,
+        },
         hover = {
           enabled = true,
         },

@@ -112,13 +112,17 @@ return {
         lualine_y = {},
         lualine_z = {
           {
-            "lsp_status",
-            icon = "",
-            symbols = {
-              separator = ", ",
-              spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
-              done = "",
-            },
+            function()
+              local clients = vim.lsp.get_clients({ bufnr = 0 })
+              if #clients == 0 then
+                return "No LSP"
+              end
+              local names = {}
+              for _, client in pairs(clients) do
+                table.insert(names, client.name)
+              end
+              return " " .. table.concat(names, " ")
+            end,
           },
         },
       },
