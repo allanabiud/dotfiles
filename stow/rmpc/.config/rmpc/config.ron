@@ -6,7 +6,7 @@
     password: None,
     theme: Some("mytheme1"),
     cache_dir: None,
-    lyrics_dir: Some("~/Music/"),
+    lyrics_dir: Some("~/Music/Music/Lyrics/"),
     on_song_change: ["~/.config/rmpc/scripts/notify"], 
     volume_step: 5,
     scrolloff: 10,
