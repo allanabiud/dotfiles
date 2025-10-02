@@ -51,6 +51,8 @@
             "I":       ShowCurrentSongInfo,
             "O":       ShowOutputs,
             "P":       ShowDecoders,
+            "u":       Update,
+            "U":       Rescan,
         },
         navigation: {
             "k":           Up,
