@@ -5,10 +5,9 @@ spawn-sh-at-startup "nm-applet"
 spawn-sh-at-startup "blueman-applet"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup "wl-paste --type text --watch store"
-spawn-at-startup "wl-paste --type image --watch store"
+spawn-sh-at-startup "wl-paste --type image --watch store"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "mpDris2"
-spawn-sh-at-startup "ghostty --initial-window=false"
 spawn-sh-at-startup "pcmanfm --daemon-mode"
 
 // INPUTS
@@ -43,9 +42,9 @@ layout {
     center-focused-column "never"
 
     preset-column-widths {
-        proportion 0.33333
         proportion 0.5
-        proportion 0.66667
+        proportion 0.75
+        proportion 1.0
     }
 
     default-column-width { proportion 1.0; }
@@ -160,7 +159,7 @@ binds {
 
     // CUSTOM ACTIONS
     //Application Launchers
-    Mod+Return { spawn-sh "ghostty"; }
+    Mod+Return { spawn-sh "alacritty"; }
     Mod+Space  { spawn-sh "rofi -show drun"; }
     Mod+N      { spawn-sh "pcmanfm"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
@@ -173,7 +172,7 @@ binds {
     Mod+Alt+C      { spawn-sh "sh -c cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     //Scripts
     Mod+Alt+P        { spawn-sh "~/.config/wal/scripts/wal.sh"; }
-    Mod+Alt+R        { spawn-sh "~/.config/waybar/scripts/waybarrestart.sh"; }
+    Mod+Alt+W        { spawn-sh "~/.config/waybar/scripts/waybarrestart.sh"; }
     // Mod+Alt+O        { spawn-sh "~/.config/wal/scripts/colorscheme.sh"; }
 
 
@@ -200,8 +199,6 @@ binds {
     Mod+Shift+V    { switch-focus-between-floating-and-tiling; }
     //Resizing
     Mod+R            { switch-preset-column-width; }
-    Mod+Shift+R      { switch-preset-window-height; }
-    Mod+Ctrl+R       { reset-window-height; }
     Mod+F            { maximize-column; }
     Mod+Shift+F      { fullscreen-window; }
     Mod+Ctrl+F       { expand-column-to-available-width; }
@@ -210,8 +207,6 @@ binds {
     Mod+Ctrl+C       { center-visible-columns; }
     Mod+Minus        { set-column-width "-10%"; }
     Mod+Equal        { set-column-width "+10%"; }
-    Mod+Shift+Minus  { set-window-height "-10%"; }
-    Mod+Shift+Equal  { set-window-height "+10%"; }
 
 
     // WORKSPACE MANAGEMENT
