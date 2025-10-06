@@ -5,6 +5,7 @@
   "margin-left": 5,
   "margin-right": 5,
   "margin-top": 2,
+  "margin-bottom": 0,
 
   "modules-left": [
     "niri/workspaces",
@@ -22,9 +23,23 @@
   ],
 
   "niri/workspaces": {
-    "format": "{value}",
+    "format": "{icon}",
+    "format-icons": {
+      "focused": "",
+      "default": ""
+    },
     "on-click": "activate",
+    "all-outputs": true
   },
+
+  // "niri/workspaces": {
+  //   "format": "{value}:{icon}",
+  //   "format-icons": {
+  //     "active": "",
+  //     "default": "",
+  //   },
+  //   "on-click": "activate",
+  // },
 
   "custom/niri_windows": {
     "exec": "~/.config/waybar/scripts/niri_windowcount.sh",

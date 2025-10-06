@@ -25,9 +25,6 @@
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      // "3": "",
       "focused": "",
       "default": ""
     },

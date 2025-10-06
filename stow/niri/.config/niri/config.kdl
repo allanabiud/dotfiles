@@ -77,12 +77,12 @@ layout {
     tab-indicator {
         width 8
         gap 8
-        length total-proportion=0.9
+        length total-proportion=1.0
         position "left"
         place-within-column
-        corner-radius 3
+        corner-radius 2
+        inactive-color "#373737"
         gaps-between-tabs 5
-        inactive-color "#363636"
     }
 }
 
@@ -121,23 +121,23 @@ gestures {
 
 // WORKSPACE RULES
 // Workspace 1
-workspace "1"
-window-rule {
-    match app-id="kitty"
-    match app-id="org.godotengine.ProjectManager"
-    match app-id="Godot"
-    match app-id="Postman"
-    match app-id="Code"
-    open-on-workspace "1"
-    open-focused true
-}
-// Workspace 2
-workspace "2"
-window-rule {
-    match app-id="^(vivaldi.*)"
-    open-on-workspace "2"
-    open-focused true
-}
+// workspace "1"
+// window-rule {
+//     match app-id="kitty"
+//     match app-id="org.godotengine.ProjectManager"
+//     match app-id="Godot"
+//     match app-id="Postman"
+//     match app-id="Code"
+//     open-on-workspace "1"
+//     open-focused true
+// }
+// // Workspace 2
+// workspace "2"
+// window-rule {
+//     match app-id="^(vivaldi.*)"
+//     open-on-workspace "2"
+//     open-focused true
+// }
 // Workspace 3
 // workspace "3"
 /-window-rule {
