@@ -123,8 +123,7 @@ gestures {
 // Workspace 1
 workspace "1"
 window-rule {
-    match app-id="Alacritty" title="Alacritty"
-    match app-id="Alacritty" title="zellij"
+    match app-id="kitty"
     match app-id="org.godotengine.ProjectManager"
     match app-id="Godot"
     match app-id="Postman"
@@ -159,7 +158,6 @@ window-rule {
     clip-to-geometry true
     draw-border-with-background false
 }
-
 
 
 // Floating Window Rules
@@ -198,14 +196,14 @@ binds {
 
     // CUSTOM ACTIONS
     //Application Launchers
-    Mod+Return { spawn-sh "alacritty"; }
+    Mod+Return { spawn-sh "kitty"; }
     Mod+Space  { spawn-sh "rofi -show drun"; }
     Mod+N      { spawn-sh "pcmanfm"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
     //Alternate Launchers
     Mod+Alt+J      { spawn-sh "jellyfinmediaplayer"; }
-    Mod+Alt+M      { spawn-sh "alacritty --title=rmpc -e rmpc"; }
-    Mod+Alt+Z      { spawn-sh "alacritty --title=zellij -e zellij -l welcome"; }
+    Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
+    Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
     //Rofi tools
     Mod+Alt+Space  { spawn-sh "~/.config/rofi/scripts/webapps.sh"; }
     Mod+Alt+C      { spawn-sh "sh -c cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
