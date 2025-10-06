@@ -42,7 +42,7 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # Autocorrect
-setopt CORRECT
+# setopt CORRECT
 
 ####################################################################################################
 ### ------ ALIASES ---------------------------
@@ -102,3 +102,6 @@ fastfetch
 ### Pywal
 # Import colorscheme from 'wal' asynchronously
 (cat ~/.cache/wal/sequences &)
+
+### Atuin
+eval "$(atuin init zsh)"

@@ -15,6 +15,7 @@ export XDG_PICTURES_DIR=$HOME/Pictures
 
 
 ### GENERAL VARIABLES
+export HISTFILE="$XDG_CONFIG_HOME"/zsh
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/"gtk-2.0"/gtkrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
