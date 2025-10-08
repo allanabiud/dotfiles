@@ -38,45 +38,29 @@ window#waybar.empty #window {
   background-color: @color0;
 }
 #workspaces button {
-  padding: 0px;
+  padding: 0px 5px;
   transition: all 0.3s;
-  color: @foreground;
-  opacity: 0.8;
+  color: gray;
 }
 #workspaces button:hover {
   color: @color2;
 }
-#workspaces button.empty {
-  color: dimgrey;
-  opacity: 0.6;
-}
 #workspaces button.active {
-  color: @color1;
-  opacity: 1;
+  color: @color2;
   font-weight: bold;
 }
 workspaces button.urgent {
   background-color: @color2;
 }
 
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 1.5px solid @color1;
-  background-color: @color0;
-  color: @color1;
-  padding: 2px 6px;
-  margin-left: 5px;
-  font-weight: bold;
-}
-
 /* Tooltip */
 tooltip {
-  color: @color1;
+  color: @color2;
   background-color: @color0;
-  border: 1.5px solid gray;
+  border: 1.5px solid @color1;
 }
 tooltip label {
-  color: @color1;
+  color: @color2;
 }
 
 /* Audio group */
@@ -87,12 +71,27 @@ tooltip label {
   padding: 0 7px;
 }
 
+/* WindowCount module */
+#windowcount {
+  border: 1.5px solid @color1;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 7px;
+  color: @color1;
+}
+window#waybar.empty #windowcount {
+  opacity: 0;
+}
+
 /* Window module */
 #window {
   border: 1.5px solid @color3;
   background-color: @color0;
   margin: 0 0 0 5px;
-  padding: 0 0 0 8px;
+  padding: 0 7px;
+}
+window#waybar.empty #window {
+  opacity: 0;
 }
 
 /* MPRIS states */
@@ -100,25 +99,14 @@ tooltip label {
   color: @color1;
 }
 #mpris.playing {
-  color: @color2;
-}
-#mpris.mpd {
   color: @color3;
-}
-#mpris.mpv {
-  color: @color5;
-}
-#mpris.chromium {
-  color: @color6;
-}
-#mpris.firefox {
-  color: @color7;
 }
 
 /* Tray and other modules */
 #tray,
 #audio,
 #clock,
+#submap,
 #battery,
 #idle_inhibitor {
   padding: 0 7px;
@@ -133,6 +121,14 @@ tooltip label {
   color: @color3;
   font-weight: bold;
   border: 1.5px solid @color3;
+}
+
+/* Submap */
+#submap {
+  background-color: @color1;
+  border: none;
+  color: @color0;
+  font-weight: bold;
 }
 
 /* Battery */

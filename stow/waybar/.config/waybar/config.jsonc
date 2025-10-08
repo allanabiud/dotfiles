@@ -1,5 +1,5 @@
 {
-  "layer": "top",
+  // "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
   "margin-left": 5,
@@ -8,9 +8,10 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "niri/workspaces",
-    "custom/niri_windows",
-    "niri/window",
+    "hyprland/workspaces",
+    "hyprland/windowcount",
+    "hyprland/window",
+    "hyprland/submap"
   ],
   "modules-center": [
     "clock"
@@ -22,36 +23,41 @@
     "battery"
   ],
 
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "format": "{icon}",
-    "format-icons": {
-      "focused": "",
-      "default": ""
-    },
     "on-click": "activate",
-    "all-outputs": true
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "sort-by-number": true
   },
 
-  // "niri/workspaces": {
-  //   "format": "{value}:{icon}",
-  //   "format-icons": {
-  //     "active": "",
-  //     "default": "",
-  //   },
-  //   "on-click": "activate",
-  // },
-
-  "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
+  "hyprland/windowcount": {
     "format": "{}",
-    "tooltip": false
+    "format-empty": "",
+    "separate-outputs": true
   },
 
-  "niri/window": {
+  "hyprland/window": {
     "format": "",
     "icon": true,
     "icon-size": 16,
     "separate-outputs": true
+  },
+
+  "hyprland/submap": {
+    "format": " <span style=\"italic\">{}</span>",
+    "max-length": 16,
+    "tooltip": false
   },
 
   "clock": {
@@ -111,8 +117,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
-    "format-muted": "󰖁",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
+    "format-muted": "",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -146,7 +152,7 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 15
+      "critical": 20,
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
