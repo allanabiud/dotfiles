@@ -94,7 +94,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ### Direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 ### Fastfetch
 fastfetch
@@ -104,4 +104,4 @@ fastfetch
 (cat ~/.cache/wal/sequences &)
 
 ### Atuin
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
