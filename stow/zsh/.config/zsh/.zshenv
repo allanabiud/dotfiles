@@ -13,9 +13,10 @@ export XDG_PICTURES_DIR=$HOME/Pictures
 # export XDG_SESSION_TYPE=X11
 # export XDG_CURRENT_DESKTOP=sway
 
+### ZSH VARIABLES
+export HISTFILE="$XDG_CONFIG_HOME"/zsh
 
 ### GENERAL VARIABLES
-export HISTFILE="$XDG_CONFIG_HOME"/zsh
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/"gtk-2.0"/gtkrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
@@ -27,7 +28,6 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 export W3M_DIR="$XDG_DATA_HOME"/w3m
-export RENPY_PATH_TO_SAVES="$XDG_DATA_HOME"
 export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
