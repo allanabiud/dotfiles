@@ -1,5 +1,5 @@
 {
-  // "layer": "top",
+  "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
   "margin-left": 5,
@@ -8,8 +8,9 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "ext/workspaces",
-    "dwl/window",
+    "niri/workspaces",
+    "custom/niri_windows",
+    "niri/window",
   ],
   "modules-center": [
     "clock"
@@ -21,18 +22,36 @@
     "battery"
   ],
 
-  "ext/workspaces": {
+  "niri/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": true,
+    "format-icons": {
+      "focused": "",
+      "default": ""
+    },
     "on-click": "activate",
-    "on-click-right": "deactivate",
-    "sort-by-id": true,
+    "all-outputs": true
   },
 
-  "dwl/window": {
-    "format": "[{layout}]",
+  // "niri/workspaces": {
+  //   "format": "{value}:{icon}",
+  //   "format-icons": {
+  //     "active": "",
+  //     "default": "",
+  //   },
+  //   "on-click": "activate",
+  // },
+
+  "custom/niri_windows": {
+    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "niri/window": {
+    "format": "",
     "icon": true,
-    "icon-size": 18,
+    "icon-size": 16,
+    "separate-outputs": true
   },
 
   "clock": {
@@ -92,8 +111,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱  ",
-    "format-muted": "",
+    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
+    "format-muted": "󰖁",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -127,7 +146,7 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 20,
+      "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
