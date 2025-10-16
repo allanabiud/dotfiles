@@ -98,7 +98,7 @@ return {
           {
             "filename",
             path = 0,
-            symbols = { modified = "●", readonly = "", unnamed = "No Name" },
+            symbols = { modified = "[+]", readonly = "", unnamed = "[No Name]", newfile = "[New]" },
             color = "WinBarFile",
           },
         },
