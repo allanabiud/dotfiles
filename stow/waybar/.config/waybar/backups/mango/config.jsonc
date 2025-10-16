@@ -9,7 +9,6 @@
 
   "modules-left": [
     "ext/workspaces",
-    // "dwl/tags",
     "dwl/window",
   ],
   "modules-center": [
@@ -30,14 +29,10 @@
     "sort-by-id": true,
   },
 
-  "dwl/tags": {
-      "num-tags":9,
-  },
-
   "dwl/window": {
     "format": "[{layout}]",
     "icon": true,
-    "icon-size": 20,
+    "icon-size": 18,
   },
 
   "clock": {

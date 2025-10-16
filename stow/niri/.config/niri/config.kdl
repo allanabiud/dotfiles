@@ -39,12 +39,13 @@ input {
 
 // LAYOUT
 layout {
-    gaps 7
-    center-focused-column "never"
+    gaps 6
+    center-focused-column "always"
 
     preset-column-widths {
         proportion 0.5
         proportion 0.75
+        proportion 0.95
         proportion 1.0
     }
 
@@ -52,16 +53,17 @@ layout {
     background-color "transparent"
 
     focus-ring {
+        off
         width 2
         active-color "#d76035"
-        inactive-color "#000000"
+        inactive-color "#444444"
     }
 
     border {
-        off
-        width 4
+        // off
+        width 2
         active-color "#d76035"
-        inactive-color "#000000"
+        inactive-color "#444444"
         urgent-color "#1b6870"
     }
 
@@ -72,7 +74,10 @@ layout {
         color "#06070F"
     }
 
-    struts { }
+    struts { 
+        left 20
+        right 20
+    }
 
     tab-indicator {
         width 8
@@ -81,7 +86,7 @@ layout {
         position "left"
         place-within-column
         corner-radius 2
-        inactive-color "#373737"
+        inactive-color "#444444"
         gaps-between-tabs 5
     }
 }
@@ -120,56 +125,37 @@ gestures {
 
 
 // WORKSPACE RULES
-// Workspace 1
-// workspace "1"
-// window-rule {
-//     match app-id="kitty"
-//     match app-id="org.godotengine.ProjectManager"
-//     match app-id="Godot"
-//     match app-id="Postman"
-//     match app-id="Code"
-//     open-on-workspace "1"
-//     open-focused true
-// }
-// // Workspace 2
-// workspace "2"
-// window-rule {
-//     match app-id="^(vivaldi.*)"
-//     open-on-workspace "2"
-//     open-focused true
-// }
-// Workspace 3
-// workspace "3"
-/-window-rule {
-    match app-id="pcmanfm"
-    match app-id="org.gnome.Nautilus"
-    match app-id="org.gnome.Loupe"
-    match app-id="org.localsend.localsend_app"
-    match app-id="^(libreoffice.*)"
-    open-on-workspace "3"
-    open-focused true
-}
+//
 
 
 // WINDOW RULES
 // General Window Rules
 window-rule {
-    geometry-corner-radius 3
+    geometry-corner-radius 1
     clip-to-geometry true
     draw-border-with-background false
 }
-
+window-rule {
+    match app-id="pcmanfm"
+    match app-id="org.gnome.Nautilus"
+    match app-id="org.localsend.localsend_app"
+    default-column-width { fixed 683; }
+}
 
 // Floating Window Rules
 window-rule {
-  match app-id="blueman-manager"
+    match app-id="blueman-manager"
     match app-id="blueman-services"
-    match title="Removable medium is inserted"
     match app-id="zenity"
+    match app-id="^(pcmanfm)" title="(?i).*Removable.*"
+    match app-id="^(pcmanfm)" title="(?i).*File Operation Progress.*"
+    match title="(?i).*directory.*"
+    match title="(?i).*Open File.*"
+    match title="(?i).*Select Folder.*"
+    match app-id="xarchiver"
+    match app-id="org.gnome.FileRoller"
+    match app-id="org.gnome.Calculator"
     open-floating true
-    default-column-width { proportion 0.35; }
-    default-window-height { proportion 0.45; }
-    default-floating-position x=430 y=200
 }
 window-rule {
     match is-floating=true
@@ -201,7 +187,6 @@ binds {
     Mod+N      { spawn-sh "pcmanfm"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
     //Alternate Launchers
-    Mod+Alt+J      { spawn-sh "jellyfinmediaplayer"; }
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
     //Rofi tools
@@ -304,7 +289,7 @@ binds {
 
     // SCREENSHOT
     Print      { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Shift+Print { screenshot-screen; }
     Alt+Print  { screenshot-window; }
 
         
