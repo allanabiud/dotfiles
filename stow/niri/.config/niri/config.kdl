@@ -25,7 +25,7 @@ input {
     }
 
     warp-mouse-to-focus
-    focus-follows-mouse max-scroll-amount="50%"
+    focus-follows-mouse max-scroll-amount="0%"
     disable-power-key-handling
 }
 
@@ -75,8 +75,8 @@ layout {
     }
 
     struts { 
-        left 20
-        right 20
+        left 15
+        right 15
     }
 
     tab-indicator {
