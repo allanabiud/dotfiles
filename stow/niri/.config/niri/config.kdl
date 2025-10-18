@@ -8,7 +8,6 @@ spawn-sh-at-startup "wl-paste --type text --watch store"
 spawn-sh-at-startup "wl-paste --type image --watch store"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "mpDris2"
-// spawn-sh-at-startup "pcmanfm --daemon-mode"
 spawn-sh-at-startup "xwayland-satellite"
 
 // INPUTS
@@ -39,13 +38,12 @@ input {
 
 // LAYOUT
 layout {
-    gaps 6
+    gaps 5
     center-focused-column "always"
 
     preset-column-widths {
         proportion 0.5
         proportion 0.75
-        proportion 0.95
         proportion 1.0
     }
 
@@ -135,11 +133,12 @@ window-rule {
     clip-to-geometry true
     draw-border-with-background false
 }
+// 50% width
 window-rule {
     match app-id="pcmanfm"
     match app-id="org.gnome.Nautilus"
     match app-id="org.localsend.localsend_app"
-    default-column-width { fixed 683; }
+    default-column-width { proportion 0.5; }
 }
 
 // Floating Window Rules
@@ -163,7 +162,7 @@ window-rule {
 }
 
 // Block out password managers from screen capture.
-window-rule {
+/-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     block-out-from "screen-capture"
@@ -189,7 +188,6 @@ binds {
     //Alternate Launchers
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
-    //Rofi tools
     Mod+Alt+Space  { spawn-sh "~/.config/rofi/scripts/webapps.sh"; }
     Mod+Alt+C      { spawn-sh "sh -c cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     //Scripts
@@ -234,7 +232,7 @@ binds {
     // WORKSPACE MANAGEMENT
     //Overview
     Mod+Tab repeat=false { toggle-overview; }
-    //Workspaces
+    //Workspace Focus
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -245,7 +243,7 @@ binds {
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
-    //Move
+    //Move Columns
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }
     Mod+Shift+3 { move-column-to-workspace 3; }
@@ -256,18 +254,16 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+0 { move-column-to-workspace 10; }
-    //Navigation
-    Mod+Page_Down    { focus-workspace-down; }
-    Mod+Page_Up      { focus-workspace-up; }
-    //Move Columns
-    Mod+Shift+Page_Down { move-column-to-workspace-down; }
-    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
     //Move Workspaces
     Mod+Ctrl+Page_Down  { move-workspace-down; }
     Mod+Ctrl+Page_Up    { move-workspace-up; }
-    Mod+Ctrl+Down       { move-workspace-down; }
-    Mod+Ctrl+Up         { move-workspace-up; }
-   
+    // Workspace Focus Prev/Next
+    Mod+Page_Down    { focus-workspace-down; }
+    Mod+Page_Up      { focus-workspace-up; }
+    //Move Columns Prev/Next
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+  
 
     // MEDIA & HARDWARE CONTROLS
     //Volume
@@ -291,20 +287,4 @@ binds {
     Print      { screenshot; }
     Shift+Print { screenshot-screen; }
     Alt+Print  { screenshot-window; }
-
-        
-    // MOUSE & TOUCHPAD NAVIGATION
-    //Scroll Workspaces
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    //Move Columns with Scroll
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-    Mod+Shift+WheelScrollDown { focus-column-right; }
-    Mod+Shift+WheelScrollUp   { focus-column-left; }
-    //Focus Columns with Scroll
-    Mod+WheelScrollRight     { focus-column-right; }
-    Mod+WheelScrollLeft      { focus-column-left; }
 }
