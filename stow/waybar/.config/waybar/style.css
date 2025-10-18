@@ -51,7 +51,7 @@ window#waybar.empty #window {
   opacity: 0.6;
 }
 #workspaces button.active {
-  color: @color1;
+  color: @color2;
   opacity: 1;
   font-weight: bold;
 }
@@ -102,18 +102,6 @@ tooltip label {
 #mpris.playing {
   color: @color2;
 }
-#mpris.mpd {
-  color: @color3;
-}
-#mpris.mpv {
-  color: @color5;
-}
-#mpris.chromium {
-  color: @color6;
-}
-#mpris.firefox {
-  color: @color7;
-}
 
 /* Tray and other modules */
 #tray,
@@ -137,7 +125,7 @@ tooltip label {
 
 /* Battery */
 #battery.charging {
-  color: @color4;
+  color: @color2;
 }
 #battery.warning:not(.charging) {
   color: @color6;

@@ -133,7 +133,7 @@ window#waybar.empty #window {
 
 /* Battery */
 #battery.charging {
-  color: @color4;
+  color: @color2;
 }
 #battery.warning:not(.charging) {
   color: @color6;

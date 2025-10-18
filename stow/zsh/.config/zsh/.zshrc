@@ -93,15 +93,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ### --- ZSH AutoSuggestions ---------------------------------
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-### Direnv
-# eval "$(direnv hook zsh)"
-
 ### Fastfetch
 fastfetch
 
 ### Pywal
 # Import colorscheme from 'wal' asynchronously
 (cat ~/.cache/wal/sequences &)
-
-### Atuin
-# eval "$(atuin init zsh)"

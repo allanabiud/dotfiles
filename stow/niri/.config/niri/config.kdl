@@ -8,7 +8,7 @@ spawn-sh-at-startup "wl-paste --type text --watch store"
 spawn-sh-at-startup "wl-paste --type image --watch store"
 spawn-sh-at-startup "hypridle"
 spawn-sh-at-startup "mpDris2"
-spawn-sh-at-startup "pcmanfm --daemon-mode"
+// spawn-sh-at-startup "pcmanfm --daemon-mode"
 spawn-sh-at-startup "xwayland-satellite"
 
 // INPUTS
@@ -81,8 +81,8 @@ layout {
 
     tab-indicator {
         width 8
-        gap 8
-        length total-proportion=1.0
+        gap 5
+        length total-proportion=0.5
         position "left"
         place-within-column
         corner-radius 2
