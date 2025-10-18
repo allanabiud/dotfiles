@@ -7,8 +7,7 @@ TMP_DIR="/tmp/rmpc"
 mkdir -p "$TMP_DIR"
 
 # Generate a unique filename for each notification
-TIMESTAMP=$(date +%s%N)
-ALBUM_ART_PATH="$TMP_DIR/notification_cover_${TIMESTAMP}"
+ALBUM_ART_PATH="$TMP_DIR/notification_cover"
 
 # Path to fallback album art if no album art is found by rmpc/mpd
 # Change this to your needs
@@ -20,15 +19,7 @@ if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
   ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
 fi
 
-# Wait for the file to be fully written
-while [ ! -s "$ALBUM_ART_PATH" ] && [ ! -f "$DEFAULT_ALBUM_ART_PATH" ]; do
-  sleep 0.1
-done
-
 # Send the notification using dunstify with a tag
 notify-send -i "${ALBUM_ART_PATH}" \
   -h string:x-dunst-stack-tag:now-playing \
   "Now Playing" "$ARTIST - $TITLE"
-
-# Clean up old album art files
-find "$TMP_DIR" -name "notification_cover_*" -mmin +5 -delete
