@@ -151,6 +151,7 @@ window-rule {
     match title="(?i).*directory.*"
     match title="(?i).*Open File.*"
     match title="(?i).*Select Folder.*"
+    match title="(?i).*Choose.*"
     match app-id="xarchiver"
     match app-id="org.gnome.FileRoller"
     match app-id="org.gnome.Calculator"
