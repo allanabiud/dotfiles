@@ -27,6 +27,7 @@ WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # generate colorscheme & set wallpaper
 matugen image "$WALLPAPER_PATH"
+/home/allanabiud/.local/bin/wal --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
 
 # create symlink
 mkdir -p "$(dirname "$SYMLINK_PATH")"

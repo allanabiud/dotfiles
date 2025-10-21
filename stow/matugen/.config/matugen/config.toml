@@ -5,12 +5,12 @@ set = true
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
+output_path = '~/.config/matugen/outputs/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors-matugen.conf'
+output_path = '~/.config/matugen/outputs/kitty-colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.gtk3]
@@ -21,3 +21,7 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/colors.rasi'
+output_path = '~/.config/matugen/outputs/colors.rasi'

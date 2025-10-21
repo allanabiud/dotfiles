@@ -1,0 +1,144 @@
+@import "/home/allanabiud/.config/matugen/outputs/colors.css";
+
+* {
+  border: none;
+  font-family:
+    JetBrainsMono Nerd Font Propo,
+    Font Awesome,
+    sans-serif;
+  font-size: 12px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+/* Window styling */
+window {
+  font-weight: bold;
+  background-color: @background;
+}
+window#waybar {
+  background: transparent;
+}
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+  color: transparent;
+}
+
+/* Module groups */
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: transparent;
+}
+
+/* Workspaces module */
+#workspaces {
+  background-color: @primary_container;
+}
+#workspaces button {
+  padding: 0px 5px;
+  transition: all 0.3s;
+  color: @inverse_surface;
+}
+#workspaces button:hover {
+  color: @surface_tint;
+}
+#workspaces button.empty {
+  color: @inverse_on_surface;
+}
+#workspaces button.active {
+  color: @inverse_surface;
+  font-weight: bold;
+}
+workspaces button.urgent {
+  background-color: @error;
+}
+
+/* Custom module: niri_windows */
+#custom-niri_windows {
+  background-color: @secondary_container;
+  color: @on_secondary_container;
+  padding: 2px 6px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+/* Tooltip */
+tooltip {
+  background-color: @secondary_container;
+  color: @on_secondary_container;
+}
+tooltip label {
+  color: @on_secondary_container;
+}
+
+/* Window module */
+#window {
+  background-color: @secondary_container;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 8px;
+}
+
+/* Tray and other modules */
+#tray,
+#audio,
+#clock,
+#battery,
+#idle_inhibitor {
+  padding: 0 7px;
+  background-color: @secondary_container;
+  margin: 0 0 0 5px;
+}
+
+/* Clock */
+#clock {
+  background-color: @tertiary_container;
+  color: @on_tertiary_container;
+  padding: 0 7px;
+  margin: 0 0 0 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Battery */
+#battery.charging {
+  background-color: @tertiary_container;
+  color: @on_tertiary_container;
+}
+#battery.warning:not(.charging) {
+  background-color: @tertiary;
+  color: @on_tertiary;
+}
+#battery.critical:not(.charging) {
+  background-color: @error;
+  color: @on_error;
+}
+
+/* MPRIS states */
+#mpris.playing {
+  color: @surface_tint;
+}
+#mpris.paused {
+  color: @outline;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+  color: @surface_tint;
+}
+#idle_inhibitor.deactivated {
+  color: @outline;
+}
+
+/* PulseAudio */
+#pulseaudio {
+  color: @on_surface;
+  padding: 0 2px;
+  background-color: transparent;
+  margin: 0;
+  border: none;
+}
+#pulseaudio.muted {
+  color: @outline;
+}
