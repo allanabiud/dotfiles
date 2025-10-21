@@ -136,6 +136,7 @@ window-rule {
 // 50% width
 window-rule {
     match app-id="pcmanfm"
+    match app-id="thunar"
     match app-id="org.gnome.Nautilus"
     match app-id="org.localsend.localsend_app"
     default-column-width { proportion 0.5; }
@@ -146,8 +147,8 @@ window-rule {
     match app-id="blueman-manager"
     match app-id="blueman-services"
     match app-id="zenity"
-    match app-id="^(pcmanfm)" title="(?i).*Removable.*"
-    match app-id="^(pcmanfm)" title="(?i).*File Operation Progress.*"
+    match title="(?i).*File Operation Progress.*"
+    match title="(?i).*Removable.*"
     match title="(?i).*directory.*"
     match title="(?i).*Open File.*"
     match title="(?i).*Select Folder.*"
@@ -184,7 +185,7 @@ binds {
     //Application Launchers
     Mod+Return { spawn-sh "kitty"; }
     Mod+Space  { spawn-sh "rofi -show drun"; }
-    Mod+N      { spawn-sh "pcmanfm"; }
+    Mod+N      { spawn-sh "thunar"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
     //Alternate Launchers
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
