@@ -15,6 +15,7 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
     local cmp = require("cmp")
@@ -78,23 +79,6 @@ return {
           behavior = cmp.ConfirmBehavior.Insert,
           select = false,
         }),
-        -- ["<Tab>"] = cmp.mapping(function(fallback)
-        --   if require("luasnip").expand_or_jumpable() then
-        --     require("luasnip").expand_or_jump()
-        --   else
-        --     fallback()
-        --   end
-        -- end, { "i", "s" }),
-        --
-        -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_prev_item()
-        --   elseif require("luasnip").jumpable(-1) then
-        --     require("luasnip").jump(-1)
-        --   else
-        --     fallback()
-        --   end
-        -- end, { "i", "s" }),
       }),
 
       -- sources for autocompletion
@@ -104,25 +88,24 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "supermaven" },
-        -- { name = 'vim-dadbod-completion' },
       }),
 
       -- configure lspkind for vs-code like pictograms and colors in completion menu
       formatting = {
         format = function(entry, item)
-          -- Step 1: Check if the item is an Emmet suggestion
+          -- Check if the item is an Emmet suggestion
           if entry.source.name == "nvim_lsp" and entry.completion_item.detail == "Emmet Abbreviation" then
             item.kind = "Emmet Abbreviation" -- Customize the label for Emmet
           end
 
-          -- Step 2: Apply color formatting
+          -- Apply color formatting
           local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
           if color_item.abbr_hl_group then
             item.kind_hl_group = color_item.abbr_hl_group
             item.kind = color_item.abbr
           end
 
-          -- Step 3: Apply lspkind formatting
+          -- Apply lspkind formatting
           item = lspkind.cmp_format({
             mode = "symbol_text",
             symbol_map = { Supermaven = "" },
@@ -130,7 +113,7 @@ return {
             ellipsis_char = "...",
           })(entry, item)
 
-          -- Optional: Set custom highlights for Emmet or any other items
+          -- Set custom highlights for Emmet or any other items
           vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 
           return item

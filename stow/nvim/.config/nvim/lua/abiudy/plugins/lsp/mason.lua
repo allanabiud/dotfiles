@@ -1,7 +1,8 @@
 return {
-  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
@@ -54,7 +55,7 @@ return {
         "ruff", -- python linter and formatter
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
-        { "eslint_d", version = "13.1.2" }, -- javascript linter
+        "eslint_d", -- javascript linter
         "gdtoolkit",
       },
     })
