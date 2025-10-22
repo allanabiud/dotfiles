@@ -19,7 +19,7 @@ window {
     anchor:                    center;
     fullscreen:                false;
     width:                     400px;
-    height:                    450px;
+    height:                    470px;
     x-offset:                  0px;
     y-offset:                  0px;
 
@@ -161,7 +161,7 @@ element selected.active {
 element-icon {
     background-color:          transparent;
     text-color:                inherit;
-    size:                      26px;
+    size:                      28px;
     cursor:                    inherit;
 }
 
