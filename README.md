@@ -20,5 +20,5 @@ Use GNU Stow to symlink everything:
 
 ```bash
 cd stow
-stow -t nvim zsh mpv
+stow -t ~ nvim zsh hyprland
 ```
