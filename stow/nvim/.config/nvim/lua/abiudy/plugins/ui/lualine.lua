@@ -58,6 +58,7 @@ return {
             icon = "",
             color = { fg = "#ff9e64" },
           },
+          { "diff" },
         },
         lualine_c = {
           { "diagnostics" },
