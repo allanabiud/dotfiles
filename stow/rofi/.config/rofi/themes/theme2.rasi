@@ -18,8 +18,8 @@ window {
     location:                  center;
     anchor:                    center;
     fullscreen:                false;
-    width:                     400px;
-    height:                    470px;
+    width:                     420px;
+    height:                    440px;
     x-offset:                  0px;
     y-offset:                  0px;
 
@@ -34,11 +34,11 @@ window {
 
 mainbox {
     enabled:                   true;
-    spacing:                   0px;
+    spacing:                   5px;
     padding:                   20px;
     background-color:          transparent;
     orientation:               vertical;
-    children:                  [ "inputbar", "listbox", "mode-switcher" ];
+    children:                  [ "inputbar", "mode-switcher", "listbox" ];
 }
 
 listbox {
@@ -56,10 +56,12 @@ dummy {
 inputbar {
     enabled:                   true;
     spacing:                   10px;
+    margin:                    0px;
     padding:                   10px;
-    border-radius:             10px;
-    background-color:          @bg1;
+    border-radius:             0px;
+    background-color:          transparent;
     text-color:                @fg0;
+    orientation:               horizontal;
     children:                  [ "textbox-prompt-colon", "entry" ];
 }
 
@@ -82,21 +84,26 @@ entry {
 
 mode-switcher{
     enabled:                   true;
-    spacing:                   20px;
+    spacing:                   10px;
+    margin:                    0px;
+    padding:                   0px;
+    border-radius:             0px;
+    border:                    0px solid;
     background-color:          transparent;
     text-color:                @fg0;
 }
 
 button {
     padding:                   10px;
-    border-radius:             10px;
+    border:                    0px solid;
+    border-radius:             5px;
     background-color:          @bg1;
     text-color:                inherit;
     cursor:                    pointer;
 }
 
 button selected {
-    background-color:          @accent-color;
+    background-color:          @urgent-color;
     text-color:                @background;
 }
 
@@ -118,11 +125,18 @@ listview {
     cursor:                    "default";
 }
 
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @accent-color;
+    border-radius:               10px;
+    background-color:            @background;
+}
+
 element {
     enabled:                   true;
     spacing:                   15px;
     padding:                   8px;
-    border-radius:             10px;
+    border-radius:             5px;
     background-color:          transparent;
     text-color:                @fg0;
     cursor:                    pointer;
@@ -161,7 +175,7 @@ element selected.active {
 element-icon {
     background-color:          transparent;
     text-color:                inherit;
-    size:                      28px;
+    size:                      24px;
     cursor:                    inherit;
 }
 

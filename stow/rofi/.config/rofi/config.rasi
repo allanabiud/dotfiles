@@ -3,12 +3,12 @@
 
 configuration {
 	modi: "drun,calc,run";
-	display-drun: "Apps";
-	display-window: "Windows";
-	display-run: "Run";
-  display-calc: "Calc";
-	drun-display-format: "{icon} {name}";
+  display-drun: "";
+  display-calc: "";
+  display-run: "";
+  // display-window: "";
+	drun-display-format: "{name}";
 	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
-	icon-theme: "Colloid";
+  window-format: "{w}·{c}·{t}";
 }
