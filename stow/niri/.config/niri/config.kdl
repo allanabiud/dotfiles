@@ -121,6 +121,16 @@ layer-rule {
     match namespace="^swww-daemon$"
     place-within-backdrop true
 }
+layer-rule {
+    match namespace="^rofi$"
+    match namespace="^launcher$"
+
+    opacity 0.95
+    shadow {
+      on
+    }
+    geometry-corner-radius 4
+}
 
 
 // WORKSPACE RULES
@@ -134,7 +144,7 @@ workspace "4"
 // WINDOW RULES
 // General Window Rules
 window-rule {
-    geometry-corner-radius 1
+    geometry-corner-radius 2
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -244,6 +254,7 @@ window-rule {
     exclude app-id="xarchiver"
     exclude app-id="org.gnome.FileRoller"
     exclude app-id="org.gnome.Calculator"
+    exclude app-id="io.github.seadve.Kooha"
 
     open-on-workspace "4"
     open-focused true
@@ -361,11 +372,12 @@ binds {
     XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
     //Power
-    XF86PowerOff allow-when-locked=true { spawn-sh "wlogout -n"; }
+    XF86PowerOff allow-when-locked=true { spawn-sh "~/.config/rofi/scripts/powermenu.sh"; }
     
 
     // SCREENSHOT
-    Print      { screenshot; }
-    Shift+Print { screenshot-screen; }
-    Alt+Print  { screenshot-window; }
+    Print       { spawn-sh "~/.config/rofi/scripts/screenshot.sh"; }
+    Mod+Alt+S   { spawn-sh "~/.config/rofi/scripts/screenshot.sh"; }
+    // Shift+Print { screenshot-screen; }
+    // Alt+Print   { screenshot-window; }
 }
