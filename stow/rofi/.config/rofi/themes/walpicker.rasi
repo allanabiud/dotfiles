@@ -1,0 +1,65 @@
+@import   "/home/allanabiud/.cache/wal/colors-rofi-dark.rasi"
+
+// Global
+* {
+    background-color: transparent;
+}
+
+// Window
+window {
+    background-color: @background;
+    width: 1200px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: @selected-active-background;
+    padding: 0px;
+}
+
+// Main Box
+mainbox {
+    padding: 10px;
+    children: ["inputbar", "listview"];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     10px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:                @selected-active-background;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "prompt" ];
+
+}
+
+prompt {
+    enabled:                     true;
+    padding:                     12px;
+    border-radius:               5px;
+    background-color:            @selected-urgent-background;
+    text-color:                  @background;
+}
+
+// Listview
+listview {
+    padding: 2px;
+    spacing: 10px;
+    columns: 9;
+    lines: 1;
+    flow: horizontal;
+    children: [element-icon];
+}
+element {
+    border-radius: 10px;
+}
+element.selected {
+    border: 3px;
+    border-color: @active-background;
+}
+element-icon {
+    size: 260px 260px;
+    horizontal-align: 0;
+}

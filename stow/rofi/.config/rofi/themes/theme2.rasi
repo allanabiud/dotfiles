@@ -26,7 +26,7 @@ window {
     enabled:                   true;
     padding:                   0px;
     border:                    2px solid;
-    border-color:              @urgent-color;
+    border-color:              @accent-color;
     border-radius:             4px;
     cursor:                    "default";
     background-color:          @bg0;
@@ -158,7 +158,7 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:          @accent-color;
+    background-color:          @accent-color-alt;
     text-color:                @background;
 }
 

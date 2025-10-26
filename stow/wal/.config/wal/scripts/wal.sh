@@ -2,6 +2,7 @@
 
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 SYMLINK_PATH="$HOME/.config/wal/current_wallpaper"
+PYWAL_BIN="$HOME/.local/bin/wal"
 
 cd "$WALLPAPER_DIR" || {
   echo "Error: Wallpaper directory not found at $WALLPAPER_DIR"
@@ -26,7 +27,7 @@ done | rofi -dmenu -p "Choose Wallpaper:" -i)
 WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # generate colorscheme
-/home/allanabiud/.local/bin/wal --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
+"$PYWAL_BIN" --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
 
 # set wallpaper
 swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type grow --transition-pos top-right --transition-step 90

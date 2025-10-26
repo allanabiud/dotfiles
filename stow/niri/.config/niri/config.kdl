@@ -125,7 +125,7 @@ layer-rule {
     match namespace="^rofi$"
     match namespace="^launcher$"
 
-    opacity 0.95
+    // opacity 0.95
     shadow {
       on
     }
@@ -283,7 +283,8 @@ binds {
     Mod+Alt+Space  { spawn-sh "~/.config/rofi/scripts/webapps.sh"; }
     Mod+Alt+C      { spawn-sh "sh -c cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     //Scripts
-    Mod+Alt+P        { spawn-sh "~/.config/wal/scripts/wal.sh"; }
+    Mod+Alt+P        { spawn-sh "~/.config/rofi/scripts/walpicker.sh"; }
+    // Mod+Alt+P        { spawn-sh "~/.config/wal/scripts/wal.sh"; }
     Mod+Alt+W        { spawn-sh "~/.config/waybar/scripts/waybarrestart.sh"; }
     // Mod+Alt+O        { spawn-sh "~/.config/wal/scripts/colorscheme.sh"; }
 
