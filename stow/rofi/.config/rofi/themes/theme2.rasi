@@ -19,7 +19,7 @@ window {
     anchor:                    center;
     fullscreen:                false;
     width:                     420px;
-    height:                    440px;
+    height:                    480px;
     x-offset:                  0px;
     y-offset:                  0px;
 
@@ -43,7 +43,7 @@ mainbox {
 
 listbox {
     spacing:                   20px;
-    padding:                   5px;
+    padding:                   0px;
     background-color:          transparent;
     orientation:               vertical;
     children:                  [ "message", "listview" ];
@@ -57,7 +57,7 @@ inputbar {
     enabled:                   true;
     spacing:                   10px;
     margin:                    0px;
-    padding:                   10px;
+    padding:                   5px 0px;
     border-radius:             0px;
     background-color:          transparent;
     text-color:                @fg0;
@@ -68,13 +68,16 @@ inputbar {
 textbox-prompt-colon {
     enabled:                   true;
     expand:                    false;
-    str:                       "  ";
-    background-color:          inherit;
-    text-color:                inherit;
+    str:                       "";
+    padding:                   5px 18px 5px 15px;
+    border-radius:             5px;
+    background-color:          @urgent-color;
+    text-color:                @background;
 }
 
 entry {
     enabled:                   true;
+    padding:                   5px;
     background-color:          inherit;
     text-color:                inherit;
     cursor:                    text;

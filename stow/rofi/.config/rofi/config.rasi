@@ -2,13 +2,13 @@
 @theme "/home/allanabiud/.config/rofi/themes/theme2.rasi"
 
 configuration {
-	modi: "drun,calc,run";
+	modi: "drun,filebrowser,run,window";
   display-drun: "";
-  display-calc: "";
+  display-filebrowser: "";
   display-run: "";
-  // display-window: "";
+  display-window: "";
 	drun-display-format: "{name}";
 	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
-  window-format: "{w}·{c}·{t}";
+  window-format: "{w}{c} - {t}";
 }

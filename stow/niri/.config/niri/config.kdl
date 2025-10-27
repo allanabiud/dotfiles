@@ -107,6 +107,9 @@ environment {
 overview {
     zoom 0.4
     backdrop-color "#000000"
+    workspace-shadow {
+        off
+    }
 }
 
 gestures {
@@ -152,7 +155,7 @@ window-rule {
 window-rule {
     match is-focused=false
 
-    opacity 0.8
+    opacity 0.85
 }
 // 50% width
 window-rule {
@@ -173,6 +176,7 @@ window-rule {
     match title="(?i).*directory.*"
     match title="(?i).*Open File.*"
     match title="(?i).*Select Folder.*"
+    match title="(?i).*Select.*"
     match title="(?i).*Choose.*"
     match title="(?i).*Rename.*"
     match app-id="xarchiver"
@@ -255,6 +259,7 @@ window-rule {
     exclude title="(?i).*directory.*"
     exclude title="(?i).*Open File.*"
     exclude title="(?i).*Select Folder.*"
+    exclude title="(?i).*Select.*"
     exclude title="(?i).*Choose.*"
     exclude title="(?i).*Rename.*"
     exclude app-id="xarchiver"
@@ -273,7 +278,6 @@ binds {
     Mod+L  { spawn "hyprlock"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     // Mod+Shift+E { quit; }
-    // Ctrl+Alt+Delete { quit; }
     // Mod+Shift+Slash { show-hotkey-overlay; }
 
 
@@ -286,13 +290,11 @@ binds {
     //Alternate Launchers
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
-    Mod+Alt+Space  { spawn-sh "~/.config/rofi/scripts/webapps.sh"; }
-    Mod+Alt+C      { spawn-sh "sh -c cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+Alt+Space  { spawn-sh "~/dotfiles/scripts/rofi/systemmenu.sh"; }
+    Mod+Alt+C      { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     //Scripts
-    Mod+Alt+P        { spawn-sh "~/.config/rofi/scripts/walpicker.sh"; }
-    // Mod+Alt+P        { spawn-sh "~/.config/wal/scripts/wal.sh"; }
-    Mod+Alt+W        { spawn-sh "~/.config/waybar/scripts/waybarrestart.sh"; }
-    // Mod+Alt+O        { spawn-sh "~/.config/wal/scripts/colorscheme.sh"; }
+    Mod+Alt+P        { spawn-sh "~/dotfiles/scripts/rofi/walpicker-pywal.sh"; }
+    Mod+Alt+W        { spawn-sh "~/dotfiles/scripts/waybar/waybarrestart.sh"; }
 
 
     // WINDOW/COLUMN MANAGEMENT
@@ -366,9 +368,9 @@ binds {
 
     // MEDIA & HARDWARE CONTROLS
     //Volume
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.config/dunst/scripts/changeVolume +5%"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.config/dunst/scripts/changeVolume -5%"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "~/.config/dunst/scripts/changeVolume toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/dotfiles/scripts/dunst/changeVolume +5%"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/dotfiles/scripts/dunst/changeVolume -5%"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "~/dotfiles/scripts/dunst/changeVolume toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     //Brightness
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl s 10%-"; }
@@ -379,12 +381,9 @@ binds {
     XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
     //Power
-    XF86PowerOff allow-when-locked=true { spawn-sh "~/.config/rofi/scripts/powermenu.sh"; }
+    XF86PowerOff allow-when-locked=true { spawn-sh "~/dotfiles/scripts/rofi/powermenu.sh"; }
     
 
     // SCREENSHOT
-    Print       { spawn-sh "~/.config/rofi/scripts/screenshot.sh"; }
-    Mod+Alt+S   { spawn-sh "~/.config/rofi/scripts/screenshot.sh"; }
-    // Shift+Print { screenshot-screen; }
-    // Alt+Print   { screenshot-window; }
+    Print       { spawn-sh "~/dotfiles/scripts/rofi/screenshot-niri.sh"; }
 }

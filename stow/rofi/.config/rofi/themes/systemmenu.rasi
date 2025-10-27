@@ -1,0 +1,97 @@
+@import "/home/allanabiud/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font Medium 12";
+    bg0:     @background;
+    fg0:     @foreground;
+    accent:  @selected-active-background;
+    accent-alt: @selected-normal-background;
+    urgent:  @selected-urgent-background;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    width: 350px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: @accent;
+    background-color: @bg0;
+    padding: 20px;
+}
+
+mainbox {
+    spacing: 10px;
+    orientation: vertical;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    padding: 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    text-color: @fg0;
+    children: [ "textbox-prompt-colon" ];
+}
+
+textbox-prompt-colon {
+    str: "System Menu";
+    expand: false;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: @urgent;
+    text-color: @background;
+}
+
+entry {
+    padding: 5px;
+    placeholder: "Type to filter...";
+    text-color: @fg0;
+    background-color: inherit;
+}
+
+listview {
+    columns: 1;
+    lines: 6;
+    fixed-height: true;
+    spacing: 10px;
+    background-color: transparent;
+    scrollbar: false;
+}
+
+element {
+    padding: 14px;
+    border-radius: 8px;
+    background-color: @bg0;
+    text-color: @fg0;
+}
+
+element-text {
+    horizontal-align: 0;
+    vertical-align: 0.5;
+}
+
+element normal.normal {
+    background-color: @bg0;
+    text-color: @fg0;
+}
+
+element selected.normal {
+    background-color: @accent-alt;
+    text-color: @background;
+    border-radius: 8px;
+    border: 0px;
+}
+
+message {
+    background-color: transparent;
+}
+
+error-message {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: @urgent;
+    text-color: @background;
+}
+

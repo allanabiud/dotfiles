@@ -56,7 +56,7 @@ element {
     border-radius: 10px;
 }
 element.selected {
-    border: 3px;
+    border: 5px;
     border-color: @active-background;
 }
 element-icon {

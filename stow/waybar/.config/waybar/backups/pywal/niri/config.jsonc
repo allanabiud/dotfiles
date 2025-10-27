@@ -42,7 +42,7 @@
   // },
 
   "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
+    "exec": "~/dotfiles/scripts/waybar/niri_windowcount.sh",
     "format": "{}",
     "tooltip": false
   },

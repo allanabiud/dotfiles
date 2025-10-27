@@ -37,7 +37,7 @@ WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 "$PYWAL_BIN" --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
 
 # Set wallpaper with swww
-swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type grow --transition-pos top-right --transition-step 90
+swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type random --transition-step 90
 
 # === SYNC OTHER APPS ===
 # Telegram theme (if you use walogram)
