@@ -1,4 +1,5 @@
--- Enable GDScript LSP Manually (Not managed by mason)
+-- Enable LSPs Manually (Not managed by mason)
+-- GDScript LSP
 vim.lsp.enable("gdscript")
 
 -- Keymaps

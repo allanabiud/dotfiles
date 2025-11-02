@@ -13,6 +13,9 @@ options=(
 # -------- Rofi Menu -------- #
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Main Menu" -theme ~/.config/rofi/themes/systemmenu.rasi)
 
+# -------- Detect Session -------- #
+session=$(echo "$XDG_CURRENT_DESKTOP" | tr '[:upper:]' '[:lower:]')
+
 # -------- Menu Actions -------- #
 case "$choice" in
 "  Update")
@@ -25,13 +28,19 @@ case "$choice" in
   kitty bash -c "$HOME/dotfiles/scripts/rofi/systemmenu/remove.sh"
   ;;
 "  Screenshot")
-  ~/dotfiles/scripts/rofi/screenshot-niri.sh
+  if [[ "$session" == *"hyprland"* ]]; then
+    "$HOME/dotfiles/scripts/rofi/screenshot-hypr.sh"
+  elif [[ "$session" == *"niri"* ]]; then
+    "$HOME/dotfiles/scripts/rofi/screenshot-niri.sh"
+  else
+    notify-send "Screenshot" "Unsupported compositor: $session"
+  fi
   ;;
 "  Wallpaper")
-  ~/dotfiles/scripts/rofi/walpicker-pywal.sh
+  "$HOME/dotfiles/scripts/rofi/walpicker-pywal.sh"
   ;;
 "  Power")
-  ~/dotfiles/scripts/rofi/powermenu.sh
+  "$HOME/dotfiles/scripts/rofi/powermenu.sh"
   ;;
 *)
   exit 0

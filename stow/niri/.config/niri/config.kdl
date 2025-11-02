@@ -385,5 +385,5 @@ binds {
     
 
     // SCREENSHOT
-    Print       { spawn-sh "~/dotfiles/scripts/rofi/screenshot-niri.sh"; }
+    Mod+Print       { spawn-sh "~/dotfiles/scripts/rofi/screenshot-niri.sh"; }
 }

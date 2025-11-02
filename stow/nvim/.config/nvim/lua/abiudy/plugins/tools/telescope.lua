@@ -12,9 +12,6 @@ return {
       {
         "nvim-telescope/telescope-ui-select.nvim",
       },
-      {
-        "folke/todo-comments.nvim",
-      },
     },
     config = function()
       local telescope = require("telescope")
@@ -53,7 +50,7 @@ return {
       telescope.load_extension("ui-select")
       -- telescope.load_extension("flutter")
 
-      local keymap = vim.keymap -- for conciseness
+      local keymap = vim.keymap
       local builtin = require("telescope.builtin")
 
       keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [O]pen Buffers" })
@@ -95,9 +92,6 @@ return {
       keymap.set("n", "<leader>sn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, { desc = "[S]earch [N]eovim files" })
-
-      -- Custom Mappings
-      keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "[S]earch todos" })
     end,
   },
 }

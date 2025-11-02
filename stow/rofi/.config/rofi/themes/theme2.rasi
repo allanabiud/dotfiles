@@ -19,7 +19,7 @@ window {
     anchor:                    center;
     fullscreen:                false;
     width:                     420px;
-    height:                    480px;
+    height:                    440px;
     x-offset:                  0px;
     y-offset:                  0px;
 
@@ -69,7 +69,7 @@ textbox-prompt-colon {
     enabled:                   true;
     expand:                    false;
     str:                       "";
-    padding:                   5px 18px 5px 15px;
+    padding:                   5px 20px 5px 15px;
     border-radius:             5px;
     background-color:          @urgent-color;
     text-color:                @background;
@@ -86,7 +86,7 @@ entry {
 }
 
 mode-switcher{
-    enabled:                   true;
+    enabled:                   false;
     spacing:                   10px;
     margin:                    0px;
     padding:                   0px;

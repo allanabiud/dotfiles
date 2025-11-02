@@ -13,12 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- { import = "abiudy.plugins" },
-  { import = "abiudy.plugins.AI" },
-  { import = "abiudy.plugins.format-and-lint" },
   { import = "abiudy.plugins.lsp" },
-  { import = "abiudy.plugins.navigation" },
-  { import = "abiudy.plugins.productivity" },
+  { import = "abiudy.plugins.lsp.lsp-plugins" },
   { import = "abiudy.plugins.tools" },
   { import = "abiudy.plugins.ui" },
 }, {
