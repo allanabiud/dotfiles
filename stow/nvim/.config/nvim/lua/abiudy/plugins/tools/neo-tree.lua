@@ -39,6 +39,7 @@ return {
           indent_size = 2,
           padding = 0,
           with_markers = true,
+          highlight = "",
           -- with_expanders = true,
           -- expander_collapsed = "",
           -- expander_expanded = "",

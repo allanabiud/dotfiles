@@ -44,7 +44,8 @@ return {
 
     lualine.setup({
       options = {
-        theme = "onedark_dark",
+        theme = "vscode",
+        -- theme = "onedark_pro",
         component_separators = "|",
         section_separators = "",
         globalstatus = true,
@@ -122,7 +123,7 @@ return {
               for _, client in pairs(clients) do
                 table.insert(names, client.name)
               end
-              return " " .. table.concat(names, " ")
+              return " " .. table.concat(names, ",")
             end,
           },
         },
