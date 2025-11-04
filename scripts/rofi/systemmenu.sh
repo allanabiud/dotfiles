@@ -33,7 +33,7 @@ case "$choice" in
   elif [[ "$session" == *"niri"* ]]; then
     "$HOME/dotfiles/scripts/rofi/screenshot-niri.sh"
   else
-    notify-send "Screenshot" "Unsupported compositor: $session"
+    "$HOME/dotfiles/scripts/rofi/screenshot-hypr.sh"
   fi
   ;;
 "  Wallpaper")

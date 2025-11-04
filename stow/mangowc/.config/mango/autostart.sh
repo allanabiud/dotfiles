@@ -25,7 +25,7 @@ mpDris2 &
 wal -R &
 
 # pcmanfm daemon
-pcmanfm --daemon-mode &
+# pcmanfm --daemon-mode &
 
 # hypridle
 hypridle &
