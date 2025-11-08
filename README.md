@@ -16,7 +16,7 @@ All stow-managed packages are inside the `stow/` directory. For example:
 
 - `stow/nvim/.config/nvim/`
 
-Use GNU Stow to symlink everything:
+Use GNU Stow to symlink the dotfiles. For example:
 
 ```bash
 cd stow
