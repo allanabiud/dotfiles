@@ -19,7 +19,7 @@ window {
     anchor:                    center;
     fullscreen:                false;
     width:                     420px;
-    height:                    440px;
+    height:                    480px;
     x-offset:                  0px;
     y-offset:                  0px;
 
@@ -86,7 +86,7 @@ entry {
 }
 
 mode-switcher{
-    enabled:                   false;
+    enabled:                   true;
     spacing:                   10px;
     margin:                    0px;
     padding:                   0px;

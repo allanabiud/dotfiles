@@ -2,11 +2,11 @@
 @theme "/home/allanabiud/.config/rofi/themes/theme2.rasi"
 
 configuration {
-	modi: "drun,filebrowser,run,window";
+	modi: "drun,run";
   display-drun: "";
-  display-filebrowser: "";
+  // display-filebrowser: "";
   display-run: "";
-  display-window: "";
+  // display-window: "";
 	drun-display-format: "{name}";
 	font: "JetBrainsMono Nerd Font 10";
 	show-icons: true;
