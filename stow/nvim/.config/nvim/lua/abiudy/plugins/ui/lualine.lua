@@ -15,31 +15,34 @@ return {
     end
 
     local function shorten_path(path)
-      -- replace $HOME with ~
       path = path:gsub(vim.env.HOME, "~")
 
-      -- split into parts
-      local parts = vim.split(path, "/", { trimempty = true })
-      if #parts <= 6 then
-        return table.concat(parts, "/")
+      local win_width = vim.api.nvim_win_get_width(0)
+      local max_len = math.floor(win_width * 0.25) -- use about 25% of window width for path
+
+      if #path <= max_len then
+        return path
       end
 
-      -- keep first 2 and last 4
-      local new_parts = {}
-      vim.list_extend(new_parts, { parts[1], parts[2] })
-      table.insert(new_parts, "…")
-      vim.list_extend(new_parts, {
-        parts[#parts - 3],
-        parts[#parts - 2],
-        parts[#parts - 1],
-        parts[#parts],
-      })
+      local parts = vim.split(path, "/", { trimempty = true })
+      local new_path = parts[#parts] -- start from the end (deepest directory)
 
-      return table.concat(new_parts, "/")
+      -- prepend dirs until we exceed limit
+      for i = #parts - 1, 1, -1 do
+        local test_path = parts[i] .. "/" .. new_path
+        if #test_path + 3 > max_len then
+          new_path = "…/" .. new_path
+          break
+        end
+        new_path = test_path
+      end
+
+      return new_path
     end
 
     local function get_file_path()
-      return shorten_path(vim.fn.expand("%:p:h"))
+      local path = vim.fn.expand("%:p:h")
+      return shorten_path(path)
     end
 
     lualine.setup({
