@@ -44,7 +44,7 @@
             "f":       SeekForward,
             "R":       ToggleRepeat,
             "z":       ToggleRandom,
-            "c":       ToggleConsume,
+            "x":       ToggleConsume,
             "y":       ToggleSingle,
             "b":       SeekBack,
             "~":       ShowHelp,
