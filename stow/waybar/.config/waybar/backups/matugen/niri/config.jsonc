@@ -43,7 +43,7 @@
 
   "custom/niri_windows": {
     "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
-    "format": "{}",
+    "format": "[{}]",
     "tooltip": false
   },
 

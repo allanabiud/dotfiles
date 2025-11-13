@@ -38,7 +38,7 @@ input {
 
 // LAYOUT
 layout {
-    gaps 5
+    gaps 6
     center-focused-column "never"
 
     preset-column-widths {
@@ -51,14 +51,14 @@ layout {
     background-color "transparent"
 
     focus-ring {
-        off
+        // off
         width 2
         active-color "#d76035"
         inactive-color "#444444"
     }
 
     border {
-        // off
+        off
         width 2
         active-color "#d76035"
         inactive-color "#444444"
@@ -66,6 +66,7 @@ layout {
     }
 
     shadow {
+        // on
         softness 30
         spread 5
         offset x=0 y=5
@@ -73,8 +74,8 @@ layout {
     }
 
     struts { 
-        left 15
-        right 15
+        left 10
+        right 10
     }
 
     tab-indicator {
@@ -86,6 +87,11 @@ layout {
         corner-radius 2
         inactive-color "#444444"
         gaps-between-tabs 5
+    }
+
+    insert-hint {
+        // off
+        color "#ffc87f80"
     }
 }
 
