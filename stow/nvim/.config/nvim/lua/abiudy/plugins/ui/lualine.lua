@@ -47,8 +47,7 @@ return {
 
     lualine.setup({
       options = {
-        theme = "vscode",
-        -- theme = "onedark_pro",
+        theme = "tokyonight",
         component_separators = "|",
         section_separators = "",
         globalstatus = true,
