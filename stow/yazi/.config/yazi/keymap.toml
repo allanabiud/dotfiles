@@ -63,7 +63,7 @@ prepend_keymap = [
     { on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here"},
 
     # Recycle Bin Plugin
-    { on = ["R","b"], run = "plugin recycle-bin",              desc = "Open Recycle Bin menu" },
+    { on = ["g","t"], run = "plugin recycle-bin", desc = "Go to Trash" },
 ]
 
 keymap = [

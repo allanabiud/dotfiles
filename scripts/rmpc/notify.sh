@@ -22,4 +22,5 @@ fi
 # Send the notification using dunstify with a tag
 notify-send -i "${ALBUM_ART_PATH}" \
   -h string:x-dunst-stack-tag:now-playing \
+  -h string:synchronous:now-playing \
   "Now Playing" "$ARTIST - $TITLE"
