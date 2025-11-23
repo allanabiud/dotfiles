@@ -2,23 +2,29 @@
   "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
-  "margin-left": 5,
-  "margin-right": 5,
-  "margin-top": 2,
-  "margin-bottom": 0,
+  "height": 30,
+  // "margin-top": 2,
+  // "margin-left": 2,
+  // "margin-right": 2,
+  "margin-bottom": 2,
 
   "modules-left": [
     "niri/workspaces",
+    "custom/separator",
     "custom/niri_windows",
+    "custom/separator",
     "niri/window",
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
-    "idle_inhibitor",
     "tray",
+    "custom/separator",
+    "idle_inhibitor",
+    "custom/separator",
     "group/audio",
+    "custom/separator",
     "battery"
   ],
 
@@ -42,7 +48,7 @@
   // },
 
   "custom/niri_windows": {
-    "exec": "~/.config/waybar/scripts/niri_windowcount.sh",
+    "exec": "~/dotfiles/scripts/waybar/niri_windowcount.sh",
     "format": "[{}]",
     "tooltip": false
   },
@@ -122,7 +128,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "$HOME/.config/dunst/scripts/changeVolume toggle",
+    "on-click": "$HOME/dotfiles/scripts/arch/changeVolume toggle",
     "on-click-right": "pavucontrol"
   },
 
@@ -162,5 +168,10 @@
       "󰂂",
       "󰁹"
     ]
+  },
+
+  "custom/separator": {
+    "format": "│",
+    "tooltip": false
   }
 }

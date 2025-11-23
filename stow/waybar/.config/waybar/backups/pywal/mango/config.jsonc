@@ -103,7 +103,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "$HOME/.config/dunst/scripts/changeVolume toggle",
+    "on-click": "$HOME/dotfiles/scripts/arch/changeVolume toggle",
     "on-click-right": "pavucontrol"
   },
 

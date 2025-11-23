@@ -1,45 +1,42 @@
 @import "/home/allanabiud/.config/matugen/outputs/colors.css";
 
+/* Global styles */
 * {
   border: none;
   font-family:
     JetBrainsMono Nerd Font Propo,
-    Font Awesome,
-    sans-serif;
-  font-size: 12px;
+    Font Awesome;
+  font-size: 12.4px;
   border-radius: 2px;
-  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
-/* Window styling */
-window {
-  font-weight: bold;
-  background-color: @background;
-}
+/* Waybar window */
 window#waybar {
-  background: transparent;
-}
-window#waybar.empty #window {
-  background-color: transparent;
-  border: none;
-  color: transparent;
+  background: @background;
+  color: @on_background;
 }
 
 /* Module groups */
 .modules-left,
 .modules-center,
 .modules-right {
-  background-color: transparent;
+  background: transparent; /* Transparent backgrounds for module containers */
+  padding: 0px;
+  margin: 0;
 }
 
 /* Workspaces module */
 #workspaces {
-  background-color: @primary_container;
+  background: transparent;
 }
 #workspaces button {
-  padding: 0px 5px;
+  background: transparent;
+  color: @surface_variant;
+  padding: 0 5px;
+  margin: 0 2px;
   transition: all 0.3s;
-  color: @inverse_surface;
 }
 #workspaces button:hover {
   color: @surface_tint;
@@ -48,34 +45,37 @@ window#waybar.empty #window {
   color: @inverse_on_surface;
 }
 #workspaces button.active {
-  color: @inverse_surface;
+  color: @primary;
   font-weight: bold;
+  /* padding: 0px 5px; */
 }
-workspaces button.urgent {
-  background-color: @error;
+#workspaces button.urgent {
+  background: @error;
+  color: @on_error;
 }
 
 /* Custom module: niri_windows */
 #custom-niri_windows {
-  background-color: @secondary_container;
+  background: transparent;
   color: @on_secondary_container;
-  padding: 2px 6px;
+  padding: 0 6px;
   margin-left: 5px;
   font-weight: bold;
 }
 
-/* Tooltip */
-tooltip {
-  background-color: @secondary_container;
-  color: @on_secondary_container;
-}
-tooltip label {
-  color: @on_secondary_container;
+#custom-separator {
+  color: @outline_variant;
+  font-weight: bold;
 }
 
-/* Window module */
+tooltip {
+  background-color: @background;
+  border: 1px solid @surface_variant;
+  border-radius: 0;
+}
+
 #window {
-  background-color: @secondary_container;
+  background: transparent;
   margin: 0 0 0 5px;
   padding: 0 0 0 8px;
 }
@@ -83,39 +83,30 @@ tooltip label {
 /* Tray and other modules */
 #tray,
 #audio,
-#clock,
 #battery,
 #idle_inhibitor {
-  padding: 0 7px;
-  background-color: @secondary_container;
+  background: transparent;
+  padding: 0 5px;
   margin: 0 0 0 5px;
 }
 
 /* Clock */
 #clock {
-  background-color: @tertiary_container;
+  background: transparent;
   color: @on_tertiary_container;
-  padding: 0 7px;
-  margin: 0 0 0 5px;
   font-size: 14px;
   font-weight: bold;
 }
 
-/* Battery */
-#battery.charging {
-  background-color: @tertiary_container;
+/* Battery states */
+#battery.charging,
+#battery.warning,
+#battery.critical {
+  background: transparent;
   color: @on_tertiary_container;
 }
-#battery.warning:not(.charging) {
-  background-color: @tertiary;
-  color: @on_tertiary;
-}
-#battery.critical:not(.charging) {
-  background-color: @error;
-  color: @on_error;
-}
 
-/* MPRIS states */
+/* MPRIS */
 #mpris.playing {
   color: @surface_tint;
 }
@@ -134,9 +125,9 @@ tooltip label {
 /* PulseAudio */
 #pulseaudio {
   color: @on_surface;
-  padding: 0 2px;
-  background-color: transparent;
+  background: transparent;
   margin: 0;
+  padding: 0 2px;
   border: none;
 }
 #pulseaudio.muted {

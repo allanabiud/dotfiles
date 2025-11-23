@@ -26,8 +26,6 @@ output_path = '~/.config/gtk-4.0/colors.css'
 input_path = '~/.config/matugen/templates/colors.rasi'
 output_path = '~/.config/matugen/outputs/colors.rasi'
 
-[config]
-
 [templates.mako]
 input_path = '~/.config/matugen/templates/mako-colors'
 output_path = '~/.config/matugen/outputs/mako-colors'

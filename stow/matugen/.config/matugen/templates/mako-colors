@@ -1,8 +1,9 @@
 # Material You colors
 
-background-color={{colors.on_primary.default.hex}}
+background-color={{colors.background.default.hex}}
 text-color={{colors.tertiary.default.hex}}
 border-color={{colors.tertiary_container.default.hex}}
+progress-color=source {{colors.on_primary.default.hex}}
 # Per-mode settings
 
 [mode=do-not-disturb]

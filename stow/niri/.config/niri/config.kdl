@@ -39,7 +39,7 @@ input {
 
 // LAYOUT
 layout {
-    gaps 6
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -225,11 +225,11 @@ binds {
     //Application Launchers
     Mod+Return { spawn-sh "kitty"; }
     Mod+Space  { spawn-sh "rofi -show drun"; }
-    Mod+N      { spawn-sh "kitty --title=yazi -e yazi"; }
+    Mod+N      { spawn-sh "thunar"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
     //Alternate Launchers
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
-    Mod+Alt+N      { spawn-sh "thunar"; }
+    Mod+Alt+N      { spawn-sh "kitty --title=yazi -e yazi"; }
     Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
     Mod+Alt+Space  { spawn-sh "~/dotfiles/scripts/rofi/systemmenu.sh"; }
     Mod+Alt+C      { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }

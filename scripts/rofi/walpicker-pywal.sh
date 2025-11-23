@@ -34,7 +34,7 @@ done | rofi -dmenu -theme "$ROFI_THEME" -p "Wallpaper" -i)
 WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # Generate pywal colors
-"$PYWAL_BIN" --contrast 2.5 --saturate 0.6 -i "$WALLPAPER_PATH" -b "#000000" -n
+"$PYWAL_BIN" -i "$WALLPAPER_PATH" -b "#000000" -n
 
 # Set wallpaper with swww
 swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type random --transition-step 90
