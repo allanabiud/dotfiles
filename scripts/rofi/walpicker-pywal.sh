@@ -43,13 +43,12 @@ swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type random --transition
 # Telegram theme (if you use walogram)
 walogram
 
-# Dunst reload
-cp "$HOME/.cache/wal/dunstrc" "$HOME/.config/dunst/dunstrc"
-pkill dunst && sleep 0.5 && dunst &
+# Mako reload
+makoctl reload
 
 # Create symlink to current wallpaper
 mkdir -p "$(dirname "$SYMLINK_PATH")"
 ln -sf "$WALLPAPER_PATH" "$SYMLINK_PATH"
 
 # Notification
-dunstify -i "$WALLPAPER_PATH" -a "Pywal" "Wallpaper Changed" "Wallpaper: $SELECTED_WALL"
+notify-send -i "$WALLPAPER_PATH" -a "Pywal" "Wallpaper Changed" "Wallpaper: $SELECTED_WALL"
