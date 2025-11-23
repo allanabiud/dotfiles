@@ -47,7 +47,7 @@ return {
 
     lualine.setup({
       options = {
-        theme = "tokyonight",
+        theme = "pywal16-nvim",
         component_separators = "|",
         section_separators = "",
         globalstatus = true,
