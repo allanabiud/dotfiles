@@ -1,13 +1,28 @@
+# ---- Shell & Environment ----
 .zsh_history
-.env
-lazy-lock.json
 .zcompdump
-database
+.env
+
+# ---- Editor / Plugin Locks ----
+lazy-lock.json
+
+# ---- Databases / Caches ----
+database/
+
+# ---- Application caches & generated files ----
 stow/rmpc/.config/rmpc/lyrics/
 stow/gomp/.config/gomp/cache/
 stow/ncmpcpp/.config/ncmpcpp/lyrics/
 stow/tmux/.config/tmux/plugins/
 stow/yt-x/.config/yt-x/*.json
+
+# ---- pywal generated files ----
 stow/wal/.config/wal/current_wallpaper
 stow/wal/.config/wal/current_colorscheme
+
+# ---- Dunst local config overrides ----
 stow/dunst/.config/dunst/dunstrc
+
+# ---- GTK runtime generated settings ----
+stow/gtk-3.0/.config/gtk-3.0/settings.ini
+stow/gtk-4.0/.config/gtk-4.0/settings.ini
