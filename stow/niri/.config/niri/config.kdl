@@ -41,6 +41,7 @@ input {
 layout {
     gaps 8
     center-focused-column "never"
+    default-column-display "tabbed"
 
     preset-column-widths {
         proportion 0.5
@@ -81,7 +82,8 @@ layout {
 
     tab-indicator {
         width 8
-        gap 5
+        gap 8
+        hide-when-single-tab
         length total-proportion=0.5
         position "left"
         place-within-column
