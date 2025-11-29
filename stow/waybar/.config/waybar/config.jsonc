@@ -8,12 +8,13 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "niri/workspaces",
-    "custom/niri_windows",
-    "niri/window",
+    "clock",
   ],
   "modules-center": [
-    "clock"
+    "custom/niri_windows",
+    "niri/workspaces",
+    "niri/window",
+
   ],
   "modules-right": [
     "idle_inhibitor",

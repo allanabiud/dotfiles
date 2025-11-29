@@ -65,7 +65,7 @@ workspaces button.urgent {
   background-color: @color0;
   color: @color1;
   padding: 2px 6px;
-  margin-left: 5px;
+  margin-right: 5px;
   font-weight: bold;
 }
 
@@ -106,7 +106,6 @@ tooltip label {
 /* Tray and other modules */
 #tray,
 #audio,
-#clock,
 #battery,
 #idle_inhibitor {
   padding: 0 7px;
@@ -117,9 +116,11 @@ tooltip label {
 
 /* Clock */
 #clock {
-  font-size: 14px;
   color: @color3;
+  background-color: @color0;
+  font-size: 14px;
   font-weight: bold;
+  padding: 0 7px;
   border: 1.5px solid @color3;
 }
 
