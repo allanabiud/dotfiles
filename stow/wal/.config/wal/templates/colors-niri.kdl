@@ -27,3 +27,10 @@ layout {{
 overview {{
   backdrop-color "{color0}"
 }}
+
+recent-windows {{
+   highlight {{
+        active-color "{color1}"
+        urgent-color "{color5}"
+    }}
+}}

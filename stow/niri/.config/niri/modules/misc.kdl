@@ -25,3 +25,27 @@ gestures {
         off
     }
 }
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        padding 30
+        corner-radius 2
+    }
+
+    previews {
+        max-height 320
+        max-scale 0.35
+    }
+
+    binds {
+        Alt+Tab         { next-window     scope="workspace"; }
+        Alt+Shift+Tab   { previous-window scope="workspace"; }
+        Alt+grave       { next-window     scope="workspace" filter="app-id"; }
+        Alt+Shift+grave { previous-window scope="workspace" filter="app-id"; }
+    }
+}
