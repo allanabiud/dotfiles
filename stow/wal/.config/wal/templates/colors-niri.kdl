@@ -1,0 +1,29 @@
+layout {{
+  focus-ring {{
+    active-color "{color2}"
+    inactive-color "#444444"
+  }}
+
+  border {{
+    active-color "{color2}"
+    inactive-color "#444444"
+    urgent-color "{color5}"
+  }}
+
+  shadow {{
+    color "{color0}"
+  }}
+
+  tab-indicator {{
+    active-color "{color2}"
+    inactive-color "#444444"
+  }}
+
+  insert-hint {{
+    color "{color3}"
+  }}
+}}
+
+overview {{
+  backdrop-color "{color0}"
+}}

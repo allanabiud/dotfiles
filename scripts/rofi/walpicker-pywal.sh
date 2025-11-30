@@ -34,7 +34,7 @@ done | rofi -dmenu -theme "$ROFI_THEME" -p "Wallpaper" -i)
 WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # Generate pywal colors
-"$PYWAL_BIN" -i "$WALLPAPER_PATH" -b "#000000" -n
+"$PYWAL_BIN" -i "$WALLPAPER_PATH" -b "#000000" -n --contrast 2.0
 
 # Set wallpaper with swww
 swww img "$(cat "${HOME}/.cache/wal/wal")" --transition-type random --transition-step 90
@@ -45,6 +45,13 @@ walogram
 
 # Mako reload
 makoctl reload
+
+# Niri Colors
+if [ -f ~/.cache/wal/colors-niri.kdl ]; then
+  mkdir -p ~/.config/niri
+  cp ~/.cache/wal/colors-niri.kdl ~/.config/niri/modules/colors-niri.kdl
+  niri msg load-config-file
+fi
 
 # Create symlink to current wallpaper
 mkdir -p "$(dirname "$SYMLINK_PATH")"

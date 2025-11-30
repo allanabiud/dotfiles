@@ -1,0 +1,12 @@
+// STARTUP PROGRAMS
+spawn-sh-at-startup "swww-daemon"
+spawn-sh-at-startup "mako"
+spawn-sh-at-startup "waybar"
+spawn-sh-at-startup "nm-applet"
+spawn-sh-at-startup "blueman-applet"
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "wl-paste --type text --watch store"
+spawn-sh-at-startup "wl-paste --type image --watch store"
+spawn-sh-at-startup "hypridle"
+spawn-sh-at-startup "mpDris2"
+spawn-sh-at-startup "xwayland-satellite"

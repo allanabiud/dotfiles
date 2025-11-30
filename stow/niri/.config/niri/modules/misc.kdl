@@ -1,0 +1,27 @@
+// MISC
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/niri/Screenshot_%Y-%m-%d %H-%M-%S.png"
+
+animations { }
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+environment {
+    DISPLAY ":0"
+    EDITOR "nvim"
+}
+
+overview {
+    zoom 0.4
+    workspace-shadow {
+        off
+    }
+}
+
+gestures {
+    hot-corners { 
+        off
+    }
+}
