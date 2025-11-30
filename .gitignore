@@ -24,8 +24,8 @@ stow/wal/.config/wal/current_colorscheme
 stow/dunst/.config/dunst/dunstrc
 
 # ---- GTK runtime generated settings ----
-stow/gtk-3.0/.config/gtk-3.0/settings.ini
-stow/gtk-4.0/.config/gtk-4.0/settings.ini
+# stow/gtk-3.0/.config/gtk-3.0/settings.ini
+# stow/gtk-4.0/.config/gtk-4.0/settings.ini
 
 # ---- Niri Colors -----
 stow/niri/.config/niri/modules/colors-niri.kdl
