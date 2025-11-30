@@ -7,7 +7,6 @@ layer-rule {
     match namespace="^rofi$"
     match namespace="^launcher$"
 
-    // opacity 0.95
     shadow {
       on
     }
@@ -27,12 +26,32 @@ window-rule {
     clip-to-geometry true
     draw-border-with-background false
 }
-// Remove opacity on unfocused windows
+
+// Open in specific workspaces
+// Workspace 1
+window-rule {
+    match app-id="^vivaldi.*$"
+    match app-id="^fdm$"
+    match title="^rmpc$"
+
+    open-on-workspace "1"
+    open-focused true
+}
+
+// Force web apps to open normally and not maximized to screen edges
+window-rule {
+    match app-id="^vivaldi.*$"
+
+    open-maximized-to-edges false
+}
+
+// Reduce opacity on unfocused windows
 window-rule {
     match is-focused=false
 
     opacity 0.85
 }
+
 // 50% width
 window-rule {
     match app-id="pcmanfm"
@@ -70,15 +89,4 @@ window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     block-out-from "screen-capture"
-}
-
-// Open in specific workspaces
-// Workspace 1
-window-rule {
-    match app-id="^vivaldi.*$"
-    match app-id="^fdm$"
-    match title="^rmpc$"
-
-    open-on-workspace "1"
-    open-focused true
 }

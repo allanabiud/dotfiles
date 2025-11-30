@@ -59,14 +59,14 @@ workspaces button.urgent {
   background-color: @color2;
 }
 
-/* Custom module: niri_windows */
-#custom-niri_windows {
-  border: 1.5px solid @color1;
+#custom-niri-windows {
+  font-family: "Uiua386";
+  font-size: 18px;
   background-color: @color0;
   color: @color1;
-  padding: 2px 6px;
-  margin-right: 5px;
-  font-weight: bold;
+  border: 1.5px solid @color1;
+  padding: 0 7px;
+  margin: 0 0 0 5px;
 }
 
 /* Tooltip */

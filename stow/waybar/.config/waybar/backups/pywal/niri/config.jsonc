@@ -13,7 +13,8 @@
     "niri/window",
   ],
   "modules-center": [
-    "clock"
+    "clock",
+
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -31,15 +32,6 @@
     "on-click": "activate",
     "all-outputs": true
   },
-
-  // "niri/workspaces": {
-  //   "format": "{value}:{icon}",
-  //   "format-icons": {
-  //     "active": "",
-  //     "default": "",
-  //   },
-  //   "on-click": "activate",
-  // },
 
   "custom/niri_windows": {
     "exec": "~/dotfiles/scripts/waybar/niri_windowcount.sh",

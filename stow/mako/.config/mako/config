@@ -5,6 +5,7 @@ anchor=top-right
 default-timeout=5000
 outer-margin=5
 padding=5
+height=150
 border-size=2
 border-radius=2
 max-icon-size=32

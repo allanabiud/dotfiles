@@ -8,12 +8,12 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "clock",
+    "niri/workspaces",
+    "custom/niri-windows",
+    "niri/window",
   ],
   "modules-center": [
-    "custom/niri_windows",
-    "niri/workspaces",
-    "niri/window",
+    "clock",
 
   ],
   "modules-right": [
@@ -33,19 +33,14 @@
     "all-outputs": true
   },
 
-  // "niri/workspaces": {
-  //   "format": "{value}:{icon}",
-  //   "format-icons": {
-  //     "active": "",
-  //     "default": "",
-  //   },
-  //   "on-click": "activate",
-  // },
-
-  "custom/niri_windows": {
-    "exec": "~/dotfiles/scripts/waybar/niri_windowcount.sh",
-    "format": "[{}]",
-    "tooltip": false
+  "custom/niri-windows": {
+    "exec": "waybar-niri-windows -u '⦁'",
+    "return-type": "json",
+    "restart-interval": 1,
+    "hide-empty-text": true,
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
+    "on-click": "niri msg action toggle-overview"
   },
 
   "niri/window": {
