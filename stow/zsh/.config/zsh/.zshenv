@@ -1,5 +1,5 @@
 ### DEFAULT TERMINAL AND EDITOR
-export TERMINAL="/sbin/ghostty"
+export TERMINAL="/usr/sbin/kitty"
 export TERMCMD="ghostty"
 export EDITOR="/usr/bin/nvim"
 

@@ -11,10 +11,11 @@ hotkey-overlay {
 environment {
     DISPLAY ":0"
     EDITOR "nvim"
+    TERMINAL "kitty"
 }
 
 overview {
-    zoom 0.4
+    zoom 0.5
     workspace-shadow {
         off
     }

@@ -14,39 +14,25 @@ layout {
     background-color "transparent"
 
     focus-ring {
-        // off
-        width 2
-    }
-
-    border {
-        off
+        on
         width 2
     }
 
     shadow {
-        // on
+        on
         softness 30
         spread 5
         offset x=0 y=5
-    }
-
-    struts { 
-        left 10
-        right 10
     }
 
     tab-indicator {
         width 8
         gap 8
         hide-when-single-tab
-        length total-proportion=0.5
+        length total-proportion=0.7
         position "left"
         place-within-column
         corner-radius 2
-        gaps-between-tabs 5
-    }
-
-    insert-hint {
-        // off
+        gaps-between-tabs 4
     }
 }
