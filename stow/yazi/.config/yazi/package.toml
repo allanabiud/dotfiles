@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "6db0c60"
-hash = "4351334ef72ea0fb3bbafc6eec8738cf"
+rev = "d4b8d83"
+hash = "8767b5484bc3e8fc23796b91e0a102b2"
 
 [[plugin.deps]]
 use = "navysky12/comicthumb"
@@ -15,8 +15,8 @@ hash = "345d65c19cdd4bc0a2210bf1be50038c"
 
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
-rev = "1762676"
-hash = "c77042b4296544a9edb4849338056039"
+rev = "53ad17c"
+hash = "80221fe740a6f251d35845d29391bea7"
 
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"

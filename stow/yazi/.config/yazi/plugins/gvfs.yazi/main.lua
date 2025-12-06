@@ -1206,6 +1206,7 @@ local function get_mounted_path(device)
 					.. ' | grep -E "^local path: "',
 			})
 			:env("XDG_RUNTIME_DIR", XDG_RUNTIME_DIR)
+			:env("LC_ALL", "C")
 			:stderr(Command.PIPED)
 			:stdout(Command.PIPED)
 			:output()
@@ -1337,7 +1338,9 @@ local function mount_device(opts)
 			if stdout:find("\nUser: \n") or stdout:find("\nUser %[.*%]: \n") then
 				if retries < max_retry then
 					username, _ = show_input(
-						"Enter username " .. (device.uri and "(" .. device.uri .. ")" or "") .. ":",
+						"Enter username "
+							.. (device.name and ("(" .. device.name .. ")") or (device.uri and ("(" .. device.uri .. ")") or ""))
+							.. ":",
 						false,
 						username or stdout:match("User %[(.*)%]:") or ""
 					)
@@ -1359,7 +1362,9 @@ local function mount_device(opts)
 			then
 				if retries < max_retry then
 					service_domain, _ = show_input(
-						"Enter Domain " .. (device.uri and "(" .. device.uri .. ")" or "") .. ":",
+						"Enter Domain "
+							.. (device.name and ("(" .. device.name .. ")") or (device.uri and ("(" .. device.uri .. ")") or ""))
+							.. ":",
 						false,
 						service_domain or stdout:match("Domain %[(.*)%]:") or "WORKGROUP"
 					)
@@ -1410,7 +1415,9 @@ local function mount_device(opts)
 				if retries < max_retry then
 					if not is_pw_saved then
 						password, _ = show_input(
-							"Enter password " .. (device.uri and "(" .. device.uri .. ")" or "") .. ":",
+							"Enter password "
+								.. (device.name and ("(" .. device.name .. ")") or (device.uri and ("(" .. device.uri .. ")") or ""))
+								.. ":",
 							true
 						)
 						if password == nil then
@@ -1572,6 +1579,7 @@ local function get_gio_uri_from_local_path(path)
 			"gio info " .. path_quote(path) .. ' | grep "^uri:"',
 		})
 		:env("XDG_RUNTIME_DIR", XDG_RUNTIME_DIR)
+		:env("LC_ALL", "C")
 		:stderr(Command.PIPED)
 		:stdout(Command.PIPED)
 		:output()
@@ -1778,6 +1786,7 @@ local function mount_action(opts)
 					) .. ' | grep -E "^unix mount:.*x-gvfs-show.*"',
 				})
 				:env("XDG_RUNTIME_DIR", XDG_RUNTIME_DIR)
+				:env("LC_ALL", "C")
 				:stderr(Command.PIPED)
 				:stdout(Command.PIPED)
 				:status()
@@ -1889,6 +1898,7 @@ local function unmount_action(device, eject, force)
 					) .. ' | grep -E "^unix mount:.*x-gvfs-show.*"',
 				})
 				:env("XDG_RUNTIME_DIR", XDG_RUNTIME_DIR)
+				:env("LC_ALL", "C")
 				:stderr(Command.PIPED)
 				:stdout(Command.PIPED)
 				:status()
