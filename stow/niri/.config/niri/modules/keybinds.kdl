@@ -3,7 +3,7 @@ binds {
     // SYSTEM ACTIONS
     Mod+L  { spawn "hyprlock"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    // Mod+Shift+E { quit; }
+    Mod+Shift+E { quit; }
     // Mod+Shift+Slash { show-hotkey-overlay; }
 
 
@@ -51,8 +51,7 @@ binds {
     Mod+Shift+F      { fullscreen-window; }
     Mod+Ctrl+F       { expand-column-to-available-width; }
     Mod+C            { center-column; }
-    Mod+Shift+C      { center-window; }
-    Mod+Ctrl+C       { center-visible-columns; }
+    Mod+Shift+C      { center-visible-columns; }
     Mod+Minus        { set-column-width "-10%"; }
     Mod+Equal        { set-column-width "+10%"; }
 
@@ -82,15 +81,15 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+0 { move-column-to-workspace 10; }
-    //Move Workspaces
-    Mod+Ctrl+Page_Down  { move-workspace-down; }
-    Mod+Ctrl+Page_Up    { move-workspace-up; }
-    // Workspace Focus Prev/Next
+    //Workspace Focus Prev/Next
     Mod+Page_Down    { focus-workspace-down; }
     Mod+Page_Up      { focus-workspace-up; }
     //Move Columns Prev/Next
     Mod+Shift+Page_Down { move-column-to-workspace-down; }
     Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+    //Move Workspaces
+    Mod+Ctrl+Page_Down  { move-workspace-down; }
+    Mod+Ctrl+Page_Up    { move-workspace-up; }
   
 
     // MEDIA & HARDWARE CONTROLS
