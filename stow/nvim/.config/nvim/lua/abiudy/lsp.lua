@@ -1,6 +1,8 @@
 -- Enable LSPs Manually (Not managed by mason)
 -- GDScript LSP
 vim.lsp.enable("gdscript")
+-- GDShader LSP
+vim.lsp.enable("gdshader_lsp")
 
 -- Keymaps
 local keymap = vim.keymap
