@@ -1,5 +1,5 @@
 {
-  // "layer": "top",
+  "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
   "margin-left": 5,
@@ -8,11 +8,13 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "ext/workspaces",
-    "dwl/window",
+    "niri/workspaces",
+    "custom/niri-windows",
+    "niri/window",
   ],
   "modules-center": [
-    "clock"
+    "clock",
+
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -21,18 +23,31 @@
     "battery"
   ],
 
-  "ext/workspaces": {
+  "niri/workspaces": {
     "format": "{icon}",
-    "ignore-hidden": true,
+    "format-icons": {
+      "focused": "",
+      "default": ""
+    },
     "on-click": "activate",
-    "on-click-right": "deactivate",
-    "sort-by-id": true,
+    "all-outputs": true
   },
 
-  "dwl/window": {
-    "format": "[{layout}]",
+  "custom/niri-windows": {
+    "exec": "waybar-niri-windows -u '⦁'",
+    "return-type": "json",
+    "restart-interval": 1,
+    "hide-empty-text": true,
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
+    "on-click": "niri msg action toggle-overview"
+  },
+
+  "niri/window": {
+    "format": "",
     "icon": true,
-    "icon-size": 18,
+    "icon-size": 16,
+    "separate-outputs": true
   },
 
   "clock": {
@@ -92,8 +107,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱  ",
-    "format-muted": "",
+    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
+    "format-muted": "󰖁",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -127,7 +142,7 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 20,
+      "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
