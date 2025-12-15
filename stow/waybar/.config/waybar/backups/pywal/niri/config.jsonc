@@ -9,7 +9,7 @@
 
   "modules-left": [
     "niri/workspaces",
-    "custom/niri_windows",
+    "custom/niri-windows",
     "niri/window",
   ],
   "modules-center": [
@@ -33,10 +33,14 @@
     "all-outputs": true
   },
 
-  "custom/niri_windows": {
-    "exec": "~/dotfiles/scripts/waybar/niri_windowcount.sh",
-    "format": "[{}]",
-    "tooltip": false
+  "custom/niri-windows": {
+    "exec": "waybar-niri-windows -u '⦁'",
+    "return-type": "json",
+    "restart-interval": 1,
+    "hide-empty-text": true,
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
+    "on-click": "niri msg action toggle-overview"
   },
 
   "niri/window": {

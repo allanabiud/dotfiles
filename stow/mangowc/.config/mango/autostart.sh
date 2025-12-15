@@ -10,7 +10,10 @@ swww-daemon &
 waybar &
 
 # dunst
-dunst &
+# dunst &
+
+# mako
+mako
 
 # networkmanager
 nm-applet &
