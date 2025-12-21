@@ -76,6 +76,8 @@ alias activate="source .venv/bin/activate"
 alias uvr="uv run"
 # ----- lazygit ----------------
 alias lg="lazygit"
+# ----- sdkmanager -----------------------
+alias sdkmanager="sdkmanager --sdk_root=$HOME/DEV/Tools/Android-Tools"
 
 ####################################################################################################
 ### ----------------------------------------------------------------------------
