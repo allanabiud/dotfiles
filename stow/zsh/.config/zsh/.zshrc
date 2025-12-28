@@ -51,8 +51,6 @@ bindkey '^[[B' history-search-forward
 alias s="yay -Ss"
 alias i="yay -S"
 alias y="yay -Syu"
-# ---- git ------------
-alias gst="git status"
 # ---- grep ------------
 alias grep='grep --color'
 # ----- eza ---------------------------------
@@ -60,13 +58,6 @@ alias ls="eza --icons --group-directories-first -l"
 alias ll="eza --icons --group-directories-first -la"
 # ----- neovim ---------------------------------
 alias v="nvim"
-# ----- keepassxc-cli -----------------------
-# alias kp-search="keepassxc-cli search /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
-# alias kp-show="keepassxc-cli show /home/abiudy/Documents/KeePassXC/Passwords.kdbx --all"
-# alias kp-clip="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx"
-# alias kp-clip-a="keepassxc-cli clip /home/abiudy/Documents/KeePassXC/Passwords.kdbx -a"
-# ----- obsidian.nvim -----------------------
-alias notes="nvim ~/Desktop/Obsidian/"
 # ----- zellij -----------------------
 alias zellij="zellij -l welcome"
 alias zel="zellij -l welcome"
@@ -74,10 +65,6 @@ alias zel="zellij -l welcome"
 alias activate="source .venv/bin/activate"
 # ----- uv -----------------------
 alias uvr="uv run"
-# ----- lazygit ----------------
-alias lg="lazygit"
-# ----- sdkmanager -----------------------
-alias sdkmanager="sdkmanager --sdk_root=$HOME/DEV/Tools/Android-Tools"
 
 ####################################################################################################
 ### ----------------------------------------------------------------------------

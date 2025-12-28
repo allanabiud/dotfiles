@@ -41,8 +41,7 @@ export JAVA_HOME="/usr/lib/jvm/default/"
 
 ## ANDROID TOOLS
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
-export ANDROID_HOME="$HOME/DEV/Tools/Android-Tools/"
-export FLUTTER_HOME="$HOME/DEV/Tools/flutter/bin"
+export ANDROID_HOME="$HOME/DEV/Tools/Android-SDK/"
 
 ### PATH VARIABLES
 # Combined Path
@@ -52,7 +51,6 @@ path=(
   "$JAVA_HOME/bin"
   "$ANDROID_HOME/cmdline-tools/latest/bin"
   "$ANDROID_HOME/platform-tools"
-  "$FLUTTER_HOME/bin"
   $path
 )
 export PATH

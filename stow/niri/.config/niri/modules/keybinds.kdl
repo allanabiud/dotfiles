@@ -14,6 +14,7 @@ binds {
     Mod+N      { spawn-sh "thunar"; }
     Mod+B      { spawn-sh "vivaldi-stable"; }
     //Alternate Launchers
+    Mod+Alt+L      { spawn-sh "localsend"; }
     Mod+Alt+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Alt+N      { spawn-sh "kitty --title=yazi -e yazi"; }
     Mod+Alt+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
