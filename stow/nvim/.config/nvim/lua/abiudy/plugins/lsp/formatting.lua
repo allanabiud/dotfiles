@@ -17,6 +17,7 @@ return {
         ejs = { "prettier_ejs" },
         csharp = { "csharpier" },
         gdscript = { "gdformat" },
+        json = { "prettier" },
       },
       format_on_save = {
         lsp_fallback = true,
