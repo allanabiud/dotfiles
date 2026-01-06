@@ -10,9 +10,6 @@ return {
       enabled = true,
       timeout = 3000,
       render = "compact",
-      margin = {
-        top = 1,
-      },
     },
     -- IMAGE
     image = {
@@ -31,7 +28,7 @@ return {
     -- STYLES
     styles = {
       notification = {
-        wo = { wrap = true },
+        wo = { wrap = true }, -- Wrap notifications
       },
     },
     -- PICKER
