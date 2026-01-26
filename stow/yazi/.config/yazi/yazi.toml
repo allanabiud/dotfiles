@@ -86,17 +86,15 @@ suppress_preload = false
 prepend_preloaders = [
   { name = "/run/user/1000/gvfs/**/*", run = "noop" },
   { name = "/run/media/allanabiud/**/*", run = "noop" },
-  { name = "*.cb[7rz]", run = "comicthumb" },
 ]
 prepend_previewers = [
   { name = "*/", run = "folder" },
   { name = "/run/user/1000/gvfs/**/*", run = "noop" },
   { name = "/run/media/YOUR_USERNAME/**/*", run = "noop" },
-  { name = "*.cb[7rz]", run = "comicthumb" },
 ]
 fetchers = [
-	# Mimetype
-	{ id = "mime", name = "*", run = "mime", prio = "high" },
+  # mimetype
+  { id = "mime", url = "*", run = "mime.local", prio = "high" },
 ]
 spotters = [
 	{ name = "*/", run = "folder" },

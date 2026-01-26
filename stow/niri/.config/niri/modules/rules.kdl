@@ -61,6 +61,13 @@ window-rule {
     default-column-width { proportion 0.5; }
 }
 
+// 25% width
+window-rule {
+  match app-id="flet"
+
+  default-column-width { proportion 0.3; }
+}
+
 // Floating Window Rules
 window-rule {
     match app-id="zenity"

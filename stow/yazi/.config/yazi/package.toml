@@ -1,29 +1,24 @@
 [[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "30440c7"
+hash = "211b7d22478b907e5f6fd4fe27a923e"
+
+[[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "19dc890"
+rev = "6c71385"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
-use = "boydaihungst/gvfs"
-rev = "d4b8d83"
-hash = "8767b5484bc3e8fc23796b91e0a102b2"
-
-[[plugin.deps]]
-use = "navysky12/comicthumb"
-rev = "fa398e8"
-hash = "345d65c19cdd4bc0a2210bf1be50038c"
-
-[[plugin.deps]]
 use = "uhs-robert/recycle-bin"
-rev = "53ad17c"
-hash = "80221fe740a6f251d35845d29391bea7"
+rev = "fa68711"
+hash = "8714306b5cac6359edbacbf545fbd691"
 
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"
-rev = "5f56364"
-hash = "c0bf69ad2c44005892d586e9693993c6"
+rev = "8e6296f"
+hash = "d9da921c3bd37ba32ee27a8a7a40461f"
 
 [[flavor.deps]]
 use = "gosxrgxx/flexoki-dark"
 rev = "28e1977"
-hash = "9dbbb64ea20f9f1271c31951dea55c7b"
+hash = "bc4620db89cf55bd91906c239f8fa1a8"
