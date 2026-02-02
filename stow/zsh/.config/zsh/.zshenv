@@ -51,6 +51,7 @@ path=(
   "$JAVA_HOME/bin"
   "$ANDROID_HOME/cmdline-tools/latest/bin"
   "$ANDROID_HOME/platform-tools"
+  "$HOME/DEV/Tools/Flutter/flutter_linux_3.38.9/bin"
   $path
 )
 export PATH
