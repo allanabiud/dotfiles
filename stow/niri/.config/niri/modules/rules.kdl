@@ -64,6 +64,7 @@ window-rule {
 // 25% width
 window-rule {
   match app-id="flet"
+  match app-id="scrcpy"
 
   default-column-width { proportion 0.3; }
 }

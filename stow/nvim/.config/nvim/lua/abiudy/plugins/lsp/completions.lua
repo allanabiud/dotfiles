@@ -67,8 +67,8 @@ return {
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<Down>"] = cmp.mapping.select_next_item(),
         -- Scroll Documentation
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<S-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<S-f>"] = cmp.mapping.scroll_docs(4),
         -- Show completion window
         ["<C-Space>"] = cmp.mapping.complete(),
         -- Close completion window
