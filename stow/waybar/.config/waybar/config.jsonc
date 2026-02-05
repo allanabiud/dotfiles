@@ -1,5 +1,5 @@
 {
-  "layer": "top",
+  // "layer": "top",
   "exclusive": true,
   "reload_style_on_change": true,
   "margin-left": 5,
@@ -8,13 +8,11 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "niri/workspaces",
-    "custom/niri-windows",
-    "niri/window",
+    "ext/workspaces",
+    "dwl/window",
   ],
   "modules-center": [
-    "clock",
-
+    "clock"
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -23,31 +21,18 @@
     "battery"
   ],
 
-  "niri/workspaces": {
+  "ext/workspaces": {
     "format": "{icon}",
-    "format-icons": {
-      "focused": "",
-      "default": ""
-    },
+    "ignore-hidden": true,
     "on-click": "activate",
-    "all-outputs": true
+    "on-click-right": "deactivate",
+    "sort-by-id": true,
   },
 
-  "custom/niri-windows": {
-    "exec": "waybar-niri-windows -u '⦁'",
-    "return-type": "json",
-    "restart-interval": 1,
-    "hide-empty-text": true,
-    "on-scroll-up": "niri msg action focus-column-left",
-    "on-scroll-down": "niri msg action focus-column-right",
-    "on-click": "niri msg action toggle-overview"
-  },
-
-  "niri/window": {
-    "format": "",
+  "dwl/window": {
+    "format": "[{layout}]",
     "icon": true,
-    "icon-size": 16,
-    "separate-outputs": true
+    "icon-size": 18,
   },
 
   "clock": {
@@ -81,8 +66,8 @@
   },
 
   "mpris": {
-    "format": "{status_icon} {player} {player_icon}| ",
-    "format-paused": "{status_icon} {player} {player_icon}| ",
+    "format": "{status_icon} {player} {player_icon}· ",
+    "format-paused": "{status_icon} {player} {player_icon}· ",
     "format-stopped": "",
     "tooltip-format": "{dynamic}",
     "player-icons": {
@@ -107,8 +92,8 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂱 {volume}%",
-    "format-bluetooth-muted": "{icon} 󰂱 󰖁 ",
-    "format-muted": "󰖁",
+    "format-bluetooth-muted": "{icon} 󰂱  ",
+    "format-muted": "",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -142,7 +127,7 @@
     "states": {
       "good": 90,
       "warning": 30,
-      "critical": 15
+      "critical": 20,
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
