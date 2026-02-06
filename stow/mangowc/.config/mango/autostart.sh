@@ -15,12 +15,6 @@ waybar &
 # mako
 mako
 
-# networkmanager
-nm-applet &
-
-# blueman
-blueman-applet &
-
 # mpDris2
 mpDris2 &
 
