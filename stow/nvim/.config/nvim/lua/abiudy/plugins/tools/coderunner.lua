@@ -12,9 +12,6 @@ return {
   config = function()
     local code_runner = require("code_runner")
 
-    -- code_runner
-
-    -- setup
     code_runner.setup({
       mode = "float",
       float = {

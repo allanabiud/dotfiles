@@ -53,7 +53,7 @@ path=(
   "$ANDROID_HOME/platform-tools"
   "$HOME/.pub-cache/bin"
   "$HOME/DEV/Tools/Firebase"
-  "$HOME/DEV/Tools/Flutter/flutter_linux_3.38.9/bin"
+  "$HOME/DEV/Tools/Flutter/flutter_linux/bin"
   $path
 )
 export PATH
