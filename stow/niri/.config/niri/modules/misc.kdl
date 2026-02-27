@@ -28,7 +28,7 @@ gestures {
 }
 
 recent-windows {
-    // off
+    off
     debounce-ms 750
 
     open-delay-ms 150
