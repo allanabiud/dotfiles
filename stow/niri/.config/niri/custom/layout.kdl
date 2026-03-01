@@ -1,6 +1,5 @@
 // LAYOUT
 layout {
-    gaps 8
     center-focused-column "never"
     default-column-display "tabbed"
 
@@ -13,11 +12,6 @@ layout {
 
     default-column-width { proportion 1.0; }
     background-color "transparent"
-
-    focus-ring {
-        on
-        width 2
-    }
 
     shadow {
         on

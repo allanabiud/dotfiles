@@ -1,23 +1,18 @@
-// STARTUP PROGRAMS
-include "modules/startup.kdl"
+// Custom
+include "custom/startup.kdl"
+include "custom/layout.kdl"
+include "custom/misc.kdl"
+include "custom/inputs.kdl"
+include "custom/rules.kdl"
+// include "custom/colors-niri.kdl"
+// include "custom/keybinds.kdl"
+// include "custom/outputs.kdl"
 
-// COLORS
-include "modules/colors-niri.kdl"
-
-// INPUTS
-include "modules/inputs.kdl"
-
-// OUTPUTS
-include "modules/outputs.kdl"
-
-// LAYOUT
-include "modules/layout.kdl"
-
-// MISC
-include "modules/misc.kdl"
-
-// RULES
-include "modules/rules.kdl"
-
-// KEYBINDS
-include "modules/keybinds.kdl"
+// Include dms files
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/binds.kdl"
+include "dms/outputs.kdl"
+include "dms/cursor.kdl"
+include "dms/windowrules.kdl"
