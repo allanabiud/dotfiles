@@ -70,3 +70,6 @@ vim.opt.scrolloff = 10
 
 -- Godot
 vim.g.godot_executable = "usr/sbin/godot"
+
+-- End of Buffer Fill Characters
+vim.opt.fillchars = { eob = " " }
