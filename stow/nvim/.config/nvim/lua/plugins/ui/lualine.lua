@@ -47,7 +47,6 @@ return {
 
     lualine.setup({
       options = {
-        -- theme = "pywal16-nvim",
         theme = "base16",
         component_separators = "|",
         section_separators = "",
@@ -60,6 +59,7 @@ return {
           {
             "branch",
             icon = "",
+            color = { fg = "#151218", gui = "bold" },
           },
           { "diff" },
         },

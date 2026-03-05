@@ -72,8 +72,8 @@ binds {
     //Focus
     Mod+Up         { focus-window-up; }
     Mod+Down       { focus-window-down; }
-    Mod+Left       { focus-column-left; }
-    Mod+Right      { focus-column-right; }
+    Mod+Right      { focus-column-right-or-first; }
+    Mod+Left       { focus-column-left-or-last; }
     //Move
     Mod+Shift+Down   { move-window-down; }
     Mod+Shift+Up     { move-window-up; }
