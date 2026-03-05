@@ -1,3 +1,3 @@
-require("abiudy.core")
-require("abiudy.lazy")
-require("abiudy.lsp")
+require("core")
+require("lazy-config")
+require("lsp")

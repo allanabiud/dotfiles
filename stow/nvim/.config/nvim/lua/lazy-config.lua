@@ -13,10 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "abiudy.plugins.lsp" },
-  { import = "abiudy.plugins.lsp.lsp-plugins" },
-  { import = "abiudy.plugins.tools" },
-  { import = "abiudy.plugins.ui" },
+  { import = "plugins.lsp" },
+  { import = "plugins.lsp.lsp-plugins" },
+  { import = "plugins.tools" },
+  { import = "plugins.ui" },
 }, {
   checker = {
     enabled = true,

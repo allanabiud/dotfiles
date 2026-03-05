@@ -87,7 +87,7 @@ fastfetch
 
 ### Pywal
 # Import colorscheme from 'wal' asynchronously
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 ### Yazi Shell Wrapper
 function yz() {
