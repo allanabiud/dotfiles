@@ -59,6 +59,12 @@ window-rule {
     opacity 0.9
 }
 
+// 75% width
+window-rule {
+    match app-id="io.bassi.Amberol"
+
+    default-column-width { proportion 0.75; }
+}
 // 50% width
 window-rule {
     match app-id="thunar"

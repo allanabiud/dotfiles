@@ -8,7 +8,7 @@ binds {
     Mod+Space  { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+N      { spawn "thunar"; }
     Mod+B      { spawn "vivaldi-stable"; }
-    Mod+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
+    Mod+M      { spawn-sh "amberol"; }
     Mod+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
 
 
