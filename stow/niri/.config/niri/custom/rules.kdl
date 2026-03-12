@@ -41,7 +41,7 @@ workspace "1"
 window-rule {
     match app-id="^vivaldi.*$"
     match app-id="^fdm$"
-    match title="^rmpc$"
+    match app-id="io.bassi.Amberol"
 
     open-on-workspace "1"
     open-focused true
