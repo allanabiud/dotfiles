@@ -12,25 +12,25 @@
     modal_background_color: None,
     tab_bar: (
         enabled: true,
-        active_style: (fg: "black", bg: "red", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "red", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "red", modifiers: "Bold"),
-    borders_style: (fg: "red"),
-    highlight_border_style: (fg: "red"),
+    highlighted_item_style: (fg: "cyan", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "cyan", modifiers: "Bold"),
+    borders_style: (fg: "cyan"),
+    highlight_border_style: (fg: "cyan"),
     symbols: ( song: "", dir: "", marker: "\u{e0b0}", ellipsis: "..."),
     progress_bar: (
         symbols: ["—", "⭘", "-"],
         track_style: (fg: "black"),
-        elapsed_style: (fg: "red"),
-        thumb_style: (fg: "red"),
+        elapsed_style: (fg: "cyan"),
+        thumb_style: (fg: "cyan"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
         track_style: (),
         ends_style: (),
-        thumb_style: (fg: "red"),
+        thumb_style: (fg: "cyan"),
     ),
     song_table_format: [
         (
@@ -43,14 +43,6 @@
         ),
         (
             prop: (kind: Property(Artist),
-                style: (fg: "yellow", modifiers: "Bold"),
-                default: (kind: Text("Unknown"))
-            ),
-            width: "30%",
-            alignment: Left,
-        ),
-        (
-            prop: (kind: Property(Album),
                 style: (fg: "blue", modifiers: "Bold"),
                 default: (kind: Text("Unknown"))
             ),
@@ -58,8 +50,16 @@
             alignment: Left,
         ),
         (
+            prop: (kind: Property(Album),
+                style: (fg: "magenta", modifiers: "Bold"),
+                default: (kind: Text("Unknown"))
+            ),
+            width: "30%",
+            alignment: Left,
+        ),
+        (
             prop: (kind: Property(Duration),
-                style: (fg: "yellow", modifiers: "Bold"),
+                style: (fg: "blue", modifiers: "Bold"),
                 default: (kind: Text("-"))
             ),
             width: "10%",
@@ -70,17 +70,17 @@
         rows: [
             (
                 left: [
-                    (kind: Property(Status(StateV2(playing_label: "  Playing", playing_style: (fg: "magenta", modifiers: "Bold"), paused_label: "  Paused", paused_style: (fg: "yellow", modifiers: "Bold"), stopped_label: "  Stopped"))),
+                    (kind: Property(Status(StateV2(playing_label: "  Playing", playing_style: (fg: "green", modifiers: "Bold"), paused_label: "  Paused", paused_style: (fg: "yellow", modifiers: "Bold"), stopped_label: "  Stopped"))),
                     ),
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (fg: "yellow", modifiers: "Bold"),
+                    (kind: Property(Song(Title)), style: (fg: "cyan", modifiers: "Bold"),
                         default: (kind: Text("No Song"), style: (modifiers: "Bold"))
                     )
                 ],
                 right: [
                     (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-                    (kind: Text("  Vol: "), style: (fg: "red", modifiers: "Bold")),
+                    (kind: Text("  Vol: "), style: (fg: "magenta", modifiers: "Bold")),
                     (kind: Property(Status(Volume)), style: (fg: "magenta", modifiers: "Bold")),
                     (kind: Text("%"), style: (fg: "magenta", modifiers: "Bold")),
                     (kind: Text(" ")),
@@ -88,33 +88,33 @@
             ),
             (
                 left: [
-                    (kind: Text("[ "), style: (fg: "yellow")),
-                    (kind: Property(Status(Elapsed)), style: (fg: "magenta", modifiers: "Bold")),
-                    (kind: Text(" / "), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Property(Status(Duration)), style: (fg: "red", modifiers: "Bold")),
-                    (kind: Text(" ]"), style: (fg: "yellow")),
+                    (kind: Text("[ "), style: (fg: "blue")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "cyan", modifiers: "Bold")),
+                    (kind: Text(" / "), style: (fg: "blue", modifiers: "Bold")),
+                    (kind: Property(Status(Duration)), style: (fg: "blue", modifiers: "Bold")),
+                    (kind: Text(" ]"), style: (fg: "blue")),
                 ], 
                 center: [
                     (kind: Property(Song(Artist)), style: (fg: "blue", modifiers: "Bold"),
                         default: (kind: Text("Unknown"), style: (fg: "blue", modifiers: "Bold"))
                     ),
-                    (kind: Text(" ["), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text(" ["), style: (fg: "magenta", modifiers: "Bold")),
                     (kind: Property(Song(Other("date"))),
-                        style: (fg: "yellow", modifiers: "Bold"),
+                        style: (fg: "magenta", modifiers: "Bold"),
                         default: (kind: Text("Unknown Date"))
                     ),
-                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "magenta", modifiers: "Bold")),
                 ],
                 right: [
-                    (kind: Text("[ "), style: (fg: "yellow")),
-                    (kind: Property(Status(RepeatV2(on_label: " ", off_label: " ", on_style: (fg: "magenta", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
-                    (kind: Text(" | "), style: (fg: "yellow")),
-                    (kind: Property(Status(RandomV2(on_label: " ", off_label: " ", on_style: (fg: "magenta", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
-                    (kind: Text(" | "), style: (fg: "yellow")),
-                    (kind: Property(Status(ConsumeV2(on_label: "", off_label: "", oneshot_label: "", on_style: (fg: "magenta", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
-                    (kind: Text(" | "), style: (fg: "yellow")),
-                    (kind: Property(Status(SingleV2(on_label: " ", off_label: " ", oneshot_label: " ", on_style: (fg: "magenta", modifiers: "Bold"), off_style: (fg: "red", modifiers: "Dim"))))),
-                    (kind: Text(" ]"), style: (fg: "yellow")),
+                    (kind: Text("[ "), style: (fg: "blue")),
+                    (kind: Property(Status(RepeatV2(on_label: " ", off_label: " ", on_style: (fg: "cyan", modifiers: "Bold"), off_style: (fg: "blue", modifiers: "Dim"))))),
+                    (kind: Text(" | "), style: (fg: "blue")),
+                    (kind: Property(Status(RandomV2(on_label: " ", off_label: " ", on_style: (fg: "cyan", modifiers: "Bold"), off_style: (fg: "blue", modifiers: "Dim"))))),
+                    (kind: Text(" | "), style: (fg: "blue")),
+                    (kind: Property(Status(ConsumeV2(on_label: "", off_label: "", oneshot_label: "", on_style: (fg: "cyan", modifiers: "Bold"), off_style: (fg: "blue", modifiers: "Dim"))))),
+                    (kind: Text(" | "), style: (fg: "blue")),
+                    (kind: Property(Status(SingleV2(on_label: " ", off_label: " ", oneshot_label: " ", on_style: (fg: "cyan", modifiers: "Bold"), off_style: (fg: "blue", modifiers: "Dim"))))),
+                    (kind: Text(" ]"), style: (fg: "blue")),
                 ]
             ),
         ],
@@ -173,4 +173,3 @@
       ],
   ),
 )
-
