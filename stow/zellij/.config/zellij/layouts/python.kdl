@@ -1,0 +1,48 @@
+layout {
+    // Compact UI Template
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+        children
+    }
+
+    // Tab 1: Neovim Editor
+    tab name="Editor" focus=true {
+        pane command="nvim"
+    }
+
+    // Tab 2: CLI / Terminal
+    tab name="CLI" {
+        pane
+    }
+
+    // Tab 3: REPL / Interactive
+    // Useful for testing snippets in IPython or the standard shell
+    tab name="REPL" {
+        pane command="ipython" {
+            // Falls back to python if ipython isn't installed
+            args "||" "python3" 
+        }
+    }
+
+    // Tab 4: Tests & Linting
+    // Split vertically so you can see your test results and run manual checks
+    tab name="Tests" {
+        pane split_direction="vertical" {
+            pane name="Pytest" command="pytest" {
+                args "-vv"
+                start_suspended true // Wait for you to press Enter to run
+            }
+            pane name="Lint/Format" {
+                command "watch"
+                args "ruff check ."
+            }
+        }
+    }
+
+    // Tab 5: AI / Docs
+    tab name="AI" {
+        pane
+    }
+}

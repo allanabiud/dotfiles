@@ -1,0 +1,31 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+        children
+    }
+
+    // Tab 1: Editor
+    tab name="Editor" focus=true {
+        pane command="nvim"
+    }
+
+    // Tab 2: Run / Debug
+    tab name="Flutter Run" {
+        pane command="flutter" {
+            args "run"
+            start_suspended true
+        }
+    }
+
+    // Tab 3: CLI / Terminal
+    tab name="CLI" {
+        pane
+    }
+
+    // Tab 4: AI / Documentation
+    tab name="AI" {
+        pane
+    }
+}

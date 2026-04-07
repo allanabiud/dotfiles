@@ -1,0 +1,51 @@
+layout {
+    // Compact UI Template
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+        children
+    }
+
+    // Tab 1: Neovim Editor
+    tab name="Editor" focus=true {
+        pane command="nvim"
+    }
+
+    // Tab 2: Development Server
+    tab name="Server" {
+        pane command="python" {
+            args "manage.py" "runserver"
+            start_suspended true
+        }
+    }
+
+    // Tab 3: CLI / Terminal
+    tab name="CLI" {
+        pane
+    }
+
+    // Tab 4: Database & Migrations
+    // Split vertically: Top for migrations, Bottom for the DB shell
+    tab name="DB" {
+        pane split_direction="vertical" {
+            pane name="Migrations" {
+                command "python"
+                args "manage.py" "makemigrations"
+                start_suspended true
+            }
+            pane name="Shell" {
+                command "python"
+                args "manage.py" "shell"
+                start_suspended true
+            }
+        }
+    }
+
+    // Tab 5: AI
+    tab name="AI" {
+        pane split_direction="horizontal" {
+            pane name="AI"
+        }
+    }
+}
