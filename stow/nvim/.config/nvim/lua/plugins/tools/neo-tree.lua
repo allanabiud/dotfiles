@@ -95,8 +95,8 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", { silent = true })
-    vim.keymap.set("n", "<leader>1", ":Neotree filesystem<CR>", { silent = true })
-    vim.keymap.set("n", "<leader>2", ":Neotree document_symbols<CR>", { silent = true })
+    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", { desc = "Toggle file explorer", silent = true })
+    vim.keymap.set("n", "<leader>1", ":Neotree filesystem<CR>", { desc = "Open file explorer", silent = true })
+    vim.keymap.set("n", "<leader>2", ":Neotree document_symbols<CR>", { desc = "Open document symbols explorer", silent = true })
   end,
 }

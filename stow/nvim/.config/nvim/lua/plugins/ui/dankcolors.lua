@@ -74,7 +74,7 @@ return {
 				italic = true
 			})
 
-			local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/dankcolors.lua"
+			local current_file_path = vim.fn.stdpath("config") .. "/lua/plugins/ui/dankcolors.lua"
 			if not _G._matugen_theme_watcher then
 				local uv = vim.uv or vim.loop
 				_G._matugen_theme_watcher = uv.new_fs_event()

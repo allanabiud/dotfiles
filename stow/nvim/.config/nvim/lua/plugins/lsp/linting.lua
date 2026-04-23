@@ -26,8 +26,7 @@ return {
 
     -- mypy
     lint.linters.mypy.args = {
-      "--config",
-      ["ignore_missing_imports"] = true,
+      "--ignore-missing-imports",
     }
     -- eslint_d
     lint.linters.eslint_d = {

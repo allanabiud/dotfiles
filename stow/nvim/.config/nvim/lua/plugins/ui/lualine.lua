@@ -4,6 +4,48 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
+    local colors = {
+      bg = "#151218",
+      bg_alt = "#1d1a21",
+      fg = "#faf8ff",
+      fg_muted = "#9c98a4",
+      accent = "#dac7ff",
+      green = "#a5ffb9",
+      red = "#ff9fb2",
+    }
+
+    local theme = {
+      normal = {
+        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.bg_alt },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+      insert = {
+        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.bg_alt },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+      visual = {
+        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.bg_alt },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+      replace = {
+        a = { fg = colors.bg, bg = colors.red, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.bg_alt },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+      command = {
+        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+        b = { fg = colors.fg, bg = colors.bg_alt },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+      inactive = {
+        a = { fg = colors.fg_muted, bg = colors.bg },
+        b = { fg = colors.fg_muted, bg = colors.bg },
+        c = { fg = colors.fg_muted, bg = colors.bg },
+      },
+    }
 
     -- Define highlight groups
     vim.api.nvim_set_hl(0, "WinBarPath", { fg = "#a0a8b9" })
@@ -47,7 +89,7 @@ return {
 
     lualine.setup({
       options = {
-        theme = "base16",
+        theme = theme,
         component_separators = "|",
         section_separators = "",
         globalstatus = true,
@@ -59,7 +101,7 @@ return {
           {
             "branch",
             icon = "",
-            color = { fg = "#151218", gui = "bold" },
+            color = { fg = colors.fg, gui = "bold" },
           },
           { "diff" },
         },

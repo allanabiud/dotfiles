@@ -4,8 +4,8 @@ local opts = { silent = true, noremap = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- clear search highlights
-vim.keymap.set("n", "<C-c", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
+-- Clear search highlights
+vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
 
 -- Move window focus
@@ -15,13 +15,17 @@ vim.keymap.set("n", "<C-down>", "<C-w><C-j>", { desc = "Move focus to the lower 
 vim.keymap.set("n", "<C-up>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Comment
-vim.keymap.set("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
-vim.keymap.set("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
+vim.keymap.set("n", "<C-/>", "gcc", { desc = "Toggle comment", remap = true })
+vim.keymap.set("v", "<C-/>", "gc", { desc = "Toggle comment", remap = true })
 
--- Tabbing
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+-- Indentation
+vim.keymap.set("v", "<", "<gv", vim.tbl_extend("force", opts, { desc = "Indent left and keep selection" }))
+vim.keymap.set("v", ">", ">gv", vim.tbl_extend("force", opts, { desc = "Indent right and keep selection" }))
 
 -- Move line up/down
 vim.keymap.set("v", "<S-up>", ":m '<-2<CR>gv=gv", { desc = "Move line down in visual mode" })
 vim.keymap.set("v", "<S-down>", ":m '>+1<CR>gv=gv", { desc = "Move line up in visual mode" })
+
+-- Page navigation with recenter
+vim.keymap.set("n", "<PageUp>", "<PageUp>zz", { desc = "Page up and center cursor line" })
+vim.keymap.set("n", "<PageDown>", "<PageDown>zz", { desc = "Page down and center cursor line" })

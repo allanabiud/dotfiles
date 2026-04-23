@@ -13,6 +13,8 @@ return {
         markdown = { "prettier" },
         bash = { "shfmt" },
         python = { "isort", "black" },
+        -- Use dartls (LSP) formatting via format_on_save fallback
+        dart = {},
         go = { "gofmt" },
         ejs = { "prettier_ejs" },
         csharp = { "csharpier" },

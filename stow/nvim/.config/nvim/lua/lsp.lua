@@ -1,4 +1,16 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if ok_cmp then
+  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+end
+
+vim.lsp.config("dartls", {
+  capabilities = capabilities,
+})
+
 -- Enable LSPs Manually (Not managed by mason)
+-- Dart LSP
+vim.lsp.enable("dartls")
 -- GDScript LSP
 vim.lsp.enable("gdscript")
 -- GDShader LSP
@@ -11,19 +23,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local opts = { buffer = ev.buf, silent = true }
 
-    opts.desc = "See available code actions"
+    opts.desc = "Code actions"
     keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-    opts.desc = "Smart rename"
+    opts.desc = "Rename symbol"
     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-    opts.desc = "Go to previous diagnostic"
+    opts.desc = "Previous diagnostic"
     keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
-    opts.desc = "Go to next diagnostic"
+    opts.desc = "Next diagnostic"
     keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-    opts.desc = "Show documentation"
+    opts.desc = "Hover documentation"
     keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     opts.desc = "Restart LSP"

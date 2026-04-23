@@ -36,7 +36,7 @@ return {
     },
     -- PICKER
     picker = {
-      enabled = true,
+      enabled = false,
       layout = {
         cycle = true,
       },
