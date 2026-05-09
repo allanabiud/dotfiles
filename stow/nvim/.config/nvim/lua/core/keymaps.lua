@@ -27,5 +27,5 @@ vim.keymap.set("v", "<S-up>", ":m '<-2<CR>gv=gv", { desc = "Move line down in vi
 vim.keymap.set("v", "<S-down>", ":m '>+1<CR>gv=gv", { desc = "Move line up in visual mode" })
 
 -- Page navigation with recenter
-vim.keymap.set("n", "<PageUp>", "<PageUp>zz", { desc = "Page up and center cursor line" })
-vim.keymap.set("n", "<PageDown>", "<PageDown>zz", { desc = "Page down and center cursor line" })
+-- vim.keymap.set("n", "<PageUp>", "<PageUp>zz", { desc = "Page up and center cursor line" })
+-- vim.keymap.set("n", "<PageDown>", "<PageDown>zz", { desc = "Page down and center cursor line" })

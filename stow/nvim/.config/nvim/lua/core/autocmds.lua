@@ -10,11 +10,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Associate Django template files with htmldjango filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = {
-    "*/templates/*.html",
-    "*/templates/*/*.html",
-  },
-  command = "set filetype=htmldjango",
+  pattern = "*.html",
+  callback = function(args)
+    if args.match:find("/templates/", 1, true) then
+      vim.bo[args.buf].filetype = "htmldjango"
+    end
+  end,
 })
 
 -- Associate EJS files with ejs filetype
