@@ -4,12 +4,12 @@ binds {
     Mod+Shift+E { quit; }
 
     // === Application Launchers ===
-    Mod+Return { spawn "alacritty"; }
+    Mod+Return { spawn "kitty"; }
     Mod+Space  { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+N      { spawn "thunar"; }
     Mod+B      { spawn "vivaldi-stable"; }
-    Mod+M      { spawn-sh "alacritty --title=rmpc -e rmpc"; }
-    Mod+Z      { spawn-sh "alacritty --title=zellij -e zellij -l welcome"; }
+    Mod+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
+    Mod+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
 
 
     // DMS TOOLS
