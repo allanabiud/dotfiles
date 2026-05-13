@@ -4,13 +4,9 @@ include "custom/layout.kdl"
 include "custom/misc.kdl"
 include "custom/inputs.kdl"
 include "custom/rules.kdl"
-// include "custom/colors-niri.kdl"
-// include "custom/keybinds.kdl"
-// include "custom/outputs.kdl"
 
 // Include dms files
 include "dms/colors.kdl"
-include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
 include "dms/outputs.kdl"

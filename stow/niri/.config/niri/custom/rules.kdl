@@ -23,11 +23,12 @@ workspace "1"
 
 // WINDOW RULES
 // General Window Rules
-// window-rule {
-//     geometry-corner-radius 2
-//     clip-to-geometry true
-//     draw-border-with-background false
-// }
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+    tiled-state true
+    draw-border-with-background false
+}
 
 // Open dms windows as floating by default
 // window-rule {
@@ -59,17 +60,11 @@ window-rule {
     opacity 0.9
 }
 
-// 75% width
-window-rule {
-    match app-id="io.bassi.Amberol"
-
-    default-column-width { proportion 0.75; }
-}
 // 50% width
 window-rule {
     match app-id="thunar"
+    match app-id="localsend"
     match app-id="org.gnome.Nautilus"
-    match app-id="org.localsend.localsend_app"
 
     default-column-width { proportion 0.5; }
 }
@@ -100,11 +95,4 @@ window-rule {
 window-rule {
     match is-floating=true
     default-floating-position x=430 y=200
-}
-
-// Block out password managers from screen capture.
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    block-out-from "screen-capture"
 }

@@ -1,5 +1,14 @@
 // LAYOUT
 layout {
+    gaps 8
+
+    border {
+        width 2
+    }
+
+    focus-ring {
+        width 2
+    }
     center-focused-column "never"
     default-column-display "tabbed"
 
@@ -14,7 +23,7 @@ layout {
     background-color "transparent"
 
     shadow {
-        on
+        off
         softness 30
         spread 10
         offset x=0 y=5
