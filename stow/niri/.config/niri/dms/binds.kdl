@@ -6,7 +6,7 @@ binds {
     // === Application Launchers ===
     Mod+Return { spawn "kitty"; }
     Mod+Space  { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+N      { spawn "thunar"; }
+    Mod+N      { spawn "pcmanfm"; }
     Mod+B      { spawn "vivaldi-stable"; }
     Mod+M      { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }

@@ -2,6 +2,50 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
+    cmd = "Telescope",
+    keys = {
+      { "<leader>sb", "<cmd>Telescope buffers<cr>", desc = "Search open buffers" },
+      { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Search help tags" },
+      { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Search keymaps" },
+      { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search files" },
+      { "<leader>ss", "<cmd>Telescope builtin<cr>", desc = "Search Telescope pickers" },
+      { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Search current word" },
+      { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Search by grep" },
+      { "<leader>sd", "<cmd>Telescope diagnostics<cr>", desc = "Search diagnostics" },
+      { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Resume last search" },
+      { "<leader>s.", "<cmd>Telescope oldfiles<cr>", desc = "Search recent files" },
+      { "<leader><leader>", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+      { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git commits" },
+      { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git branches" },
+      { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git status" },
+      {
+        "<leader>/",
+        function()
+          require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+            winblend = 10,
+            previewer = false,
+          }))
+        end,
+        desc = "Search in current buffer",
+      },
+      {
+        "<leader>s/",
+        function()
+          require("telescope.builtin").live_grep({
+            grep_open_files = true,
+            prompt_title = "Live Grep in Open Files",
+          })
+        end,
+        desc = "Search in open files",
+      },
+      {
+        "<leader>sn",
+        function()
+          require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+        end,
+        desc = "Search Neovim files",
+      },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -67,50 +111,6 @@ return {
       -- Enable Telescope extensions if they are installed
       telescope.load_extension("fzf")
       telescope.load_extension("ui-select")
-      -- telescope.load_extension("flutter")
-
-      local keymap = vim.keymap
-      local builtin = require("telescope.builtin")
-
-      keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Search open buffers" })
-      keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search help tags" })
-      keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search keymaps" })
-      keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search files" })
-      keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Telescope pickers" })
-      keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current word" })
-      keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by grep" })
-      keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search diagnostics" })
-      keymap.set("n", "<leader>sr", builtin.resume, { desc = "Resume last search" })
-      keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = "Search recent files" })
-      keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find buffers" })
-
-      -- Git
-      keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
-      keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git branches" })
-      keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
-
-      -- Slightly advanced example of overriding default behavior and theme
-      keymap.set("n", "<leader>/", function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-          winblend = 10,
-          previewer = false,
-        }))
-      end, { desc = "Search in current buffer" })
-
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      keymap.set("n", "<leader>s/", function()
-        builtin.live_grep({
-          grep_open_files = true,
-          prompt_title = "Live Grep in Open Files",
-        })
-      end, { desc = "Search in open files" })
-
-      -- Shortcut for searching Neovim configuration files
-      keymap.set("n", "<leader>sn", function()
-        builtin.find_files({ cwd = vim.fn.stdpath("config") })
-      end, { desc = "Search Neovim files" })
     end,
   },
 }

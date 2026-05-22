@@ -1,6 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
+  cmd = "Neotree",
+  keys = {
+    { "\\", ":Neotree toggle<CR>", desc = "Toggle file explorer", silent = true },
+    { "<leader>1", ":Neotree filesystem<CR>", desc = "Open file explorer", silent = true },
+    { "<leader>2", ":Neotree document_symbols<CR>", desc = "Open document symbols explorer", silent = true },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -95,8 +101,5 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "\\", ":Neotree toggle<CR>", { desc = "Toggle file explorer", silent = true })
-    vim.keymap.set("n", "<leader>1", ":Neotree filesystem<CR>", { desc = "Open file explorer", silent = true })
-    vim.keymap.set("n", "<leader>2", ":Neotree document_symbols<CR>", { desc = "Open document symbols explorer", silent = true })
   end,
 }
