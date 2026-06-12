@@ -32,8 +32,21 @@ return {
     luasnip.filetype_extend("ejs", { "html", "ejs" })
     luasnip.filetype_extend("gdscript", { "gdscript" })
 
-    -- Set up custom highlight for PmenuSel (selector in the completion window)
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#005f87", fg = "#ffffff", bold = true, italic = true })
+    -- Set up custom highlights
+    local function setup_highlights()
+      local base16 = require("base16-colorscheme").colors
+      if not base16 then
+        return
+      end
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = base16.base0D, fg = base16.base00, bold = true, italic = true })
+      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = base16.base0B })
+    end
+
+    setup_highlights()
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = setup_highlights,
+    })
 
     cmp.setup({
       completion = {
@@ -112,9 +125,6 @@ return {
             maxwidth = 50,
             ellipsis_char = "...",
           })(entry, item)
-
-          -- Set custom highlights for Emmet or any other items
-          vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 
           return item
         end,

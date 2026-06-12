@@ -1,5 +1,6 @@
 return {
   "rmagatti/auto-session",
+  cmd = { "AutoSession" },
   keys = {
     { "<leader>ws", "<cmd>AutoSession search<CR>", desc = "Search sessions" },
     { "<leader>wr", "<cmd>AutoSession restore<CR>", desc = "Restore session" },

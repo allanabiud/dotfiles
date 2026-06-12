@@ -5,57 +5,6 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
-    local colors = {
-      bg = "#151218",
-      bg_alt = "#1d1a21",
-      fg = "#faf8ff",
-      fg_muted = "#9c98a4",
-      accent = "#dac7ff",
-      green = "#a5ffb9",
-      red = "#ff9fb2",
-    }
-
-    local theme = {
-      normal = {
-        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg_alt },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-      insert = {
-        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg_alt },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-      visual = {
-        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg_alt },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-      replace = {
-        a = { fg = colors.bg, bg = colors.red, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg_alt },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-      command = {
-        a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-        b = { fg = colors.fg, bg = colors.bg_alt },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-      inactive = {
-        a = { fg = colors.fg_muted, bg = colors.bg },
-        b = { fg = colors.fg_muted, bg = colors.bg },
-        c = { fg = colors.fg_muted, bg = colors.bg },
-      },
-    }
-
-    -- Define highlight groups
-    vim.api.nvim_set_hl(0, "WinBarPath", { fg = "#a0a8b9" })
-    vim.api.nvim_set_hl(0, "WinBarFile", { fg = "#e5c07b", bold = true })
-    vim.api.nvim_set_hl(0, "WinBarBuf", { fg = "#61afef" })
-
-    local function get_buffer_count()
-      return "(" .. #vim.fn.getbufinfo({ buflisted = 1 }) .. ")"
-    end
 
     local function shorten_path(path)
       path = path:gsub(vim.env.HOME, "~")
@@ -88,99 +37,166 @@ return {
       return shorten_path(path)
     end
 
-    lualine.setup({
-      options = {
-        theme = theme,
-        component_separators = "|",
-        section_separators = "",
-        globalstatus = true,
-        disabled_filetypes = { winbar = { "neo-tree" } },
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = {
-          {
-            "branch",
-            icon = "",
-            color = { fg = colors.fg, gui = "bold" },
-          },
-          { "diff" },
+    local function get_buffer_count()
+      return "(" .. #vim.fn.getbufinfo({ buflisted = 1 }) .. ")"
+    end
+
+    local function setup_lualine()
+      local base16 = require("base16-colorscheme").colors
+      if not base16 then
+        return
+      end
+
+      local colors = {
+        bg = base16.base00,
+        bg_alt = base16.base01,
+        fg = base16.base05,
+        fg_muted = base16.base04,
+        accent = base16.base0D,
+        green = base16.base0B,
+        red = base16.base08,
+      }
+
+      local theme = {
+        normal = {
+          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg_alt },
+          c = { fg = colors.fg_muted, bg = colors.bg },
         },
-        lualine_c = {
-          { "diagnostics" },
+        insert = {
+          a = { fg = colors.bg, bg = colors.green, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg_alt },
+          c = { fg = colors.fg_muted, bg = colors.bg },
         },
-        lualine_x = {
-          {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
-          },
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
-          },
-          { "filetype" },
-          { "encoding" },
+        visual = {
+          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg_alt },
+          c = { fg = colors.fg_muted, bg = colors.bg },
         },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
-      },
-      inactive_sections = {
-        lualine_c = { "filename" },
-        lualine_a = {},
-        lualine_b = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
-      winbar = {
-        lualine_b = {
-          {
-            get_buffer_count,
-            color = "WinBarBuf",
+        replace = {
+          a = { fg = colors.bg, bg = colors.red, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg_alt },
+          c = { fg = colors.fg_muted, bg = colors.bg },
+        },
+        command = {
+          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg_alt },
+          c = { fg = colors.fg_muted, bg = colors.bg },
+        },
+        inactive = {
+          a = { fg = colors.fg_muted, bg = colors.bg },
+          b = { fg = colors.fg_muted, bg = colors.bg },
+          c = { fg = colors.fg_muted, bg = colors.bg },
+        },
+      }
+
+      -- Define highlight groups
+      vim.api.nvim_set_hl(0, "WinBarPath", { fg = base16.base04 })
+      vim.api.nvim_set_hl(0, "WinBarFile", { fg = base16.base0A, bold = true })
+      vim.api.nvim_set_hl(0, "WinBarBuf", { fg = base16.base0D })
+
+      lualine.setup({
+        options = {
+          theme = theme,
+          component_separators = "|",
+          section_separators = "",
+          globalstatus = true,
+          disabled_filetypes = { winbar = { "neo-tree" } },
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {
+            {
+              "branch",
+              icon = "",
+              color = { fg = colors.fg, gui = "bold" },
+            },
+            { "diff" },
+          },
+          lualine_c = {
+            { "diagnostics" },
+          },
+          lualine_x = {
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = base16.base09 },
+            },
+            {
+              lazy_status.updates,
+              cond = lazy_status.has_updates,
+              color = { fg = base16.base09 },
+            },
+            { "filetype" },
+            { "encoding" },
+          },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+        inactive_sections = {
+          lualine_c = { "filename" },
+          lualine_a = {},
+          lualine_b = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {},
+        },
+        winbar = {
+          lualine_b = {
+            {
+              get_buffer_count,
+              color = "WinBarBuf",
+            },
+          },
+          lualine_c = {
+            {
+              "filename",
+              path = 0,
+              symbols = { modified = "[+]", readonly = "", unnamed = "[No Name]", newfile = "[New]" },
+              color = "WinBarFile",
+            },
+          },
+          lualine_x = {
+            {
+              get_file_path,
+              color = "WinBarPath",
+            },
+          },
+          lualine_a = {},
+          lualine_y = {},
+          lualine_z = {
+            {
+              function()
+                local clients = vim.lsp.get_clients({ bufnr = 0 })
+                if #clients == 0 then
+                  return "No LSP"
+                end
+                local names = {}
+                for _, client in pairs(clients) do
+                  table.insert(names, client.name)
+                end
+                return " " .. table.concat(names, ",")
+              end,
+            },
           },
         },
-        lualine_c = {
-          {
-            "filename",
-            path = 0,
-            symbols = { modified = "[+]", readonly = "", unnamed = "[No Name]", newfile = "[New]" },
-            color = "WinBarFile",
+        inactive_winbar = {
+          lualine_c = {
+            {
+              "filename",
+              color = "WinBarFile",
+            },
           },
         },
-        lualine_x = {
-          {
-            get_file_path,
-            color = "WinBarPath",
-          },
-        },
-        lualine_a = {},
-        lualine_y = {},
-        lualine_z = {
-          {
-            function()
-              local clients = vim.lsp.get_clients({ bufnr = 0 })
-              if #clients == 0 then
-                return "No LSP"
-              end
-              local names = {}
-              for _, client in pairs(clients) do
-                table.insert(names, client.name)
-              end
-              return " " .. table.concat(names, ",")
-            end,
-          },
-        },
-      },
-      inactive_winbar = {
-        lualine_c = {
-          {
-            "filename",
-            color = "WinBarFile",
-          },
-        },
-      },
+      })
+    end
+
+    setup_lualine()
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        setup_lualine()
+      end,
     })
   end,
 }

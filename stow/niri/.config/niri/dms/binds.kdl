@@ -12,58 +12,54 @@ binds {
     Mod+Z      { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
 
     // DMS TOOLS
-    Mod+Alt+Return { spawn "dms" "ipc" "settings" "focusOrToggle"; }
-    Mod+Alt+V      { spawn "dms" "ipc" "clipboard" "toggle"; }
-    Mod+Alt+M      { spawn "dms" "ipc" "processlist" "focusOrToggle"; }
-    Mod+Alt+P      { spawn "dms" "ipc" "dankdash" "wallpaper"; }
-    Mod+Alt+N      { spawn "dms" "ipc" "notifications" "toggle"; }
-    Mod+Alt+D      { spawn "dms" "ipc" "notepad" "toggle"; }
+    Mod+Alt+Return { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+    Mod+Alt+V      { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Alt+M      { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+Alt+P      { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Mod+Alt+N      { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Alt+D      { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Alt+W      { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
+
 
     // === Security ===
-    Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
-    Mod+Alt+Delete { spawn "dms" "ipc" "processlist" "focusOrToggle"; }
+    Mod+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
 
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "dms" "ipc" "audio" "increment" "3";
+        spawn "dms" "ipc" "call" "audio" "increment" "3";
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "dms" "ipc" "audio" "decrement" "3";
+        spawn "dms" "ipc" "call" "audio" "decrement" "3";
     }
     XF86AudioMute allow-when-locked=true {
-        spawn "dms" "ipc" "audio" "mute";
+        spawn "dms" "ipc" "call" "audio" "mute";
     }
     XF86AudioMicMute allow-when-locked=true {
-        spawn "dms" "ipc" "audio" "micmute";
+        spawn "dms" "ipc" "call" "audio" "micmute";
     }
 		XF86AudioPause allow-when-locked=true {
-		    spawn "dms" "ipc" "mpris" "playPause";
+		    spawn "dms" "ipc" "call" "mpris" "playPause";
 		}
 		XF86AudioPlay allow-when-locked=true {
-		    spawn "dms" "ipc" "mpris" "playPause";
+		    spawn "dms" "ipc" "call" "mpris" "playPause";
 		}
 		XF86AudioPrev allow-when-locked=true {
-		    spawn "dms" "ipc" "mpris" "previous";
+		    spawn "dms" "ipc" "call" "mpris" "previous";
 		}
 		XF86AudioNext allow-when-locked=true {
-		    spawn "dms" "ipc" "mpris" "next";
+		    spawn "dms" "ipc" "call" "mpris" "next";
 		}
 
     // === Brightness Controls ===
     XF86MonBrightnessUp allow-when-locked=true {
-       spawn "dms" "ipc" "brightness" "increment" "5" "";
+       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-       spawn "dms" "ipc" "brightness" "decrement" "5" "";
+       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
     }
 
     // === Power Controls ===
-    XF86PowerOff allow-when-locked=true { spawn "dms" "ipc" "powermenu" "toggle"; }
-
-    Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "window-rules" "toggle"; }
-    Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" {
-        spawn "dms" "ipc" "workspace-rename" "open";
-    }
+    XF86PowerOff allow-when-locked=true { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
 
     // WINDOW/COLUMN MANAGEMENT
     //Close
