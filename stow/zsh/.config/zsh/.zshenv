@@ -39,6 +39,9 @@ export GOPATH="$XDG_DATA_HOME"/go
 ## JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/default/"
 
+## BUN
+export BUN_INSTALL="$HOME/.bun" 
+
 ## ANDROID TOOLS
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export ANDROID_HOME="$HOME/DEV/Tools/Android-SDK/"
@@ -51,6 +54,7 @@ path=(
   "$JAVA_HOME/bin"
   "$ANDROID_HOME/cmdline-tools/latest/bin"
   "$ANDROID_HOME/platform-tools"
+  "$BUN_INSTALL/bin"
   "$HOME/.pub-cache/bin"
   "$HOME/DEV/Tools/Flutter/flutter_linux/bin"
   #"$HOME/DEV/Tools/Firebase"

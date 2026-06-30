@@ -97,3 +97,6 @@ function yz() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# bun completions
+[ -s "/home/allanabiud/.bun/_bun" ] && source "/home/allanabiud/.bun/_bun"

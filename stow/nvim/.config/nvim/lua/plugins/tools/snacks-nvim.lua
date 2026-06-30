@@ -64,21 +64,21 @@ return {
     },
     -- Lazygit
     {
-      "<leader>lg",
+      "<leader>gg",
       function()
         Snacks.lazygit()
       end,
       desc = "Lazygit",
     },
     {
-      "<leader>lf",
+      "<leader>gf",
       function()
         Snacks.lazygit.log_file()
       end,
       desc = "Lazygit Current File History",
     },
     {
-      "<leader>ll",
+      "<leader>gl",
       function()
         Snacks.lazygit.log()
       end,
