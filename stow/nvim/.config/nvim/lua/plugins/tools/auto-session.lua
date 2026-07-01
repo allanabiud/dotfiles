@@ -10,7 +10,6 @@ return {
 
     auto_session.setup({
       auto_restore = false,
-      auto_save = true,
       bypass_save_filetypes = { "alpha" },
       log_level = "error",
       session_lens = {
