@@ -64,6 +64,9 @@ prepend_keymap = [
 
     # Recycle Bin Plugin
     { on = ["g","t"], run = "plugin recycle-bin", desc = "Go to Trash" },
+
+    # ripdrag
+    { on = "<C-n>", run = "shell -- ripdrag %s -x -a 2>/dev/null &" },
 ]
 
 keymap = [
