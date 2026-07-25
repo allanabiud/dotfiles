@@ -1,9 +1,14 @@
+-- Full-Border
 require("full-border"):setup()
+
+-- GVFS
 require("gvfs"):setup({
 	password_vault = "keyring",
 	save_password_autoconfirm = true,
 	input_position = { "center", y = 0, w = 60 },
 })
+
+-- Recylce-Bin
 require("recycle-bin"):setup()
 
 -- Show symlink in status bar

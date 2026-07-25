@@ -1054,8 +1054,17 @@ local function parse_devices(raw_input)
 			end
 			current_mount = { name = mount_name or "", uri = mount_uri or "" }
 
+			local mount_base_uri = mount_uri:gsub("/+$", "")
+			local mount_uri_port = mount_base_uri:match(":%d+$")
 			for m = #predefined_mounts, 1, -1 do
-				if predefined_mounts[m].uri:gsub("/+$", "") == mount_uri:gsub("/+$", "") then
+				local predefined_mount_base_uri = predefined_mounts[m].uri:gsub("/+$", "")
+				if
+					predefined_mount_base_uri == mount_base_uri
+					or (
+						not mount_uri_port
+						and predefined_mount_base_uri:gsub(":%d+$", "") == mount_base_uri:gsub(":%d+$", "")
+					)
+				then
 					current_mount = table.remove(predefined_mounts, m)
 				end
 			end
@@ -1167,6 +1176,7 @@ local function parse_devices(raw_input)
 		m.mounts = { tbl_deep_clone(m) }
 		table.insert(volumes, m)
 	end
+
 	if #blacklist_devices > 0 then
 		for i = #volumes, 1, -1 do
 			local v = volumes[i]
@@ -1235,7 +1245,7 @@ local function is_mounted(device)
 end
 
 ---mount device
----@param opts {device: Device, username?:string, password?: string, service_domain?: string, is_pw_saved?: boolean, skipped_secret_vault?: boolean,max_retry?: integer, retries?: integer}
+---@param opts {device: Device, username?:string, password?: string, service_domain?: string, is_pw_saved?: boolean, skipped_secret_vault?: boolean,max_retry?: integer, retries?: integer, anonymous?: boolean, first_time_connect_confirmed?: boolean}
 ---@return boolean
 local function mount_device(opts)
 	local device = opts.device
@@ -1245,7 +1255,9 @@ local function mount_device(opts)
 	local is_pw_saved = opts.is_pw_saved
 	local skipped_secret_vault = opts.skipped_secret_vault
 	local username = opts.username
+	local anonymous = opts.anonymous
 	local service_domain = opts.service_domain
+	local first_time_connect_confirmed = opts.first_time_connect_confirmed
 	local error_msg = nil
 
 	local auths = ""
@@ -1264,12 +1276,17 @@ local function mount_device(opts)
 			auth_string_format = auth_string_format .. "%s\n"
 		end
 	end
+	if first_time_connect_confirmed then
+		auths = auths .. " " .. path_quote("1")
+		auth_string_format = auth_string_format .. "%s\n"
+	end
 
 	local res, err = Command(SHELL)
 		:arg({
 			"-c",
 			(auth_string_format ~= "" and "printf " .. path_quote(auth_string_format) .. " " .. auths .. " | " or "")
 				.. " gio mount "
+				.. (anonymous and "-a " or "")
 				.. (device.uuid and ("-d " .. device.uuid) or path_quote(device.uri)),
 		})
 		:env("XDG_RUNTIME_DIR", XDG_RUNTIME_DIR)
@@ -1344,6 +1361,9 @@ local function mount_device(opts)
 				)
 				if username == nil then
 					return false
+				elseif username == "" then
+					-- Case using anonymous user
+					anonymous = true
 				end
 			else
 				error_msg = string.format(
@@ -1352,11 +1372,32 @@ local function mount_device(opts)
 				)
 			end
 		end
+		if stdout:find("\nChoice: \n") then
+			if retries < max_retry then
+				local pos = get_state(STATE_KEY.INPUT_POSITION)
+				if pos.h == nil then
+					pos.h = 15
+				end
+				first_time_connect_confirmed = ya.confirm({
+					title = ui.Line("Log In Anyway"):style(th.confirm.title),
+					body = ui.Text(stdout):align(ui.Align.LEFT):wrap(ui.Wrap.YES),
+					-- TODO: remove this after next yazi released
+					content = ui.Text(stdout):align(ui.Align.LEFT):wrap(ui.Wrap.YES),
+					pos = pos,
+				})
+				if not first_time_connect_confirmed then
+					return false
+				end
+			end
+		end
 		if
-			stdout:find("\nDomain: \n")
-			or stdout:find("\nDomain %[.*%]: \n")
-			or stdout:find("\nUser: \n")
-			or stdout:find("\nUser %[.*%]: \n")
+			(device.scheme == SCHEME.SMB or device.scheme == SCHEME.DNS_SD or device.scheme == SCHEME.DAVSD)
+			and (
+				stdout:find("\nDomain: \n")
+				or stdout:find("\nDomain %[.*%]: \n")
+				or stdout:find("\nUser: \n")
+				or stdout:find("\nUser %[.*%]: \n")
+			)
 		then
 			if retries < max_retry then
 				service_domain, _ = show_input(
@@ -1377,11 +1418,14 @@ local function mount_device(opts)
 			end
 		end
 		if
-			stdout:find("\nPassword: \n")
-			or stdout:find("\nUser: \n")
-			or stdout:find("\nUser %[.*%]: \n")
-			or stdout:find("\nDomain: \n")
-			or stdout:find("\nDomain %[.*%]: \n")
+			not anonymous
+			and (
+				stdout:find("Password: \n")
+				or stdout:find("\nUser: \n")
+				or stdout:find("\nUser %[.*%]: \n")
+				or stdout:find("\nDomain: \n")
+				or stdout:find("\nDomain %[.*%]: \n")
+			)
 		then
 			if username ~= opts.username or (username == nil and is_pw_saved == nil) then
 				-- Prevent showing gpg passphrase twice
@@ -1451,6 +1495,8 @@ local function mount_device(opts)
 		skipped_secret_vault = skipped_secret_vault,
 		username = username,
 		service_domain = service_domain,
+		first_time_connect_confirmed = first_time_connect_confirmed,
+		anonymous = anonymous,
 	})
 end
 
@@ -1823,10 +1869,11 @@ end
 local save_tab_hovered = ya.sync(function()
 	local hovered_item_per_tab = {}
 	for _, tab in ipairs(cx.tabs) do
-		local is_virtual = Url(tab.current.cwd).scheme and Url(tab.current.cwd).scheme.is_virtual
+		local is_virtual = (Url(tab.current.cwd).spec and Url(tab.current.cwd).spec.is_virtual)
+			or (not Url(tab.current.cwd).spec and Url(tab.current.cwd).scheme.is_virtual)
 		table.insert(hovered_item_per_tab, {
 			id = (type(tab.id) == "number" or type(tab.id) == "string") and tab.id or tab.id.value,
-			cwd = tostring(is_virtual and tab.current.cwd or tab.current.cwd.path),
+			cwd = tostring((is_virtual and tab.current.cwd or tab.current.cwd.path) or tab.current.cwd),
 		})
 	end
 	return hovered_item_per_tab
@@ -1841,8 +1888,9 @@ local redirect_unmounted_tab_to_home = ya.sync(function(_, unmounted_url, notify
 		broadcast(PUBSUB_KIND.unmounted, hex_encode(unmounted_url))
 	end
 	for _, tab in ipairs(cx.tabs) do
-		local is_virtual = Url(tab.current.cwd).scheme and Url(tab.current.cwd).scheme.is_virtual
-		if (is_virtual and tab.current.cwd or tab.current.cwd.path):starts_with(unmounted_url) then
+		local is_virtual = (Url(tab.current.cwd).spec and Url(tab.current.cwd).spec.is_virtual)
+			or (not Url(tab.current.cwd).spec and Url(tab.current.cwd).scheme.is_virtual)
+		if ((is_virtual and tab.current.cwd or tab.current.cwd.path) or tab.current.cwd):starts_with(unmounted_url) then
 			ya.emit("cd", {
 				HOME,
 				tab = (type(tab.id) == "number" or type(tab.id) == "string") and tab.id or tab.id.value,
@@ -1936,7 +1984,7 @@ end
 ---@param state_key STATE_KEY.CACHED_LOCAL_PATH_DEVICE|STATE_KEY.AUTOMOUNTS|string
 ---@param jump_location string?
 ---@param tab_id number?
-local function remount_keep_cwd_unchanged_action(state_key, jump_location, tab_id)
+local function remount_keep_cwd_unchanged_action(state_key, jump_location, tab_id, hide_cant_remount_message)
 	local cwd = jump_location or current_dir()
 	local root_mountpoint = get_state(STATE_KEY.ROOT_MOUNTPOINT)
 	if
@@ -1953,8 +2001,10 @@ local function remount_keep_cwd_unchanged_action(state_key, jump_location, tab_i
 		return
 	end
 	if is_mounted(current_tab_device) then
-		info(NOTIFY_MSG.CANT_REMOUNT_DEVICE, current_tab_device.name)
-		return
+		if not hide_cant_remount_message then
+			info(NOTIFY_MSG.CANT_REMOUNT_DEVICE, current_tab_device.name)
+		end
+		return current_tab_device
 	end
 	local tabs = save_tab_hovered()
 	local saved_matched_tabs = {}
@@ -2220,7 +2270,8 @@ end
 ---@param enabled boolean?
 local function toggle_automount_when_cd_action(enabled)
 	local hovered_path = get_hovered_path()
-	local is_virtual = Url(hovered_path).scheme and Url(hovered_path).scheme.is_virtual
+	local is_virtual = (Url(hovered_path).spec and Url(hovered_path).spec.is_virtual)
+		or (not Url(hovered_path).spec and Url(hovered_path).scheme.is_virtual)
 	if is_virtual then
 		return
 	end
@@ -2490,7 +2541,8 @@ function M:entry(job)
 		end
 		if cached_device then
 			-- Update cached device with new data
-			local new_cached_device = remount_keep_cwd_unchanged_action(STATE_KEY.AUTOMOUNTS, subfolder_path, tab_id)
+			local new_cached_device =
+				remount_keep_cwd_unchanged_action(STATE_KEY.AUTOMOUNTS, subfolder_path, tab_id, true)
 			if new_cached_device then
 				cached_device = new_cached_device
 			end

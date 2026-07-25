@@ -100,3 +100,6 @@ function yz() {
 
 # bun completions
 [ -s "/home/allanabiud/.bun/_bun" ] && source "/home/allanabiud/.bun/_bun"
+
+# kilo
+export PATH=/home/allanabiud/.kilo/bin:$PATH

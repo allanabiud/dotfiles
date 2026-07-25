@@ -1,24 +1,19 @@
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "30440c7"
-hash = "211b7d22478b907e5f6fd4fe27a923e"
+rev = "364b0a8"
+hash = "480fde69fef0bcaeb2c21a726f94412c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "6c71385"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "bbac5e7"
+hash = "7b625412411be411153886894d9acaf"
 
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
-rev = "fa68711"
-hash = "8714306b5cac6359edbacbf545fbd691"
+rev = "82da16a"
+hash = "7383d80862d3cdcc85f8658dac7b90c2"
 
 [[flavor.deps]]
-use = "BennyOe/tokyo-night"
-rev = "8e6296f"
-hash = "d9da921c3bd37ba32ee27a8a7a40461f"
-
-[[flavor.deps]]
-use = "gosxrgxx/flexoki-dark"
-rev = "28e1977"
-hash = "bc4620db89cf55bd91906c239f8fa1a8"
+use = "matt-dong-123/base16"
+rev = "ed79352"
+hash = "94659ef90cd557d05dbda7076fbbb3f4"
