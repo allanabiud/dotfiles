@@ -34,12 +34,12 @@ return {
 
     -- Set up custom highlights
     local function setup_highlights()
-      local base16 = require("base16-colorscheme").colors
-      if not base16 then
+      local colors = require("base46").theme_tables["dms"].base_16
+      if not colors then
         return
       end
-      vim.api.nvim_set_hl(0, "PmenuSel", { bg = base16.base0D, fg = base16.base00, bold = true, italic = true })
-      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = base16.base0B })
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.base0D, fg = colors.base00, bold = true, italic = true })
+      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = colors.base0B })
     end
 
     setup_highlights()

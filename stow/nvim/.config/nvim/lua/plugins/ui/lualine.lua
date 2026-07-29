@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "AvengeMedia/base46" },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
@@ -10,16 +10,15 @@ return {
       path = path:gsub(vim.env.HOME, "~")
 
       local win_width = vim.api.nvim_win_get_width(0)
-      local max_len = math.floor(win_width * 0.25) -- use about 25% of window width for path
+      local max_len = math.floor(win_width * 0.25)
 
       if #path <= max_len then
         return path
       end
 
       local parts = vim.split(path, "/", { trimempty = true })
-      local new_path = parts[#parts] -- start from the end (deepest directory)
+      local new_path = parts[#parts]
 
-      -- prepend dirs until we exceed limit
       for i = #parts - 1, 1, -1 do
         local test_path = parts[i] .. "/" .. new_path
         if #test_path + 3 > max_len then
@@ -41,59 +40,49 @@ return {
       return "(" .. #vim.fn.getbufinfo({ buflisted = 1 }) .. ")"
     end
 
+    local base46 = require("base46")
+
+    if not base46.theme_tables["dms"] then
+      base46.theme_tables["dms"] = {
+        base_16 = {
+          base00 = "#000000",
+          base01 = "#000000",
+          base02 = "#8ba39e",
+          base03 = "#8ba39e",
+          base04 = "#e0fff8",
+          base05 = "#f2fffc",
+          base06 = "#f2fffc",
+          base07 = "#f2fffc",
+          base08 = "#ff8142",
+          base09 = "#ff8142",
+          base0A = "#28ffd0",
+          base0B = "#4eff59",
+          base0C = "#8dffe6",
+          base0D = "#28ffd0",
+          base0E = "#4effd8",
+          base0F = "#4effd8",
+        },
+        base_30 = {
+          black = "#000000",
+          white = "#f2fffc",
+          one_bg = "#8ba39e",
+          statusline_bg = "#28ffd0",
+          blue = "#28ffd0",
+          green = "#4eff59",
+          red = "#ff8142",
+          purple = "#4effd8",
+          yellow = "#ff8142",
+        },
+      }
+    end
+
     local function setup_lualine()
-      local base16 = require("base16-colorscheme").colors
-      if not base16 then
-        return
-      end
+      local theme = require("lualine.themes._base46")("dms")
+      local base46_colors = base46.theme_tables["dms"]
 
-      local colors = {
-        bg = base16.base00,
-        bg_alt = base16.base01,
-        fg = base16.base05,
-        fg_muted = base16.base04,
-        accent = base16.base0D,
-        green = base16.base0B,
-        red = base16.base08,
-      }
-
-      local theme = {
-        normal = {
-          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-          b = { fg = colors.fg, bg = colors.bg_alt },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-        insert = {
-          a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-          b = { fg = colors.fg, bg = colors.bg_alt },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-        visual = {
-          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-          b = { fg = colors.fg, bg = colors.bg_alt },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-        replace = {
-          a = { fg = colors.bg, bg = colors.red, gui = "bold" },
-          b = { fg = colors.fg, bg = colors.bg_alt },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-        command = {
-          a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-          b = { fg = colors.fg, bg = colors.bg_alt },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-        inactive = {
-          a = { fg = colors.fg_muted, bg = colors.bg },
-          b = { fg = colors.fg_muted, bg = colors.bg },
-          c = { fg = colors.fg_muted, bg = colors.bg },
-        },
-      }
-
-      -- Define highlight groups
-      vim.api.nvim_set_hl(0, "WinBarPath", { fg = base16.base04 })
-      vim.api.nvim_set_hl(0, "WinBarFile", { fg = base16.base0A, bold = true })
-      vim.api.nvim_set_hl(0, "WinBarBuf", { fg = base16.base0D })
+      vim.api.nvim_set_hl(0, "WinBarPath", { fg = base46_colors.base_16.base04 })
+      vim.api.nvim_set_hl(0, "WinBarFile", { fg = base46_colors.base_16.base0A, bold = true })
+      vim.api.nvim_set_hl(0, "WinBarBuf", { fg = base46_colors.base_16.base0D })
 
       lualine.setup({
         options = {
@@ -109,7 +98,7 @@ return {
             {
               "branch",
               icon = "",
-              color = { fg = colors.fg, gui = "bold" },
+              color = { fg = theme.normal.b.fg, gui = "bold" },
             },
             { "diff" },
           },
@@ -120,12 +109,12 @@ return {
             {
               require("noice").api.statusline.mode.get,
               cond = require("noice").api.statusline.mode.has,
-              color = { fg = base16.base09 },
+              color = { fg = theme.normal.b.fg },
             },
             {
               lazy_status.updates,
               cond = lazy_status.has_updates,
-              color = { fg = base16.base09 },
+              color = { fg = theme.normal.b.fg },
             },
             { "filetype" },
             { "encoding" },

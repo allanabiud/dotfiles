@@ -4,8 +4,6 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 layout {
-    gaps 4
-
     border {
         width 2
     }
@@ -21,3 +19,11 @@ window-rule {
     tiled-state true
     draw-border-with-background false
 }
+
+layer-rule {
+    background-effect {
+        xray false
+    }
+}
+
+// bar-xray off

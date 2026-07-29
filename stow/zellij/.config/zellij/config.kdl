@@ -254,7 +254,7 @@ load_plugins {
 }
  
 simplified_ui true
-// theme "ao"
+theme "ao"
 default_mode "normal"
 default_layout "compact"
 layout_dir "/home/allanabiud/.config/zellij/layouts"

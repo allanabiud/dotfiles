@@ -62,20 +62,20 @@ return {
       local actions = require("telescope.actions")
 
       local function setup_highlights()
-        local base16 = require("base16-colorscheme").colors
-        if not base16 then return end
+        local colors = require("base46").theme_tables["dms"].base_16
+        if not colors then return end
 
-        vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = base16.base0D, bg = base16.base00 })
-        vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = base16.base0B, bg = base16.base00 })
-        vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = base16.base0D, bg = base16.base00 })
-        vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = base16.base0E, bg = base16.base00 })
-        vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = base16.base00, bg = base16.base0D, bold = true })
-        vim.api.nvim_set_hl(0, "TelescopePromptNormal", { fg = base16.base05, bg = base16.base01 })
-        vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = base16.base0B, bg = base16.base01, bold = true })
-        vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = base16.base04, bg = base16.base01 })
-        vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = base16.base00, bg = base16.base0B, bold = true })
-        vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { fg = base16.base05, bg = base16.base00 })
-        vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { fg = base16.base05, bg = base16.base00 })
+        vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colors.base0D, bg = colors.base00 })
+        vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colors.base0B, bg = colors.base00 })
+        vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = colors.base0D, bg = colors.base00 })
+        vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = colors.base0E, bg = colors.base00 })
+        vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = colors.base00, bg = colors.base0D, bold = true })
+        vim.api.nvim_set_hl(0, "TelescopePromptNormal", { fg = colors.base05, bg = colors.base01 })
+        vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = colors.base0B, bg = colors.base01, bold = true })
+        vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.base04, bg = colors.base01 })
+        vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = colors.base00, bg = colors.base0B, bold = true })
+        vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { fg = colors.base05, bg = colors.base00 })
+        vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { fg = colors.base05, bg = colors.base00 })
       end
 
       setup_highlights()
