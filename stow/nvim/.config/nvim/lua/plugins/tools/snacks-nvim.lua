@@ -14,16 +14,6 @@ return {
         top = 1,
       },
     },
-    -- IMAGE
-    image = {
-      enabled = true,
-      width = 20,
-      height = 20,
-    },
-    -- SCOPE
-    scope = { enabled = true },
-    -- QUICKFILE
-    quickfile = { enabled = true },
     -- SCROLL
     scroll = { enabled = true },
     -- STATUSCOLUMN
@@ -52,7 +42,7 @@ return {
       function()
         Snacks.notifier.show_history()
       end,
-      desc = "Notification History",
+      desc = "Notification history",
     },
     -- Buffer Actions
     {
@@ -60,7 +50,7 @@ return {
       function()
         Snacks.bufdelete()
       end,
-      desc = "Delete Buffer",
+      desc = "Delete buffer",
     },
     -- Lazygit
     {
@@ -75,14 +65,14 @@ return {
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = "Lazygit Current File History",
+      desc = "Lazygit current file history",
     },
     {
       "<leader>gl",
       function()
         Snacks.lazygit.log()
       end,
-      desc = "Lazygit Log (cwd)",
+      desc = "Lazygit log (cwd)",
     },
   },
 }

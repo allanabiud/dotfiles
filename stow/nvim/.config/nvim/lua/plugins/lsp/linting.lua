@@ -11,11 +11,9 @@ return {
       htmldjango = { "htmlhint", "djlint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
-      ejs = { "ejslint" },
       gdscript = { "gdlint" },
     }
 
-    -- configure linters
     -- htmlhint
     lint.linters.htmlhint.args = {
       "--config",
@@ -31,7 +29,15 @@ return {
     -- eslint_d
     lint.linters.eslint_d = {
       cmd = "eslint_d",
-      args = { "--stdin", "--stdin-filename", vim.fn.expand("%:p"), "--format", "compact" },
+      args = {
+        "--stdin",
+        "--stdin-filename",
+        function()
+          return vim.api.nvim_buf_get_name(0)
+        end,
+        "--format",
+        "compact",
+      },
       stdin = true,
       stream = "stdout",
       ignore_exitcode = true,
@@ -42,23 +48,10 @@ return {
         { source = "eslint_d" }
       ),
     }
-    -- ejslint
-    lint.linters.ejslint = {
-      cmd = "ejslint",
-      stdin = false,
-      args = { "$FILENAME" },
-      stream = "stderr",
-      ignore_exitcode = true,
-      parser = require("lint.parser").from_errorformat("%f:%l\n  %m", {
-        source = "ejslint",
-        severity = vim.diagnostic.severity.ERROR,
-      }),
-    }
-
+    -- gdlint
     lint.linters.gdlint = {
       cmd = "gdlint",
       stdin = false,
-      args = { "$FILENAME" },
       stream = "stdout",
       ignore_exitcode = true,
       parser = require("lint.parser").from_pattern(
@@ -75,12 +68,55 @@ return {
       ),
     }
 
+    -- Debounce so slow linters don't fire on every keystroke
+    local function debounce(ms, fn)
+      local timer
+      return function(...)
+        local args = { ... }
+        if timer then
+          timer:stop()
+        end
+        timer = vim.uv.new_timer()
+        timer:start(ms, 0, vim.schedule_wrap(function()
+          fn(unpack(args))
+        end))
+      end
+    end
+
+    local function lint_buf(bufnr, linters)
+      if not vim.api.nvim_buf_is_valid(bufnr) then
+        return
+      end
+      vim.api.nvim_buf_call(bufnr, function()
+        lint.try_lint(linters)
+      end)
+    end
+
+    -- mypy is slow; run it only on save
+    local function fast_linters(bufnr)
+      if not vim.api.nvim_buf_is_valid(bufnr) then
+        return
+      end
+      local all = lint.linters_by_ft[vim.bo[bufnr].filetype] or {}
+      local linters = vim.tbl_filter(function(l)
+        return l ~= "mypy"
+      end, all)
+      lint_buf(bufnr, linters)
+    end
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    vim.api.nvim_create_autocmd("BufWritePost", {
       group = lint_augroup,
-      callback = function()
-        lint.try_lint()
+      callback = function(args)
+        debounce(200, lint_buf)(args.buf, nil)
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      group = lint_augroup,
+      callback = function(args)
+        debounce(300, fast_linters)(args.buf)
       end,
     })
   end,

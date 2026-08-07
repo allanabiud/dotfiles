@@ -1,11 +1,67 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local ok_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if ok_cmp then
-  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+local ok_blink, blink = pcall(require, "blink.cmp")
+if ok_blink then
+  capabilities = blink.get_lsp_capabilities(capabilities)
 end
 
-vim.lsp.config("dartls", {
+-- Apply completion capabilities to every server (mason auto-enables these)
+vim.lsp.config("*", {
   capabilities = capabilities,
+})
+
+-- ===== per-language LSP configuration =====
+
+-- lua_ls: teach it about the Neovim runtime so vim.* completes & doesn't false-error
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+          vim.fn.stdpath("config") .. "/lua",
+        },
+      },
+      telemetry = { enable = false },
+    },
+  },
+})
+
+-- pyright: pyright's default type checking is "off"; enable basic level
+vim.lsp.config("pyright", {
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "basic",
+      },
+    },
+  },
+})
+
+-- yamlls: GitHub Actions schema (defaults already cover completion/validation)
+vim.lsp.config("yamlls", {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*.{yml,yaml}",
+      },
+    },
+  },
+})
+
+-- texlab: only override chktex-on-save (build defaults are already latexmk)
+vim.lsp.config("texlab", {
+  settings = {
+    texlab = {
+      chktex = {
+        onOpenAndSave = true,
+      },
+    },
+  },
 })
 
 -- Enable LSPs Manually (Not managed by mason)
@@ -30,10 +86,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
     opts.desc = "Previous diagnostic"
-    keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
 
     opts.desc = "Next diagnostic"
-    keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
 
     opts.desc = "Hover documentation"
     keymap.set("n", "K", vim.lsp.buf.hover, opts)

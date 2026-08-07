@@ -11,7 +11,6 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
     local mason_tool_installer = require("mason-tool-installer")
 
-    -- enable mason and configure icons
     mason.setup({
       ui = {
         border = "rounded",
@@ -21,43 +20,40 @@ return {
           package_uninstalled = "✗",
         },
       },
-      registries = {
-        "github:mason-org/mason-registry",
-        "github:Crashdummyy/mason-registry",
-      },
     })
 
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
-        "pyright",
-        "marksman",
-        "bashls",
-        "emmet_language_server",
-        "ts_ls",
-      },
-      -- automatic installation of servers
-      automatic_installation = true, -- not the same as ensure_installed
-    })
+    -- auto-enables any server installed below (vim.lsp.enable)
+    mason_lspconfig.setup()
 
-    -- auto install formatters
+    -- single source of truth for everything mason installs
     mason_tool_installer.setup({
       ensure_installed = {
-        "stylua", -- lua formatter
-        "prettier", -- prettier formatter
-        "htmlhint", -- html linter
-        "djlint", -- htmldjango linter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "mypy", -- python linter
-        "ruff", -- python linter and formatter
-        "shfmt", -- shell formatter
-        "shellcheck", -- shell linter
-        "eslint_d", -- javascript linter
+        -- lsp servers
+        "lua-language-server",
+        "html-lsp",
+        "css-lsp",
+        "pyright",
+        "marksman",
+        "bash-language-server",
+        "emmet-language-server",
+        "typescript-language-server",
+        "taplo",
+        "yaml-language-server",
+        "texlab",
+        -- formatters
+        "stylua",
+        "prettier",
+        "isort",
+        "black",
+        "shfmt",
         "gdtoolkit",
+        -- linters
+        "htmlhint",
+        "djlint",
+        "mypy",
+        "ruff",
+        "shellcheck",
+        "eslint_d",
       },
     })
   end,

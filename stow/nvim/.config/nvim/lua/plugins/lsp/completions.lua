@@ -1,45 +1,23 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "saghen/blink.cmp",
+  version = "1.*",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
-    "hrsh7th/cmp-nvim-lsp",
-    {
-      "L3MON4D3/LuaSnip",
-      -- follow latest release.
-      version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-      -- install jsregexp (optional!).
-      build = "make install_jsregexp",
-    },
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
+    "rafamadriz/friendly-snippets",
+    "onsails/lspkind.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "brenoprata10/nvim-highlight-colors",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    local lspkind = require("lspkind")
-
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
-
-    -- Include snippets not in global snippets for friendly-snippets
-    luasnip.filetype_extend("htmldjango", { "html", "loremipsum", "djangohtml" })
-    luasnip.filetype_extend("html", { "loremipsum" })
-    luasnip.filetype_extend("python", { "django" })
-    luasnip.filetype_extend("ejs", { "html", "ejs" })
-    luasnip.filetype_extend("gdscript", { "gdscript" })
-
-    -- Set up custom highlights
     local function setup_highlights()
-      local colors = require("base46").theme_tables["dms"].base_16
+      local colors = require("base46").theme_tables["dms"] and require("base46").theme_tables["dms"].base_16
       if not colors then
         return
       end
-      vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.base0D, fg = colors.base00, bold = true, italic = true })
-      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = colors.base0B })
+      vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = colors.base0D, fg = colors.base00, bold = true, italic = true })
+      vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = colors.base0D })
+      vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = colors.base0D })
     end
 
     setup_highlights()
@@ -48,86 +26,65 @@ return {
       callback = setup_highlights,
     })
 
-    cmp.setup({
+    require("blink.cmp").setup({
+      keymap = {
+        preset = "enter",
+        ["<C-y>"] = { "select_and_accept", "fallback" },
+        ["<S-b>"] = { "scroll_documentation_up" },
+        ["<S-f>"] = { "scroll_documentation_down" },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+          snippets = {
+            opts = {
+              extended_filetypes = {
+                htmldjango = { "html", "loremipsum", "djangohtml" },
+                html = { "loremipsum" },
+                python = { "django" },
+                gdscript = { "gdscript" },
+              },
+            },
+          },
+        },
+      },
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
-      },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      window = {
-        completion = {
-          border = "rounded",
-          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder,CursorLine:PmenuSel",
-        },
         documentation = {
+          auto_show = true,
+          window = { border = "rounded" },
+        },
+        menu = {
           border = "rounded",
-          winhighlight = "Normal:CmpBorder,FloatBorder:CmpBorder",
+          draw = {
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  if ctx.item.source_name == "LSP" then
+                    local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr ~= "" then
+                      return color_item.abbr
+                    end
+                    return (require("lspkind").symbol_map[ctx.kind] or ctx.kind_icon) .. ctx.icon_gap
+                  elseif ctx.item.source_name == "Path" then
+                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                    return (dev_icon or ctx.kind_icon) .. ctx.icon_gap
+                  end
+                  return ctx.kind_icon .. ctx.icon_gap
+                end,
+                highlight = function(ctx)
+                  local hl = "BlinkCmpKind" .. ctx.kind
+                  if ctx.item.source_name == "LSP" then
+                    local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr_hl_group then
+                      hl = color_item.abbr_hl_group
+                    end
+                  end
+                  return hl
+                end,
+              },
+            },
+          },
         },
-      },
-      view = {
-        entries = {
-          follow_cursor = true,
-        },
-      },
-      mapping = cmp.mapping.preset.insert({
-        -- Previous Suggestion
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<Up>"] = cmp.mapping.select_prev_item(),
-        -- Next Suggestion
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<Down>"] = cmp.mapping.select_next_item(),
-        -- Scroll Documentation
-        ["<S-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<S-f>"] = cmp.mapping.scroll_docs(4),
-        -- Show completion window
-        ["<C-Space>"] = cmp.mapping.complete(),
-        -- Close completion window
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        -- Confirm Completion
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = false,
-        }),
-      }),
-
-      -- sources for autocompletion
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
-        { name = "supermaven" },
-      }),
-
-      -- configure lspkind for vs-code like pictograms and colors in completion menu
-      formatting = {
-        format = function(entry, item)
-          -- Check if the item is an Emmet suggestion
-          if entry.source.name == "nvim_lsp" and entry.completion_item.detail == "Emmet Abbreviation" then
-            item.kind = "Emmet Abbreviation" -- Customize the label for Emmet
-          end
-
-          -- Apply color formatting
-          local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
-          if color_item.abbr_hl_group then
-            item.kind_hl_group = color_item.abbr_hl_group
-            item.kind = color_item.abbr
-          end
-
-          -- Apply lspkind formatting
-          item = lspkind.cmp_format({
-            mode = "symbol_text",
-            symbol_map = { Supermaven = "" },
-            maxwidth = 50,
-            ellipsis_char = "...",
-          })(entry, item)
-
-          return item
-        end,
       },
     })
   end,
