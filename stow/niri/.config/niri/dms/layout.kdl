@@ -4,6 +4,8 @@
 // ! PLACE YOUR CUSTOM CONFIGURATION ELSEWHERE !
 
 layout {
+    gaps 8
+
     border {
         width 2
     }
@@ -14,7 +16,7 @@ layout {
 }
 
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 5
     clip-to-geometry true
     tiled-state true
     draw-border-with-background false

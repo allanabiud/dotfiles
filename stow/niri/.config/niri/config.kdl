@@ -1,15 +1,20 @@
-// Custom
-include "custom/startup.kdl"
-include "custom/layout.kdl"
-include "custom/misc.kdl"
-include "custom/inputs.kdl"
-include "custom/rules.kdl"
-
-// Include dms files
-include "dms/colors.kdl"
-include "dms/alttab.kdl"
-include "dms/binds.kdl"
+// ============================================
+// DMS Configurations
+// ============================================
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
-include "dms/windowrules.kdl"
+include "dms/colors.kdl"
 include "dms/layout.kdl"
+include "dms/binds.kdl"
+include "dms/alttab.kdl"
+include "dms/wpblur.kdl"
+include "dms/windowrules.kdl"
+
+// ============================================
+// Custom Overrides
+// ============================================
+include "custom/startup.kdl"
+include "custom/inputs.kdl"
+include "custom/layout.kdl"
+include "custom/misc.kdl"
+include "custom/rules.kdl"

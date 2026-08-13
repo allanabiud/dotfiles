@@ -4,15 +4,16 @@
 (
     address: "127.0.0.1:6600",
     password: None,
-    theme: Some("mytheme2"),
+    theme: Some("default"),
     cache_dir: None,
     lyrics_dir: Some("~/Music/Music/Lyrics/"),
     on_song_change: ["~/dotfiles/scripts/rmpc/notify.sh"], 
     volume_step: 5,
     max_fps: 30,
-    scrolloff: 10,
+    scrolloff: 3,
     wrap_navigation: false,
     enable_mouse: true,
+    enable_focus_events: true,
     scroll_amount: 1,
     enable_config_hot_reload: true,
     enable_lyrics_hot_reload: false,
@@ -27,7 +28,7 @@
     directories_sort: SortFormat(group_by_type: true, reverse: false),
     auto_open_downloads: true,
     quit_closes_modal: false,
-    queue_disable_current_item_style_timeout_ms: None,
+    queue_disable_current_item_style_timeout_ms: Some(3000),
     album_art: (
         method: Auto,
         max_size_px: (width: 1200, height: 1200),
@@ -128,6 +129,7 @@
             "D":       DeleteAll,
             "<CR>":    Play,
             "C":       JumpToCurrent,
+            "L":       SelectAlbum(),
             "X":       Shuffle,
             "<C-s>":   Save,
         },
@@ -158,28 +160,20 @@
            pane: Split(
                direction: Horizontal,
                panes: [
-                   (
-                       size: "30%",
-                       pane: Split(
-                           direction: Vertical,
-                           panes: [
-                                (
-                                    size: "100%",
-                                    borders: "LEFT | RIGHT | TOP",
-                                    border_symbols: Rounded,
-                                    pane: Pane(AlbumArt)
-                                ),
-                                (
-                                    size: "6",
-                                    borders: "ALL",
-                                    border_symbols: Inherited(parent: Rounded, top_left: "├", top_right: "┤",),
-                                    border_title: [(kind: Text(" Lyrics "))],
-                                    border_title_alignment: Right,
-                                    pane: Pane(Lyrics)
-                                ),
-                           ],
-                       ),
-                   ),
+                    (
+                        size: "30%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                 (
+                                     size: "100%",
+                                     borders: "ALL",
+                                     border_symbols: Rounded,
+                                     pane: Pane(AlbumArt)
+                                 ),
+                            ],
+                        ),
+                    ),
                    (
                        size: "70%",
                        pane: Split(
