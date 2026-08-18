@@ -58,17 +58,6 @@
             "b":       SeekBack,
             "+":       VolumeUp,
             "-":       VolumeDown,
-            "<Tab>":   NextTab,
-            "gt":      NextTab,
-            "<S-Tab>": PreviousTab,
-            "gT":      PreviousTab,
-            "1":       SwitchToTab("Queue"),
-            "2":       SwitchToTab("Directories"),
-            "3":       SwitchToTab("Artists"),
-            "4":       SwitchToTab("Album Artists"),
-            "5":       SwitchToTab("Albums"),
-            "6":       SwitchToTab("Playlists"),
-            "7":       SwitchToTab("Search"),
             "u":       Update,
             "U":       Rescan,
             "R":       AddRandom,
@@ -119,10 +108,14 @@
             "<C-s>a":     Save(kind: Modal(all: true, duplicates_strategy: Ask)),
             "r":          Rate(),
             "Y":          CopyToClipboard(kind: Modal([
-                              ("Displayed value", (content: DisplayedValue, all: false)),
-                              ("Artist - Title", (content: Metadata([(kind: Property(Artist)), (kind: Text(" - ")), (kind: Property(Title))]), all: false)),
-                          ])),
-            "y":          CopyToClipboard(kind: Content(content: DisplayedValue, all : false)),
+                ("Displayed value", (content: DisplayedValue, all: false)),
+                ("Artist - Title", (content: Metadata([
+                    (kind: Property(Artist)),
+                    (kind: Text(" - ")),
+                    (kind: Property(Title)),
+                ]), all: false)),
+            ])),
+            "y":          CopyToClipboard(kind: Content(content: DisplayedValue, all: false)),
         },
         queue: {
             "d":       Delete,
@@ -161,9 +154,13 @@
                 direction: Vertical,
                 panes: [
                     (
-                        size: "2",
-                        borders: "LEFT | RIGHT | BOTTOM",
-                        border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
+                        size: "3",
+                        borders: "ALL",
+                        border_symbols: Inherited(
+                            parent: Rounded,
+                            bottom_left: "├",
+                            bottom_right: "┤",
+                        ),
                         pane: Split(
                             direction: Horizontal,
                             panes: [
@@ -176,8 +173,17 @@
                     ),
                     (
                         size: "100%",
-                        borders: "LEFT | RIGHT ",
-                        border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
+                        borders: "LEFT | RIGHT | BOTTOM",
+                        border_symbols: Rounded,
+                        border_title: [
+                            (kind: Text(" ")),
+                            (kind: Property(Status(QueueLength()))),
+                            (kind: Text(" songs / ")),
+                            (kind: Property(Status(QueueTimeTotal()))),
+                            (kind: Text(" total time ")),
+                        ],
+                        border_title_position: Bottom,
+                        border_title_alignment: Right,
                         pane: Split(
                             direction: Horizontal,
                             panes: [
