@@ -25,6 +25,9 @@ ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
+ini = [
+	{ run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
+]
 edit = [
 	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 	{ run = 'code %*',    orphan = true, desc = "code",         for = "windows" },
@@ -54,6 +57,8 @@ play = [
 rules = [
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	# INI
+	{ url = "*.ini", use = [ "ini", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
