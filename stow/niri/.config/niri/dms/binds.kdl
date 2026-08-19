@@ -4,27 +4,26 @@ binds {
     Mod+Shift+E { quit; }
 
     // === Application Launchers ===
-    Mod+Return   { spawn "kitty"; }
-    Mod+Space    { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+B        { spawn "vivaldi-stable"; }
     Mod+M        { spawn-sh "kitty --title=rmpc -e rmpc"; }
-    Mod+Alt+M    { spawn-sh "kitty --title=rmpc -e rmpc --config ~/.config/rmpc/config-alt.ron"; }
     Mod+Z        { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
     Mod+N        { spawn-sh "kitty --title=superfile -e yazi"; }
-    Mod+Shift+N  { spawn "pcmanfm"; }
+    Mod+Return   { spawn "kitty"; }
+
+    // === Alt Application Launchers ===
+    Mod+Alt+M    { spawn-sh "kitty --title=rmpc -e rmpc --config ~/.config/rmpc/config-alt.ron"; }
+    Mod+Alt+N    { spawn "pcmanfm"; }
 
     // DMS TOOLS
+    Mod+Space        { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Shift+D      { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Shift+L      { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Shift+N      { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+P      { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Mod+Shift+V      { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Shift+W      { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Shift+Return { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
-    Mod+Alt+Return   { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
-    Mod+Alt+V        { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-    Mod+Alt+P        { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
-    Mod+Alt+N        { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+Alt+D        { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-    Mod+Alt+W        { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
-
-
-    // === Security ===
-    Mod+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Shift+Space      { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
 
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
