@@ -17,9 +17,9 @@
     borders_style: (fg: "blue"),
     highlight_border_style: (fg: "blue"),
     symbols: (
-        song: "",
-        dir: "",
-        playlist: "",
+        song: " ",
+        dir: " ",
+        playlist: " ",
         marker: "▶ ",
         ellipsis: "...",
         song_style: None,

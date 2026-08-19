@@ -121,89 +121,67 @@
         direction: Vertical,
         panes: [
             (
-                pane: Pane(Tabs),
-                borders: "ALL",
-                border_symbols: Rounded,
-                size: "3",
-            ),
-            (
-                pane: Pane(TabContent),
                 size: "100%",
-            ),
-            (
-                size: "7",
                 pane: Split(
                     direction: Horizontal,
                     panes: [
                         (
-                            size: "15",
-                            borders: "ALL",
-                            border_symbols: Inherited(
-                                parent: Rounded,
-                                top_right: "┬",
-                                bottom_right: "┴",
-                            ),
-                            border_title: [
-                                (kind: Text(" ")),
-                                (kind: Property(Status(StateV2( ))), style: (fg: "yellow", modifiers: "Bold")),
-                                (kind: Text(" ")),
-                            ],
-                            border_title_position: Top,
-                            border_title_alignment: Left,
-                            pane: Pane(AlbumArt)
-                        ),
-                        (
-                            size: "100%",
-                            borders: "TOP | RIGHT | BOTTOM",
-                            border_symbols: Rounded,
+                            size: "36",
                             pane: Split(
                                 direction: Vertical,
                                 panes: [
                                     (
-                                        size: "4",
-                                        borders: "BOTTOM",
+                                        size: "20",
+                                        borders: "LEFT | RIGHT | TOP",
                                         border_symbols: Rounded,
-                                        pane: Split(
-                                            direction: Horizontal,
-                                            panes: [
-                                                (
-                                                    size: "100%",
-                                                    borders: "RIGHT",
-                                                    border_symbols: Rounded,
-                                                    pane: Component("header_left")
-                                                ),
-                                                (
-                                                    size: "40",
-                                                    pane: Component("header_right")
-                                                ),
-                                            ]
-                                        )
+                                        border_title: [
+                                            (kind: Text(" ")),
+                                            (kind: Property(Status(StateV2( ))), style: (fg: "yellow", modifiers: "Bold")),
+                                            (kind: Text(" ")),
+                                        ],
+                                        border_title_position: Top,
+                                        border_title_alignment: Left,
+                                        pane: Pane(AlbumArt)
                                     ),
                                     (
-                                        size: "1",
-                                        pane: Split(
-                                            direction: Horizontal,
-                                            panes: [
-                                                (
-                                                    size: "7",
-                                                    pane: Component("elapsed")
-                                                ),
-                                                (
-                                                    size: "100%",
-                                                    pane: Component("progress_bar"),
-                                                ),
-                                                (
-                                                    size: "7",
-                                                    pane: Component("duration"),
-                                                ),
-                                            ]
+                                        size: "100%",
+                                        borders: "ALL",
+                                        border_symbols: Inherited(
+                                            parent: Rounded,
+                                            top_left: "├",
+                                            top_right: "┤",
                                         ),
+                                        pane: Component("header_top")
                                     ),
                                 ],
-                            )
+                            ),
                         ),
-                    ],
+                        (
+                            size: "100%",
+                            pane: Split(
+                                direction: Vertical,
+                                panes: [
+                                    (
+                                        pane: Pane(Tabs),
+                                        borders: "ALL",
+                                        border_symbols: Rounded,
+                                        size: "3",
+                                    ),
+                                    (
+                                        pane: Pane(TabContent),
+                                        size: "100%",
+                                    ),
+                                ]
+                            ),
+                        ),
+                    ]
                 ),
+            ),
+            (
+                size: "4",
+                borders: "ALL",
+                border_symbols: Rounded,
+                pane: Component("tab_footer"),
             ),
         ],
     ),
@@ -218,6 +196,10 @@
         )),
         "title": Pane(Property(
             content: [
+                (kind: Group([
+                    (kind: Property(Song(Track)), style: (fg: "blue")),
+                    (kind: Text(". "), style: (fg: "blue")),
+                ])),
                 (
                     kind: Property(Song(Title)),
                     style: (modifiers: "Bold"),
@@ -304,7 +286,7 @@
                     (kind: Text(" kbps")),
                 ])),
             ],
-            align: Right,
+            align: Left,
             scroll_speed: 1,
         )),
         "elapsed_and_bitrate": Pane(Property(
@@ -353,22 +335,22 @@
                 )))),
                 (kind: Text("]"), style: (fg: "blue", modifiers: "Bold")),
             ],
-            align: Right,
+            align: Left,
         )),
-        "header_left": Split(
+        "header_top": Split(
             direction: Vertical,
             panes: [
                 (size: "1", pane: Component("title")),
                 (size: "1", pane: Component("artist")),
                 (size: "1", pane: Component("album")),
+                (size: "1", pane: Component("quality")),
             ]
         ),
-        "header_right": Split(
-            direction: Vertical,
+        "header_bottom": Split(
+            direction: Horizontal,
             panes: [
-                (size: "1", pane: Component("toggles")),
-                (size: "1", pane: Component("volume")),
-                (size: "1", pane: Component("quality")),
+                (size: "100%", pane: Component("toggles")),
+                (size: "40", pane: Component("volume")),
             ]
         ),
         "elapsed": Pane(Property(
@@ -397,6 +379,47 @@
                 (
                     size: "1",
                     pane: Pane(Empty())
+                ),
+            ]
+        ),
+        "tab_footer": Split(
+            direction: Vertical,
+            panes: [
+                (
+                    size: "1",
+                    pane: Split(
+                        direction: Horizontal,
+                        panes: [
+                            (
+                                size: "7",
+                                pane: Component("elapsed")
+                            ),
+                            (
+                                size: "100%",
+                                pane: Component("progress_bar"),
+                            ),
+                            (
+                                size: "7",
+                                pane: Component("duration")
+                            ),
+                        ]
+                    )
+                ),
+                (
+                    size: "1",
+                    pane: Split(
+                        direction: Horizontal,
+                        panes: [
+                            (
+                                size: "100%",
+                                pane: Component("toggles")
+                            ),
+                            (
+                                size: "40",
+                                pane: Component("volume")
+                            ),
+                        ]
+                    )
                 ),
             ]
         ),
