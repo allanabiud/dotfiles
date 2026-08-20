@@ -302,21 +302,23 @@
             ],
             align: Right,
         )),
-        "toggles": Pane(Property(
+"toggles": Pane(Property(
             content: [
-                (kind: Text("["), style: (fg: "blue", modifiers: "Bold")),
+                (kind: Text("[ "), style: (fg: "blue", modifiers: "Bold")),
                 (kind: Property(Status(RepeatV2(
                     on_label: " ",
                     off_label: " ",
                     on_style: (fg: "yellow", modifiers: "Bold"),
                     off_style: (fg: "blue", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(RandomV2(
                     on_label: " ",
                     off_label: " ",
                     on_style: (fg: "yellow", modifiers: "Bold"),
                     off_style: (fg: "blue", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(ConsumeV2(
                     on_label: " ",
                     off_label: " ",
@@ -325,6 +327,7 @@
                     off_style: (fg: "blue", modifiers: "Dim"),
                     oneshot_style: (fg: "red", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(SingleV2(
                     on_label: " ",
                     off_label: " ",
@@ -333,7 +336,7 @@
                     off_style: (fg: "blue", modifiers: "Dim"),
                     oneshot_style: (fg: "red", modifiers: "Bold"),
                 )))),
-                (kind: Text("]"), style: (fg: "blue", modifiers: "Bold")),
+                (kind: Text(" ]"), style: (fg: "blue", modifiers: "Bold")),
             ],
             align: Left,
         )),

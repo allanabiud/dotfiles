@@ -140,7 +140,7 @@
                                         pane: Component("header_left")
                                     ),
                                     (
-                                        size: "20",
+                                        size: "25",
                                         pane: Component("header_right")
                                     ),
                                 ]
@@ -212,21 +212,23 @@
             align: Left,
             scroll_speed: 1,
         )),
-        "toggles": Pane(Property(
+"toggles": Pane(Property(
             content: [
-                (kind: Text("["), style: (fg: "blue", modifiers: "Bold")),
+                (kind: Text("[ "), style: (fg: "blue", modifiers: "Bold")),
                 (kind: Property(Status(RepeatV2(
                     on_label: " ",
                     off_label: " ",
                     on_style: (fg: "yellow", modifiers: "Bold"),
                     off_style: (fg: "blue", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(RandomV2(
                     on_label: " ",
                     off_label: " ",
                     on_style: (fg: "yellow", modifiers: "Bold"),
                     off_style: (fg: "blue", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(ConsumeV2(
                     on_label: " ",
                     off_label: " ",
@@ -235,6 +237,7 @@
                     off_style: (fg: "blue", modifiers: "Dim"),
                     oneshot_style: (fg: "red", modifiers: "Dim"),
                 )))),
+                (kind: Text(" - ")),
                 (kind: Property(Status(SingleV2(
                     on_label: " ",
                     off_label: " ",
@@ -243,7 +246,7 @@
                     off_style: (fg: "blue", modifiers: "Dim"),
                     oneshot_style: (fg: "red", modifiers: "Bold"),
                 )))),
-                (kind: Text("]"), style: (fg: "blue", modifiers: "Bold")),
+                (kind: Text(" ]"), style: (fg: "blue", modifiers: "Bold")),
             ],
             align: Right,
         )),
@@ -315,23 +318,25 @@
                         ],
                     )),
                 ),
-                (
-                    size: "10",
+(
+                    size: "17",
                     pane: Pane(Property(
                         content: [
-                            (kind: Text("["), style: (fg: "blue", modifiers: "Bold")),
+                            (kind: Text("[ "), style: (fg: "blue", modifiers: "Bold")),
                             (kind: Property(Status(RepeatV2(
                                 on_label: " ",
                                 off_label: " ",
                                 on_style: (fg: "yellow", modifiers: "Bold"),
                                 off_style: (fg: "blue", modifiers: "Dim"),
                             )))),
+                            (kind: Text(" - ")),
                             (kind: Property(Status(RandomV2(
                                 on_label: " ",
                                 off_label: " ",
                                 on_style: (fg: "yellow", modifiers: "Bold"),
                                 off_style: (fg: "blue", modifiers: "Dim"),
                             )))),
+                            (kind: Text(" - ")),
                             (kind: Property(Status(ConsumeV2(
                                 on_label: " ",
                                 off_label: " ",
@@ -340,6 +345,7 @@
                                 off_style: (fg: "blue", modifiers: "Dim"),
                                 oneshot_style: (fg: "red", modifiers: "Dim"),
                             )))),
+                            (kind: Text(" - ")),
                             (kind: Property(Status(SingleV2(
                                 on_label: " ",
                                 off_label: " ",
@@ -348,7 +354,7 @@
                                 off_style: (fg: "blue", modifiers: "Dim"),
                                 oneshot_style: (fg: "red", modifiers: "Bold"),
                             )))),
-                            (kind: Text("]"), style: (fg: "blue", modifiers: "Bold")),
+                            (kind: Text(" ]"), style: (fg: "blue", modifiers: "Bold")),
                         ],
                         align: Right,
                     )),
