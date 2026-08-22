@@ -9,21 +9,20 @@ binds {
     Mod+Z        { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
     Mod+N        { spawn-sh "kitty --title=superfile -e yazi"; }
     Mod+Return   { spawn "kitty"; }
-
-    // === Alt Application Launchers ===
-    Mod+Alt+M    { spawn-sh "kitty --title=rmpc -e rmpc --config ~/.config/rmpc/config-alt.ron"; }
     Mod+Alt+N    { spawn "pcmanfm"; }
 
     // DMS TOOLS
     Mod+Space        { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+Shift+D      { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+Shift+I      { spawn "dms" "ipc" "call" "inhibit" "toggle"; }
     Mod+Shift+L      { spawn "dms" "ipc" "call" "lock" "lock"; }
     Mod+Shift+N      { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+Shift+P      { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
     Mod+Shift+V      { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     Mod+Shift+W      { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Shift+Return { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
-    Mod+Shift+Space      { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+Shift+Space  { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+Shift+Delete { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
 
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
@@ -38,18 +37,18 @@ binds {
     XF86AudioMicMute allow-when-locked=true {
         spawn "dms" "ipc" "call" "audio" "micmute";
     }
-		XF86AudioPause allow-when-locked=true {
-		    spawn "dms" "ipc" "call" "mpris" "playPause";
-		}
-		XF86AudioPlay allow-when-locked=true {
-		    spawn "dms" "ipc" "call" "mpris" "playPause";
-		}
-		XF86AudioPrev allow-when-locked=true {
-		    spawn "dms" "ipc" "call" "mpris" "previous";
-		}
-		XF86AudioNext allow-when-locked=true {
-		    spawn "dms" "ipc" "call" "mpris" "next";
-		}
+    XF86AudioPause allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "playPause";
+    }
+    XF86AudioPlay allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "playPause";
+    }
+    XF86AudioPrev allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "previous";
+    }
+    XF86AudioNext allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "next";
+    }
 
     // === Brightness Controls ===
     XF86MonBrightnessUp allow-when-locked=true {
@@ -130,8 +129,9 @@ binds {
     //Move Workspaces
     Mod+Ctrl+Page_Down  { move-workspace-down; }
     Mod+Ctrl+Page_Up    { move-workspace-up; }
+    Mod+F2          { spawn "dms" "ipc" "call" "workspace-rename" "open"; }  // rename workspace
 
-    // === Screenshots ===
+// === Screenshots ===
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
