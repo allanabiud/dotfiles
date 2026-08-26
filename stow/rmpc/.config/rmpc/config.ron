@@ -22,6 +22,7 @@
     keep_state_on_song_change: true,
     reflect_changes_to_playlist: false,
     select_current_song_on_change: true,
+    center_current_song_on_change: true,
     on_exit: None,
     on_resize: Some(["~/dotfiles/scripts/rmpc/onresize.sh"]),
     ignore_leading_the: false,

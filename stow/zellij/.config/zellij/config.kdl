@@ -264,7 +264,8 @@ copy_command "wl-copy"
 scrollback_editor "$EDITOR"
 session_serialization true
 show_startup_tips false
- 
+support_kitty_keyboard_protocol false
+
 // Web Server
 web_server false
 web_server_ip "0.0.0.0"

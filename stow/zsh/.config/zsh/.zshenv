@@ -64,3 +64,4 @@ export PATH
 
 ### PIPENV
 export PIPENV_SHELL_FANCY=1
+

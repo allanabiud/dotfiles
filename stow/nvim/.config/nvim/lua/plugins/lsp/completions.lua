@@ -15,7 +15,11 @@ return {
       if not colors then
         return
       end
-      vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = colors.base0D, fg = colors.base00, bold = true, italic = true })
+      vim.api.nvim_set_hl(
+        0,
+        "BlinkCmpMenuSelection",
+        { bg = colors.base0D, fg = colors.base00, bold = true, italic = true }
+      )
       vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = colors.base0D })
       vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = colors.base0D })
     end
@@ -30,8 +34,8 @@ return {
       keymap = {
         preset = "enter",
         ["<C-y>"] = { "select_and_accept", "fallback" },
-        ["<S-b>"] = { "scroll_documentation_up" },
-        ["<S-f>"] = { "scroll_documentation_down" },
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
@@ -60,7 +64,8 @@ return {
               kind_icon = {
                 text = function(ctx)
                   if ctx.item.source_name == "LSP" then
-                    local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
                     if color_item and color_item.abbr ~= "" then
                       return color_item.abbr
                     end
@@ -74,7 +79,8 @@ return {
                 highlight = function(ctx)
                   local hl = "BlinkCmpKind" .. ctx.kind
                   if ctx.item.source_name == "LSP" then
-                    local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
                     if color_item and color_item.abbr_hl_group then
                       hl = color_item.abbr_hl_group
                     end
