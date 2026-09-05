@@ -7,9 +7,9 @@ binds {
     Mod+B        { spawn "vivaldi-stable"; }
     Mod+M        { spawn-sh "kitty --title=rmpc -e rmpc"; }
     Mod+Z        { spawn-sh "kitty --title=zellij -e zellij -l welcome"; }
-    Mod+N        { spawn-sh "kitty --title=superfile -e yazi"; }
+    Mod+N        { spawn "pcmanfm"; }
     Mod+Return   { spawn "kitty"; }
-    Mod+Alt+N    { spawn "pcmanfm"; }
+    Mod+Alt+N    { spawn-sh "kitty --title=superfile -e yazi"; }
 
     // DMS TOOLS
     Mod+Space        { spawn "dms" "ipc" "call" "spotlight" "toggle"; }

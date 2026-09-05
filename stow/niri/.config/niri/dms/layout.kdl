@@ -28,4 +28,11 @@ layer-rule {
     }
 }
 
+window-rule {
+    match app-id="^com.danklinux.dms$"
+    background-effect {
+        xray false
+    }
+}
+
 // bar-xray off
