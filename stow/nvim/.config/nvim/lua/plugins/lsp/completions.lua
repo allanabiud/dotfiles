@@ -47,6 +47,8 @@ return {
                 html = { "loremipsum" },
                 python = { "django" },
                 gdscript = { "gdscript" },
+                javascriptreact = { "javascript", "react" },
+                typescriptreact = { "typescript", "react" },
               },
             },
           },

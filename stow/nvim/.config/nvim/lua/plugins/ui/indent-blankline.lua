@@ -18,7 +18,9 @@ return {
       -- every time the colorscheme changes
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
         local colors = require("base46").theme_tables["dms"].base_16
-        if not colors then return end
+        if not colors then
+          return
+        end
         vim.api.nvim_set_hl(0, "RainbowRed", { fg = colors.base08 })
         vim.api.nvim_set_hl(0, "RainbowYellow", { fg = colors.base0A })
         vim.api.nvim_set_hl(0, "RainbowBlue", { fg = colors.base0D })
