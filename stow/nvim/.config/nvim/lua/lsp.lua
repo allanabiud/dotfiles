@@ -86,16 +86,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
     opts.desc = "Previous diagnostic"
-    keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
+    keymap.set("n", "[d", function()
+      vim.diagnostic.jump({ count = -1 })
+    end, opts)
 
     opts.desc = "Next diagnostic"
-    keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+    keymap.set("n", "]d", function()
+      vim.diagnostic.jump({ count = 1 })
+    end, opts)
 
     opts.desc = "Hover documentation"
     keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
     opts.desc = "Restart LSP"
-    keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+    keymap.set("n", "<leader>rs", ":lsp restart<CR>", opts)
   end,
 })
 

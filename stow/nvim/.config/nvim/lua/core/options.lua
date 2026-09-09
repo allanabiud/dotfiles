@@ -70,3 +70,6 @@ vim.g.godot_executable = "/usr/sbin/godot"
 
 -- End of Buffer Fill Characters
 vim.opt.fillchars = { eob = " " }
+
+-- Required for auto-session to properly save/restore sessions
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
