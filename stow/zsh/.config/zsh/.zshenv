@@ -45,6 +45,13 @@ export BUN_INSTALL="$HOME/.bun"
 ## ANDROID TOOLS
 export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 export ANDROID_HOME="$HOME/DEV/Tools/Android-SDK/"
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
+## DOCKER
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+## TEX
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 
 ### PATH VARIABLES
 # Combined Path
