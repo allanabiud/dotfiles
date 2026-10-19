@@ -29,18 +29,18 @@ case "$choice" in
   ;;
 "  Screenshot")
   if [[ "$session" == *"hyprland"* ]]; then
-    "$HOME/.config/scripts/rofi/screenshot-hypr.sh"
+    screenshot-hypr.sh
   elif [[ "$session" == *"niri"* ]]; then
-    "$HOME/.config/scripts/rofi/screenshot-niri.sh"
+    screenshot-niri.sh
   else
-    "$HOME/.config/scripts/rofi/screenshot-hypr.sh"
+    screenshot-hypr.sh
   fi
   ;;
 "  Wallpaper")
-  "$HOME/.config/scripts/rofi/walpicker-pywal.sh"
+  walpicker-pywal.sh
   ;;
 "  Power")
-  "$HOME/.config/scripts/rofi/powermenu.sh"
+  powermenu.sh
   ;;
 *)
   exit 0
