@@ -1,0 +1,156 @@
+@import "/home/allanabiud/.cache/wal/colors-waybar.css";
+
+* {
+  border: none;
+  font-family:
+    JetBrainsMono Nerd Font Propo,
+    Font Awesome,
+    sans-serif;
+  font-size: 12px;
+  border-radius: 2px;
+  background: transparent;
+}
+
+/* Window styling */
+window {
+  font-weight: bold;
+  background-color: @background;
+}
+window#waybar {
+  background: transparent;
+}
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+  color: transparent;
+}
+
+/* Module groups */
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: transparent;
+}
+
+/* Workspaces module */
+#workspaces {
+  border: 1.5px solid @color1;
+  background-color: @color0;
+}
+#workspaces button {
+  padding: 0px;
+  transition: all 0.3s;
+  color: @foreground;
+  opacity: 0.8;
+}
+#workspaces button:hover {
+  color: @color2;
+}
+#workspaces button.empty {
+  color: dimgrey;
+  opacity: 0.6;
+}
+#workspaces button.active {
+  color: @color2;
+  opacity: 1;
+  font-weight: bold;
+}
+workspaces button.urgent {
+  background-color: @color2;
+}
+
+#custom-niri-windows {
+  font-family: "Uiua386";
+  font-size: 18px;
+  background-color: @color0;
+  color: @color1;
+  border: 1.5px solid @color1;
+  padding: 0 7px;
+  margin: 0 0 0 5px;
+}
+
+/* Tooltip */
+tooltip {
+  color: @color1;
+  background-color: @color0;
+  border: 1.5px solid gray;
+}
+tooltip label {
+  color: @color1;
+}
+
+/* Audio group */
+#audio {
+  border: 1.5px solid @color3;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 7px;
+}
+
+/* Window module */
+#window {
+  border: 1.5px solid @color3;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 8px;
+}
+
+/* MPRIS states */
+#mpris.paused {
+  color: @color1;
+}
+#mpris.playing {
+  color: @color2;
+}
+
+/* Tray and other modules */
+#tray,
+#audio,
+#battery,
+#idle_inhibitor {
+  padding: 0 7px;
+  background-color: @color0;
+  margin: 0 0 0 5px;
+  border: 1.5px solid @color1;
+}
+
+/* Clock */
+#clock {
+  color: @color3;
+  background-color: @color0;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 7px;
+  border: 1.5px solid @color3;
+}
+
+/* Battery */
+#battery.charging {
+  color: @color2;
+}
+#battery.warning:not(.charging) {
+  color: @color6;
+}
+#battery.critical:not(.charging) {
+  color: @color1;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+  color: @color1;
+}
+#idle_inhibitor.deactivated {
+  color: grey;
+}
+
+/* PulseAudio */
+#pulseaudio {
+  color: @foreground;
+  padding: 0 2px;
+  background-color: transparent;
+  margin: 0;
+  border: none;
+}
+#pulseaudio.muted {
+  color: @color1;
+}

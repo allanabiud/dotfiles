@@ -1,0 +1,100 @@
+/* import pywal colors in .cache/wal/colors.css */
+@import url("/home/allanabiud/.cache/wal/colors-waybar.css");
+
+* {
+  background-image: none;
+  font-family: "JetBrains Mono NFM";
+  font-size: 12px;
+  font-weight: bold;
+}
+
+window {
+  background-color: rgba(17, 17, 17, 0.9);
+}
+
+button {
+  border-radius: 10px;
+  border-width: 0px;
+  border-style: solid;
+  margin: 10px;
+  color: @foreground;
+  border-color: @background;
+  background-color: @background;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15%;
+  outline-style: none;
+  text-shadow: none;
+  box-shadow: none;
+  animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus,
+button:active,
+button:hover {
+  background-color: @color2;
+  background-size: 20%;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
+  color: @background;
+}
+
+#lock {
+  background-image: image(url("icons/lock.svg"));
+}
+
+#lock:hover,
+#lock:focus,
+#lock:active {
+  background-image: image(url("icons/dark/lock-dark.svg"));
+}
+
+#logout {
+  background-image: image(url("icons/logout.svg"));
+}
+
+#logout:hover,
+#logout:focus,
+#logout:active {
+  background-image: image(url("icons/dark/logout-dark.svg"));
+}
+
+#suspend {
+  background-image: image(url("icons/suspend.svg"));
+}
+
+#suspend:hover,
+#suspend:focus,
+#suspend:active {
+  background-image: image(url("icons/dark/suspend-dark.svg"));
+}
+
+#hibernate {
+  background-image: image(url("icons/hibernate.svg"));
+}
+
+#hibernate:hover,
+#hibernate:focus,
+#hibernate:active {
+  background-image: image(url("icons/dark/hibernate-dark.svg"));
+}
+
+#shutdown {
+  background-image: image(url("icons/shutdown.svg"));
+}
+
+#shutdown:hover,
+#shutdown:focus,
+#shutdown:active {
+  background-image: image(url("icons/dark/shutdown-dark.svg"));
+}
+
+#reboot {
+  background-image: image(url("icons/reboot.svg"));
+}
+
+#reboot:hover,
+#reboot:focus,
+#reboot:active {
+  background-image: image(url("icons/dark/reboot-dark.svg"));
+}

@@ -1,0 +1,91 @@
+// LAYER RULES
+layer-rule {
+    match namespace="^swww-daemon$"
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^rofi$"
+    match namespace="^launcher$"
+
+    shadow {
+      on
+    }
+    geometry-corner-radius 4
+}
+
+
+// WORKSPACE RULES
+// Named Workspaces
+workspace "1"
+
+
+// WINDOW RULES
+
+// Open dms windows as floating by default
+// window-rule {
+//     match app-id=r#"org.quickshell$"#
+//     open-floating true
+// }
+
+
+// Open in specific workspaces
+// Workspace 1
+window-rule {
+    match app-id="^vivaldi.*$"
+    match app-id="^fdm$"
+    match title="^rmpc$"
+
+    open-on-workspace "1"
+    open-focused true
+}
+
+// Force apps to open normally and not maximized to screen edges
+window-rule {
+    open-maximized-to-edges false
+}
+
+// Reduce opacity on unfocused windows
+window-rule {
+    match is-focused=false
+
+    opacity 0.9
+}
+
+// 50% width
+window-rule {
+    match app-id="pcmanfm"
+    match app-id="localsend"
+    match app-id="org.gnome.Nautilus"
+
+    default-column-width { proportion 0.5; }
+}
+
+// 25% width
+window-rule {
+  match app-id="flet"
+  match app-id="scrcpy"
+
+  default-column-width { proportion 0.3; }
+}
+
+// Floating Window Rules
+window-rule {
+    match app-id="zenity"
+    match title="(?i).*File Operation Progress.*"
+    match title="(?i).*Removable.*"
+    match title="(?i).*directory.*"
+    match title="(?i).*Open File.*"
+    match title="(?i).*Select Folder.*"
+    match title="(?i).*Select.*"
+    match title="(?i).*Choose.*"
+    match title="(?i).*Rename.*"
+    match app-id="org.gnome.Calculator"
+
+    open-floating true
+}
+window-rule {
+    match is-floating=true
+    default-floating-position x=430 y=200
+}

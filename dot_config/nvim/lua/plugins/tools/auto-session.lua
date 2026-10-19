@@ -1,0 +1,24 @@
+return {
+  "rmagatti/auto-session",
+  cmd = { "AutoSession" },
+  keys = {
+    { "<leader>ws", "<cmd>AutoSession search<CR>", desc = "Search sessions" },
+    { "<leader>wr", "<cmd>AutoSession restore<CR>", desc = "Restore session" },
+  },
+  config = function()
+    local auto_session = require("auto-session")
+
+    auto_session.setup({
+      auto_restore = false,
+      bypass_save_filetypes = { "alpha" },
+      log_level = "error",
+      session_lens = {
+        picker = "telescope",
+        load_on_setup = true,
+        picker_opts = {
+          border = true,
+        },
+      },
+    })
+  end,
+}

@@ -1,0 +1,211 @@
+@import "/home/allanabiud/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    font:    "JetBrainsMono Nerd Font Medium 11";
+
+    bg0:     @background;
+    bg1:     #404040;
+    fg0:     @foreground;
+
+    accent-color:      @selected-active-background;
+    accent-color-alt:  @selected-normal-background;
+    urgent-color:      @selected-urgent-background;
+
+}
+
+window {
+    transparency:              "real";
+    location:                  center;
+    anchor:                    center;
+    fullscreen:                false;
+    width:                     420px;
+    height:                    480px;
+    x-offset:                  0px;
+    y-offset:                  0px;
+
+    enabled:                   true;
+    padding:                   0px;
+    border:                    2px solid;
+    border-color:              @accent-color;
+    border-radius:             4px;
+    cursor:                    "default";
+    background-color:          @bg0;
+}
+
+mainbox {
+    enabled:                   true;
+    spacing:                   5px;
+    padding:                   20px;
+    background-color:          transparent;
+    orientation:               vertical;
+    children:                  [ "inputbar", "mode-switcher", "listbox" ];
+}
+
+listbox {
+    spacing:                   20px;
+    padding:                   0px;
+    background-color:          transparent;
+    orientation:               vertical;
+    children:                  [ "message", "listview" ];
+}
+
+dummy {
+    background-color: transparent;
+}
+
+inputbar {
+    enabled:                   true;
+    spacing:                   10px;
+    margin:                    0px;
+    padding:                   5px 0px;
+    border-radius:             0px;
+    background-color:          transparent;
+    text-color:                @fg0;
+    orientation:               horizontal;
+    children:                  [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                   true;
+    expand:                    false;
+    str:                       "";
+    padding:                   5px 20px 5px 15px;
+    border-radius:             5px;
+    background-color:          @urgent-color;
+    text-color:                @background;
+}
+
+entry {
+    enabled:                   true;
+    padding:                   5px;
+    background-color:          inherit;
+    text-color:                inherit;
+    cursor:                    text;
+    placeholder:               "Search";
+    placeholder-color:         inherit;
+}
+
+mode-switcher{
+    enabled:                   true;
+    spacing:                   10px;
+    margin:                    0px;
+    padding:                   0px;
+    border-radius:             0px;
+    border:                    0px solid;
+    background-color:          transparent;
+    text-color:                @fg0;
+}
+
+button {
+    padding:                   10px;
+    border:                    0px solid;
+    border-radius:             5px;
+    background-color:          @bg1;
+    text-color:                inherit;
+    cursor:                    pointer;
+}
+
+button selected {
+    background-color:          @urgent-color;
+    text-color:                @background;
+}
+
+listview {
+    enabled:                   true;
+    columns:                   1;
+    lines:                     8;
+    cycle:                     true;
+    dynamic:                   true;
+    scrollbar:                 false;
+    layout:                    vertical;
+    reverse:                   false;
+    fixed-height:              true;
+    fixed-columns:             true;
+
+    spacing:                   10px;
+    background-color:          transparent;
+    text-color:                @fg0;
+    cursor:                    "default";
+}
+
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @accent-color;
+    border-radius:               10px;
+    background-color:            @background;
+}
+
+element {
+    enabled:                   true;
+    spacing:                   15px;
+    padding:                   8px;
+    border-radius:             5px;
+    background-color:          transparent;
+    text-color:                @fg0;
+    cursor:                    pointer;
+}
+
+element normal.normal {
+    background-color:          inherit;
+    text-color:                inherit;
+}
+
+element normal.urgent {
+    background-color:          @urgent-color;
+    text-color:                @fg0;
+}
+
+element normal.active {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+element selected.normal {
+    background-color:          @accent-color-alt;
+    text-color:                @background;
+}
+
+element selected.urgent {
+    background-color:          @urgent-color;
+    text-color:                @background;
+}
+
+element selected.active {
+    background-color:          @accent-color;
+    text-color:                @background;
+}
+
+element-icon {
+    background-color:          transparent;
+    text-color:                inherit;
+    size:                      24px;
+    cursor:                    inherit;
+}
+
+element-text {
+    background-color:          transparent;
+    text-color:                inherit;
+    cursor:                    inherit;
+    vertical-align:            0.5;
+    horizontal-align:          0.0;
+}
+
+message {
+    background-color:          transparent;
+}
+
+textbox {
+    padding:                   15px;
+    border-radius:             10px;
+    background-color:          @bg1;
+    text-color:                @fg0;
+    vertical-align:            0.5;
+    horizontal-align:          0.0;
+}
+
+error-message {
+    padding:                   15px;
+    border-radius:             20px;
+    background-color:          @urgent-color;
+    text-color:                @fg0;
+}

@@ -1,0 +1,135 @@
+@import "/home/allanabiud/.config/matugen/outputs/colors.css";
+
+/* Global styles */
+* {
+  border: none;
+  font-family:
+    JetBrainsMono Nerd Font Propo,
+    Font Awesome;
+  font-size: 12.4px;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Waybar window */
+window#waybar {
+  background: @background;
+  color: @on_background;
+}
+
+/* Module groups */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: transparent; /* Transparent backgrounds for module containers */
+  padding: 0px;
+  margin: 0;
+}
+
+/* Workspaces module */
+#workspaces {
+  background: transparent;
+}
+#workspaces button {
+  background: transparent;
+  color: @surface_variant;
+  padding: 0 5px;
+  margin: 0 2px;
+  transition: all 0.3s;
+}
+#workspaces button:hover {
+  color: @surface_tint;
+}
+#workspaces button.empty {
+  color: @inverse_on_surface;
+}
+#workspaces button.active {
+  color: @primary;
+  font-weight: bold;
+  /* padding: 0px 5px; */
+}
+#workspaces button.urgent {
+  background: @error;
+  color: @on_error;
+}
+
+/* Custom module: niri_windows */
+#custom-niri_windows {
+  background: transparent;
+  color: @on_secondary_container;
+  padding: 0 6px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+#custom-separator {
+  color: @outline_variant;
+  font-weight: bold;
+}
+
+tooltip {
+  background-color: @background;
+  border: 1px solid @surface_variant;
+  border-radius: 0;
+}
+
+#window {
+  background: transparent;
+  margin: 0 0 0 5px;
+  padding: 0 0 0 8px;
+}
+
+/* Tray and other modules */
+#tray,
+#audio,
+#battery,
+#idle_inhibitor {
+  background: transparent;
+  padding: 0 5px;
+  margin: 0 0 0 5px;
+}
+
+/* Clock */
+#clock {
+  background: transparent;
+  color: @on_tertiary_container;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Battery states */
+#battery.charging,
+#battery.warning,
+#battery.critical {
+  background: transparent;
+  color: @on_tertiary_container;
+}
+
+/* MPRIS */
+#mpris.playing {
+  color: @surface_tint;
+}
+#mpris.paused {
+  color: @outline;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+  color: @surface_tint;
+}
+#idle_inhibitor.deactivated {
+  color: @outline;
+}
+
+/* PulseAudio */
+#pulseaudio {
+  color: @on_surface;
+  background: transparent;
+  margin: 0;
+  padding: 0 2px;
+  border: none;
+}
+#pulseaudio.muted {
+  color: @outline;
+}

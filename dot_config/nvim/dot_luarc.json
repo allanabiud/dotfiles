@@ -1,0 +1,11 @@
+{
+    "diagnostics.disable": [
+        "missing-fields",
+        "undefined-global",
+        "inject-field"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "statusline"
+    ]
+}

@@ -1,0 +1,354 @@
+# ~/.config/starship.toml
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$rust\
+$lua\
+$java\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$conda\
+$fill\
+$cmd_duration\
+$time\
+$line_break\
+$character
+"""
+
+command_timeout = 5000
+
+[username]
+show_always = true
+format = '[\[$user\]]($style)'
+
+[hostname]
+ssh_symbol = " "
+ssh_only = true
+format = '[\[SSH on $hostname\]](bold red)'
+
+[directory]
+format = '[\[$path\]]($style)[$read_only]($read_only_style)'
+read_only = '󰌾 '
+read_only_style = 'red'
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"DEV" = "󰲋 "
+
+[git_branch]
+symbol = " "
+format = '[\[$symbol$branch\]]($style)'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[fill]
+symbol = ' '
+style = 'bold green'
+
+[cmd_duration]
+min_time = 5000
+style	= 'bold green'
+format = '[\[$duration\]]($style)'
+
+[time]
+disabled = false
+style = 'bold yellow'
+time_format = "%R"
+format = '[\[$time\]]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
+
+#########################################
+#### Module Configurations
+#########################################
+
+[aws]
+symbol = "  "
+format = '[\[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[buf]
+symbol = " "
+format = '[\[$symbol$bufname\]]($style)'
+
+[bun]
+format = '[\[$symbol($version)\]]($style)'
+
+[c]
+symbol = " "
+format = '[\[$symbol($version(-$name))\]]($style)'
+
+[cmake]
+format = '[\[$symbol($version)\]]($style)'
+
+[cobol]
+format = '[\[$symbol($version)\]]($style)'
+
+[conda]
+symbol = " "
+format = '[\[$symbol$environment\]]($style)'
+
+[crystal]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[daml]
+format = '[\[$symbol($version)\]]($style)'
+
+[dart]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[deno]
+format = '[\[$symbol($version)\]]($style)'
+
+[docker_context]
+symbol = " "
+format = '[\[$symbol$context\]]($style)'
+
+[dotnet]
+format = '[\[$symbol($version)(🎯 $tfm)\]]($style)'
+
+[elixir]
+symbol = " "
+format = '[\[$symbol($version \(OTP $otp_version\))\]]($style)'
+
+[elm]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[erlang]
+format = '[\[$symbol($version)\]]($style)'
+
+[fennel]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[fossil_branch]
+symbol = " "
+format = '[\[$symbol$branch\]]($style)'
+
+[gcloud]
+format = '[\[$symbol$account(@$domain)(\($region\))\]]($style)'
+
+[golang]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[gradle]
+format = '[\[$symbol($version)\]]($style)'
+
+[guix_shell]
+symbol = " "
+format = '[\[$symbol\]]($style)'
+
+[haskell]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[haxe]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[helm]
+format = '[\[$symbol($version)\]]($style)'
+
+[hg_branch]
+symbol = " "
+format = '[\[$symbol$branch\]]($style)'
+
+[java]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[julia]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[kotlin]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[kubernetes]
+format = '[\[$symbol$context( \($namespace\))\]]($style)'
+
+[lua]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[memory_usage]
+symbol = "󰍛 "
+format = '[\[$symbol[$ram( | $swap)\]]($style)'
+
+[meson]
+symbol = "󰔷 "
+format = '[\[$symbol$project\]]($style)'
+
+[nim]
+symbol = "󰆥 "
+format = '[\[$symbol($version)\]]($style)'
+
+[nix_shell]
+symbol = " "
+format = '[\[$symbol$state( \($name\))\]]($style)'
+
+[nodejs]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[ocaml]
+symbol = " "
+format = '[\[$symbol($version)(\($switch_indicator$switch_name\))\]]($style)'
+
+[opa]
+format = '[\[$symbol($version)\]]($style)'
+
+[openstack]
+format = '[\[$symbol$cloud(\($project\))\]]($style)'
+
+[os]
+format = '[\[$symbol\]]($style)'
+
+[package]
+symbol = "󰏗 "
+format = '[\[$symbol$version\]]($style)'
+
+[perl]
+symbol = " "
+format = '[\[$symbol$version\]]($style)'
+
+[php]
+symbol = " "
+format = '[\[$symbol$version\]]($style)'
+
+[pijul_channel]
+symbol = " "
+format = '[\[$symbol$channel\]]($style)'
+
+[pulumi]
+format = '[\[$symbol$stack\]]($style)'
+
+[purescript]
+format = '[\[$symbol($version)\]]($style)'
+
+[python]
+symbol = " "
+format = '[\[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))\]]($style)'
+
+[raku]
+format = '[\[$symbol($version-$vm_version)\]]($style)'
+
+[red]
+format = '[\[$symbol($version)\]]($style)'
+
+[rlang]
+symbol = "󰟔 "
+format = '[\[$symbol($version)\]]($style)'
+
+[ruby]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[rust]
+symbol = "󱘗 "
+format = '[\[$symbol($version)\]]($style)'
+
+[scala]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[solidity]
+format = '[\[$symbol($version)\]]($style)'
+
+[spack]
+format = '[\[$symbol$environment\]]($style)'
+
+[sudo]
+format = '[\[as $symbol\]]($style)'
+
+[swift]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[terraform]
+format = '[\[$symbol$workspace\]]($style)'
+
+[vagrant]
+format = '[\[$symbol($version)\]]($style)'
+
+[vlang]
+format = '[\[$symbol($version)\]]($style)'
+
+[zig]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+

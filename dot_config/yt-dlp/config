@@ -1,0 +1,3 @@
+-f "bestvideo[vcodec^=avc1][height<=?720]+bestaudio/best[height<=?720]"
+--embed-chapters
+--sponsorblock-mark all

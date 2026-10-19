@@ -1,0 +1,20 @@
+#GENERAL
+# command = zellij -l welcome
+shell-integration = zsh
+# gtk-single-instance = true
+quit-after-last-window-closed = false
+confirm-close-surface = false
+
+#WINDOW
+window-decoration = false
+background-opacity = 0.9
+theme = "/home/allanabiud/.cache/wal/colors-ghostty"
+bold-is-bright = true
+gtk-titlebar = false
+window-padding-balance = true
+window-padding-y = 0
+window-padding-x = 0
+
+#FONTS
+font-size = 11
+font-family = "JetBrainsMono Nerd Font Propo"

@@ -1,0 +1,17 @@
+# Run in background
+-b
+# Warning at 25%
+-w
+25
+# Critical at 10%
+-c
+15
+# Danger at 5% (suspend system)
+-d
+5
+-D systemctl suspend
+# Full at 100%
+-f
+100
+# Notify on charge/discharge
+-p

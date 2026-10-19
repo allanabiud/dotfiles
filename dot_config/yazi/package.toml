@@ -1,0 +1,19 @@
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "364b0a8"
+hash = "480fde69fef0bcaeb2c21a726f94412c"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "bbac5e7"
+hash = "7b625412411be411153886894d9acaf"
+
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "82da16a"
+hash = "7383d80862d3cdcc85f8658dac7b90c2"
+
+[[flavor.deps]]
+use = "matt-dong-123/base16"
+rev = "ed79352"
+hash = "94659ef90cd557d05dbda7076fbbb3f4"

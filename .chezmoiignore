@@ -1,0 +1,31 @@
+# Inactive desktop environments & window managers
+.config/i3/**
+.config/picom/**
+.config/sway/**
+.config/mango/**
+
+# Inactive notification daemons & bars
+.config/dunst/**
+.config/mako/**
+.config/waybar/**
+.config/wlogout/**
+
+# Inactive tools & terminals
+.config/alacritty/**
+.config/ghostty/**
+.config/atuin/**
+.config/batsignal/**
+.config/gomp/**
+.config/matugen/**
+.config/mpv/**
+.config/ncmpcpp/**
+.config/rofi/**
+.config/shikane/**
+.config/superfile/**
+.config/tmux/**
+.config/vim/**
+.config/wal/**
+.config/waypaper/**
+.config/yt-dlp/**
+.config/yt-x/**
+.tmuxifier/**

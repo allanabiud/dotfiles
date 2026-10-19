@@ -1,0 +1,34 @@
+[mgr]
+
+prepend_keymap = [
+	# GVFS mount management
+	{ on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Mount + jump" },
+	{ on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Unmount/eject" },
+	{ on = [ "M", "R" ], run = "plugin gvfs -- remount-current-cwd-device", desc = "Remount device under cwd" },
+	{ on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device + force eject/unmount" },
+	{ on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
+	{ on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
+	{ on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
+	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select + jump to device" },
+	{ on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back before device" },
+	{ on = [ "M", "t" ], run = "plugin gvfs -- automount-when-cd", desc = "Enable automount when cd to device under cwd" },
+	{ on = [ "M", "T" ], run = "plugin gvfs -- automount-when-cd --disabled", desc = "Disable automount when cd to device under cwd" },
+
+	# Drop to a shell
+	{ on = "!", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+
+	# Tabs (default is `t,t`)
+	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
+
+	# Recycle bin
+	{ on = [ "g", "t" ], run = "plugin recycle-bin", desc = "Go to Trash" },
+
+	# Drag & drop files with ripdrag
+	{ on = "<C-n>", run = "shell -- ripdrag %s -x -a 2>/dev/null &" },
+]
+
+[input]
+
+prepend_keymap = [
+	{ on = "<Esc>", run = "close", desc = "Cancel input" },
+]

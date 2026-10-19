@@ -1,0 +1,17 @@
+// INPUTS
+input {
+    keyboard {
+        xkb { }
+        numlock
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+    disable-power-key-handling
+}
