@@ -22,6 +22,22 @@ if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
   ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
 fi
 
-# Send the notification
-notify-send -i "${ALBUM_ART_PATH}" \
-  "Now Playing" "$ARTIST - $TITLE"
+# Track notification ID to replace existing notification instead of stacking
+ID_FILE="$TMP_DIR/notification_id"
+REPLACE_ID=0
+if [ -s "$ID_FILE" ]; then
+  REPLACE_ID=$(cat "$ID_FILE")
+fi
+
+# Send or update notification
+NEW_ID=$(notify-send -p -r "$REPLACE_ID" \
+  -a "rmpc" \
+  -i "${ALBUM_ART_PATH}" \
+  -h string:x-canonical-private-synchronous:rmpc-song \
+  -h string:x-dunst-stack-tag:rmpc-song \
+  "Now Playing" "$ARTIST - $TITLE")
+
+if [ -n "$NEW_ID" ]; then
+  echo "$NEW_ID" > "$ID_FILE"
+fi
+
