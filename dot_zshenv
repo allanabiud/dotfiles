@@ -1,1 +1,5 @@
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+# When ZDOTDIR was not already set in the environment, zsh reads this file
+# instead of $ZDOTDIR/.zshenv — source the real one so PATH etc. still load.
+# (If ZDOTDIR was pre-set, only $ZDOTDIR/.zshenv runs, so this never doubles up.)
+[ -f "$ZDOTDIR/.zshenv" ] && . "$ZDOTDIR/.zshenv"
