@@ -62,6 +62,12 @@ alias v="nvim"
 # ----- zellij -----------------------
 alias zellij="zellij -l welcome"
 alias zel="zellij -l welcome"
+# ----- chezmoi -----------------------
+# Sync nvim plugin lockfile back into chezmoi after plugin updates
+zradd() {
+	chezmoi re-add ~/.config/nvim/lazy-lock.json
+	chezmoi git add -A && chezmoi git commit -m "chore: update lazy-lock.json"
+}
 # ----- python venv -----------------------
 alias activate="source .venv/bin/activate"
 # ----- uv -----------------------

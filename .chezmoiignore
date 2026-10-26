@@ -1,3 +1,7 @@
+# Auto-managed by DMS — chezmoi must not own these
+.config/niri/dms/binds.kdl
+.config/niri/dms/windowrules.kdl
+
 # Inactive desktop environments & window managers
 .config/i3/**
 .config/picom/**
