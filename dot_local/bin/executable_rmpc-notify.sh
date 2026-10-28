@@ -12,7 +12,7 @@
 # than that is still up. (Replacing an already-closed notification
 # would be a silent "ghost" that never shows, hence the window check.)
 
-BANNER_MS=6000
+BANNER_MS=5000
 BANNER_S=$((BANNER_MS / 1000))
 RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp}/rmpc-notify"
 STATE_FILE="$RUNTIME_DIR/state" # "<notification id> <epoch of last pop>"
