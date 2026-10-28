@@ -34,5 +34,16 @@
 .config/waypaper/**
 .config/yt-dlp/**
 .config/yt-x/**
+
+# Abandoned helper scripts — kept in the repo, no longer deployed
+.local/bin/changeVolume
+.local/bin/hyprlock-songinfo.sh
+.local/bin/import-gsettings.sh
+.local/bin/powermenu.sh
+.local/bin/screenshot-hypr.sh
+.local/bin/screenshot-niri.sh
+.local/bin/systemmenu.sh
+.local/bin/walpicker-pywal.sh
+
 .tmuxifier/**
 README.md
