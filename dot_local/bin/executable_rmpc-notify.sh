@@ -1,122 +1,68 @@
 #!/usr/bin/env sh
 
-# rmpc song-change notification for DMS.
+# "Now playing" notifications for rmpc, sent to DMS.
 #
-# Strategy: keep ONE notification alive. While its banner is still on screen,
-# a song change switches that notification's content in place (-r). Only once
-# the banner has closed does a fresh banner pop.
+# rmpc runs this on every song change (config.ron: on_song_change) with
+# $ARTIST and $TITLE in the environment. One piece of state survives
+# between runs: whether the previous banner is still on screen. If it
+# is, swap its content in place; if not, pop a fresh one.
 #
-# DMS emits no NotificationClosed signal when a banner expires, so a detached
-# watcher process runs "dms notify --wait" (its timer matches the banner
-# lifetime exactly: it returns after -t milliseconds) and records the state:
-# while the watcher lives the banner counts as open, and when it exits it
-# drops a marker file telling the next song change to pop a fresh banner.
+# DMS emits no NotificationClosed signal, so "still on screen" is
+# approximated by time: banners live for BANNER_MS, so a banner younger
+# than that is still up. (Replacing an already-closed notification
+# would be a silent "ghost" that never shows, hence the window check.)
 
-TMP_DIR="/tmp/rmpc"
-ID_FILE="$TMP_DIR/notification_id"
-CLOSED_MARKER="$TMP_DIR/banner_closed"
-WATCHER_PID_FILE="$TMP_DIR/watcher_pid"
-BANNER_MS=6000 # banner lifetime; the watcher exits exactly after this
+BANNER_MS=6000
+BANNER_S=$((BANNER_MS / 1000))
+RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp}/rmpc-notify"
+STATE_FILE="$RUNTIME_DIR/state" # "<notification id> <epoch of last pop>"
 
-# Ensure the directory is created
-mkdir -p "$TMP_DIR"
+mkdir -p "$RUNTIME_DIR"
+# Drop covers left over from earlier runs; a banner still on screen may
+# reference recent ones.
+find "$RUNTIME_DIR" -name 'cover_*.jpg' -mmin +5 -delete 2>/dev/null
 
-# --- watcher mode: spawned in the background by the normal mode below ---
-# $1 = --watch, $2 = album art, $3 = artist, $4 = title
-if [ "$1" = "--watch" ]; then
-  echo $$ > "$WATCHER_PID_FILE"
-  # -e: transient, so song changes don't pile up in DMS history
-  # --id-fd 3: record the id so later runs can replace this notification
-  # -w: block until the banner closes
-  # -n: music icon in the icon slot; -i: album art as the larger display image
-  dms notify -e -w -t "$BANNER_MS" --id-fd 3 \
-    -n mpd -i "$2" -a rmpc \
-    "Now Playing" "$3 - $4" 3>"$ID_FILE" >/dev/null 2>&1
-  # Banner is gone now: tell the next run to pop a fresh notification.
-  : > "$CLOSED_MARKER"
-  exit 0
-fi
-
-# --- normal mode: called by rmpc's on_song_change hook ---
-
-# Clean up covers left over from earlier runs. Keep recent ones: a banner
-# that is still on screen may reference them.
-find "$TMP_DIR" -name 'cover_*.jpg' -mmin +5 -delete 2>/dev/null
-
-# Fetch the current song's album art (shown as the notification's image)
-ALBUM_ART_PATH="$TMP_DIR/cover_$(date +%s%N).jpg"
-DEFAULT_ALBUM_ART_PATH="$TMP_DIR/default_album_art.jpg"
-if ! rmpc albumart --output "$ALBUM_ART_PATH"; then
-  # Use default album art if rmpc returns non-zero exit code
-  ALBUM_ART_PATH="${DEFAULT_ALBUM_ART_PATH}"
-fi
-
-# Shrink the cover before handing it to DMS: it converts images on its UI
-# thread, and the full-size (~1MB) image made every song change stutter.
-# Unique filename per run: DMS/Quickshell only re-reads the icon when the
-# path changes, so reusing one filename leaves the previous album art stuck.
-if [ -f "$ALBUM_ART_PATH" ] && command -v ffmpeg >/dev/null 2>&1; then
-  THUMB_PATH="$TMP_DIR/cover_thumb_$(date +%s%N).jpg"
-  if ffmpeg -loglevel error -nostdin -y -i "$ALBUM_ART_PATH" \
+# Album art for the banner, downscaled: DMS converts images on its UI
+# thread and a full-size cover made song changes stutter. A fresh file
+# name per run: quickshell only re-reads an icon when its path changes.
+ART_TAG="$(date +%s%N)"
+ART_ICON="" # empty: no -i flag, the mpd app icon covers the icon slot
+if rmpc albumart --output "$RUNTIME_DIR/cover_$ART_TAG.jpg" 2>/dev/null; then
+  ART_ICON="$RUNTIME_DIR/cover_$ART_TAG.jpg"
+  if ffmpeg -loglevel error -nostdin -y -i "$ART_ICON" \
     -vf "scale=w=256:h=256:force_original_aspect_ratio=decrease" \
-    -q:v 6 "$THUMB_PATH" 2>/dev/null && [ -s "$THUMB_PATH" ]; then
-    ALBUM_ART_PATH="$THUMB_PATH"
+    -q:v 6 "$RUNTIME_DIR/thumb_$ART_TAG.jpg" 2>/dev/null \
+    && [ -s "$RUNTIME_DIR/thumb_$ART_TAG.jpg" ]; then
+    ART_ICON="$RUNTIME_DIR/thumb_$ART_TAG.jpg"
   fi
 fi
 
-# Previous notification id (only trust a plain number)
-OLD_ID=""
-if [ -s "$ID_FILE" ]; then
-  OLD_ID=$(cat "$ID_FILE")
-  case "$OLD_ID" in
-    *[!0-9]*) OLD_ID="" ;;
-  esac
-fi
+BODY="${ARTIST:-Unknown artist} - ${TITLE:-Unknown title}"
 
-# The previous banner only counts as open while its watcher is still running
-# (the cmdline check guards against pid reuse by an unrelated process).
-WATCHER_OPEN=0
-if [ -s "$WATCHER_PID_FILE" ]; then
-  WATCHER_PID=$(cat "$WATCHER_PID_FILE")
-  case "$WATCHER_PID" in
-    *[!0-9]*) WATCHER_PID="" ;;
-  esac
-  if [ -n "$WATCHER_PID" ] \
-    && kill -0 "$WATCHER_PID" 2>/dev/null \
-    && grep -aq -- "--watch" "/proc/$WATCHER_PID/cmdline" 2>/dev/null; then
-    WATCHER_OPEN=1
-  fi
-fi
-
-if [ "$WATCHER_OPEN" -eq 1 ] && [ -n "$OLD_ID" ] && [ ! -e "$CLOSED_MARKER" ]; then
-  # Banner still on screen: switch the content of the existing notification
-  # instead of stacking a new one.
-  dms notify -e -r "$OLD_ID" -t "$BANNER_MS" \
-    -n mpd -i "$ALBUM_ART_PATH" -a rmpc \
-    "Now Playing" "$ARTIST - $TITLE" >/dev/null 2>&1
-else
-  # Banner is gone: close any leftover object first (DMS keeps expired
-  # notifications around as ghosts that never re-banner), then pop a fresh
-  # notification and hand its lifetime over to a watcher.
-  rm -f "$CLOSED_MARKER"
-  if [ -n "$OLD_ID" ]; then
-    busctl --user call org.freedesktop.Notifications /org/freedesktop/Notifications \
-      org.freedesktop.Notifications CloseNotification u "$OLD_ID" >/dev/null 2>&1 || true
-  fi
-  rm -f "$ID_FILE"
-  if command -v setsid >/dev/null 2>&1; then
-    # New session: the watcher survives rmpc cleaning up its child processes.
-    setsid "$0" --watch "$ALBUM_ART_PATH" "$ARTIST" "$TITLE" \
-      </dev/null >/dev/null 2>&1 &
+# Send the banner with the given extra flags (-r <id> updates in place,
+# -p returns the new id). Album art rides the image slot: with -n set,
+# -i becomes the image-path hint (the big display image), while -n mpd
+# fills the small icon slot. -i is only sent when art actually exists.
+send() {
+  if [ -f "$ART_ICON" ]; then
+    dms notify "$@" -e -t "$BANNER_MS" -n mpd -i "$ART_ICON" -a rmpc "Now Playing" "$BODY"
   else
-    "$0" --watch "$ALBUM_ART_PATH" "$ARTIST" "$TITLE" \
-      </dev/null >/dev/null 2>&1 &
+    dms notify "$@" -e -t "$BANNER_MS" -n mpd -a rmpc "Now Playing" "$BODY"
   fi
-  # Wait for the watcher to publish the new id, so an immediate follow-up
-  # song change replaces it instead of double-bannering.
-  n=0
-  while [ ! -s "$ID_FILE" ] && [ "$n" -lt 25 ]; do
-    sleep 0.02
-    n=$((n + 1))
-  done
+}
+
+# Previous banner's id and when it was popped (garbage-safe defaults).
+old_id="" popped_at=0
+read -r old_id popped_at 2>/dev/null <"$STATE_FILE"
+case "$old_id" in '' | *[!0-9]*) old_id="" ;; esac
+case "$popped_at" in '' | *[!0-9]*) popped_at=0 ;; esac
+
+if [ -n "$old_id" ] && [ $(( $(date +%s) - popped_at )) -lt $BANNER_S ]; then
+  # Banner still on screen: update it in place, same notification id.
+  send -r "$old_id" >/dev/null
+else
+  # Nothing on screen: pop a fresh banner and remember its id.
+  id=$(send -p) &&
+    printf '%s %s\n' "$id" "$(date +%s)" >"$STATE_FILE.tmp" &&
+    mv "$STATE_FILE.tmp" "$STATE_FILE"
 fi
