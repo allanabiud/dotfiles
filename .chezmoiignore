@@ -1,4 +1,6 @@
 # Auto-managed by DMS — chezmoi must not own these
+.config/alacritty/dank-theme.toml
+.config/nvim/colors/dms.lua
 .config/niri/dms/binds.kdl
 .config/niri/dms/windowrules.kdl
 
@@ -15,11 +17,11 @@
 .config/wlogout/**
 
 # Inactive tools & terminals
-.config/alacritty/**
 .config/ghostty/**
 .config/atuin/**
 .config/batsignal/**
 .config/gomp/**
+.config/kitty/**
 .config/matugen/**
 .config/mpv/**
 .config/ncmpcpp/**
