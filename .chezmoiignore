@@ -32,6 +32,7 @@
 .config/vim/**
 .config/wal/**
 .config/waypaper/**
+.config/yazi/**
 .config/yt-dlp/**
 .config/yt-x/**
 
