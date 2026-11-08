@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+#
+# sync_music.sh — one-way rsync mirror of the local music library to the
+# SMB server at smb://192.168.0.29/DATA/MEDIA/Music/Music-Library
+#
+# The share is mounted on demand via the fstab "noauto" entry at
+# /mnt/music-library (credentials in /etc/samba/music-lib.creds).
+#
+# Syncthing is NOT touched by this script — it continues to sync the
+# library to mobile devices independently.
+#
+set -euo pipefail
+
+# --- Configuration ----------------------------------------------------------
+SERVER_IP="192.168.0.29"
+MNT="/mnt/music-library"
+SRC="${HOME}/Music/Music-Library/"
+# The fstab entry mounts the library folder itself, so the mount root IS the
+# destination directory (contains Backups/, Music/, To-Sort/, ...).
+DST="${MNT}/"
+# ---------------------------------------------------------------------------
+
+DRY_RUN=0
+UNMOUNT=0
+
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+One-way rsync mirror of ~/Music/Music-Library to ${SERVER_IP} (SMB).
+
+Options:
+  -n, --dry-run   Preview changes without modifying the server copy
+  -u, --unmount   Unmount the share after a successful sync
+  -h, --help      Show this help
+
+Local library is the source of truth: files removed locally are removed
+on the server (--delete).
+EOF
+}
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -n|--dry-run) DRY_RUN=1 ;;
+        -u|--unmount) UNMOUNT=1 ;;
+        -h|--help)    usage; exit 0 ;;
+        *) echo "error: unknown option '$1'" >&2; usage >&2; exit 2 ;;
+    esac
+    shift
+done
+
+log()  { printf '%s\n' "$*"; }
+fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
+
+# --- 1. Preflight: is the server reachable? ---------------------------------
+if ! timeout 3 bash -c "exec 3<>/dev/tcp/${SERVER_IP}/445" 2>/dev/null; then
+    fail "server ${SERVER_IP} unreachable (SMB port 445 closed) — is it powered on?"
+fi
+
+# --- 2. Auto-mount the share ------------------------------------------------
+if mountpoint -q "$MNT"; then
+    log "mounted: $MNT"
+else
+    log "mounting $MNT ..."
+    sudo mount "$MNT" || fail "could not mount $MNT — check the fstab entry and /etc/samba/music-lib.creds"
+fi
+
+# --- 3. Verify destination --------------------------------------------------
+[ -d "$DST" ] || fail "destination not found on share: $DST"
+
+# --- 4. Run rsync -----------------------------------------------------------
+RSYNC_OPTS=(
+    -rlt                    # recursive, keep symlinks, keep times
+    --human-readable
+    --partial               # resume interrupted transfers
+    --delete                # mirror deletions from local to server
+    --info=progress2        # overall progress bar
+    --stats                 # summary at the end
+    # Syncthing bookkeeping stays local (it still syncs to mobile devices):
+    --exclude='.stfolder/'
+    --exclude='.stignore'
+    --exclude='.stversions/'
+)
+[ "$DRY_RUN" -eq 1 ] && RSYNC_OPTS+=(-n)
+
+log ""
+if [ "$DRY_RUN" -eq 1 ]; then
+    log "=== DRY RUN — no changes will be made ==="
+else
+    log "=== SYNCING ==="
+fi
+log "  from: $SRC"
+log "  to:   $DST"
+log ""
+
+set +e
+rsync "${RSYNC_OPTS[@]}" "$SRC" "$DST"
+rc=$?
+set -e
+
+# rsync exit codes: 0 = ok, 24 = source files vanished mid-transfer (warning)
+if [ "$rc" -eq 24 ]; then
+    log "warning: some source files vanished during the transfer (24) — likely fine if files were moved concurrently"
+elif [ "$rc" -ne 0 ]; then
+    fail "rsync failed with exit code $rc"
+fi
+
+# --- 5. Optionally unmount --------------------------------------------------
+if [ "$UNMOUNT" -eq 1 ] && mountpoint -q "$MNT"; then
+    log ""
+    log "unmounting $MNT ..."
+    sudo umount "$MNT" || fail "could not unmount $MNT (is it busy?)"
+fi
+
+log ""
+log "done."
