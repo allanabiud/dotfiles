@@ -19,6 +19,7 @@ streamhandler.setFormatter(formatter)
 logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp"}
+ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".rar"}
 
 
 def detectArchiveType(file_path: pathlib.Path) -> str:
@@ -114,6 +115,18 @@ def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
     if not files:
         logger.error("No supported images were found in the comic archive.")
         return False
+
+    required_tools = {"cwebp" if f.suffix.lower() != ".gif" else "gif2webp" for f in files}
+    missing_tools = sorted(tool for tool in required_tools if shutil.which(tool) is None)
+    if missing_tools:
+        logger.error(
+            "Required WebP tool(s) not found in PATH: %s. "
+            "Install them or add their directory to the PATH used by Mylar.",
+            ", ".join(missing_tools),
+        )
+        return False
+
+    logger.info("WebP tools available: %s", ", ".join(sorted(required_tools)))
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
         futures = [executor.submit(convertSingleFile, f, work_path) for f in files]
         if not all(future.result() for future in futures):
@@ -173,36 +186,56 @@ def cleanUp(work_path: pathlib.Path):
     shutil.rmtree(work_path.absolute(), ignore_errors=True)
 
 
-def resolveTarget(arguments):
+def resolveTargets(arguments):
     # Mylar extra scripts receive: nzb name, source folder, filename, output folder, metadata.
     if len(arguments) >= 5:
-        target = pathlib.Path(arguments[4]) / arguments[3]
+        output_folder = pathlib.Path(arguments[4])
+        target = output_folder / arguments[3]
         if target.is_file():
-            return target
+            return [target]
+        if output_folder.is_dir():
+            return sorted(
+                file for file in output_folder.iterdir()
+                if file.is_file() and file.suffix.lower() in ARCHIVE_EXTENSIONS
+            )
 
     for argument in arguments[1:]:
         target = pathlib.Path(argument)
         if target.is_file():
-            return target
-    return None
+            return [target]
+
+    for argument in reversed(arguments[1:]):
+        folder = pathlib.Path(argument)
+        if folder.is_dir():
+            return sorted(
+                file for file in folder.iterdir()
+                if file.is_file() and file.suffix.lower() in ARCHIVE_EXTENSIONS
+            )
+    return []
 
 
 if __name__ == "__main__":
-    target = resolveTarget(sys.argv)
+    logger.info("Starting WebP post-processing script on %s", sys.platform)
+    targets = resolveTargets(sys.argv)
 
-    if not target or not target.exists():
-        logger.error("No valid comic file path provided.")
+    if not targets:
+        logger.error(
+            "No comic archive found. Mylar should invoke this as an Extra Script "
+            "with the processed filename and output folder."
+        )
         sys.exit(1)
 
-    logger.info(f"Converting {target.resolve()}")
-    work_path = createWorkDir(target)
-    try:
-        if not extractComicFile(work_path, target):
-            sys.exit(1)
-        if not convertToWebP(work_path):
-            sys.exit(1)
-        if not createProcessedComic(work_path, target):
-            sys.exit(1)
-        logger.info("Conversion finished")
-    finally:
-        cleanUp(work_path)
+    logger.info("Found %d comic archive(s) to convert", len(targets))
+    for target in targets:
+        logger.info(f"Converting {target.resolve()}")
+        work_path = createWorkDir(target)
+        try:
+            if not extractComicFile(work_path, target):
+                sys.exit(1)
+            if not convertToWebP(work_path):
+                sys.exit(1)
+            if not createProcessedComic(work_path, target):
+                sys.exit(1)
+            logger.info("Conversion finished for %s", target.name)
+        finally:
+            cleanUp(work_path)
