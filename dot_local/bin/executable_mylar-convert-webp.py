@@ -194,6 +194,16 @@ def cleanArchiveContents(work_path: pathlib.Path) -> None:
                 shutil.rmtree(root_path / directory_name, ignore_errors=True)
 
 
+def removeEmptyDirectories(work_path: pathlib.Path) -> None:
+    for root, dirs, _ in os.walk(work_path, topdown=False):
+        for directory_name in dirs:
+            directory = pathlib.Path(root) / directory_name
+            try:
+                directory.rmdir()
+            except OSError:
+                pass
+
+
 def renameImages(work_path: pathlib.Path) -> None:
     image_files = sorted(
         (
@@ -325,6 +335,20 @@ def createProcessedComic(work_path: pathlib.Path, output_path: pathlib.Path) -> 
             logger.error("7z output: %s", e.stdout.strip())
         return False
 
+    try:
+        subprocess.run(
+            [seven_zip, "t", str(temp_cbz.resolve())],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        logger.error("Archive integrity check failed: %s", e)
+        if e.stdout:
+            logger.error("7z output: %s", e.stdout.strip())
+        return False
+
     # Replace the target archive after the new archive has been created.
     try:
         os.replace(temp_cbz, output_cbz)
@@ -395,6 +419,7 @@ if __name__ == "__main__":
             renameImages(work_path)
             if not convertToWebP(work_path):
                 sys.exit(1)
+            removeEmptyDirectories(work_path)
             if not createProcessedComic(work_path, target):
                 sys.exit(1)
             logger.info("Conversion finished for %s", target.name)
