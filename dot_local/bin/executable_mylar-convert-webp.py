@@ -21,7 +21,7 @@ logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp", ".webp"}
 CONVERTIBLE_EXTENSIONS = IMAGE_EXTENSIONS - {".webp"}
-ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".rar"}
+ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".cb7", ".cbt", ".zip", ".rar", ".7z"}
 JUNK_FILES = {"thumbs.db", ".ds_store", "desktop.ini", "metroninfo.xml"}
 JUNK_DIRS = {"__macosx"}
 TOOL_ENVIRONMENT = {
@@ -365,6 +365,17 @@ def cleanUp(work_path: pathlib.Path):
     shutil.rmtree(work_path.absolute(), ignore_errors=True)
 
 
+def findComicArchives(folder: pathlib.Path):
+    return sorted(
+        (
+            file
+            for file in folder.rglob("*")
+            if file.is_file() and file.suffix.lower() in ARCHIVE_EXTENSIONS
+        ),
+        key=lambda file: str(file).casefold(),
+    )
+
+
 def resolveTargets(arguments):
     # Mylar extra scripts receive: nzb name, source folder, filename, output folder, metadata.
     if len(arguments) >= 5:
@@ -373,10 +384,7 @@ def resolveTargets(arguments):
         if target.is_file():
             return [target]
         if output_folder.is_dir():
-            return sorted(
-                file for file in output_folder.iterdir()
-                if file.is_file() and file.suffix.lower() in ARCHIVE_EXTENSIONS
-            )
+            return findComicArchives(output_folder)
 
     for argument in arguments[1:]:
         target = pathlib.Path(argument)
@@ -386,10 +394,7 @@ def resolveTargets(arguments):
     for argument in reversed(arguments[1:]):
         folder = pathlib.Path(argument)
         if folder.is_dir():
-            return sorted(
-                file for file in folder.iterdir()
-                if file.is_file() and file.suffix.lower() in ARCHIVE_EXTENSIONS
-            )
+            return findComicArchives(folder)
     return []
 
 
