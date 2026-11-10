@@ -20,6 +20,47 @@ logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp"}
 ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".rar"}
+TOOL_ENVIRONMENT = {
+    "7z": "WEBP_7Z",
+    "unrar": "WEBP_UNRAR",
+    "cwebp": "WEBP_CWEBP",
+    "gif2webp": "WEBP_GIF2WEBP",
+}
+
+
+def resolveTool(name: str):
+    configured_path = os.getenv(TOOL_ENVIRONMENT[name])
+    if configured_path and pathlib.Path(configured_path).is_file():
+        return configured_path
+
+    executable = shutil.which(name) or shutil.which(f"{name}.exe")
+    if executable:
+        return executable
+
+    if os.name == "nt":
+        program_files = [
+            os.getenv("ProgramFiles"),
+            os.getenv("ProgramFiles(x86)"),
+            os.getenv("LOCALAPPDATA"),
+        ]
+        common_paths = {
+            "7z": ["7-Zip/7z.exe"],
+            "unrar": ["WinRAR/UnRAR.exe", "UnRAR/UnRAR.exe"],
+            "cwebp": ["libwebp/bin/cwebp.exe", "WebP/bin/cwebp.exe"],
+            "gif2webp": ["libwebp/bin/gif2webp.exe", "WebP/bin/gif2webp.exe"],
+        }
+        for root in filter(None, program_files):
+            for relative_path in common_paths[name]:
+                candidate = pathlib.Path(root) / relative_path
+                if candidate.is_file():
+                    return str(candidate)
+
+    script_dir = pathlib.Path(__file__).resolve().parent
+    for directory in (script_dir, script_dir / "bin", script_dir / "tools"):
+        candidate = directory / (f"{name}.exe" if os.name == "nt" else name)
+        if candidate.is_file():
+            return str(candidate)
+    return None
 
 
 def detectArchiveType(file_path: pathlib.Path) -> str:
@@ -56,9 +97,47 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
     logger.info(f"Extracting {filename.resolve()} to {work_path.resolve()}")
     filetype = detectArchiveType(filename)
     try:
+        seven_zip = resolveTool("7z")
         if filetype == "rar":
+            unrar = resolveTool("unrar")
+            if unrar:
+                extract_command = [
+                    unrar,
+                    "e",
+                    "-y",
+                    "-o+",
+                    str(filename.resolve()),
+                    str(work_path.resolve()),
+                ]
+            elif seven_zip:
+                extract_command = [
+                    seven_zip,
+                    "e",
+                    f"-o{work_path.resolve()}",
+                    "-y",
+                    str(filename.resolve()),
+                ]
+            else:
+                raise FileNotFoundError(
+                    "No archive extractor found. Install 7-Zip or set WEBP_7Z."
+                )
+
+        else:
+            if not seven_zip:
+                raise FileNotFoundError(
+                    "7z was not found. Install 7-Zip or set WEBP_7Z to 7z.exe."
+                )
+            extract_command = [
+                seven_zip,
+                "e",
+                f"-o{work_path.resolve()}",
+                "-y",
+                str(filename.resolve()),
+            ]
+
+        if filetype == "rar" and unrar:
             res = subprocess.run(
-                ["unrar", "e", "-y", "-o+", str(filename.resolve()), str(work_path.resolve())],
+                extract_command,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
@@ -67,7 +146,13 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
                 if res.stdout:
                     logger.debug("unrar output: %s", res.stdout.strip())
                 subprocess.run(
-                    ["7z", "e", f"-o{work_path.resolve()}", "-y", str(filename.resolve())],
+                    [
+                        seven_zip,
+                        "e",
+                        f"-o{work_path.resolve()}",
+                        "-y",
+                        str(filename.resolve()),
+                    ],
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT,
                     text=True,
@@ -75,7 +160,7 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
                 )
         else:
             subprocess.run(
-                ["7z", "e", f"-o{work_path.resolve()}", "-y", str(filename.resolve())],
+                extract_command,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
@@ -93,9 +178,13 @@ def convertSingleFile(file: pathlib.Path, work_path: pathlib.Path):
     try:
         out_file = work_path / f"{file.stem}.webp"
         if file.suffix.lower() == ".gif":
-            cmd = ["gif2webp", "-quiet", "-q", "80", str(file.resolve()), "-o", str(out_file.resolve())]
+            tool = resolveTool("gif2webp")
         else:
-            cmd = ["cwebp", "-quiet", "-q", "80", str(file.resolve()), "-o", str(out_file.resolve())]
+            tool = resolveTool("cwebp")
+        if not tool:
+            logger.error("Conversion tool is unavailable for %s", file.name)
+            return False
+        cmd = [tool, "-quiet", "-q", "80", str(file.resolve()), "-o", str(out_file.resolve())]
 
         res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         if res.returncode == 0:
@@ -117,7 +206,8 @@ def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
         return False
 
     required_tools = {"cwebp" if f.suffix.lower() != ".gif" else "gif2webp" for f in files}
-    missing_tools = sorted(tool for tool in required_tools if shutil.which(tool) is None)
+    resolved_tools = {tool: resolveTool(tool) for tool in required_tools}
+    missing_tools = sorted(tool for tool, path in resolved_tools.items() if path is None)
     if missing_tools:
         logger.error(
             "Required WebP tool(s) not found in PATH: %s. "
@@ -148,8 +238,13 @@ def createProcessedComic(work_path: pathlib.Path, output_path: pathlib.Path) -> 
     if temp_cbz.exists():
         temp_cbz.unlink()
 
+    seven_zip = resolveTool("7z")
+    if not seven_zip:
+        logger.error("7z was not found. Install 7-Zip or set WEBP_7Z to 7z.exe.")
+        return False
+
     cmd = [
-        "7z",
+        seven_zip,
         "a",
         "-tzip",
         "-mx=9",
