@@ -1,7 +1,9 @@
 # Auto-managed by DMS — chezmoi must not own these
 .config/alacritty/dank-theme.toml
 .config/nvim/colors/dms.lua
+.config/nvim/lazy-lock.json
 .config/niri/dms/binds.kdl
+.config/niri/dms/alttab.kdl
 .config/niri/dms/windowrules.kdl
 
 # Inactive desktop environments & window managers
@@ -45,6 +47,7 @@
 .local/bin/screenshot-niri.sh
 .local/bin/systemmenu.sh
 .local/bin/walpicker-pywal.sh
+.local/bin/mylar-convert-webp.py
 
 .tmuxifier/**
 README.md

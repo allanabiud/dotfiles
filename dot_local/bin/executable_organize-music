@@ -94,6 +94,33 @@ from mutagen.id3 import (ID3, TIT2, TPE1, TPE2, TALB, TDRC, TDOR, TXXX, TRCK, TP
 DEFAULT_SOURCE_DIR = os.path.expanduser("~/Music/TO-SORT")
 DEFAULT_LIBRARY_DIR = os.path.expanduser("~/Music/Library/Music")
 
+if sys.stdout.isatty():
+    BOLD = "\033[1m"
+    BLUE = "\033[34m"
+    GREEN = "\033[32m"
+    YELLOW = "\033[33m"
+    RED = "\033[31m"
+    RESET = "\033[0m"
+else:
+    BOLD = BLUE = GREEN = YELLOW = RED = RESET = ""
+
+
+def cli_info(message):
+    print(f"{BLUE}==>{RESET} {BOLD}{message}{RESET}")
+
+
+def cli_success(message):
+    print(f"{GREEN}==>{RESET} {BOLD}{message}{RESET}")
+
+
+def cli_warning(message):
+    print(f"{YELLOW}WARNING:{RESET} {message}", file=sys.stderr)
+
+
+def cli_error(message):
+    print(f"{RED}ERROR:{RESET} {message}", file=sys.stderr)
+
+
 KNOWN_ENSEMBLES = {
     "various artists",
     "ac/dc",
@@ -2153,11 +2180,15 @@ def split_artists_pass(source_path: str, execute: bool = False):
               "with '--split-artists --execute' to apply.")
 
 def main():
-    parser = argparse.ArgumentParser(description="Organize unsorted music into ~/Music/Library/Music with online metadata & 1200px artwork")
+    parser = argparse.ArgumentParser(
+        description="Organize unsorted music with Picard-style naming, metadata, and artwork.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
     parser.add_argument("--source", "-s", default=DEFAULT_SOURCE_DIR, help="Source folder OR a single .mp3 file (default: ~/Music/TO-SORT)")
     parser.add_argument("--library", "-l", default=DEFAULT_LIBRARY_DIR, help="Target library directory (default: ~/Music/Library/Music)")
-    parser.add_argument("--dry-run", action="store_true", help="Perform a dry run without modifying files")
-    parser.add_argument("--execute", action="store_true", help="Execute the actual reorganization")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--dry-run", action="store_true", help="Preview changes without modifying files")
+    mode.add_argument("--execute", action="store_true", help="Apply the planned changes")
     parser.add_argument("--no-online", action="store_true", help="Disable online metadata and artwork scraping")
     parser.add_argument("--no-prompt", action="store_true",
                         help="Never ask for manual tags when no online match is found")
@@ -2214,11 +2245,11 @@ def main():
         return
 
     if args.review and args.approve:
-        print("ERROR: --review and --approve are two separate steps "
-              "(fetch candidates first, apply them later)")
+        cli_error("--review and --approve are two separate steps "
+                  "(fetch candidates first, apply them later)")
         sys.exit(1)
     if args.covers_csv and not (args.fetch_covers or args.review):
-        print("ERROR: --covers-csv only applies to --fetch-covers or --review")
+        cli_error("--covers-csv only applies to --fetch-covers or --review")
         sys.exit(1)
 
     if args.fetch_covers or args.review or args.approve:
@@ -2232,8 +2263,8 @@ def main():
             lib_real = os.path.realpath(library_dir)
             src_real = os.path.realpath(source_dir)
             if src_real != lib_real and not src_real.startswith(lib_real + os.sep):
-                print(f"ERROR: --fetch-covers operates on the library; --source must point "
-                      f"inside {library_dir} to scope the pass (got: {source_dir})")
+                cli_error(f"--fetch-covers operates on the library; --source must point "
+                          f"inside {library_dir} to scope the pass (got: {source_dir})")
                 sys.exit(1)
             scope = source_dir
         only_albums = covers_csv_albums(args.covers_csv, library_dir) \
@@ -2268,7 +2299,7 @@ def main():
         # Single-file source: process just this track (tagging is strictly ID3v2.4 = MP3 only)
         source_is_file = True
         if not source_dir.lower().endswith(".mp3"):
-            print(f"ERROR: --source file must be an .mp3 (ID3v2.4 tagging is MP3-only): {source_dir}")
+            cli_error(f"--source file must be an .mp3 (ID3v2.4 tagging is MP3-only): {source_dir}")
             sys.exit(1)
         audio_files = [source_dir]
     elif os.path.isdir(source_dir):
@@ -2280,20 +2311,22 @@ def main():
                 else:
                     skipped_non_mp3.append(f)
     else:
-        print(f"ERROR: --source does not exist: {source_dir}")
+        cli_error(f"--source does not exist: {source_dir}")
         sys.exit(1)
 
     audio_files.sort()
-    print(f"=== Found {len(audio_files)} audio tracks in {source_dir} ===")
+    cli_info(f"Found {len(audio_files)} audio tracks in {source_dir}")
     if skipped_non_mp3:
-        print(f"=== WARNING: {len(skipped_non_mp3)} non-MP3 track(s) skipped (ID3v2.4 tagging is MP3-only): ===")
+        cli_warning(f"{len(skipped_non_mp3)} non-MP3 track(s) skipped "
+                    "(ID3v2.4 tagging is MP3-only):")
         for f in skipped_non_mp3:
             print(f"  - {f}")
         print()
     if not args.no_online:
-        print("=== Online Metadata & 1200px Artwork Scraping: ENABLED ===\n")
+        cli_info("Online metadata and 1200px artwork scraping enabled.")
     else:
-        print("=== Online Metadata & 1200px Artwork Scraping: DISABLED ===\n")
+        cli_warning("Online metadata and artwork scraping disabled.")
+    print()
 
     library_artist_index = build_library_artist_index(library_dir)
     plans = [get_track_plan(f, library_artist_index, library_dir, use_online=(not args.no_online),
@@ -2307,7 +2340,7 @@ def main():
         dest_set.add(p["dest_audio"])
 
     if collisions:
-        print(f"ERROR: Found {len(collisions)} collision(s) among destination paths!")
+        cli_error(f"Found {len(collisions)} collision(s) among destination paths!")
         for src, dst in collisions:
             print(f"  Collision: {src} -> {dst}")
         sys.exit(1)
@@ -2435,7 +2468,7 @@ def main():
 
     if args.dry_run:
         print("\n" + "=" * 120)
-        print("DRY RUN COMPLETE: No files were moved or modified.")
+        cli_success("Dry run complete: no files were moved or modified.")
         print(f"Ready to move all {len(plans)} tracks and their 1200x1200px album art into {library_dir}.")
         print("Run with '--execute' to perform the changes.")
     else:
@@ -2451,7 +2484,8 @@ def main():
                     os.rmdir(root)
 
         print("\n" + "=" * 120)
-        print(f"SUCCESS: All {len(plans)} tracks and their 1200x1200px album art have been organized into {library_dir}!")
+        cli_success(f"All {len(plans)} tracks and their 1200x1200px album art "
+                    f"have been organized into {library_dir}!")
 
 if __name__ == "__main__":
     main()

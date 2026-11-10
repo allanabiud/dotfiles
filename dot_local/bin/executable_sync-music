@@ -9,7 +9,24 @@
 # Syncthing is NOT touched by this script — it continues to sync the
 # library to mobile devices independently.
 #
-set -euo pipefail
+set -Eeuo pipefail
+
+# Perdoo-style terminal output: colors are disabled when stdout/stderr is not a TTY.
+if [[ -t 1 ]]; then
+    BOLD=$'\033[1m'
+    BLUE=$'\033[34m'
+    GREEN=$'\033[32m'
+    YELLOW=$'\033[33m'
+    RED=$'\033[31m'
+    RESET=$'\033[0m'
+else
+    BOLD=''
+    BLUE=''
+    GREEN=''
+    YELLOW=''
+    RED=''
+    RESET=''
+fi
 
 # --- Configuration ----------------------------------------------------------
 SERVER_IP="192.168.0.29"
@@ -49,20 +66,31 @@ while [ $# -gt 0 ]; do
     shift
 done
 
-log()  { printf '%s\n' "$*"; }
-fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
+log_info()    { printf '%s==>%s %s%s%s\n' "$BLUE" "$RESET" "$BOLD" "$1" "$RESET"; }
+log_success() { printf '%s==>%s %s%s%s\n' "$GREEN" "$RESET" "$BOLD" "$1" "$RESET"; }
+log_warn()    { printf '%sWARNING:%s %s\n' "$YELLOW" "$RESET" "$1" >&2; }
+fail()        { printf '%sERROR:%s %s\n' "$RED" "$RESET" "$1" >&2; exit 1; }
+
+trap 'fail "unexpected failure at line $LINENO"' ERR
 
 # --- 1. Preflight: is the server reachable? ---------------------------------
+command -v rsync >/dev/null 2>&1 || fail "rsync is not installed"
+command -v mountpoint >/dev/null 2>&1 || fail "mountpoint is not installed"
+[ -d "$SRC" ] || fail "source library does not exist: $SRC"
+
+log_info "Checking SMB connectivity to ${SERVER_IP}:445..."
 if ! timeout 3 bash -c "exec 3<>/dev/tcp/${SERVER_IP}/445" 2>/dev/null; then
     fail "server ${SERVER_IP} unreachable (SMB port 445 closed) — is it powered on?"
 fi
+log_success "SMB server is reachable."
 
 # --- 2. Auto-mount the share ------------------------------------------------
 if mountpoint -q "$MNT"; then
-    log "mounted: $MNT"
+    log_info "Using mounted share: $MNT"
 else
-    log "mounting $MNT ..."
+    log_info "Mounting $MNT..."
     sudo mount "$MNT" || fail "could not mount $MNT — check the fstab entry and /etc/samba/music-lib.creds"
+    log_success "Share mounted."
 fi
 
 # --- 3. Verify destination --------------------------------------------------
@@ -83,15 +111,14 @@ RSYNC_OPTS=(
 )
 [ "$DRY_RUN" -eq 1 ] && RSYNC_OPTS+=(-n)
 
-log ""
+printf '\n'
 if [ "$DRY_RUN" -eq 1 ]; then
-    log "=== DRY RUN — no changes will be made ==="
+    log_info "DRY RUN — no changes will be made."
 else
-    log "=== SYNCING ==="
+    log_info "Synchronizing music library..."
 fi
-log "  from: $SRC"
-log "  to:   $DST"
-log ""
+printf '  %sfrom:%s %s\n' "$BOLD" "$RESET" "$SRC"
+printf '  %sto:%s   %s\n\n' "$BOLD" "$RESET" "$DST"
 
 set +e
 rsync "${RSYNC_OPTS[@]}" "$SRC" "$DST"
@@ -100,17 +127,18 @@ set -e
 
 # rsync exit codes: 0 = ok, 24 = source files vanished mid-transfer (warning)
 if [ "$rc" -eq 24 ]; then
-    log "warning: some source files vanished during the transfer (24) — likely fine if files were moved concurrently"
+    log_warn "some source files vanished during the transfer (24); likely caused by concurrent moves"
 elif [ "$rc" -ne 0 ]; then
     fail "rsync failed with exit code $rc"
 fi
 
 # --- 5. Optionally unmount --------------------------------------------------
 if [ "$UNMOUNT" -eq 1 ] && mountpoint -q "$MNT"; then
-    log ""
-    log "unmounting $MNT ..."
+    printf '\n'
+    log_info "Unmounting $MNT..."
     sudo umount "$MNT" || fail "could not unmount $MNT (is it busy?)"
+    log_success "Share unmounted."
 fi
 
-log ""
-log "done."
+printf '\n'
+log_success "Music library sync complete."

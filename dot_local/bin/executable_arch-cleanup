@@ -6,14 +6,31 @@
 
 set -uo pipefail
 
+# Disable ANSI colors when output is redirected, matching Perdoo's terminal UX.
+if [[ -t 1 ]]; then
+  COLOR_OUTPUT=1
+else
+  COLOR_OUTPUT=0
+fi
+
 # Color palette
-BOLD=$(tput bold 2>/dev/null || printf "\033[1m")
-GREEN=$(tput setaf 2 2>/dev/null || printf "\033[32m")
-BLUE=$(tput setaf 4 2>/dev/null || printf "\033[34m")
-YELLOW=$(tput setaf 3 2>/dev/null || printf "\033[33m")
-RED=$(tput setaf 1 2>/dev/null || printf "\033[31m")
-CYAN=$(tput setaf 6 2>/dev/null || printf "\033[36m")
-RESET=$(tput sgr0 2>/dev/null || printf "\033[0m")
+if [[ "$COLOR_OUTPUT" -eq 1 ]]; then
+  BOLD=$(tput bold 2>/dev/null || printf "\033[1m")
+  GREEN=$(tput setaf 2 2>/dev/null || printf "\033[32m")
+  BLUE=$(tput setaf 4 2>/dev/null || printf "\033[34m")
+  YELLOW=$(tput setaf 3 2>/dev/null || printf "\033[33m")
+  RED=$(tput setaf 1 2>/dev/null || printf "\033[31m")
+  CYAN=$(tput setaf 6 2>/dev/null || printf "\033[36m")
+  RESET=$(tput sgr0 2>/dev/null || printf "\033[0m")
+else
+  BOLD=''
+  GREEN=''
+  BLUE=''
+  YELLOW=''
+  RED=''
+  CYAN=''
+  RESET=''
+fi
 
 log_info()    { printf "%b==>%b %b%s%b\n" "$BLUE" "$RESET" "$BOLD" "$1" "$RESET"; }
 log_success() { printf "%b==>%b %b%s%b\n" "$GREEN" "$RESET" "$BOLD" "$1" "$RESET"; }

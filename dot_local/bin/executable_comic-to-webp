@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# comic-to-webp - Wrapper for native perdoo webp command
-exec perdoo webp "$@"
