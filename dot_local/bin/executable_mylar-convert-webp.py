@@ -311,6 +311,10 @@ def resolveTargets(arguments):
 
 if __name__ == "__main__":
     logger.info("Starting WebP post-processing script on %s", sys.platform)
+    logger.info("Python executable: %s", sys.executable)
+    logger.info("PATH: %s", os.environ.get("PATH", "<not set>"))
+    for tool_name in ("7z", "unrar", "cwebp", "gif2webp"):
+        logger.info("%s resolved to: %s", tool_name, resolveTool(tool_name) or "<not found>")
     targets = resolveTargets(sys.argv)
 
     if not targets:
