@@ -21,7 +21,7 @@ logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp", ".webp"}
 CONVERTIBLE_EXTENSIONS = IMAGE_EXTENSIONS - {".webp"}
-ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".cb7", ".cbt", ".zip", ".rar", ".7z"}
+ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".cb7", ".cbt"}
 JUNK_FILES = {"thumbs.db", ".ds_store", "desktop.ini", "metroninfo.xml"}
 JUNK_DIRS = {"__macosx"}
 TOOL_ENVIRONMENT = {
@@ -376,19 +376,23 @@ def findComicArchives(folder: pathlib.Path):
     )
 
 
+def isComicArchive(path: pathlib.Path) -> bool:
+    return path.is_file() and path.suffix.casefold() in ARCHIVE_EXTENSIONS
+
+
 def resolveTargets(arguments):
     # Mylar extra scripts receive: nzb name, source folder, filename, output folder, metadata.
     if len(arguments) >= 5:
         output_folder = pathlib.Path(arguments[4])
         target = output_folder / arguments[3]
-        if target.is_file():
+        if isComicArchive(target):
             return [target]
         if output_folder.is_dir():
             return findComicArchives(output_folder)
 
     for argument in arguments[1:]:
         target = pathlib.Path(argument)
-        if target.is_file():
+        if isComicArchive(target):
             return [target]
 
     for argument in reversed(arguments[1:]):
@@ -404,16 +408,27 @@ if __name__ == "__main__":
     logger.info("PATH: %s", os.environ.get("PATH", "<not set>"))
     for tool_name in ("7z", "unrar", "cwebp", "gif2webp"):
         logger.info("%s resolved to: %s", tool_name, resolveTool(tool_name) or "<not found>")
-    targets = resolveTargets(sys.argv)
+    dry_run = "--dry-run" in sys.argv[1:]
+    arguments = [argument for argument in sys.argv if argument != "--dry-run"]
+    targets = resolveTargets(arguments)
 
     if not targets:
         logger.error(
-            "No comic archive found. Mylar should invoke this as an Extra Script "
-            "with the processed filename and output folder."
+            "No comic archive found. Supported extensions: %s",
+            ", ".join(sorted(ARCHIVE_EXTENSIONS)),
         )
         sys.exit(1)
 
-    logger.info("Found %d comic archive(s) to convert", len(targets))
+    logger.info(
+        "Found %d comic archive(s) to %s",
+        len(targets),
+        "inspect" if dry_run else "convert",
+    )
+    if dry_run:
+        for target in targets:
+            logger.info("DRY RUN: would process %s", target.resolve())
+        sys.exit(0)
+
     for target in targets:
         logger.info(f"Converting {target.resolve()}")
         work_path = createWorkDir(target)
