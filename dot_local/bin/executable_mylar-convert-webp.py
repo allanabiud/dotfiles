@@ -19,7 +19,8 @@ streamhandler = logging.StreamHandler(sys.stdout)
 streamhandler.setFormatter(formatter)
 logger.addHandler(streamhandler)
 
-IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp"}
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp", ".webp"}
+CONVERTIBLE_EXTENSIONS = IMAGE_EXTENSIONS - {".webp"}
 ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".rar"}
 JUNK_FILES = {"thumbs.db", ".ds_store", "desktop.ini", "metroninfo.xml"}
 JUNK_DIRS = {"__macosx"}
@@ -219,7 +220,7 @@ def renameImages(work_path: pathlib.Path) -> None:
 
 
 def convertSingleFile(file: pathlib.Path, work_path: pathlib.Path):
-    if file.suffix.lower() not in IMAGE_EXTENSIONS:
+    if file.suffix.lower() not in CONVERTIBLE_EXTENSIONS:
         return True
     try:
         out_file = file.with_suffix(".webp")
@@ -249,9 +250,17 @@ def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
     files = [
         f
         for f in work_path.rglob("*")
-        if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
+        if f.is_file() and f.suffix.lower() in CONVERTIBLE_EXTENSIONS
     ]
     if not files:
+        webp_files = [
+            f
+            for f in work_path.rglob("*")
+            if f.is_file() and f.suffix.lower() == ".webp"
+        ]
+        if webp_files:
+            logger.info("Archive already contains only WebP images; skipping conversion")
+            return True
         logger.error("No supported images were found in the comic archive.")
         return False
 
@@ -274,7 +283,7 @@ def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
 
     # Clean up any lingering original images to guarantee only .webp & metadata remain
     for f in work_path.rglob("*"):
-        if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS:
+        if f.is_file() and f.suffix.lower() in CONVERTIBLE_EXTENSIONS:
             f.unlink(missing_ok=True)
     return True
 
