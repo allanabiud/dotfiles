@@ -2,6 +2,7 @@
 .config/alacritty/dank-theme.toml
 .config/nvim/colors/dms.lua
 .config/nvim/lazy-lock.json
+.config/perdoo/settings.toml
 .config/niri/dms/binds.kdl
 .config/niri/dms/alttab.kdl
 .config/niri/dms/windowrules.kdl
