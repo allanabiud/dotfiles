@@ -21,7 +21,7 @@ logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp", ".webp"}
 CONVERTIBLE_EXTENSIONS = IMAGE_EXTENSIONS - {".webp"}
-ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".cb7", ".cbt"}
+ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".cb7", ".cbt", ".zip", ".rar", ".7z"}
 JUNK_FILES = {"thumbs.db", ".ds_store", "desktop.ini", "metroninfo.xml"}
 JUNK_DIRS = {"__macosx"}
 TOOL_ENVIRONMENT = {
