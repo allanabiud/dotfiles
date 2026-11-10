@@ -3,6 +3,7 @@ import concurrent.futures
 import logging
 import os
 import pathlib
+import re
 import shutil
 import subprocess
 import sys
@@ -20,6 +21,8 @@ logger.addHandler(streamhandler)
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".jxl", ".png", ".gif", ".bmp"}
 ARCHIVE_EXTENSIONS = {".cbr", ".cbz", ".rar"}
+JUNK_FILES = {"thumbs.db", ".ds_store", "desktop.ini", "metroninfo.xml"}
+JUNK_DIRS = {"__macosx"}
 TOOL_ENVIRONMENT = {
     "7z": "WEBP_7Z",
     "unrar": "WEBP_UNRAR",
@@ -103,7 +106,7 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
             if unrar:
                 extract_command = [
                     unrar,
-                    "e",
+                    "x",
                     "-y",
                     "-o+",
                     str(filename.resolve()),
@@ -112,7 +115,7 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
             elif seven_zip:
                 extract_command = [
                     seven_zip,
-                    "e",
+                    "x",
                     f"-o{work_path.resolve()}",
                     "-y",
                     str(filename.resolve()),
@@ -129,7 +132,7 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
                 )
             extract_command = [
                 seven_zip,
-                "e",
+                "x",
                 f"-o{work_path.resolve()}",
                 "-y",
                 str(filename.resolve()),
@@ -172,11 +175,54 @@ def extractComicFile(work_path: pathlib.Path, filename: pathlib.Path) -> bool:
     return True
 
 
+def naturalSortKey(path: pathlib.Path):
+    return [
+        int(part) if part.isdigit() else part.casefold()
+        for part in re.split(r"(\d+)", str(path))
+    ]
+
+
+def cleanArchiveContents(work_path: pathlib.Path) -> None:
+    for root, dirs, files in os.walk(work_path, topdown=False):
+        root_path = pathlib.Path(root)
+        for file_name in files:
+            if file_name.casefold() in JUNK_FILES or file_name.startswith("._"):
+                (root_path / file_name).unlink(missing_ok=True)
+        for directory_name in dirs:
+            if directory_name.casefold() in JUNK_DIRS:
+                shutil.rmtree(root_path / directory_name, ignore_errors=True)
+
+
+def renameImages(work_path: pathlib.Path) -> None:
+    image_files = sorted(
+        (
+            file
+            for file in work_path.rglob("*")
+            if file.is_file() and file.suffix.casefold() in IMAGE_EXTENSIONS
+        ),
+        key=naturalSortKey,
+    )
+    if not image_files:
+        return
+
+    width = len(str(len(image_files)))
+    temporary_files = []
+    for index, file in enumerate(image_files):
+        temporary = file.with_name(f".webp-convert-{index:0{width}d}{file.suffix}")
+        file.rename(temporary)
+        temporary_files.append((temporary, file.with_name(f"{index:0{width}d}{file.suffix}")))
+
+    for temporary, target in temporary_files:
+        temporary.rename(target)
+
+    logger.info("Normalized %d image filename(s)", len(image_files))
+
+
 def convertSingleFile(file: pathlib.Path, work_path: pathlib.Path):
     if file.suffix.lower() not in IMAGE_EXTENSIONS:
         return True
     try:
-        out_file = work_path / f"{file.stem}.webp"
+        out_file = file.with_suffix(".webp")
         if file.suffix.lower() == ".gif":
             tool = resolveTool("gif2webp")
         else:
@@ -200,7 +246,11 @@ def convertSingleFile(file: pathlib.Path, work_path: pathlib.Path):
 
 def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
     logger.info("Starting multithreaded conversion to WebP")
-    files = [f for f in work_path.iterdir() if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS]
+    files = [
+        f
+        for f in work_path.rglob("*")
+        if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
+    ]
     if not files:
         logger.error("No supported images were found in the comic archive.")
         return False
@@ -223,7 +273,7 @@ def convertToWebP(work_path: pathlib.Path, workers: int = 4) -> bool:
             return False
 
     # Clean up any lingering original images to guarantee only .webp & metadata remain
-    for f in list(work_path.iterdir()):
+    for f in work_path.rglob("*"):
         if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS:
             f.unlink(missing_ok=True)
     return True
@@ -249,11 +299,12 @@ def createProcessedComic(work_path: pathlib.Path, output_path: pathlib.Path) -> 
         "-tzip",
         "-mx=9",
         str(temp_cbz.resolve()),
-        str(work_path.resolve() / "*"),
+        ".",
     ]
     try:
         subprocess.run(
             cmd,
+            cwd=str(work_path.resolve()),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -331,6 +382,8 @@ if __name__ == "__main__":
         try:
             if not extractComicFile(work_path, target):
                 sys.exit(1)
+            cleanArchiveContents(work_path)
+            renameImages(work_path)
             if not convertToWebP(work_path):
                 sys.exit(1)
             if not createProcessedComic(work_path, target):
