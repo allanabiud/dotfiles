@@ -365,6 +365,63 @@ def cleanUp(work_path: pathlib.Path):
     shutil.rmtree(work_path.absolute(), ignore_errors=True)
 
 
+def archiveEntries(archive_path: pathlib.Path):
+    seven_zip = resolveTool("7z")
+    if not seven_zip:
+        return None
+    try:
+        result = subprocess.run(
+            [seven_zip, "l", "-slt", str(archive_path.resolve())],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as error:
+        logger.warning("Could not inspect %s: %s", archive_path.name, error)
+        return None
+
+    entries = []
+    for line in result.stdout.splitlines():
+        if line.startswith("Path = "):
+            entry = line[7:].strip().replace("\\", "/")
+            if (
+                entry
+                and pathlib.PurePosixPath(entry).name != archive_path.name
+                and not entry.endswith("/")
+            ):
+                entries.append(pathlib.PurePosixPath(entry))
+    return entries
+
+
+def isAlreadyClean(archive_path: pathlib.Path) -> bool:
+    if archive_path.suffix.casefold() != ".cbz":
+        return False
+
+    entries = archiveEntries(archive_path)
+    if entries is None:
+        return False
+
+    image_entries = sorted(
+        (entry for entry in entries if entry.suffix.casefold() in IMAGE_EXTENSIONS),
+        key=lambda entry: naturalSortKey(pathlib.Path(str(entry))),
+    )
+    if not image_entries or any(entry.suffix.casefold() != ".webp" for entry in image_entries):
+        return False
+
+    if any(
+        entry.name.casefold() in JUNK_FILES
+        or entry.name.startswith("._")
+        or any(part.casefold() in JUNK_DIRS for part in entry.parts)
+        for entry in entries
+    ):
+        return False
+
+    width = len(str(len(image_entries)))
+    expected_names = {f"{index:0{width}d}.webp" for index in range(len(image_entries))}
+    return {entry.name for entry in image_entries} == expected_names
+
+
 def findComicArchives(folder: pathlib.Path):
     return sorted(
         (
@@ -430,6 +487,9 @@ if __name__ == "__main__":
         sys.exit(0)
 
     for target in targets:
+        if isAlreadyClean(target):
+            logger.info("Skipping already-clean WebP CBZ: %s", target.resolve())
+            continue
         logger.info(f"Converting {target.resolve()}")
         work_path = createWorkDir(target)
         try:
