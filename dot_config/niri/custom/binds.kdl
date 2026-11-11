@@ -1,0 +1,13 @@
+// ============================================
+// Custom Keybinds (chezmoi-owned)
+// ============================================
+// DMS auto-generates dms/binds.kdl, so it must stay out of chezmoi
+// (see .chezmoiignore). This file holds only our own overrides.
+//
+// ORDER MATTERS: this include must stay *after* dms/binds.kdl in
+// config.kdl. niri replaces conflicting keys from later include files
+// instead of erroring, so whatever is defined here wins.
+binds {
+    Mod+N { spawn "pcmanfm"; }
+    Mod+Alt+N { spawn-sh "dfiles open --new-window ~"; }
+}

@@ -5,10 +5,16 @@ include "dms/outputs.kdl"
 include "dms/cursor.kdl"
 include "dms/colors.kdl"
 include "dms/layout.kdl"
-include "dms/binds.kdl"
-include "dms/alttab.kdl"
+
+// DMS owns these three (they're in .chezmoiignore and DMS rewrites them).
+// optional=true so that a freshly-bootstrapped system still loads this config
+// before DMS has deployed them; niri watches the paths either way and picks
+// them up as soon as they appear.
+include optional=true "dms/binds.kdl"
+include optional=true "dms/alttab.kdl"
+
 include "dms/wpblur.kdl"
-include "dms/windowrules.kdl"
+include optional=true "dms/windowrules.kdl"
 
 // ============================================
 // Custom Overrides
@@ -18,3 +24,7 @@ include "custom/inputs.kdl"
 include "custom/layout.kdl"
 include "custom/misc.kdl"
 include "custom/rules.kdl"
+
+// User keybinds — must remain after the DMS includes above: niri lets the
+// last definition of a key win, so this is what overrides DMS defaults.
+include "custom/binds.kdl"
