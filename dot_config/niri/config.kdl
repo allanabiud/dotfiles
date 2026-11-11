@@ -3,6 +3,12 @@
 // ============================================
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
+
+// DMS input settings (mouse/touchpad accel, etc.). Seeded by chezmoi like the
+// files above, so it's a plain include. custom/inputs.kdl comes later and
+// replaces whole sections, which is where our own input preferences win.
+include "dms/input.kdl"
+
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 
