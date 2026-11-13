@@ -8,6 +8,12 @@
 // config.kdl. niri replaces conflicting keys from later include files
 // instead of erroring, so whatever is defined here wins.
 binds {
+    Mod+Return { spawn "alacritty"; }
+    Mod+B { spawn "vivaldi-stable"; }
+    Mod+M { spawn-sh "alacritty --title=jellyfin-tui -e jellyfin-tui"; }
+    Mod+Alt+M { spawn-sh "alacritty --title=jellyfin-tui -e jellyfin-tui --offline"; }
+    Mod+Z { spawn-sh "alacritty --title=zellij -e zellij -l welcome"; }
     Mod+N { spawn "pcmanfm"; }
     Mod+Alt+N { spawn-sh "dfiles open --new-window ~"; }
+    Mod+Alt+space { spawn "sh" "-c" "alacritty --title=dgop -e dgop"; }
 }

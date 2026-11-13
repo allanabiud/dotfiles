@@ -16,6 +16,6 @@ chezmoi init --apply allanabiud/dotfiles
 
 ## Structure
 
-- Active configs (`niri`, `hypr`, `kitty`, `starship`, `zsh`, `nvim`, `mpd`, `rmpc`, `fastfetch`, `scripts`) are applied directly.
+- Active configs (`niri`, `hypr`, `kitty`, `starship`, `zsh`, `nvim`, `fastfetch`, `scripts`) are applied directly.
 - Inactive configs (`i3`, `sway`, `mango`, `waybar`, etc.) are safely stored in `.chezmoiignore` and can be enabled whenever needed.
 - Scripts are located in `~/.config/scripts/`.

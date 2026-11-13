@@ -40,6 +40,9 @@
 .config/yt-dlp/**
 .config/yt-x/**
 
+# Contains credentials — managed locally, not tracked
+.config/jellyfin-tui/config.yaml
+
 # Abandoned helper scripts — kept in the repo, no longer deployed
 .local/bin/changeVolume
 .local/bin/hyprlock-songinfo.sh

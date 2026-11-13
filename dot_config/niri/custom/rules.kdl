@@ -36,6 +36,7 @@ window-rule {
     match app-id="^vivaldi.*$"
     match app-id="^fdm$"
     match title="^rmpc$"
+    match title="^jellyfin-tui$"
 
     open-on-workspace "1"
     open-focused true
